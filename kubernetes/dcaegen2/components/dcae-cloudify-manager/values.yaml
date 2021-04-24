@@ -23,11 +23,16 @@
 global:
   nodePortPrefix: 302
   persistence: {}
-  readinessImage: onap/oom/readiness:3.0.1
-  loggingRepository: docker.elastic.co
-  loggingImage: beats/filebeat:5.5.0
-  tlsRepository: nexus3.onap.org:10001
-  tlsImage: onap/org.onap.dcaegen2.deployments.tls-init-container:2.1.0
+  #readinessImage: onap/oom/readiness:3.0.1
+  readinessImage: pltf-onap/readiness:3.0.1
+  #loggingRepository: docker.elastic.co
+  loggingRepository: image-registry.openshift-image-registry.svc:5000
+  #loggingImage: beats/filebeat:5.5.0
+  loggingImage: pltf-onap/filebeat:5.5.0
+  #tlsRepository: nexus3.onap.org:10001
+  tlsRepository: image-registry.openshift-image-registry.svc:5000
+  #tlsImage: onap/org.onap.dcaegen2.deployments.tls-init-container:2.1.0
+  tlsImage: pltf-onap/org.onap.dcaegen2.deployments.tls-init-container:latest
   repositoryCred:
     user: docker
     password: docker
@@ -53,8 +58,8 @@ config:
 # Application configuration defaults.
 #################################################################
 # application image
-repository: nexus3.onap.org:10001
-image: onap/org.onap.dcaegen2.deployments.cm-container:3.3.4
+repository: image-registry.openshift-image-registry.svc:5000
+image: pltf-onap/org.onap.dcaegen2.deployments.cm-container:3.3.4
 pullPolicy: Always
 
 # name of shared ConfigMap with kubeconfig for multiple clusters
@@ -69,7 +74,7 @@ cleanupImage: onap/org.onap.dcaegen2.deployments.dcae-k8s-cleanup-container:1.0.
 # probe configuration parameters
 liveness:
   initialDelaySeconds: 10
-  periodSeconds: 10
+  periodSeconds: 300
   timeoutSeconds: 5
   # necessary to disable liveness probe when setting breakpoints
   # in debugger so K8s doesn't restart unresponsive container
@@ -83,7 +88,7 @@ readiness:
   # Increasing the timeout and adjusting the
   # period so it's longer than the timeout.
   # (DCAEGEN2-2465)
-  periodSeconds: 30
+  periodSeconds: 300
   timeoutSeconds: 10
 
 service:
@@ -104,14 +109,15 @@ resources:
       memory: 4Gi
     requests:
       cpu: 1
-      memory: 2Gi
+      #memory: 2Gi
+      memory: 512Mi
   large:
     limits:
       cpu: 4
       memory: 8Gi
     requests:
       cpu: 2
-      memory: 4Gi
+      memory: 512Mi
   unlimited: {}
 # Kubernetes namespace for components deployed via Cloudify manager
 # If empty, use the common namespace

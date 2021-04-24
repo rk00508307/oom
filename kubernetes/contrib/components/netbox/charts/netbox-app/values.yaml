@@ -51,14 +51,14 @@ image: netbox:v2.5.8
 # probe configuration parameters
 liveness:
   initialDelaySeconds: 10
-  periodSeconds: 10
+  periodSeconds: 300
   # necessary to disable liveness probe when setting breakpoints
   # in debugger so K8s doesn't restart unresponsive container
   enabled: false
 
 readiness:
   initialDelaySeconds: 30
-  periodSeconds: 10
+  periodSeconds: 300
 
 service:
   type: ClusterIP
@@ -107,12 +107,12 @@ persistence:
 # probe configuration parameters
 liveness:
   initialDelaySeconds: 10
-  periodSeconds: 10
+  periodSeconds: 300
   # necessary to disable liveness probe when setting breakpoints
   # in debugger so K8s doesn't restart unresponsive container
   enabled: true
 readiness:
   initialDelaySeconds: 10
-  periodSeconds: 10
+  periodSeconds: 300
 
 resources: {}

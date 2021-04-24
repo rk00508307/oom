@@ -69,6 +69,7 @@ spec:
         name: {{ include "common.name" . }}-readiness
 {{- end }}
 {{ include "common.certInitializer.initContainer" . | indent 6 }}
+      serviceAccountName: sa-anyuid
       containers:
         - name: {{ include "common.name" . }}
           image: "{{ include "common.repository" . }}/{{ .Values.image }}"
@@ -102,9 +103,6 @@ spec:
             {{- include "common.secret.envFromSecretFast" (dict "global" . "uid" "db-secret" "key" "password") | indent 12 }}
           volumeMounts:
 {{ include "common.certInitializer.volumeMount" . | indent 10 }}
-          - mountPath: /etc/localtime
-            name: localtime
-            readOnly: true
           {{- range $path, $bytes := .Files.Glob "resources/secrets/*" }}
           - mountPath: /tmp/policy-install/config/{{ base $path }}
             name: drools-secret
@@ -127,9 +125,6 @@ spec:
         {{- end }}
       volumes:
 {{ include "common.certInitializer.volumes" . | indent 8 }}
-        - name: localtime
-          hostPath:
-            path: /etc/localtime
         - name: drools-config
           configMap:
             name: {{ include "common.fullname" . }}-configmap
@@ -148,5 +143,5 @@ spec:
               path: {{ base $path }}
               mode: 0644
             {{- end }}
-      imagePullSecrets:
-      - name: "{{ include "common.namespace" . }}-docker-registry-key"
+      #imagePullSecrets:
+      #- name: "{{ include "common.namespace" . }}-docker-registry-key"

@@ -102,9 +102,6 @@ spec:
           env:
           volumeMounts:
 {{ include "common.certInitializer.volumeMount" . | indent 10 }}
-          - mountPath: /etc/localtime
-            name: localtime
-            readOnly: true
           - mountPath: /opt/osdf/config/osdf_config.yaml
             name: {{ include "common.fullname" . }}-config
             subPath: osdf_config.yaml
@@ -133,9 +130,6 @@ spec:
 
       volumes:
        {{ include "common.certInitializer.volumes" . | nindent 8 }}
-        - name: localtime
-          hostPath:
-            path: /etc/localtime
         - name: {{ include "common.fullname" . }}-config
           configMap:
             name: {{ include "common.fullname" . }}-configmap
@@ -147,5 +141,4 @@ spec:
             - key: log.yml
               path: log.yml
 {{ include "oof.certificate.volume" . | indent 8 }}
-      imagePullSecrets:
-      - name: "{{ include "common.namespace" . }}-docker-registry-key"
+      serviceAccountName: sa-anyuid

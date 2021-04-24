@@ -180,5 +180,4 @@ spec:
         - name: {{ include "common.fullname" . }}-certs
           secret:
             secretName: {{ include "common.release" . }}-{{ .Values.global.commonConfigPrefix }}-certs
-      imagePullSecrets:
-      - name: "{{ include "common.namespace" . }}-docker-registry-key"
+      serviceAccountName: sa-anyuid

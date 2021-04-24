@@ -45,11 +45,12 @@ spec:
           requests:
             cpu: 30m
             memory: 100Mi
+      serviceAccountName: sa-anyuid      
       containers:
       - name: {{ include "common.name" . }}
         image: {{ include "common.repository" . }}/{{ .Values.image }}
         imagePullPolicy: {{ .Values.global.pullPolicy | default .Values.pullPolicy }}
-        # installing with cmd "onap" will not only initialize the DB, but add ONAP bootstrap data as well
+        # installing with cmd "onap     " will not only initialize the DB, but add ONAP bootstrap data as well
         command: ["/bin/bash","/opt/app/aaf/cass_init/cmd.sh","onap"]
         ports: {{ include "common.containerPorts" . | nindent 10  }}
         env:
@@ -78,9 +79,8 @@ spec:
         volumeMounts:
         - mountPath: /var/lib/cassandra
           name: aaf-cass-vol
-        - mountPath: /etc/localtime
-          name: localtime
-          readOnly: true
+          #- mountPath: /etc/localtime
+          #name: localtime
         {{- if eq .Values.liveness.enabled true }}
         livenessProbe:
           tcpSocket:
@@ -100,10 +100,11 @@ spec:
       {{- if .Values.affinity }}
       affinity: {{ toYaml .Values.affinity | nindent 10 }}
       {{- end }}
+      serviceAccountName: sa-anyuid
       volumes:
-      - name: localtime
-        hostPath:
-          path: /etc/localtime
+              #- name: localtime
+              #hostPath:
+              #path: /etc/localtime
       - name: aaf-cass-vol
       {{- if .Values.persistence.enabled }}
         persistentVolumeClaim:
@@ -111,5 +112,4 @@ spec:
       {{- else }}
         emptyDir: {}
       {{- end }}
-      imagePullSecrets:
-      - name: "{{ include "common.namespace" . }}-docker-registry-key"
+

@@ -133,9 +133,6 @@ spec:
             - name: MSB_DISCOVERY_PORT
               value: "10081"
           volumeMounts: {{ include "common.certInitializer.volumeMount" . | nindent 12 }}
-            - mountPath: /etc/localtime
-              name: localtime
-              readOnly: true
           resources:
 {{ include "common.resources" . | indent 12 }}
         {{- if .Values.nodeSelector }}
@@ -159,9 +156,6 @@ spec:
         #   - mountPath: /usr/share/filebeat/data
         #     name: esr-server-filebeat
       volumes: {{ include "common.certInitializer.volumes" . | nindent 8 }}
-        - name: localtime
-          hostPath:
-            path: /etc/localtime
         # - name: filebeat-conf
         #   configMap:
         #     name: {{ include "common.fullname" . }}-esr-filebeat
@@ -172,5 +166,4 @@ spec:
         # - name: esrserver-log
         #   configMap:
         #     name: {{ include "common.fullname" . }}-esr-esrserver-log
-      imagePullSecrets:
-      - name: "{{ include "common.namespace" . }}-docker-registry-key"
+      serviceAccountName: sa-anyuid

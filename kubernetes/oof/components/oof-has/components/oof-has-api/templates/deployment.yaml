@@ -114,9 +114,6 @@ spec:
             periodSeconds: {{ .Values.readiness.periodSeconds }}
           env:
           volumeMounts:
-          - mountPath: /etc/localtime
-            name: localtime
-            readOnly: true
           - mountPath: /usr/local/etc/conductor/conductor.conf
             name: {{ .Values.global.commonConfigPrefix }}-config
             subPath: conductor.conf
@@ -155,9 +152,6 @@ spec:
             periodSeconds: {{ .Values.readiness.periodSeconds }}
           volumeMounts:
 {{ include "common.certInitializer.volumeMount" . | indent 10 }}
-          - mountPath: /etc/localtime
-            name: localtime
-            readOnly: true
           - mountPath: /opt/bitnami/nginx/conf/nginx.conf
             name: {{ .Values.global.commonConfigPrefix  }}-config
             subPath: nginx.conf
@@ -179,9 +173,6 @@ spec:
         {{- end }}
       volumes:
         {{ include "common.certInitializer.volumes" . | nindent 8 }}
-        - name: localtime
-          hostPath:
-            path: /etc/localtime
         - name: {{ .Values.global.commonConfigPrefix }}-config
           configMap:
             name: {{ .Values.global.commonConfigPrefix  }}-configmap
@@ -193,5 +184,4 @@ spec:
             - key: log.conf
               path: log.conf
 {{ include "oof.certificate.volume" . | indent 8 }}
-      imagePullSecrets:
-      - name: "{{ include "common.namespace" . }}-docker-registry-key"
+      serviceAccountName: sa-anyuid

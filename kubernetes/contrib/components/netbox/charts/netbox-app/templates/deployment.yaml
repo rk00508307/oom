@@ -35,6 +35,7 @@ spec:
         app: {{ include "common.name" . }}
         release: {{ include "common.release" . }}
     spec:
+      serviceAccountName: sa-anyuid
       containers:
       - name: {{ include "common.name" . }}
         image: {{ .Values.repository }}/{{ .Values.image }}
@@ -117,9 +118,9 @@ spec:
           - name: SUPERUSER_EMAIL
             value: {{ .Values.config.superuserEmail }}
         volumeMounts:
-        - mountPath: /etc/localtime
-          name: localtime
-          readOnly: true
+        #- mountPath: /etc/localtime
+          #name: localtime
+          #readOnly: true
         - mountPath: /opt/netbox/startup_scripts
           name: {{ include "common.fullname" . }}-startupscripts-config
         - mountPath: /opt/netbox/initializers
@@ -139,9 +140,9 @@ spec:
 {{ toYaml .Values.affinity | indent 10 }}
       {{- end }}
       volumes:
-        - name: localtime
-          hostPath:
-            path: /etc/localtime
+        #- name: localtime
+          #hostPath:
+            #path: /etc/localtime
         - name: {{ include "common.fullname" . }}
           persistentVolumeClaim:
             claimName: {{ include "common.release" . }}-{{ .Values.persistence.staticPvName }}
@@ -154,5 +155,5 @@ spec:
         - name: {{ include "common.fullname" . }}-configuration-config
           configMap:
             name: {{ include "common.fullname" . }}-configuration-configmap
-      imagePullSecrets:
-      - name: "{{ include "common.namespace" . }}-docker-registry-key"
+      #imagePullSecrets:
+      #- name: "{{ include "common.namespace" . }}-docker-registry-key"

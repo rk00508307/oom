@@ -130,9 +130,6 @@ spec:
             periodSeconds: {{ .Values.readiness.periodSeconds }}
           env:
           volumeMounts:
-          - mountPath: /etc/localtime
-            name: localtime
-            readOnly: true
           - mountPath: /usr/local/bin/conductor.conf
             name: {{ .Values.global.commonConfigPrefix }}-config
             subPath: conductor.conf
@@ -156,9 +153,6 @@ spec:
 {{ toYaml .Values.affinity | indent 10 }}
         {{- end }}
       volumes:
-        - name: localtime
-          hostPath:
-            path: /etc/localtime
         - name: {{ .Values.global.commonConfigPrefix }}-config
           configMap:
             name: {{ .Values.global.commonConfigPrefix }}-configmap
@@ -170,5 +164,4 @@ spec:
             - key: healthy.sh
               path: healthy.sh
 {{ include "oof.certificate.volume" . | indent 8 }}
-      imagePullSecrets:
-      - name: "{{ include "common.namespace" . }}-docker-registry-key"
+      serviceAccountName: sa-anyuid

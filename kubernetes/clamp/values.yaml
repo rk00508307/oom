@@ -85,15 +85,16 @@ clamp-mariadb:
     rootCredsExternalSecret: *dbRootPass
     userCredsExternalSecret: *dbUserPass
     databaseName: *dbName
-
+    
 subChartsOnly:
   enabled: true
 
 flavor: small
 
 # application image
-repository: nexus3.onap.org:10001
-image: onap/clamp-frontend:5.1.5
+#repository: nexus3.onap.org:10001
+repository: image-registry.openshift-image-registry.svc:5000
+image: pltf-onap/clamp-frontend:5.1.5
 pullPolicy: Always
 
 # flag to enable debugging - application support required

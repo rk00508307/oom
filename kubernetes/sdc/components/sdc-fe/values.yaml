@@ -18,9 +18,12 @@
 #################################################################
 global:
   nodePortPrefix: 302
-  readinessImage: onap/oom/readiness:3.0.1
-  loggingRepository: docker.elastic.co
-  loggingImage: beats/filebeat:5.5.0
+  #readinessImage: onap/oom/readiness:3.0.1
+  readinessImage: pltf-onap/readiness:3.0.1
+  #loggingRepository: docker.elastic.co
+  loggingRepository: image-registry.openshift-image-registry.svc:5000
+  #loggingImage: beats/filebeat:5.5.0
+  loggingImage: pltf-onap/filebeat:5.5.0
   aafEnabled: true
 
 #################################################################
@@ -50,8 +53,10 @@ certInitializer:
 # Application configuration defaults.
 #################################################################
 # application image
+#repository: nexus3.onap.org:10001
 repository: nexus3.onap.org:10001
-image: onap/sdc-frontend:1.7.3
+#image: onap/sdc-frontend:1.7.3
+image: pltf-onap/sdc-frontend:1.7.3
 pullPolicy: Always
 
 config:
@@ -81,7 +86,7 @@ affinity: {}
 # probe configuration parameters
 liveness:
   initialDelaySeconds: 10
-  periodSeconds: 60
+  periodSeconds: 300
   timeoutSeconds: 15
   # necessary to disable liveness probe when setting breakpoints
   # in debugger so K8s doesn't restart unresponsive container
@@ -89,7 +94,7 @@ liveness:
 
 readiness:
   initialDelaySeconds: 10
-  periodSeconds: 60
+  periodSeconds: 300
   timeoutSeconds: 15
 
 service:
@@ -127,12 +132,14 @@ resources:
       memory: 2Gi
     requests:
       cpu: 40m
-      memory: 1Gi
+      #memory: 1Gi
+      memory: 512Mi
   large:
     limits:
       cpu: 1
       memory: 4Gi
     requests:
       cpu: 80m
-      memory: 2Gi
+      #memory: 2Gi
+      memory: 512Mi
   unlimited: {}

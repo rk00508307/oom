@@ -15,10 +15,10 @@
 # Global configuration defaults.
 #################################################################
 global:
-  repository: nexus3.onap.org:10001
-  readinessImage: onap/oom/readiness:3.0.1
-  aafAgentImage: onap/aaf/aaf_agent:2.1.20
-  envsubstImage: dibi/envsubst
+  repository: image-registry.openshift-image-registry.svc:5000
+  readinessImage: pltf-onap/readiness:latest
+  aafAgentImage: pltf-onap/aaf_agent:latest
+  envsubstImage: pltf-onap/envsubst:latest
   persistence:
     mountPath: /dockerdata-nfs
 
@@ -30,7 +30,7 @@ readinessCheck:
 #################################################################
 # Application configuration defaults.
 #################################################################
-image: onap/so/ve-vnfm-adapter:1.6.4
+image: pltf-onap/ve-vnfm-adapter:1.6.4
 pullPolicy: Always
 replicaCount: 1
 service:
@@ -65,18 +65,18 @@ flavor: small
 resources:
   small:
     limits:
-      memory: 512Mi
+      memory: 512mi
       cpu: 500m
     requests:
-      memory: 256Mi
-      cpu: 250m
+      cpu: 200m
+      memory: 512m
   large:
     limits:
       memory: 8Gi
       cpu: 4000m
     requests:
-      memory: 2Gi
-      cpu: 1000m
+      cpu: 200m
+      memory: 512m
   unlimited: {}
 livenessProbe:
   port: 9098

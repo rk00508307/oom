@@ -102,6 +102,7 @@ spec:
         volumeMounts:
         - mountPath: {{ .Values.persistence.deployedBlueprint }}
           name: {{ include "common.fullname" . }}-blueprints
+      serviceAccountName: sa-anyuid
       containers:
         - name: {{ include "common.name" . }}
           image: "{{ include "common.repository" . }}/{{ .Values.image }}"
@@ -151,9 +152,9 @@ spec:
             periodSeconds: {{ .Values.readiness.periodSeconds }}
             timeoutSeconds: {{ .Values.readiness.timeoutSeconds }}
           volumeMounts:
-          - mountPath: /etc/localtime
-            name: localtime
-            readOnly: true
+          #- mountPath: /etc/localtime
+            #name: localtime
+              #readOnly: true
           - mountPath: {{ .Values.config.appConfigDir }}/application.properties
             name: processed-config
             subPath: application.properties
@@ -184,9 +185,9 @@ spec:
 {{ toYaml .Values.affinity | indent 10 }}
         {{- end }}
       volumes:
-        - name: localtime
-          hostPath:
-            path: /etc/localtime
+        #- name: localtime
+          #hostPath:
+            #path: /etc/localtime
         - name: {{ include "common.fullname" . }}-config
           configMap:
             name: {{ include "common.fullname" . }}-configmap
@@ -207,5 +208,5 @@ spec:
         - name: processed-config
           emptyDir:
             medium: Memory
-      imagePullSecrets:
-      - name: "{{ include "common.namespace" . }}-docker-registry-key"
+      #imagePullSecrets:
+      #- name: "{{ include "common.namespace" . }}-docker-registry-key"

@@ -16,8 +16,8 @@
 # Global configuration defaults.
 #################################################################
 global:
-  repository: nexus3.onap.org:10001
-  readinessImage: onap/oom/readiness:3.0.1
+  repository: image-registry.openshift-image-registry.svc:5000
+  readinessImage: pltf-onap/readiness:3.0.1
   mariadbGalera:
     nameOverride: mariadb-galera
     servicePort: 3306
@@ -45,7 +45,7 @@ secrets:
 # Application configuration defaults.
 #################################################################
 
-image: mariadb:10.1.38
+image: pltf-onap/mariadb:10.1.38
 pullPolicy: IfNotPresent
 
 # Set it if you want to change the name of the different components
@@ -63,9 +63,10 @@ mariadbGalera: {}
 config:
   userPassword: Ci@shsOd3pky1Vji
   userName: u5WZ1GMSIS1wHZF
-  # set this value if you would like to use external secret instead of providing a password
+  # set this alue if you would like to use external secret instead of providing a password
   # userCredentialsExternalsecret: some-secret-name
-  mysqlDatabase: ynsaUCru6mUNwGal
+  #mysqlDatabase: ynsaUCru6mUNwGal
+  mysqlDatabase: ynsaucru6munwgal
   mysqlAdditionalDatabases: {}
   # add addtional dabases
   # this is an dict

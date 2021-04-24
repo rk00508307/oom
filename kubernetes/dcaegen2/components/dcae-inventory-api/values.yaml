@@ -20,12 +20,18 @@
 #################################################################
 global:
   nodePortPrefix: 302
-  readinessImage: onap/oom/readiness:3.0.1
-  loggingRepository: docker.elastic.co
-  loggingImage: beats/filebeat:5.5.0
-  tlsRepository: nexus3.onap.org:10001
-  tlsImage: onap/org.onap.dcaegen2.deployments.tls-init-container:2.1.0
-  envsubstImage: dibi/envsubst
+  #readinessImage: onap/oom/readiness:3.0.1
+  readinessImage: pltf-onap/readiness:3.0.1
+  #loggingRepository: docker.elastic.co
+  loggingRepository: image-registry.openshift-image-registry.svc:5000
+  #loggingImage: beats/filebeat:5.5.0
+  loggingImage: pltf-onap/filebeat:5.5.0
+  #tlsRepository: nexus3.onap.org:10001
+  tlsRepository: image-registry.openshift-image-registry.svc:5000
+  #tlsImage: onap/org.onap.dcaegen2.deployments.tls-init-container:2.1.0
+  tlsImage: pltf-onap/org.onap.dcaegen2.deployments.tls-init-container:latest
+  #envsubstImage: dibi/envsubst
+  envsubstImage: pltf-onap/envsubst
   repositoryCred:
     user: docker
     password: docker
@@ -52,15 +58,17 @@ config:
 # Application configuration defaults.
 #################################################################
 # application image
-repository: nexus3.onap.org:10001
-image: onap/org.onap.dcaegen2.platform.inventory-api:3.5.1
+#repository: nexus3.onap.org:10001
+repository: image-registry.openshift-image-registry.svc:5000
+#image: onap/org.onap.dcaegen2.platform.inventory-api:3.5.1
+image: pltf-onap/org.onap.dcaegen2.platform.inventory-api:3.5.1
 
 pullPolicy: Always
 
 # probe configuration parameters
 liveness:
   initialDelaySeconds: 10
-  periodSeconds: 10
+  periodSeconds: 300
   # necessary to disable liveness probe when setting breakpoints
   # in debugger so K8s doesn't restart unresponsive container
   # liveness not desirable for Cloudify Manager container
@@ -68,7 +76,7 @@ liveness:
 
 readiness:
   initialDelaySeconds: 30
-  periodSeconds: 30
+  periodSeconds: 300
   path: /dcae-service-types
   scheme: HTTPS
 
@@ -107,14 +115,16 @@ resources:
       memory: 2Gi
     requests:
       cpu: 1
-      memory: 1Gi
+      # memory: 1Gi
+      memory: 512Mi
   large:
     limits:
       cpu: 4
       memory: 4Gi
     requests:
       cpu: 2
-      memory: 2Gi
+      #memory: 2Gi
+      memory: 512Mi
   unlimited: {}
 # Kubernetes namespace for components deployed via Cloudify manager
 # If empty, use the common namespace

@@ -124,5 +124,4 @@ spec:
         - name:  logs
           emptyDir: {}
         {{ if .Values.global.centralizedLoggingEnabled }}{{ include "common.log.volumes" . | nindent 8 }}{{ end }}
-      imagePullSecrets:
-      - name: "{{ include "common.namespace" . }}-docker-registry-key"
+      serviceAccountName: sa-anyuid

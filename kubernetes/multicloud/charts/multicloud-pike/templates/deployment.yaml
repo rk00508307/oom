@@ -38,6 +38,7 @@ spec:
       annotations:
         sidecar.istio.io/inject: "{{.Values.istioSidecar}}"
     spec:
+     serviceAccountName: sa-anyuid
      containers:
      - env:
        - name: MSB_PROTO
@@ -109,6 +110,6 @@ spec:
      - name: pike-logconfig
        configMap:
          name: {{ include "common.fullname" . }}-log-configmap
-     imagePullSecrets:
-     - name: "{{ include "common.namespace" . }}-docker-registry-key"
+    #imagePullSecrets:
+    # - name: "{{ include "common.namespace" . }}-docker-registry-key"
      restartPolicy: Always

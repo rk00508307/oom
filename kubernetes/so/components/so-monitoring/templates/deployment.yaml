@@ -45,6 +45,7 @@ spec:
         app: {{ include "common.name" . }}
         release: {{ include "common.release" . }}
     spec:
+      serviceAccountName: sa-anyuid
       initContainers: {{ include "so.certificate.container_importer" . | nindent 6 }}
       - name: so-chown
         image: alpine:3.6
@@ -124,5 +125,5 @@ spec:
       - name: config
         configMap:
             name: {{ include "common.fullname" . }}-app-configmap
-      imagePullSecrets:
-        - name: "{{ include "common.namespace" . }}-docker-registry-key"
+
+

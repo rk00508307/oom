@@ -24,8 +24,10 @@ subChartsOnly:
 flavor: small
 
 # application image
-repository: nexus3.onap.org:10001
-image: onap/usecase-ui-server:3.0.6
+#repository: nexus3.onap.org:10001
+repository: image-registry.openshift-image-registry.svc:5000
+#image: onap/usecase-ui-server:3.0.6
+image: pltf-onap/usecase-ui-server:3.0.6
 pullPolicy: Always
 
 # application configuration
@@ -46,14 +48,14 @@ affinity: {}
 # probe configuration parameters
 liveness:
   initialDelaySeconds: 120
-  periodSeconds: 10
+  periodSeconds: 300
   # necessary to disable liveness probe when setting breakpoints
   # in debugger so K8s doesn't restart unresponsive container
   enabled: true
 
 readiness:
   initialDelaySeconds: 60
-  periodSeconds: 10
+  periodSeconds: 300
 
 service:
   type: NodePort

@@ -17,12 +17,12 @@
 global:
   nodePortPrefix: 302
   nodePortPrefixExt: 304
-  repository: nexus3.onap.org:10001
-  readinessImage: onap/oom/readiness:3.0.1
-  loggingRepository: docker.elastic.co
-  loggingImage: beats/filebeat:5.5.0
-  soBaseImage: onap/so/base-image:1.0
-  aafAgentImage: onap/aaf/aaf_agent:2.1.20
+  repository: image-registry.openshift-image-registry.svc:5000
+  readinessImage: pltf-onap/readiness:latest
+  loggingRepository: image-registry.openshift-image-registry.svc:5000
+  loggingImage: pltf-onap/filebeat:latest
+  soBaseImage: pltf-onap/base-image:latest
+  aafAgentImage: pltf-onap/aaf_agent:latest
   mariadbGalera:
     nameOverride: mariadb-galera
     serviceName: mariadb-galera
@@ -35,7 +35,8 @@ global:
     #serviceName and nameOverride should be so-mariadb-galera if this flag is enabled
     localCluster: false
   persistence:
-    mountPath: /dockerdata-nfs
+    storageClass: ocs-storagecluster-ceph-rbd
+    #mountPath: /dockerdata-nfs
   #This configuration specifies Service and port for SDNC OAM interface
   sdncOamService: sdnc-oam
   sdncOamPort: 8282
@@ -175,8 +176,8 @@ dbCreds:
   adminName: so_admin
 
 
-repository: nexus3.onap.org:10001
-image: onap/so/api-handler-infra:1.7.11
+repository: image-registry.openshift-image-registry.svc:5000
+image: pltf-onap/api-handler-infra:latest
 
 server:
   aaf:
@@ -235,15 +236,15 @@ resources:
       cpu: 2000m
       memory: 4Gi
     requests:
-      cpu: 500m
-      memory: 1Gi
+      cpu: 200m
+      memory: 512m
   large:
     limits:
       cpu: 4000m
       memory: 8Gi
     requests:
-      cpu: 1000m
-      memory: 2Gi
+      cpu: 200m
+      memory: 512m
   unlimited: {}
 
 nodeSelector: {}

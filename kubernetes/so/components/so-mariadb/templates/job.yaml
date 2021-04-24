@@ -37,6 +37,7 @@ spec:
         release: {{ include "common.release" . }}
       name: {{ include "common.name" . }}
     spec:
+      serviceAccountName: sa-anyuid
       containers:
       - name: {{ include "common.fullname" . }}
         image: "{{ include "common.repository" . }}/{{ .Values.image }}"
@@ -55,20 +56,14 @@ spec:
         - -c
         - mysqldump -vv --user=${DB_USER} --password=${DB_PASS} --host=${DB_HOST} --port=${DB_PORT} --databases --single-transaction --quick --lock-tables=false catalogdb requestdb nfvo > /var/data/mariadb/backup-`date +%s`.sql
         volumeMounts:
-        - mountPath: /etc/localtime
-          name: localtime
-          readOnly: true
         - name: backup-storage
           mountPath: /var/data/mariadb
       volumes:
-      - name: localtime
-        hostPath:
-          path: /etc/localtime
       - name: backup-storage
         persistentVolumeClaim:
           claimName: {{ include "common.fullname" . }}-migration
-      imagePullSecrets:
-        - name: "{{ include "common.namespace" . }}-docker-registry-key"
+
+        
       restartPolicy: Never
 ---
 {{- end }}
@@ -76,18 +71,12 @@ apiVersion: batch/v1
 kind: Job
 metadata:
   name: {{ include "common.fullname" . }}-config-job
-  namespace: {{ include "common.namespace" . }}
   labels:
     app: {{ include "common.name" . }}
     chart: {{ .Chart.Name }}-{{ .Chart.Version | replace "+" "_" }}
     release: {{ include "common.release" . }}
     heritage: {{ .Release.Service }}
-  annotations:
-    "helm.sh/hook": post-upgrade,post-rollback,post-install
-    "helm.sh/hook-weight": "0"
-    "helm.sh/hook-delete-policy": before-hook-creation
 spec:
-  backoffLimit: 20
   template:
     metadata:
       labels:
@@ -95,7 +84,7 @@ spec:
         release: {{ include "common.release" . }}
       name: {{ include "common.name" . }}
     spec:
-      initContainers: {{ include "common.readinessCheck.waitFor" . | nindent 6 }}
+      serviceAccountName: sa-anyuid
       containers:
       - name: {{ include "common.name" . }}-config
         image: "{{ include "common.repository" . }}/{{ .Values.image }}"
@@ -117,7 +106,10 @@ spec:
         - name: DB_PORT
           value: {{ include "common.mariadbPort" . | quote }}
         - name: MYSQL_ROOT_PASSWORD
-          {{- include "common.secret.envFromSecretFast" (dict "global" . "uid" "db-root-pass" "key" "password") | indent 10 }}
+          valueFrom:
+                secretKeyRef:
+                  name: mariadb-mariadb-galera-db-root-password
+                  key: password
         - name: DB_USER
           {{- include "common.secret.envFromSecretFast" (dict "global" . "uid" "db-user-creds" "key" "login") | indent 10 }}
         - name: DB_PASSWORD
@@ -143,9 +135,6 @@ spec:
         - name: NFVO_DB_PASSWORD
           {{- include "common.secret.envFromSecretFast" (dict "global" . "uid" "nfvo-db-creds" "key" "password") | indent 10 }}
         volumeMounts:
-        - mountPath: /etc/localtime
-          name: localtime
-          readOnly: true
         - name: docker-entrypoint-initdb-d-sh
           mountPath: "/docker-entrypoint-initdb.d"
         - name: docker-entrypoint-initdb-d-sql
@@ -165,9 +154,6 @@ spec:
 {{ toYaml .Values.affinity | indent 10 }}
       {{- end }}
       volumes:
-      - name: localtime
-        hostPath:
-          path: /etc/localtime
       - name: docker-entrypoint-initdb-d-sh
         configMap:
           name: {{ include "common.fullname" . }}-mariadb-sh
@@ -180,5 +166,5 @@ spec:
           claimName: {{ include "common.fullname" . }}-migration
       {{- end }}
       restartPolicy: Never
-      imagePullSecrets:
-      - name: "{{ include "common.namespace" . }}-docker-registry-key"
+
+

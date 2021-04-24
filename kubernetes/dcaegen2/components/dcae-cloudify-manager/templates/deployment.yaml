@@ -99,6 +99,7 @@ spec:
         - -c
         - "rm -rf '/cfy-persist/lost+found';"
       {{- end }}
+      serviceAccountName: sa-anyuid
       containers:
         - name: {{ include "common.name" . }}
           image: "{{ include "common.repository" . }}/{{ .Values.image }}"
@@ -141,9 +142,9 @@ spec:
           - mountPath: /sys/fs/cgroup
             name: {{ include "common.fullname" . }}-cgroup
             readOnly: true
-          - mountPath: /etc/localtime
-            name: localtime
-            readOnly: true
+          #- mountPath: /etc/localtime
+            #name: localtime
+            #readOnly: true
           - mountPath: /cfy-persist
             name: cm-persistent
           - mountPath: /opt/onap/certs
@@ -166,9 +167,9 @@ spec:
         - name: {{ include "common.fullname" . }}-cgroup
           hostPath:
             path: /sys/fs/cgroup
-        - name: localtime
-          hostPath:
-            path: /etc/localtime
+        #- name: localtime
+          #hostPath:
+            #path: /etc/localtime
         - name: cm-persistent
         {{- if .Values.persistence.enabled }}
           persistentVolumeClaim:
@@ -181,5 +182,5 @@ spec:
         - name: cm-secrets
           secret:
             secretName: {{ include "common.secret.getSecretNameFast" (dict "global" . "uid" "cm-pass") }}
-      imagePullSecrets:
-      - name: "{{ include "common.namespace" . }}-docker-registry-key"
+      #imagePullSecrets:
+      #- name: "{{ include "common.namespace" . }}-docker-registry-key"

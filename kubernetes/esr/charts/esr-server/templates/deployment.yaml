@@ -36,10 +36,11 @@ spec:
         app: {{ include "common.name" . }}
         release: {{ include "common.release" . }}
     spec:
-      securityContext:
-        runAsUser: 1000
-        runAsGroup: 1001
-        fsGroup: 1001
+            # securityContext:
+            # runAsUser: 1000
+            # runAsGroup: 1001
+            # fsGroup: 1001
+      serviceAccountName: sa-anyuid
       initContainers:
       - command:
         - cp
@@ -48,8 +49,8 @@ spec:
         - -T
         - /home/esr/conf
         - /opt/conf
-        securityContext:
-          privileged: true
+          #securityContext:
+           #privileged: true
         image: "{{ include "common.repository" . }}/{{ .Values.image }}"
         imagePullPolicy: {{ .Values.global.pullPolicy | default .Values.pullPolicy }}
         name: create-conf-dir
@@ -81,9 +82,9 @@ spec:
             - name: MSB_ADDR
               value: {{ tpl .Values.msbaddr . }}
           volumeMounts:
-          - mountPath: /etc/localtime
-            name: localtime
-            readOnly: true
+            #- mountPath: /etc/localtime
+            # name: localtime
+            #readOnly: true
           - mountPath: /home/esr/works/logs
             name: {{ include "common.fullname" . }}-logs
           - mountPath: /home/esr/conf
@@ -100,9 +101,9 @@ spec:
         {{- end }}
         # Filebeat sidecar container
         - name: {{ include "common.name" . }}-filebeat-onap
-          securityContext:
-            runAsUser: 1000
-            runAsGroup: 1000
+          # securityContext:
+          # runAsUser: 1000
+          # runAsGroup: 1000
           image: "{{ .Values.global.loggingRepository }}/{{ .Values.global.loggingImage }}"
           imagePullPolicy: {{ .Values.global.pullPolicy | default .Values.pullPolicy }}
           volumeMounts:
@@ -117,9 +118,9 @@ spec:
             name: {{ include "common.fullname" . }}-log-conf
             subPath: logback.xml
       volumes:
-        - name: localtime
-          hostPath:
-            path: /etc/localtime
+              #- name: localtime
+              # hostPath:
+          # path: /etc/localtime
         - name: {{ include "common.fullname" . }}-log-conf
           configMap:
             name: {{ include "common.fullname" . }}-log
@@ -133,5 +134,3 @@ spec:
         - name: conf-dir
           emptyDir: {}
 
-      imagePullSecrets:
-      - name: "{{ include "common.namespace" . }}-docker-registry-key"

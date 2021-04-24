@@ -15,7 +15,7 @@
 # limitations under the License.
 */}}
 
-apiVersion: extensions/v1beta1
+apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: {{ include "common.fullname" . }}
@@ -26,6 +26,9 @@ metadata:
     release: {{ include "common.release" . }}
     heritage: {{ .Release.Service }}
 spec:
+  selector:
+    matchLabels:
+      app: {{ include "common.name" . }}
   replicas: {{ .Values.replicaCount }}
   template:
     metadata:
@@ -50,13 +53,14 @@ spec:
               apiVersion: v1
               fieldPath: metadata.namespace
         securityContext:
-          privileged: true
+          privileged: false #modified
         image: {{ .Values.global.busyboxRepository | default .Values.busyboxRepository }}/{{ .Values.busyboxImage }}
         imagePullPolicy: {{ .Values.global.pullPolicy | default .Values.pullPolicy }}
         name: init-sysctl
-        volumeMounts:
-        - name: {{ include "common.fullname" . }}-logs
-          mountPath: /logroot/
+        #volumeMounts:
+        #- name: {{ include "common.fullname" . }}-logs
+        #mountPath: /logroot/
+      serviceAccountName: sa-anyuid
       containers:
         - name: {{ include "common.name" . }}
           image: "{{ .Values.global.loggingRepository | default .Values.loggingRepository }}/{{ .Values.image }}"
@@ -84,18 +88,30 @@ spec:
             periodSeconds: {{ .Values.readiness.periodSeconds }}
           env:
           volumeMounts:
-          - mountPath: /etc/localtime
-            name: localtime
-            readOnly: true
+                  #- mountPath: /etc/localtime
+                  #name: localtime
+                  #readOnly: true
           - mountPath: /usr/share/elasticsearch/config/elasticsearch.yml
             name: {{ include "common.fullname" . }}-config
             subPath: elasticsearch.yml
           - mountPath: /usr/share/elasticsearch/data/
             name: {{ include "common.fullname" . }}-data
+          resources:
+{{ include "common.resources" . | indent 12 }}
+        {{- if .Values.nodeSelector }}
+        nodeSelector:
+{{ toYaml .Values.nodeSelector | indent 10 }}
+        {{- end -}}
+        {{- if .Values.affinity }}
+        affinity:
+{{ toYaml .Values.affinity | indent 10 }}
+        {{- end }}  
+      serviceAccountName: sa-anyuid
+      
       volumes:
-        - name: localtime
-          hostPath:
-            path: /etc/localtime
+              #- name: localtime
+              #hostPath:
+              #path: /etc/localtime
         - name: {{ include "common.fullname" . }}-config
           configMap:
             name: {{ include "common.fullname" . }}-configmap
@@ -105,8 +121,8 @@ spec:
         - name: {{ include "common.fullname" . }}-data
           persistentVolumeClaim:
             claimName: {{ include "common.fullname" . }}
-        - name: {{ include "common.fullname" . }}-logs
-          hostPath:
-            path: {{ .Values.global.persistence.mountPath | default .Values.persistence.mountPath }}/{{ include "common.release" . }}/{{ .Values.persistence.mountSubPathLogs }}
+            #- name: {{ include "common.fullname" . }}-logs
+            #hostPath:
+            #path: {{ .Values.global.persistence.mountPath | default .Values.persistence.mountPath }}/{{ include "common.release" . }}/{{ .Values.persistence.mountSubPathLogs }}
       imagePullSecrets:
       - name: "{{ include "common.namespace" . }}-docker-registry-key"

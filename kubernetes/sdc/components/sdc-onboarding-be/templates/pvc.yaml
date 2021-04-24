@@ -33,6 +33,7 @@ metadata:
 spec:
   accessModes:
     - {{ .Values.cert.persistence.accessMode }}
+  #storageClassName: {{ include "common.storageClass" . }}
   storageClassName: {{ include "common.storageClass" . }}
   resources:
     requests:

@@ -78,6 +78,7 @@ spec:
           volumeMounts:
             - mountPath: /opt/app/osaaf
               name: tls-info
+      serviceAccountName: sa-anyuid
       containers:
         - name: {{ include "common.name" . }}
           image: "{{ include "common.repository" . }}/{{ .Values.image }}"
@@ -172,5 +173,5 @@ spec:
           name: filebeat-conf
         - emptyDir: {}
           name: tls-info
-      imagePullSecrets:
-      - name: "{{ include "common.namespace" . }}-docker-registry-key"
+      #imagePullSecrets:
+      #- name: "{{ include "common.namespace" . }}-docker-registry-key"

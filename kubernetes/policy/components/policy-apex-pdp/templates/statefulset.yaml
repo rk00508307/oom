@@ -65,6 +65,7 @@ spec:
         imagePullPolicy: {{ .Values.global.pullPolicy | default .Values.pullPolicy }}
         name: {{ include "common.name" . }}-update-config
 {{ include "common.certInitializer.initContainer" . | indent 6 }}
+      serviceAccountName: sa-anyuid
       containers:
         - name: {{ include "common.name" . }}
           image: "{{ include "common.repository" . }}/{{ .Values.image }}"
@@ -98,9 +99,6 @@ spec:
 {{- end }}
           volumeMounts:
 {{ include "common.certInitializer.volumeMount" . | indent 10 }}
-          - mountPath: /etc/localtime
-            name: localtime
-            readOnly: true
           - mountPath: /var/log/onap
             name: policy-logs
           - mountPath: /home/apexuser/config
@@ -117,9 +115,6 @@ spec:
         {{- end }}
       volumes:
 {{ include "common.certInitializer.volumes" . | indent 8 }}
-        - name: localtime
-          hostPath:
-            path: /etc/localtime
         - name: policy-logs
           emptyDir: {}
         - name: apexconfig-input
@@ -129,5 +124,5 @@ spec:
         - name: apexconfig
           emptyDir:
             medium: Memory
-      imagePullSecrets:
-      - name: "{{ include "common.namespace" . }}-docker-registry-key"
+      #imagePullSecrets:
+      #- name: "{{ include "common.namespace" . }}-docker-registry-key"

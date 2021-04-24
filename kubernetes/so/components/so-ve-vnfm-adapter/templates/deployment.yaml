@@ -24,6 +24,7 @@ spec:
     metadata:
       labels: {{- include "common.labels" . | nindent 8 }}
     spec:
+      serviceAccountName: sa-anyuid
       initContainers: {{ include "so.certificate.container_importer" . | nindent 6 }}
       {{ include "common.readinessCheck.waitFor" . | indent 6 | trim }}
       containers:

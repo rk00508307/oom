@@ -38,6 +38,7 @@ spec:
         release: {{ include "common.release" . }}
       name: {{ include "common.name" . }}
     spec:
+      serviceAccountName: sa-anyuid
       initContainers:
       - image: "{{ .Values.global.busyboxRepository }}/{{ .Values.global.busyboxImage }}"
         imagePullPolicy: {{ .Values.global.pullPolicy | default .Values.pullPolicy }}
@@ -118,8 +119,8 @@ spec:
         {{- else }}
           emptyDir: {}
         {{- end }}
-      imagePullSecrets:
-      - name: "{{ include "common.namespace" . }}-docker-registry-key"
+      #imagePullSecrets:
+      #- name: "{{ include "common.namespace" . }}-docker-registry-key"
       restartPolicy: Always
 
 {{- end -}}

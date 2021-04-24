@@ -58,6 +58,7 @@ spec:
           image: "{{ .Values.global.envsubstImage }}"
           imagePullPolicy: {{ .Values.global.pullPolicy | default .Values.pullPolicy }}
           name: {{ include "common.name" . }}-update-config
+      serviceAccountName: sa-anyuid
       containers:
         # MUSIC Container
         - name: "{{ include "common.name" . }}-springboot"
@@ -88,9 +89,9 @@ spec:
           - name: DEBUG
             value: "{{ .Values.debug }}"
           volumeMounts:
-          - name: localtime
-            mountPath: /etc/localtime
-            readOnly: true
+          #- name: localtime
+               #mountPath: /etc/localtime
+                  #readOnly: true
           - name: properties-music
             mountPath: /opt/app/music/etc/music.properties
             subPath: music.properties
@@ -107,9 +108,9 @@ spec:
           emptyDir: {}
         - name: certificate-vol
           emptyDir: {}
-        - name: localtime
-          hostPath:
-            path: /etc/localtime
+       #- name: localtime
+            #hostPath:
+               #path: /etc/localtime
         - name: properties-music-scrubbed
           configMap:
             name: {{ include "common.fullname" . }}
@@ -117,5 +118,5 @@ spec:
           emptyDir:
             medium: Memory
         - name: certs-aaf
-          secret:
-            secretName: {{ include "common.secret.getSecretNameFast" (dict "global" . "uid" "music-certs") }}
+          #secret:
+            #secretName: {{ include "common.secret.getSecretNameFast" (dict "global" . "uid" "music-certs") }}

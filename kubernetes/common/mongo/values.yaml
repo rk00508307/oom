@@ -19,14 +19,16 @@ global:
   nodePortPrefix: 302
   persistence: {}
   readinessImage: onap/oom/readiness:3.0.1
-
+  #readinessImage: pltf-onap/readiness:3.0.1
 
 #################################################################
 # Application configuration defaults.
 #################################################################
 
 dockerHubRepository: registry.hub.docker.com
+#dockerHubRepository: image-registry.openshift-image-registry.svc:5000
 image: library/mongo:4.0.8
+#image: library/mongo:4.0.8
 pullPolicy: Always
 
 # application configuration
@@ -42,7 +44,7 @@ affinity: {}
 # probe configuration parameters
 liveness:
   initialDelaySeconds: 30
-  periodSeconds: 10
+  periodSeconds: 300
   timeoutSeconds: 5
   # necessary to disable liveness probe when setting breakpoints
   # in debugger so K8s doesn't restart unresponsive container
@@ -50,7 +52,7 @@ liveness:
 
 readiness:
   initialDelaySeconds: 5
-  periodSeconds: 10
+  periodSeconds: 300
 
 ## Persist data to a persitent volume
 persistence:

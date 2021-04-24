@@ -18,15 +18,18 @@
 #################################################################
 global:
   nodePortPrefixExt: 304
-  loggingRepository: docker.elastic.co
-  loggingImage: beats/filebeat:5.5.0
-
+  #loggingRepository: docker.elastic.co
+  loggingRepository: image-registry.openshift-image-registry.svc:5000
+  #loggingImage: beats/filebeat:5.5.0
+  loggingImage: pltf-onap/filebeat:5.5.0
 subChartsOnly:
   enabled: true
 
 # application image
-repository: nexus3.onap.org:10001
-image: onap/ccsdk-cds-ui-server:1.0.3
+#repository: nexus3.onap.org:10001
+repository: image-registry.openshift-image-registry.svc:5000
+#image: onap/ccsdk-cds-ui-server:1.0.3
+image: pltf-onap/ccsdk-cds-ui-server:latest
 pullPolicy: Always
 
 # application configuration
@@ -62,7 +65,7 @@ liveness:
     path: /
     port: 3000
   initialDelaySeconds: 30
-  periodSeconds: 10
+  periodSeconds: 300
   # necessary to disable liveness probe when setting breakpoints
   # in debugger so K8s doesn't restart unresponsive container
   enabled: true
@@ -72,7 +75,7 @@ readiness:
     path: /ping
     port: 3000
   initialDelaySeconds: 30
-  periodSeconds: 10
+  periodSeconds: 300
 
 service:
   type: NodePort

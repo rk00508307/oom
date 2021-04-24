@@ -38,6 +38,7 @@ spec:
         release: {{ include "common.release" . }}
       name: {{ include "common.name" . }}
     spec:
+      serviceAccountName: sa-anyuid
       containers:
       - name: {{ include "common.name" . }}-configmap-reload
         image: "{{ .Values.global.configmapReload.image.repository }}:{{ .Values.global.configmapReload.image.tag }}"
@@ -93,8 +94,8 @@ spec:
         {{- else }}
           emptyDir: {}
         {{- end }}
-      imagePullSecrets:
-      - name: "{{ include "common.namespace" . }}-docker-registry-key"
+      #imagePullSecrets:
+      #- name: "{{ include "common.namespace" . }}-docker-registry-key"
       restartPolicy: Always
 
 {{- end -}}

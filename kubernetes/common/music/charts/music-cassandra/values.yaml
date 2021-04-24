@@ -18,10 +18,12 @@ global:
   nodePortPrefix: 302
 
   pullPolicy: Always
-  repository: nexus3.onap.org:10001
+  #repository: nexus3.onap.org:10001
+  repository: image-registry.openshift-image-registry.svc:5000
 
   # readiness check
-  readinessImage: onap/oom/readiness:3.0.1
+  #readinessImage: onap/oom/readiness:3.0.1
+  readinessImage: pltf-onap/readiness:latest
 
   # logging agent
   loggingRepository: docker.elastic.co
@@ -34,7 +36,8 @@ replicaCount: 3
 # When logging into DB the default username and password are 'cassandra'
 # kubectl exec -it <cassandra-n> -n <namespace> cqlsh -u cassandra -p cassandra
 image:
-  image: onap/music/cassandra_3_11:3.0.24
+  #image: onap/music/cassandra_3_11:3.0.24
+  image: pltf-onap/cassandra_3_11:latest
   pullPolicy: Always
 
 # Cassandra ENV configuration
@@ -67,14 +70,14 @@ service:
 # probe configuration parameters
 liveness:
   initialDelaySeconds: 120
-  periodSeconds: 10
+  periodSeconds: 300
   # necessary to disable liveness probe when setting breakpoints
   # in debugger so K8s doesn't restart unresponsive container
   enabled: true
 
 readiness:
   initialDelaySeconds: 10
-  periodSeconds: 10
+  periodSeconds: 300
 
 podManagementPolicy: OrderedReady
 updateStrategy:

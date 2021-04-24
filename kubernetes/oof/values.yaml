@@ -17,7 +17,7 @@
 #################################################################
 global:
   nodePortPrefix: 302
-  readinessImage: onap/oom/readiness:3.0.1
+  readinessImage: pltf-onap/readiness:3.0.1
   loggingRepository: docker.elastic.co
   loggingImage: beats/filebeat:5.5.0
   persistence: {}
@@ -38,8 +38,8 @@ secrets:
 # Application configuration defaults.
 #################################################################
 # application image
-repository: nexus3.onap.org:10001
-image: onap/optf-osdf:3.0.2
+repository: image-registry.openshift-image-registry.svc:5000
+image: pltf-onap/optf-osdf:3.0.2
 pullPolicy: Always
 
 # flag to enable debugging - application support required
@@ -134,15 +134,15 @@ resources:
       memory: 2Gi
       cpu: 1000m
     requests:
-      memory: 1Gi
-      cpu: 500m
+      memory: 512m
+      cpu: 400m
   large:
     limits:
       memory: 4Gi
       cpu: 2000m
     requests:
-      memory: 2Gi
-      cpu: 1000m
+      memory: 512m
+      cpu: 400m
   unlimited: {}
 # probe configuration parameters
 liveness:

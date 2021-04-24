@@ -22,7 +22,7 @@
 #################################################################
 global:
   nodePortPrefix: 302
-  readinessImage: onap/oom/readiness:3.0.1
+  readinessImage: pltf-onap/readiness:latest
   envsubstImage: dibi/envsubst
   aafEnabled: true
   persistence: {}
@@ -51,8 +51,8 @@ secrets:
 # Application configuration defaults.
 #################################################################
 # application image
-repository: nexus3.onap.org:10001
-image: onap/policy-apex-pdp:2.4.4
+repository: image-registry.openshift-image-registry.svc:5000
+image: pltf-onap/policy-apex-pdp:latest
 pullPolicy: Always
 
 # flag to enable debugging - application support required

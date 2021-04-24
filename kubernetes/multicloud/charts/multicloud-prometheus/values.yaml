@@ -17,11 +17,17 @@
 #################################################################
 global:
   nodePortPrefix: 302
-  readinessImage: onap/oom/readiness:3.0.1
-  loggingRepository: docker.elastic.co
-  loggingImage: beats/filebeat:5.5.0
-  busyboxRepository: registry.hub.docker.com
-  busyboxImage: library/busybox:latest
+  #readinessImage: onap/oom/readiness:3.0.1
+  #loggingRepository: docker.elastic.co
+  #loggingImage: beats/filebeat:5.5.0
+  #busyboxRepository: registry.hub.docker.com
+  #busyboxImage: library/busybox:latest
+  readinessImage: pltf-onap/readiness:3.0.1
+  loggingRepository: image-registry.openshift-image-registry.svc:5000
+  loggingImage: pltf-onap/filebeat:5.5.0
+  busyboxRepository: image-registry.openshift-image-registry.svc:5000
+  busyboxImage: pltf-onap/busybox:latest
+
   alertmanager:
     enabled: false
   grafana:
@@ -50,9 +56,9 @@ persistence:
   volumeReclaimPolicy: Retain
   accessMode: ReadWriteOnce
   size: 8Gi
-  mountPath: /dockerdata-nfs
-  mountSubPath: multicloud/prometheus/server
-  containerMountPath: /prometheus/data
+  #mountPath: /dockerdata-nfs
+  #mountSubPath: multicloud/prometheus/server
+  #containerMountPath: /prometheus/data
 
 #Service configuration for this chart
 service:
@@ -73,7 +79,7 @@ liveness:
 
 readiness:
   initialDelaySeconds: 10
-  periodSeconds: 30
+  periodSeconds: 300
   timeoutSeconds: 30
   enabled: true
 
@@ -96,12 +102,14 @@ resources:
       memory: 4Gi
     requests:
       cpu: 10m
-      memory: 1Gi
+      #memory: 1Gi
+      memory: 512Mi
   large:
     limits:
       cpu: 2
       memory: 8Gi
     requests:
       cpu: 20m
-      memory: 2Gi
+      #memory: 2Gi
+      memory: 512Mi
   unlimited: {}

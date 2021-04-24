@@ -58,6 +58,8 @@ spec:
           requests:
             cpu: 3m
             memory: 20Mi
+      serviceAccount: sa-anyuid
+      serviceAccountName: sa-anyuid
       containers:
       - name: {{ include "common.name" . }}-job
         image: "{{ include "common.repository" . }}/{{ .Values.onboardingInitImage }}"
@@ -95,6 +97,8 @@ spec:
         configMap:
           name: {{ include "common.release" . }}-sdc-environments-configmap
           defaultMode: 0755
-      imagePullSecrets:
-      - name: "{{ include "common.namespace" . }}-docker-registry-key"
+          #imagePullSecrets:
+          #- name: "{{ include "common.namespace" . }}-docker-registry-key"
       restartPolicy: Never
+      serviceAccount: sa-anyuid
+      serviceAccountName: sa-anyuid

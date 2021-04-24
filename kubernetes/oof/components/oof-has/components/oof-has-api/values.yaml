@@ -16,7 +16,7 @@
 global: # global defaults
   nodePortPrefix: 302
   image:
-    optf_has: onap/optf-has:2.1.2
+    optf_has: pltf-onap/optf-has:2.1.2
 
 #################################################################
 # secrets metaconfig
@@ -101,4 +101,4 @@ ingress:
       name: "oof-has-api"
       port: 8091
   config:
-    ssl: "redirect"
+          ssl: "redirect"

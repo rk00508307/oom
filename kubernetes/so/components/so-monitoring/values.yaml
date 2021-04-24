@@ -24,10 +24,10 @@
 global:
   nodePortPrefix: 302
   nodePortPrefixExt: 304
-  repository: nexus3.onap.org:10001
-  readinessImage: onap/oom/readiness:3.0.1
-  aafAgentImage: onap/aaf/aaf_agent:2.1.20
-  envsubstImage: dibi/envsubst
+  repository: image-registry.openshift-image-registry.svc:5000
+  readinessImage: pltf-onap/readiness:latest
+  aafAgentImage: pltf-onap/aaf_agent:latest
+  envsubstImage: pltf-onap/envsubst:latest
   aafEnabled: true
   persistence:
     mountPath: /dockerdata-nfs
@@ -70,8 +70,8 @@ secrets:
 #################################################################
 # Application configuration defaults.
 #################################################################
-repository: nexus3.onap.org:10001
-image: onap/so/so-monitoring:1.7.11
+repository: image-registry.openshift-image-registry.svc:5000
+image: pltf-onap/so-monitoring:latest
 pullPolicy: Always
 
 db:
@@ -123,15 +123,15 @@ flavor: small
 resources:
     small:
         requests:
-            memory: 1Gi
-            cpu: 10m
+            memory: 512m
+            cpu: 200m
         limits:
             memory: 4Gi
             cpu: 1
     large:
         requests:
-            memory: 2Gi
-            cpu: 20m
+            memory: 512m
+            cpu: 200m
         limits:
             memory: 8Gi
             cpu: 2

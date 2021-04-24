@@ -18,7 +18,7 @@
 #################################################################
 global:
   nodePortPrefix: 302
-  readinessImage: onap/oom/readiness:3.0.1
+  readinessImage: pltf-onap/readiness:latest
   ubuntuInitRepository: oomk8s
   ubuntuInitImage: ubuntu-init:1.0.0
   persistence: {}

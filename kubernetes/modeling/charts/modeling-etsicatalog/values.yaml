@@ -17,9 +17,12 @@
 #################################################################
 global:
   nodePortPrefix: 302
-  readinessImage: onap/oom/readiness:3.0.1
-  loggingRepository: docker.elastic.co
-  loggingImage: beats/filebeat:5.5.0
+  #readinessImage: onap/oom/readiness:3.0.1
+  readinessImage: pltf-onap/readiness:3.0.1
+  #loggingRepository: docker.elastic.co
+  loggingRepository: image-registry.openshift-image-registry.svc:5000
+  #loggingImage: beats/filebeat:5.5.0
+  loggingImage: pltf-onap/filebeat:5.5.0
 
   persistence:
     mountPath: /dockerdata-nfs
@@ -43,6 +46,7 @@ readinessCheck:
 #################################################################
 secrets:
   - uid: modeling-db-secret
+    #- uid: mariadb-db-secret
     name: &dbSecretName '{{ include "common.release" . }}-modeling-db-secret'
     type: basicAuth
     externalSecret: '{{ tpl (default "" .Values.config.db.userCredentialsExternalSecret) . }}'
@@ -100,9 +104,12 @@ config:
 # application image
 flavor: small
 
-repository: nexus3.onap.org:10001
-image: onap/modeling/etsicatalog:1.0.9
-initImage: busybox:latest
+#repository: nexus3.onap.org:10001
+repository: image-registry.openshift-image-registry.svc:5000
+#image: onap/modeling/etsicatalog:1.0.9
+image: pltf-onap/modeling-etsicatalog:latest
+#initImage: busybox:latest
+initImage: pltf-onap/busybox:latest
 pullPolicy: Always
 
 #Istio sidecar injection policy
@@ -121,14 +128,14 @@ affinity: {}
 # probe configuration parameters
 liveness:
   initialDelaySeconds: 120
-  periodSeconds: 10
+  periodSeconds: 300
   # necessary to disable liveness probe when setting breakpoints
   # in debugger so K8s doesn't restart unresponsive container
   enabled: true
 
 readiness:
   initialDelaySeconds: 10
-  periodSeconds: 10
+  periodSeconds: 300
 
 ## Persist data to a persitent volume
 persistence:

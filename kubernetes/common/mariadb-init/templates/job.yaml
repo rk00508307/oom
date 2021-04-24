@@ -36,6 +36,7 @@ spec:
         release: {{ include "common.release" . }}
       name: {{ include "common.name" . }}
     spec:
+      serviceAccountName: sa-anyuid      
       initContainers:
       - name: {{ include "common.name" . }}-readiness
         command:
@@ -77,9 +78,6 @@ spec:
           {{- include "common.secret.envFromSecretFast" (dict "global" $root "uid" $db "key" "password") | indent 10 }}
 {{ end }}
         volumeMounts:
-        - mountPath: /etc/localtime
-          name: localtime
-          readOnly: true
         - name: mariadb-conf
           mountPath: /db_init/
           readOnly: true
@@ -97,9 +95,4 @@ spec:
       - name: mariadb-conf
         configMap:
           name: {{ include "mariadbInit.configMap" . }}
-      - name: localtime
-        hostPath:
-          path: /etc/localtime
       restartPolicy: Never
-      imagePullSecrets:
-      - name: "{{ include "common.namespace" . }}-docker-registry-key"

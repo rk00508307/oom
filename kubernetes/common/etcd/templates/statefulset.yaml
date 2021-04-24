@@ -230,7 +230,7 @@ spec:
     spec:
       accessModes:
       - "{{ .Values.persistence.accessMode }}"
-      storageClassName: {{ include "common.storageClass" . }}
+      storageClassName: ocs-storagecluster-ceph-rbd
       resources:
         requests:
           # upstream recommended max is 700M

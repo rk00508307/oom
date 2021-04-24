@@ -76,9 +76,6 @@ spec:
               fieldRef:
                 fieldPath: status.podIP
         volumeMounts:
-        - mountPath: /etc/localtime
-          name: localtime
-          readOnly: true
         - name: cassandra-docker-entrypoint-initdb
           mountPath: /docker-entrypoint-initdb.d/aaa_portal_single.cql
           subPath: portal_single.cql
@@ -98,9 +95,6 @@ spec:
         - name: cassandra-docker-entrypoint-initdb
           configMap:
             name: {{ include "common.fullname" . }}-docker-entry-initd
-        - name: localtime
-          hostPath:
-            path: /etc/localtime
       {{- if .Values.persistence.enabled }}
         - name: {{ include "common.fullname" . }}-data
           persistentVolumeClaim:
@@ -108,5 +102,4 @@ spec:
       {{- else }}
           emptyDir: {}
       {{- end }}
-      imagePullSecrets:
-      - name: "{{ include "common.namespace" . }}-docker-registry-key"
+      serviceAccountName: sa-anyuid

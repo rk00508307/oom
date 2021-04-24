@@ -49,6 +49,7 @@ spec:
             fieldRef:
               apiVersion: v1
               fieldPath: metadata.namespace
+      serviceAccountName: sa-anyuid
       containers:
       - name: {{ include "common.name" . }}-update-job
         image: "{{ .Values.global.repository }}/{{ .Values.job.cassandra.image }}"
@@ -85,6 +86,6 @@ spec:
         configMap:
           name: {{ include "common.fullname" . }}-extra-cql
       restartPolicy: Never
-      imagePullSecrets:
-      - name: "{{ include "common.namespace" . }}-docker-registry-key"
+      #imagePullSecrets:
+      #- name: "{{ include "common.namespace" . }}-docker-registry-key"
 

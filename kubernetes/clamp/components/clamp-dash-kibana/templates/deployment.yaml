@@ -77,9 +77,6 @@ spec:
           - name: elasticsearch_base_url
             value: "{{ternary "https" "http" .Values.security.ssl.enabled}}://{{.Values.config.elasticsearchServiceName}}.{{.Release.Namespace}}.svc.cluster.local:{{.Values.config.elasticsearchPort}}"
           volumeMounts: {{ include "common.certInitializer.volumeMount" . | nindent 10 }}
-          - mountPath: /etc/localtime
-            name: localtime
-            readOnly: true
           - mountPath: /usr/share/kibana/config/kibana.yml
             name: {{ include "common.fullname" . }}
             subPath: kibana.yml
@@ -94,14 +91,10 @@ spec:
 {{ toYaml .Values.affinity | indent 10 }}
         {{- end }}
       volumes: {{ include "common.certInitializer.volumes" . | nindent 8 }}
-        - name: localtime
-          hostPath:
-            path: /etc/localtime
         - name: {{ include "common.fullname" . }}
           configMap:
             name: {{ include "common.fullname" . }}
             items:
             - key: kibana.yml
               path: kibana.yml
-      imagePullSecrets:
-      - name: "{{ include "common.namespace" . }}-docker-registry-key"
+      serviceAccountName: sa-anyuid

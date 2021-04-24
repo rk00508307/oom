@@ -54,11 +54,9 @@ spec:
           configMap:
             name: {{ include "common.fullname" . }}
             defaultMode: 0755
-        - name: localtime
-          hostPath:
-            path: /etc/localtime
-      imagePullSecrets:
-      - name: {{ include "common.namespace" . }}-docker-registry-key
+        
+      
+      serviceAccountName: sa-anyuid
       containers:
         - name: {{ include "common.name" . }}
           image: "{{ include "common.repository" . }}/{{ .Values.image }}"
@@ -108,9 +106,7 @@ spec:
           - mountPath: /etc/config
             name: config
         {{- end}}
-          - mountPath: /etc/localtime
-            name: localtime
-            readOnly: true
+          
           - mountPath: /usr/share/container-scripts/mysql/configure-mysql.sh
             subPath: configure-mysql.sh
             name: init-script
@@ -136,8 +132,9 @@ spec:
     spec:
       accessModes:
       - {{ .Values.persistence.accessMode | quote }}
-      storageClassName: {{ include "common.storageClass" . }}
+      storageClassName: ocs-storagecluster-ceph-rbd
       resources:
         requests:
           storage: {{ .Values.persistence.size | quote }}
 {{- end }}
+

@@ -16,10 +16,10 @@
 # Global configuration defaults.
 #################################################################
 global:
-  readinessRepository: nexus3.onap.org:10001
+  readinessRepository: image-registry.openshift-image-registry.svc:5000
   nodePortPrefixExt: 304
   commonConfigPrefix: awx
-  readinessImage: onap/oom/readiness:3.0.1
+  readinessImage: pltf-onap/readiness:3.0.1
 
 #################################################################
 # Application configuration defaults.

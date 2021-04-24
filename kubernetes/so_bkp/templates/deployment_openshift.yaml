@@ -1,0 +1,716 @@
+kind: Deployment
+apiVersion: apps/v1
+metadata:
+  annotations:
+    deployment.kubernetes.io/revision: '1'
+    meta.helm.sh/release-name: so
+    meta.helm.sh/release-namespace: pltf-onap
+  selfLink: /apis/apps/v1/namespaces/pltf-onap/deployments/so-so-monitoring
+  resourceVersion: '308548052'
+  name: so-so-monitoring
+  uid: 4b8babc5-6519-4ea3-a950-fc973e471be4
+  creationTimestamp: '2021-02-15T14:18:37Z'
+  generation: 1
+  managedFields:
+    - manager: Go-http-client
+      operation: Update
+      apiVersion: apps/v1
+      time: '2021-02-15T14:18:37Z'
+      fieldsType: FieldsV1
+      fieldsV1:
+        'f:metadata':
+          'f:annotations':
+            .: {}
+            'f:meta.helm.sh/release-name': {}
+            'f:meta.helm.sh/release-namespace': {}
+          'f:labels':
+            .: {}
+            'f:app': {}
+            'f:app.kubernetes.io/managed-by': {}
+            'f:chart': {}
+            'f:release': {}
+        'f:spec':
+          'f:minReadySeconds': {}
+          'f:progressDeadlineSeconds': {}
+          'f:replicas': {}
+          'f:revisionHistoryLimit': {}
+          'f:selector':
+            'f:matchLabels':
+              .: {}
+              'f:app': {}
+          'f:strategy':
+            'f:rollingUpdate':
+              .: {}
+              'f:maxSurge': {}
+              'f:maxUnavailable': {}
+            'f:type': {}
+          'f:template':
+            'f:metadata':
+              'f:labels':
+                .: {}
+                'f:app': {}
+                'f:release': {}
+            'f:spec':
+              'f:volumes':
+                .: {}
+                'k:{"name":"aaf-add-config"}':
+                  .: {}
+                  'f:configMap':
+                    .: {}
+                    'f:defaultMode': {}
+                    'f:name': {}
+                  'f:name': {}
+                'k:{"name":"aaf-agent-certs"}':
+                  .: {}
+                  'f:configMap':
+                    .: {}
+                    'f:defaultMode': {}
+                    'f:name': {}
+                  'f:name': {}
+                'k:{"name":"config"}':
+                  .: {}
+                  'f:configMap':
+                    .: {}
+                    'f:defaultMode': {}
+                    'f:name': {}
+                  'f:name': {}
+                'k:{"name":"logs"}':
+                  .: {}
+                  'f:emptyDir': {}
+                  'f:name': {}
+                'k:{"name":"so-monitoring-msb-certificate"}':
+                  .: {}
+                  'f:name': {}
+                  'f:secret':
+                    .: {}
+                    'f:defaultMode': {}
+                    'f:secretName': {}
+                'k:{"name":"so-so-monitoring-cert-init-aaf-config"}':
+                  .: {}
+                  'f:emptyDir':
+                    .: {}
+                    'f:medium': {}
+                  'f:name': {}
+              'f:containers':
+                'k:{"name":"so-monitoring"}':
+                  'f:envFrom': {}
+                  'f:image': {}
+                  'f:volumeMounts':
+                    .: {}
+                    'k:{"mountPath":"/app/config"}':
+                      .: {}
+                      'f:mountPath': {}
+                      'f:name': {}
+                      'f:readOnly': {}
+                    'k:{"mountPath":"/app/logs"}':
+                      .: {}
+                      'f:mountPath': {}
+                      'f:name': {}
+                    'k:{"mountPath":"/opt/app/osaaf"}':
+                      .: {}
+                      'f:mountPath': {}
+                      'f:name': {}
+                  'f:terminationMessagePolicy': {}
+                  .: {}
+                  'f:resources':
+                    .: {}
+                    'f:limits':
+                      .: {}
+                      'f:cpu': {}
+                      'f:memory': {}
+                    'f:requests':
+                      .: {}
+                      'f:cpu': {}
+                      'f:memory': {}
+                  'f:args': {}
+                  'f:command': {}
+                  'f:livenessProbe':
+                    .: {}
+                    'f:failureThreshold': {}
+                    'f:initialDelaySeconds': {}
+                    'f:periodSeconds': {}
+                    'f:successThreshold': {}
+                    'f:tcpSocket':
+                      .: {}
+                      'f:port': {}
+                    'f:timeoutSeconds': {}
+                  'f:env':
+                    'k:{"name":"DB_USERNAME"}':
+                      .: {}
+                      'f:name': {}
+                      'f:valueFrom':
+                        .: {}
+                        'f:secretKeyRef':
+                          .: {}
+                          'f:key': {}
+                          'f:name': {}
+                    .: {}
+                    'k:{"name":"DB_PASSWORD"}':
+                      .: {}
+                      'f:name': {}
+                      'f:valueFrom':
+                        .: {}
+                        'f:secretKeyRef':
+                          .: {}
+                          'f:key': {}
+                          'f:name': {}
+                    'k:{"name":"SO_MONITORING_USERNAME"}':
+                      .: {}
+                      'f:name': {}
+                      'f:valueFrom':
+                        .: {}
+                        'f:secretKeyRef':
+                          .: {}
+                          'f:key': {}
+                          'f:name': {}
+                    'k:{"name":"DB_PORT"}':
+                      .: {}
+                      'f:name': {}
+                      'f:value': {}
+                    'k:{"name":"SO_MON_PASS"}':
+                      .: {}
+                      'f:name': {}
+                      'f:valueFrom':
+                        .: {}
+                        'f:secretKeyRef':
+                          .: {}
+                          'f:key': {}
+                          'f:name': {}
+                    'k:{"name":"DB_ADMIN_USERNAME"}':
+                      .: {}
+                      'f:name': {}
+                      'f:valueFrom':
+                        .: {}
+                        'f:secretKeyRef':
+                          .: {}
+                          'f:key': {}
+                          'f:name': {}
+                    'k:{"name":"DB_HOST"}':
+                      .: {}
+                      'f:name': {}
+                      'f:value': {}
+                    'k:{"name":"DB_ADMIN_PASSWORD"}':
+                      .: {}
+                      'f:name': {}
+                      'f:valueFrom':
+                        .: {}
+                        'f:secretKeyRef':
+                          .: {}
+                          'f:key': {}
+                          'f:name': {}
+                  'f:readinessProbe':
+                    .: {}
+                    'f:failureThreshold': {}
+                    'f:initialDelaySeconds': {}
+                    'f:periodSeconds': {}
+                    'f:successThreshold': {}
+                    'f:tcpSocket':
+                      .: {}
+                      'f:port': {}
+                    'f:timeoutSeconds': {}
+                  'f:terminationMessagePath': {}
+                  'f:imagePullPolicy': {}
+                  'f:ports':
+                    .: {}
+                    'k:{"containerPort":9091,"protocol":"TCP"}':
+                      .: {}
+                      'f:containerPort': {}
+                      'f:name': {}
+                      'f:protocol': {}
+                  'f:name': {}
+              'f:dnsPolicy': {}
+              'f:restartPolicy': {}
+              'f:schedulerName': {}
+              'f:terminationGracePeriodSeconds': {}
+              'f:initContainers':
+                .: {}
+                'k:{"name":"so-chown"}':
+                  'f:image': {}
+                  'f:volumeMounts':
+                    .: {}
+                    'k:{"mountPath":"/app/logs"}':
+                      .: {}
+                      'f:mountPath': {}
+                      'f:name': {}
+                  'f:terminationMessagePolicy': {}
+                  .: {}
+                  'f:resources': {}
+                  'f:command': {}
+                  'f:terminationMessagePath': {}
+                  'f:imagePullPolicy': {}
+                  'f:name': {}
+                'k:{"name":"so-monitoring-cert-init-aaf-config"}':
+                  'f:image': {}
+                  'f:volumeMounts':
+                    .: {}
+                    'k:{"mountPath":"/opt/app/aaf_config/bin/aaf-add-config.sh"}':
+                      .: {}
+                      'f:mountPath': {}
+                      'f:name': {}
+                      'f:subPath': {}
+                    'k:{"mountPath":"/opt/app/aaf_config/cert/truststoreONAP.p12.b64"}':
+                      .: {}
+                      'f:mountPath': {}
+                      'f:name': {}
+                      'f:subPath': {}
+                    'k:{"mountPath":"/opt/app/aaf_config/cert/truststoreONAPall.jks.b64"}':
+                      .: {}
+                      'f:mountPath': {}
+                      'f:name': {}
+                      'f:subPath': {}
+                    'k:{"mountPath":"/opt/app/osaaf"}':
+                      .: {}
+                      'f:mountPath': {}
+                      'f:name': {}
+                  'f:terminationMessagePolicy': {}
+                  .: {}
+                  'f:resources': {}
+                  'f:command': {}
+                  'f:env':
+                    'k:{"name":"DEPLOY_PASSWORD"}':
+                      .: {}
+                      'f:name': {}
+                      'f:valueFrom':
+                        .: {}
+                        'f:secretKeyRef':
+                          .: {}
+                          'f:key': {}
+                          'f:name': {}
+                    'k:{"name":"aaf_locator_app_ns"}':
+                      .: {}
+                      'f:name': {}
+                      'f:value': {}
+                    'k:{"name":"aaf_locator_container_ns"}':
+                      .: {}
+                      'f:name': {}
+                      'f:value': {}
+                    'k:{"name":"DEPLOY_FQI"}':
+                      .: {}
+                      'f:name': {}
+                      'f:valueFrom':
+                        .: {}
+                        'f:secretKeyRef':
+                          .: {}
+                          'f:key': {}
+                          'f:name': {}
+                    .: {}
+                    'k:{"name":"aaf_locator_container"}':
+                      .: {}
+                      'f:name': {}
+                      'f:value': {}
+                    'k:{"name":"APP_FQI"}':
+                      .: {}
+                      'f:name': {}
+                      'f:value': {}
+                    'k:{"name":"cadi_longitude"}':
+                      .: {}
+                      'f:name': {}
+                      'f:value': {}
+                    'k:{"name":"cadi_latitude"}':
+                      .: {}
+                      'f:name': {}
+                      'f:value': {}
+                    'k:{"name":"aaf_locator_fqdn"}':
+                      .: {}
+                      'f:name': {}
+                      'f:value': {}
+                    'k:{"name":"aaf_locator_public_fqdn"}':
+                      .: {}
+                      'f:name': {}
+                      'f:value': {}
+                    'k:{"name":"aaf_locate_url"}':
+                      .: {}
+                      'f:name': {}
+                      'f:value': {}
+                  'f:terminationMessagePath': {}
+                  'f:imagePullPolicy': {}
+                  'f:name': {}
+                'k:{"name":"so-monitoring-cert-init-readiness"}':
+                  'f:image': {}
+                  'f:terminationMessagePolicy': {}
+                  .: {}
+                  'f:resources':
+                    .: {}
+                    'f:limits':
+                      .: {}
+                      'f:cpu': {}
+                      'f:memory': {}
+                    'f:requests':
+                      .: {}
+                      'f:cpu': {}
+                      'f:memory': {}
+                  'f:args': {}
+                  'f:command': {}
+                  'f:env':
+                    .: {}
+                    'k:{"name":"NAMESPACE"}':
+                      .: {}
+                      'f:name': {}
+                      'f:valueFrom':
+                        .: {}
+                        'f:fieldRef':
+                          .: {}
+                          'f:apiVersion': {}
+                          'f:fieldPath': {}
+                  'f:terminationMessagePath': {}
+                  'f:imagePullPolicy': {}
+                  'f:name': {}
+                'k:{"name":"so-monitoring-msb-cert-importer"}':
+                  'f:image': {}
+                  'f:volumeMounts':
+                    .: {}
+                    'k:{"mountPath":"/certificates"}':
+                      .: {}
+                      'f:mountPath': {}
+                      'f:name': {}
+                    'k:{"mountPath":"/opt/app/osaaf"}':
+                      .: {}
+                      'f:mountPath': {}
+                      'f:name': {}
+                  'f:terminationMessagePolicy': {}
+                  .: {}
+                  'f:resources': {}
+                  'f:args': {}
+                  'f:command': {}
+                  'f:terminationMessagePath': {}
+                  'f:imagePullPolicy': {}
+                  'f:name': {}
+              'f:imagePullSecrets':
+                .: {}
+                'k:{"name":"pltf-onap-docker-registry-key"}':
+                  .: {}
+                  'f:name': {}
+              'f:securityContext': {}
+    - manager: kube-controller-manager
+      operation: Update
+      apiVersion: apps/v1
+      time: '2021-02-15T14:28:39Z'
+      fieldsType: FieldsV1
+      fieldsV1:
+        'f:metadata':
+          'f:annotations':
+            'f:deployment.kubernetes.io/revision': {}
+        'f:status':
+          'f:conditions':
+            .: {}
+            'k:{"type":"Available"}':
+              .: {}
+              'f:lastTransitionTime': {}
+              'f:lastUpdateTime': {}
+              'f:message': {}
+              'f:reason': {}
+              'f:status': {}
+              'f:type': {}
+            'k:{"type":"Progressing"}':
+              .: {}
+              'f:lastTransitionTime': {}
+              'f:lastUpdateTime': {}
+              'f:message': {}
+              'f:reason': {}
+              'f:status': {}
+              'f:type': {}
+          'f:observedGeneration': {}
+          'f:replicas': {}
+          'f:unavailableReplicas': {}
+          'f:updatedReplicas': {}
+  namespace: pltf-onap
+  labels:
+    app: so-so-monitoring
+    app.kubernetes.io/managed-by: Helm
+    chart: so-monitoring-7.0.0
+    release: so
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: so-monitoring
+  template:
+    metadata:
+      creationTimestamp: null
+      labels:
+        app: so-monitoring
+        release: so
+    spec:
+      restartPolicy: Always
+      initContainers:
+        - resources:
+            limits:
+              cpu: 100m
+              memory: 100Mi
+            requests:
+              cpu: 3m
+              memory: 20Mi
+          terminationMessagePath: /dev/termination-log
+          name: so-monitoring-cert-init-readiness
+          command:
+            - /app/ready.py
+          env:
+            - name: NAMESPACE
+              valueFrom:
+                fieldRef:
+                  apiVersion: v1
+                  fieldPath: metadata.namespace
+          imagePullPolicy: Always
+          terminationMessagePolicy: File
+          image: >-
+            image-registry.openshift-image-registry.svc:5000/pltf-onap/readiness:latest
+          args:
+            - '--container-name'
+            - aaf-locate
+            - '--container-name'
+            - aaf-cm
+            - '--container-name'
+            - aaf-service
+        - resources: {}
+          terminationMessagePath: /dev/termination-log
+          name: so-monitoring-cert-init-aaf-config
+          command:
+            - sh
+            - '-c'
+            - |
+              #!/usr/bin/env bash
+              /opt/app/aaf_config/bin/agent.sh
+              /opt/app/aaf_config/bin/aaf-add-config.sh
+          env:
+            - name: APP_FQI
+              value: so@so.onap.org
+            - name: aaf_locate_url
+              value: 'https://aaf-locate.pltf-onap:8095'
+            - name: aaf_locator_container
+              value: oom
+            - name: aaf_locator_container_ns
+              value: pltf-onap
+            - name: aaf_locator_fqdn
+              value: so
+            - name: aaf_locator_app_ns
+              value: org.osaaf.aaf
+            - name: DEPLOY_FQI
+              valueFrom:
+                secretKeyRef:
+                  name: so-so-monitoring-cert-init-deployer-creds
+                  key: login
+            - name: DEPLOY_PASSWORD
+              valueFrom:
+                secretKeyRef:
+                  name: so-so-monitoring-cert-init-deployer-creds
+                  key: password
+            - name: cadi_longitude
+              value: '0.0'
+            - name: cadi_latitude
+              value: '0.0'
+            - name: aaf_locator_public_fqdn
+              value: so.onap.org
+          imagePullPolicy: Always
+          volumeMounts:
+            - name: so-so-monitoring-cert-init-aaf-config
+              mountPath: /opt/app/osaaf
+            - name: aaf-agent-certs
+              mountPath: /opt/app/aaf_config/cert/truststoreONAPall.jks.b64
+              subPath: truststoreONAPall.jks.b64
+            - name: aaf-agent-certs
+              mountPath: /opt/app/aaf_config/cert/truststoreONAP.p12.b64
+              subPath: truststoreONAP.p12.b64
+            - name: aaf-add-config
+              mountPath: /opt/app/aaf_config/bin/aaf-add-config.sh
+              subPath: aaf-add-config.sh
+          terminationMessagePolicy: File
+          image: >-
+            image-registry.openshift-image-registry.svc:5000/pltf-onap/aaf_agent:latest
+        - resources: {}
+          terminationMessagePath: /dev/termination-log
+          name: so-monitoring-msb-cert-importer
+          command:
+            - /bin/sh
+          imagePullPolicy: Always
+          volumeMounts:
+            - name: so-so-monitoring-cert-init-aaf-config
+              mountPath: /opt/app/osaaf
+            - name: so-monitoring-msb-certificate
+              mountPath: /certificates
+          terminationMessagePolicy: File
+          image: >-
+            image-registry.openshift-image-registry.svc:5000/pltf-onap/aaf_agent:latest
+          args:
+            - '-c'
+            - >
+              export $(grep '^c' /opt/app/osaaf/local/mycreds.prop | xargs -0)
+
+              keytool -import -trustcacerts -alias msb_root -file \
+                /certificates/msb-ca.crt -keystore \
+                "/opt/app/osaaf/local/org.onap.so.trust.jks" \
+                -storepass $cadi_truststore_password -noprompt
+              keytool -importkeystore -srckeystore
+              "/opt/app/osaaf/local/truststoreONAPall.jks" \
+                -srcstorepass changeit \
+                -destkeystore "/opt/app/osaaf/local/org.onap.so.trust.jks" \
+                -deststorepass $cadi_truststore_password -noprompt
+        - name: so-chown
+          image: 'alpine:3.6'
+          command:
+            - /bin/sh
+            - '-c'
+            - 'chown -Rf 1000:1000 /app/logs'
+          resources: {}
+          volumeMounts:
+            - name: logs
+              mountPath: /app/logs
+          terminationMessagePath: /dev/termination-log
+          terminationMessagePolicy: File
+          imagePullPolicy: Always
+      imagePullSecrets:
+        - name: pltf-onap-docker-registry-key
+      schedulerName: default-scheduler
+      terminationGracePeriodSeconds: 30
+      securityContext: {}
+      containers:
+        - resources:
+            limits:
+              cpu: '1'
+              memory: 4Gi
+            requests:
+              cpu: 10m
+              memory: 1Gi
+          readinessProbe:
+            tcpSocket:
+              port: 9091
+            initialDelaySeconds: 20
+            timeoutSeconds: 1
+            periodSeconds: 10
+            successThreshold: 1
+            failureThreshold: 3
+          terminationMessagePath: /dev/termination-log
+          name: so-monitoring
+          command:
+            - /bin/sh
+          livenessProbe:
+            tcpSocket:
+              port: 9091
+            initialDelaySeconds: 40
+            timeoutSeconds: 1
+            periodSeconds: 10
+            successThreshold: 1
+            failureThreshold: 3
+          env:
+            - name: DB_HOST
+              value: mariadb-galera
+            - name: DB_PORT
+              value: '3306'
+            - name: DB_USERNAME
+              valueFrom:
+                secretKeyRef:
+                  name: so-so-db-user-creds
+                  key: login
+            - name: DB_PASSWORD
+              valueFrom:
+                secretKeyRef:
+                  name: so-so-db-user-creds
+                  key: password
+            - name: DB_ADMIN_USERNAME
+              valueFrom:
+                secretKeyRef:
+                  name: so-so-db-admin-creds
+                  key: login
+            - name: DB_ADMIN_PASSWORD
+              valueFrom:
+                secretKeyRef:
+                  name: so-so-db-admin-creds
+                  key: password
+            - name: SO_MONITORING_USERNAME
+              valueFrom:
+                secretKeyRef:
+                  name: so-so-monitoring-app-user-creds
+                  key: login
+            - name: SO_MON_PASS
+              valueFrom:
+                secretKeyRef:
+                  name: so-so-monitoring-app-user-creds
+                  key: password
+          ports:
+            - name: so-monitor-port
+              containerPort: 9091
+              protocol: TCP
+          imagePullPolicy: Always
+          volumeMounts:
+            - name: so-so-monitoring-cert-init-aaf-config
+              mountPath: /opt/app/osaaf
+            - name: logs
+              mountPath: /app/logs
+            - name: config
+              readOnly: true
+              mountPath: /app/config
+          terminationMessagePolicy: File
+          envFrom:
+            - configMapRef:
+                name: so-so-monitoring-configmap
+          image: >-
+            image-registry.openshift-image-registry.svc:5000/pltf-onap/so-monitoring:latest
+          args:
+            - '-c'
+            - >
+              export SO_MONITORING_PASSWORD=`htpasswd -bnBC 10 "" $SO_MON_PASS |
+              tr -d ':\n' | sed 's/\$2y/\$2a/'`
+
+              export $(grep '^c' /opt/app/osaaf/local/org.onap.so.cred.props |
+              xargs -0)
+
+              export $(grep '^c' /opt/app/osaaf/local/mycreds.prop | xargs -0)
+
+              export KEYSTORE=file://$cadi_keystore
+
+              export KEYSTORE_PASSWORD=$cadi_keystore_password_p12
+
+              export TRUSTSTORE=file://$cadi_truststore
+
+              export TRUSTSTORE_PASSWORD=$cadi_truststore_password
+
+              /app/start-app.sh
+      volumes:
+        - name: so-so-monitoring-cert-init-aaf-config
+          emptyDir:
+            medium: Memory
+        - name: aaf-agent-certs
+          configMap:
+            name: so-cert-wrapper-certs
+            defaultMode: 448
+        - name: aaf-add-config
+          configMap:
+            name: so-so-monitoring-cert-init-add-config
+            defaultMode: 448
+        - name: so-monitoring-msb-certificate
+          secret:
+            secretName: so-so-certs
+            defaultMode: 420
+        - name: logs
+          emptyDir: {}
+        - name: config
+          configMap:
+            name: so-so-monitoring-app-configmap
+            defaultMode: 420
+      dnsPolicy: ClusterFirst
+  strategy:
+    type: RollingUpdate
+    rollingUpdate:
+      maxUnavailable: 1
+      maxSurge: 1
+  minReadySeconds: 10
+  revisionHistoryLimit: 10
+  progressDeadlineSeconds: 600
+status:
+  observedGeneration: 1
+  replicas: 1
+  updatedReplicas: 1
+  unavailableReplicas: 1
+  conditions:
+    - type: Available
+      status: 'True'
+      lastUpdateTime: '2021-02-15T14:18:38Z'
+      lastTransitionTime: '2021-02-15T14:18:38Z'
+      reason: MinimumReplicasAvailable
+      message: Deployment has minimum availability.
+    - type: Progressing
+      status: 'False'
+      lastUpdateTime: '2021-02-15T14:28:39Z'
+      lastTransitionTime: '2021-02-15T14:28:39Z'
+      reason: ProgressDeadlineExceeded
+      message: ReplicaSet "so-so-monitoring-798cd78f49" has timed out progressing.
+

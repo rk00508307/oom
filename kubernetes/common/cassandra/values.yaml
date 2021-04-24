@@ -18,15 +18,16 @@
 global: # global defaults
   nodePortPrefix: 302
   persistence:
-    mountPath: /dockerdata-nfs
-    backup:
-      mountPath: /dockerdata-nfs/backup
-  repository: nexus3.onap.org:10001
-  readinessImage: onap/oom/readiness:3.0.1
+    storageClass: ocs-storagecluster-ceph-rbd
+    #mountPath: /dockerdata-nfs
+    #backup:
+      #mountPath: /dockerdata-nfs/backup
+  repository: image-registry.openshift-image-registry.svc:5000
+  readinessImage: pltf-onap/readiness:3.0.1
 
 # application image
-repository: nexus3.onap.org:10001
-image: library/cassandra:3.11.4
+repository: image-registry.openshift-image-registry.svc:5000
+image: pltf-onap/cassandra:3.11.4
 pullPolicy: Always
 
 # flag to enable debugging - application support required
@@ -47,7 +48,7 @@ config:
   #seeds:seed1,seed2
 
 # default number of instances
-replicaCount: 3
+replicaCount: 1
 
 hostNetwork: false
 
@@ -57,9 +58,9 @@ affinity: {}
 
 # probe configuration parameters
 liveness:
-  initialDelaySeconds: 60
-  periodSeconds: 10
-  timeoutSeconds: 3
+  initialDelaySeconds: 300
+  periodSeconds: 500
+  timeoutSeconds: 5
   successThreshold: 1
   failureThreshold: 3
   # necessary to disable liveness probe when setting breakpoints
@@ -67,9 +68,9 @@ liveness:
   enabled: true
 
 readiness:
-  initialDelaySeconds: 120
-  periodSeconds: 10
-  timeoutSeconds: 3
+  initialDelaySeconds: 300
+  periodSeconds: 500
+  timeoutSeconds: 5
   successThreshold: 1
   failureThreshold: 3
 
@@ -123,11 +124,11 @@ persistence:
   ## Not set as it depends of the backup enabledment or not.
   accessMode: ReadWriteOnce
   size: 2Gi
-  mountPath: /dockerdata-nfs
-  mountSubPath: cassandra
+  #mountPath: /dockerdata-nfs
+  #mountSubPath: cassandra
   storageType: local
-  backup:
-      mountPath: /dockerdata-nfs/backup
+  #backup:
+      #mountPath: /dockerdata-nfs/backup
 
 configOverrides: {}
 
@@ -158,3 +159,4 @@ backup:
   - name: system_traces
   - name: system_auth
   - name: system_distributed
+

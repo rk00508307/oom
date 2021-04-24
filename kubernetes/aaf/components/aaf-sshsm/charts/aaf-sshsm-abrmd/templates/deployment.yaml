@@ -59,11 +59,11 @@ spec:
         volumeMounts:
         - name: {{ include "common.fullname" . }}-dbus
           mountPath: /var/run/dbus
-        - name: {{ include "common.fullname" . }}-tpm-device
-          mountPath: /dev/tpm0
-        - mountPath: /etc/localtime
-          name: localtime
-          readOnly: true
+        #- name: {{ include "common.fullname" . }}-tpm-device
+          #mountPath: /dev/tpm0
+        #- mountPath: /etc/localtime
+          #name: localtime
+          #readOnly: true
         resources: {{ include "common.resources" . | nindent 10 }}
       nodeSelector:
         {{- if .Values.nodeSelector }}
@@ -76,14 +76,14 @@ spec:
       affinity: {{ toYaml .Values.affinity | nindent 8 }}
         {{- end }}
       volumes:
-      - name: localtime
-        hostPath:
-          path: /etc/localtime
+      #- name: localtime
+        #hostPath:
+          #path: /etc/localtime
       - name: {{ include "common.fullname" . }}-dbus
         persistentVolumeClaim:
           claimName: {{ include "common.release" . }}-aaf-sshsm-dbus
-      - name: {{ include "common.fullname" . }}-tpm-device
-        hostPath:
-          path: /dev/tpm0
+      #- name: {{ include "common.fullname" . }}-tpm-device
+        #hostPath:
+          #path: /dev/tpm0
 
 {{- end -}}

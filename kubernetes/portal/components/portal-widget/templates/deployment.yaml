@@ -85,6 +85,8 @@ spec:
           name: properties-onapwidgetms-scrubbed
         - mountPath: /config
           name: properties-onapwidgetms
+      serviceAccountName: sa-anyuid
+      serviceAccount: sa-anyuid    
       containers:
       - name: {{ include "common.name" . }}
         image: "{{ include "common.repository" . }}/{{ .Values.image }}"
@@ -106,9 +108,6 @@ spec:
           initialDelaySeconds: {{ .Values.readiness.initialDelaySeconds }}
           periodSeconds: {{ .Values.readiness.periodSeconds }}
         volumeMounts:
-        - mountPath: /etc/localtime
-          name: localtime
-          readOnly: true
         - name: properties-onapwidgetms
           mountPath: "/application.properties"
           subPath: application.properties
@@ -126,9 +125,6 @@ spec:
 {{ toYaml .Values.affinity | indent 10 }}
       {{- end }}
       volumes:
-        - name: localtime
-          hostPath:
-            path: /etc/localtime
         - name: properties-onapwidgetms
           emptyDir:
             medium: Memory
@@ -136,5 +132,5 @@ spec:
           configMap:
             name: {{ include "common.fullname" . }}-onapwidgetms
             defaultMode: 0755
-      imagePullSecrets:
-      - name: "{{ include "common.namespace" . }}-docker-registry-key"
+      serviceAccount: sa-anyuid
+      serviceAccountName: sa-anyuid

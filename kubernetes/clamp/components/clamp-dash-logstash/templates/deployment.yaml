@@ -95,9 +95,6 @@ spec:
             timeoutSeconds: {{ .Values.liveness.timeoutSeconds }}
           {{ end -}}
           volumeMounts: {{ include "common.certInitializer.volumeMount" . | nindent 10 }}
-          - mountPath: /etc/localtime
-            name: localtime
-            readOnly: true
           - mountPath: /usr/share/logstash/config/logstash.yml
             name: {{ include "common.fullname" . }}
             subPath: logstash.yml
@@ -115,9 +112,6 @@ spec:
 {{ toYaml .Values.affinity | indent 10 }}
         {{- end }}
       volumes: {{ include "common.certInitializer.volumes" . | nindent 8 }}
-        - name: localtime
-          hostPath:
-            path: /etc/localtime
         - name: {{ include "common.fullname" . }}
           configMap:
             name: {{ include "common.fullname" . }}
@@ -126,5 +120,4 @@ spec:
               path: logstash.yml
             - key: pipeline.conf
               path: pipeline.conf
-      imagePullSecrets:
-      - name: "{{ include "common.namespace" . }}-docker-registry-key"
+      serviceAccountName: sa-anyuid

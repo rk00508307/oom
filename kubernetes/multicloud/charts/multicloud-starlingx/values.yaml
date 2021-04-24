@@ -22,8 +22,8 @@ global:
 # Application configuration defaults.
 #################################################################
 # application image
-repository: nexus3.onap.org:10001
-image: onap/multicloud/openstack-starlingx:1.5.5
+repository: image-registry.openshift-image-registry.svc:5000
+image: pltf-onap/multicloud-openstack-starlingx:latest
 pullPolicy: Always
 
 #Istio sidecar injection policy
@@ -78,12 +78,14 @@ resources:
       memory: 4Gi
     requests:
       cpu: 10m
-      memory: 1Gi
+      #memory: 1Gi
+      memory: 512Mi
   large:
     limits:
       cpu: 2
       memory: 8Gi
     requests:
       cpu: 20m
-      memory: 2Gi
+      #memory: 2Gi
+      memory: 512Mi
   unlimited: {}

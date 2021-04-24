@@ -29,6 +29,7 @@ spec:
     metadata:
       labels: {{- include "common.labels" . | nindent 8 }}
     spec:
+      serviceAccountName: sa-anyuid
       initContainers:
       {{ include "so.certificate.container_importer" . | indent 6 | trim }}
       {{ include "common.readinessCheck.waitFor" . | indent 6 | trim }}
@@ -100,5 +101,5 @@ spec:
         - name: config
           configMap:
             name: {{ include "common.fullname" . }}
-      imagePullSecrets:
-        - name: "{{ include "common.namespace" . }}-docker-registry-key"
+
+

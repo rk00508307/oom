@@ -18,11 +18,11 @@
 #################################################################
 global:
   nodePortPrefix: 302
-  readinessImage: onap/oom/readiness:3.0.1
-  loggingRepository: docker.elastic.co
-  loggingImage: beats/filebeat:5.5.0
-  ubuntuInit: ubuntu-init:1.0.0
-  envsubstImage: dibi/envsubst
+  readinessImage: pltf-onap/readiness:3.0.1
+  loggingRepository: image-registry.openshift-image-registry.svc:5000
+  loggingImage: pltf-onap/filebeat:5.5.0
+  ubuntuInit: pltf-onap/ubuntu-init:2.0.0
+  envsubstImage: pltf-onap/envsubst
 
 ################################################################
 # Secrets metaconfig
@@ -67,8 +67,8 @@ config:
 # Application configuration defaults.
 #################################################################
 # application image
-repository: nexus3.onap.org:10001
-image: onap/portal-wms:3.4.2
+repository: image-registry.openshift-image-registry.svc:5000
+image: pltf-onap/portal-wms:3.4.2
 pullPolicy: Always
 
 # flag to enable debugging - application support required

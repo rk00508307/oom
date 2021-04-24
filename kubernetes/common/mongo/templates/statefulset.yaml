@@ -36,7 +36,6 @@ spec:
         app: {{ include "common.name" . }}
         release: {{ include "common.release" . }}
     spec:
-{{ include "common.podSecurityContext" . | indent 6 }}
       containers:
         - name: {{ include "common.name" . }}
           image: "{{ .Values.dockerHubRepository }}/{{ .Values.image }}"
@@ -72,7 +71,6 @@ spec:
           - name: {{ include "common.fullname" . }}-data
             mountPath: /var/lib/mongo
           resources: {{ include "common.resources" . | nindent 12 }}
-{{ include "common.containerSecurityContext" . | indent 10 }}
         {{- if .Values.nodeSelector }}
         nodeSelector:
 {{ toYaml .Values.nodeSelector | indent 10 }}
@@ -81,10 +79,11 @@ spec:
         affinity:
 {{ toYaml .Values.affinity | indent 10 }}
         {{- end }}
-      volumes:
-      - name: localtime
-        hostPath:
-          path: /etc/localtime
+      serviceAccountName: sa-anyuid
+      #volumes:
+        #- name: localtime
+          #hostPath:
+            #path: /etc/localtime
   {{- if .Values.persistence.enabled }}
   volumeClaimTemplates:
   - metadata:

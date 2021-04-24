@@ -25,6 +25,7 @@ spec:
     metadata: {{- include "common.templateMetadata" . | nindent 6 }}
     spec:
       restartPolicy: Never
+      serviceAccountName: sa-anyuid
       initContainers:
 {{- if .Values.global.tpm.enabled }}
       - image: "{{ include "common.repository" . }}/{{ .Values.global.readinessImage }}"
@@ -60,9 +61,9 @@ spec:
               apiVersion: v1
               fieldPath: metadata.namespace
         volumeMounts:
-        - mountPath: /etc/localtime
-          name: localtime
-          readOnly: true
+        #- mountPath: /etc/localtime
+          #name: localtime
+          #readOnly: true
         - name: {{ include "common.fullname" . }}-data
           mountPath: /distcenter/data
         resources:
@@ -80,9 +81,9 @@ spec:
         command: ["/entrypoint.sh"]
         workingDir: /distcenter
         volumeMounts:
-        - mountPath: /etc/localtime
-          name: localtime
-          readOnly: true
+        #- mountPath: /etc/localtime
+         # name: localtime
+         # readOnly: true
         - name: {{ include "common.fullname" . }}-data
           mountPath: /distcenter/data
         resources: {{ include "common.resources" . | nindent 10 }}
@@ -92,14 +93,13 @@ spec:
         {{- if .Values.affinity }}
         affinity: {{ toYaml .Values.affinity | nindent 8 }}
         {{- end }}
+      serviceAccountName: sa-anyuid
       volumes:
-      - name: localtime
-        hostPath:
-          path: /etc/localtime
+      #- name: localtime
+        #hostPath:
+         # path: /etc/localtime
       - name: {{ include "common.fullname" . }}-data
         persistentVolumeClaim:
           claimName: {{ include "common.release" . }}-aaf-sshsm
-      imagePullSecrets:
-      - name: "{{ include "common.namespace" . }}-docker-registry-key"
 
 {{- end -}}

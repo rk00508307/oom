@@ -89,6 +89,7 @@ spec:
           volumeMounts:
             - mountPath: /dhconfig
               name: dh-config
+      serviceAccountName: sa-anyuid
       containers:
         - name: {{ include "common.name" . }}
           image: "{{ include "common.repository" . }}/{{ .Values.image }}"
@@ -173,5 +174,5 @@ spec:
             defaultMode: 420
             name: {{include "common.fullname" . }}-log4js-configmap
           name: log4js-conf
-      imagePullSecrets:
-      - name: "{{ include "common.namespace" . }}-docker-registry-key"
+      #imagePullSecrets:
+      #- name: "{{ include "common.namespace" . }}-docker-registry-key"

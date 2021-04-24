@@ -94,6 +94,7 @@ spec:
             cpu: 3m
             memory: 20Mi
       {{- end }}
+      serviceAccountName: sa-anyuid
       containers:
         - name: {{ include "common.name" . }}
           image: "{{ include "common.repository" . }}/{{ .Values.image }}"
@@ -143,9 +144,9 @@ spec:
           - name: sdc-environments-output
             mountPath: /var/lib/jetty/chef-solo/cookbooks/sdc-catalog-fe/files/default/org.onap.sdc.trust.jks
             subPath: org.onap.sdc.trust.jks
-          - name: {{ include "common.fullname" . }}-localtime
-            mountPath: /etc/localtime
-            readOnly: true
+          #- name: {{ include "common.fullname" . }}-localtime
+            #mountPath: /etc/localtime
+            #readOnly: true
           - name: {{ include "common.fullname" . }}-logs
             mountPath: /var/log/onap
           - name: {{ include "common.fullname" . }}-configs
@@ -178,9 +179,9 @@ spec:
               cpu: 3m
               memory: 20Mi
       volumes: {{ include "common.certInitializer.volumes" . | nindent 8 }}
-        - name: {{ include "common.fullname" . }}-localtime
-          hostPath:
-            path: /etc/localtime
+        #- name: {{ include "common.fullname" . }}-localtime
+          #hostPath:
+            #path: /etc/localtime
         - name: {{ include "common.fullname" . }}-filebeat-conf
           configMap:
             name: {{ include "common.release" . }}-sdc-filebeat-configmap
@@ -201,5 +202,5 @@ spec:
           emptyDir: { medium: "Memory" }
         - name: {{ include "common.fullname" . }}-logs
           emptyDir: {}
-      imagePullSecrets:
-      - name: "{{ include "common.namespace" . }}-docker-registry-key"
+      #imagePullSecrets:
+      #- name: "{{ include "common.namespace" . }}-docker-registry-key"

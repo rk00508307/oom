@@ -44,9 +44,9 @@ secrets:
 pullPolicy: Always
 
 # application images
-repository: nexus3.onap.org:10001
+repository: image-registry.openshift-image-registry.svc:5000
 #repository:  10.12.7.57:5000
-image: onap/dmaap/dmaap-bc:2.0.4
+image: pltf-onap/dmaap/dmaap-bc:2.0.4
 
 
 # application configuration
@@ -138,8 +138,8 @@ postgres:
     pgUserExternalSecret: *pgUserCredsSecretName
     pgRootPasswordExternalSecret: *pgRootPassSecretName
   persistence:
-    mountSubPath: dbc/data
-    mountInitPath: dbc
+          # mountSubPath: dbc/data
+          #    mountInitPath: dbc
 
 ingress:
   enabled: false
@@ -159,13 +159,13 @@ resources:
       cpu: 2
       memory: 4Gi
     requests:
-      cpu: 1
-      memory: 1Gi
+      cpu: 200m
+      memory: 512m
   large:
     limits:
       cpu: 4
       memory: 8Gi
     requests:
-      cpu: 2
-      memory: 2Gi
+      cpu: 200m
+      memory: 512m
   unlimited: {}

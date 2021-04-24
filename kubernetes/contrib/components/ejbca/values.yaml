@@ -12,7 +12,7 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 global:
-  readinessImage: onap/oom/readiness:3.0.1
+  readinessImage: pltf-onap/readiness:3.0.1
   mariadbGalera: &mariadbGalera
     #This flag allows EJBCA to instantiate its own mariadb-galera cluster
     localCluster: false
@@ -37,7 +37,7 @@ secrets:
     password: '{{ .Values.config.ejbca.clientIak }}'
 
 # application configuration
-repository: nexus3.onap.org:10001
+repository: image-registry.openshift-image-registry.svc:5000
 config:
   db:
     userName: ejbca
@@ -88,13 +88,13 @@ liveness:
   path: /ejbca/publicweb/healthcheck/ejbcahealth
   port: api
   initialDelaySeconds: 30
-  periodSeconds: 30
+  periodSeconds: 300
 
 readiness:
   path: /ejbca/publicweb/healthcheck/ejbcahealth
   port: api
   initialDelaySeconds: 30
-  periodSeconds: 30
+  periodSeconds: 300
 
 service:
   type: ClusterIP

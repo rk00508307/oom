@@ -156,9 +156,6 @@ spec:
 {{ toYaml $dot.Values.affinity | indent 10 }}
         {{- end }}
       volumes:
-      - name: localtime
-        hostPath:
-          path: /etc/localtime
       - name: {{ include "common.fullname" $dot }}-backup
         emptyDir: {}
       - name: {{ include "common.fullname" $dot }}-data

@@ -30,6 +30,7 @@ spec:
     metadata:
       labels: {{- include "common.labels" . | nindent 8 }}
     spec:
+      serviceAccountName: sa-anyuid
       initContainers: {{ include "so.certificate.container_importer" . | nindent 6 }}
       - name: {{ include "common.name" . }}-pass-encoder
         command:
@@ -91,5 +92,5 @@ spec:
       - name: config
         configMap:
           name: {{ include "common.fullname" . }}-app-configmap
-      imagePullSecrets:
-        - name: "{{ include "common.namespace" . }}-docker-registry-key"
+
+

@@ -17,7 +17,7 @@
 apiVersion: v1
 kind: ConfigMap
 metadata:
-  name: {{ include "common.fullname" . }}
+  name: aaf-sms-cert-wrapper-certs
   namespace: {{ include "common.namespace" . }}
   labels:
     app: {{ include "common.name" . }}

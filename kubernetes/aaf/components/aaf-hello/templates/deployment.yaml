@@ -24,6 +24,7 @@ spec:
     metadata: {{- include "common.templateMetadata" . | nindent 6 }}
     spec:
       initContainers: {{ include "common.aaf-config" (dict "aafRoot" .Values.aaf_init "dot" .) | nindent 6 }}
+      serviceAccountName: sa-anyuid
 # CONTAINER Definition
       containers:
       - name: {{ include "common.name" . }}
@@ -32,9 +33,9 @@ spec:
         imagePullPolicy: {{ .Values.global.pullPolicy | default .Values.pullPolicy }}
         ports: {{ include "common.containerPorts" . | nindent 10  }}
         volumeMounts:  {{ include "common.aaf-config-volume-mountpath" . | nindent 8 }}
-        - mountPath: /etc/localtime
-          name: localtime
-          readOnly: true
+        #- mountPath: /etc/localtime
+          #name: localtime
+          #readOnly: true
         {{- if eq .Values.liveness.enabled true }}
         livenessProbe:
           tcpSocket:
@@ -54,9 +55,8 @@ spec:
       {{- if .Values.affinity }}
       affinity: {{ toYaml .Values.affinity | nindent 10 }}
       {{- end }}
+      serviceAccountName: sa-anyuid
       volumes: {{ include "common.aaf-config-volumes" (dict "aafRoot" .Values.aaf_init "dot" .) | nindent 6 }}
-      - name: localtime
-        hostPath:
-          path: /etc/localtime
-      imagePullSecrets:
-      - name: "{{ include "common.namespace" . }}-docker-registry-key"
+      #- name: localtime
+        #hostPath:
+          #path: /etc/localtime

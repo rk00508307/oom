@@ -23,6 +23,7 @@ spec:
   template:
     metadata: {{- include "common.templateMetadata" . | nindent 6 }}
     spec:
+      serviceAccountName: sa-anyuid
       containers:
         - name: {{ include "common.name" . }}
           image: "{{ include "common.repository" . }}/{{ .Values.image }}"
@@ -63,9 +64,9 @@ spec:
           - name: ARTIFACT_MANAGER_SERVER_LOG_FILE
             value: {{ .Values.config.artifactManagerLogFile }}
           volumeMounts:
-          - mountPath: /etc/localtime
-            name: localtime
-            readOnly: true
+          #- mountPath: /etc/localtime
+            #name: localtime
+            #readOnly: true
           - mountPath: {{ .Values.persistence.deployedBlueprint }}
             name: {{ include "common.fullname" . }}-blueprints
           resources:
@@ -79,14 +80,14 @@ spec:
 {{ toYaml .Values.affinity | nindent 10 }}
         {{- end }}
       volumes:
-        - name: localtime
-          hostPath:
-            path: /etc/localtime
+        #- name: localtime
+          #hostPath:
+            #path: /etc/localtime
         # Py executor shares the blueprintsprocessor storage (for now) to
         # share uploaded CBA files. In the future it will be deprecated
         # when all parts of the CDS will make use of Artifact Manager
         - name: {{ include "common.fullname" . }}-blueprints
           persistentVolumeClaim:
             claimName: {{ include "common.release" . }}-cds-blueprints
-      imagePullSecrets:
-      - name: "{{ include "common.namespace" . }}-docker-registry-key"
+      #imagePullSecrets:
+      #- name: "{{ include "common.namespace" . }}-docker-registry-key"

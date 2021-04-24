@@ -59,6 +59,8 @@ spec:
             requests:
               cpu: 3m
               memory: 20Mi
+      serviceAccount: sa-anyuid
+      serviceAccountName: sa-anyuid
       containers:
         - name: {{ include "common.name" . }}-job
           image: "{{ include "common.repository" . }}/{{ .Values.configInitImage }}"
@@ -77,6 +79,8 @@ spec:
             valueFrom:
               secretKeyRef: {name: {{ include "common.release" . }}-sdc-cs-secrets, key: sdc_password}
           resources: {{ include "common.resources" . | nindent 12 }}
-      imagePullSecrets:
-      - name: "{{ include "common.namespace" . }}-docker-registry-key"
+      serviceAccount: sa-anyuid
+      serviceAccountName: sa-anyuid
+          #imagePullSecrets:
+          #- name: "{{ include "common.namespace" . }}-docker-registry-key"
 {{ end }}

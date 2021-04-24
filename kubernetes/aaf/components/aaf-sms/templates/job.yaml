@@ -164,7 +164,7 @@ spec:
           - "-cacert"
           - "{{ .Values.certInitializer.mountPath }}/local/{{ .Values.certInitializer.root_ca_name }}"
           - "-jsondir"
-          - "/preload/config"
+          - "/preloa d/config"
           - "-serviceport"
           - "{{ .Values.service.internalPort }}"
           - "-serviceurl"
@@ -172,7 +172,7 @@ spec:
         workingDir: /sms
         volumeMounts: {{ include "common.certInitializer.volumeMount" . | nindent 10 }}
           - mountPath: /etc/localtime
-            name: localtime
+            name: localtime 
             readOnly: true
           - mountPath: /preload/config
             name: {{ include "common.name" . }}-preload
@@ -199,3 +199,4 @@ spec:
       restartPolicy: OnFailure
       imagePullSecrets:
       - name: "{{ include "common.namespace" . }}-docker-registry-key"
+

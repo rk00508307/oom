@@ -113,6 +113,7 @@ spec:
           requests:
             cpu: 3m
             memory: 20Mi
+      serviceAccountName: sa-anyuid
       containers:
         - name: {{ include "common.name" . }}
           image: "{{ include "common.repository" . }}/{{ .Values.image }}"
@@ -223,5 +224,5 @@ spec:
       - name:  {{ include "common.fullname" . }}-cert-storage
         persistentVolumeClaim:
           claimName: {{ include "common.fullname" . }}-cert
-      imagePullSecrets:
-      - name: "{{ include "common.namespace" . }}-docker-registry-key"
+      #imagePullSecrets:
+      #- name: "{{ include "common.namespace" . }}-docker-registry-key"

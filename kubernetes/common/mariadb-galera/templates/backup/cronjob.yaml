@@ -154,15 +154,9 @@ spec:
                 fi
               fi
             volumeMounts:
-            - mountPath: /etc/localtime
-              name: localtime
-              readOnly: true
             - name: backup-dir
               mountPath: /backup
           volumes:
-          - name: localtime
-            hostPath:
-              path: /etc/localtime
           - name: backup-dir
             persistentVolumeClaim:
               claimName: {{ include "common.fullname" . }}-backup-data

@@ -18,7 +18,7 @@
 #################################################################
 global:
   nodePortPrefix: 302
-  readinessImage: onap/oom/readiness:3.0.1
+  readinessImage: pltf-onap/readiness:3.0.1
   centralizedLoggingEnabled: false
   loggingRepository: docker.elastic.co
   loggingImage: beats/filebeat:5.5.0
@@ -55,8 +55,8 @@ secrets:
 #################################################################
 flavor: small
 # application image
-repository: nexus3.onap.org:10001
-image: onap/appc-image:1.7.2
+repository: image-registry.openshift-image-registry.svc:5000
+image: pltf-onap/appc-image:1.7.2
 pullPolicy: Always
 
 # flag to enable debugging - application support required
@@ -210,8 +210,8 @@ persistence:
   ##   GKE, AWS & OpenStack)
   accessMode: ReadWriteOnce
   size: 1Gi
-  mountPath: /dockerdata-nfs
-  mountSubPath: appc/mdsal
+  # mountPath: /dockerdata-nfs
+  # mountSubPath: appc/mdsal
   mdsalPath: /opt/opendaylight/current/daexim
 
 ingress:

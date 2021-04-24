@@ -15,21 +15,21 @@
 global:
   nodePortPrefix: 302
   # Readiness image
-  readinessImage: onap/oom/readiness:3.0.1
+  readinessImage: pltf-onap/readiness:3.0.1
   # Ubuntu Init image
-  ubuntuInitRepository: registry.hub.docker.com
-  ubuntuInitImage: oomk8s/ubuntu-init:2.0.0
+  ubuntuInitRepository: image-registry.openshift-image-registry.svc:5000
+  ubuntuInitImage: pltf-onap/ubuntu-init:2.0.0
   # Logging image
-  loggingRepository: docker.elastic.co
-  loggingImage: beats/filebeat:5.5.0
+  loggingRepository: image-registry.openshift-image-registry.svc:5000
+  loggingImage: pltf-onap/filebeat:5.5.0
   # BusyBox image
-  busyboxRepository: registry.hub.docker.com
-  busyboxImage: library/busybox:1.31
+  busyboxRepository: image-registry.openshift-image-registry.svc:5000
+  busyboxImage: pltf-onap/busybox:1.31
   persistence:
     enabled: true
   # Standard OOM
   pullPolicy: "Always"
-  repository: "nexus3.onap.org:10001"
+  repository: "image-registry.openshift-image-registry.svc:5000"
 
 flavor: small
 
@@ -52,7 +52,7 @@ liveness:
   enabled: true
   port: tcp-cql
 
-image: onap/aaf/aaf_cass:2.1.23
+image: pltf-onap/aaf_cass:latest
 
 config:
   cluster_name: osaaf
@@ -101,8 +101,8 @@ resources:
 persistence:
   enabled: true
   #existingClaim:
-  mountPath: /dockerdata-nfs
-  mountSubPath: "cass"
+  #mountPath: /dockerdata-nfs
+  #mountSubPath: "cass"
   volumeReclaimPolicy: Retain
   accessMode: ReadWriteOnce
   size: 20Gi

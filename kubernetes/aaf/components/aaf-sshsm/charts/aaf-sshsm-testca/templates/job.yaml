@@ -24,6 +24,7 @@ spec:
     metadata: {{- include "common.templateMetadata" . | nindent 6 }}
     spec:
       restartPolicy: Never
+      serviceAccountName: sa-anyuid
       initContainers:
       - image: "{{ include "common.repository" . }}/{{ .Values.global.readinessImage }}"
         imagePullPolicy: {{ .Values.global.pullPolicy | default .Values.pullPolicy }}
@@ -90,9 +91,9 @@ spec:
         - name: SECRETS_FOLDER
           value: /testca/secrets
         volumeMounts:
-        - mountPath: /etc/localtime
-          name: localtime
-          readOnly: true
+        #- mountPath: /etc/localtime
+         # name: localtime
+          #readOnly: true
         - name: {{ include "common.fullname" . }}-data
           mountPath: /testca/data
         - name: {{ include "common.fullname" . }}-dbus
@@ -111,10 +112,11 @@ spec:
         {{- if .Values.affinity }}
       affinity: {{ toYaml .Values.affinity | nindent 8 }}
         {{- end }}
+      serviceAccountName: sa-anyuid
       volumes:
-      - name: localtime
-        hostPath:
-          path: /etc/localtime
+      #- name: localtime
+        #hostPath:
+          #path: /etc/localtime
       - name: {{ include "common.fullname" . }}-data
         persistentVolumeClaim:
           claimName: {{ include "common.release" . }}-aaf-sshsm
@@ -124,7 +126,5 @@ spec:
       - name: {{ include "common.fullname" . }}-secrets
         secret:
           secretName: {{ include "common.release" . }}-aaf-sshsm
-      imagePullSecrets:
-      - name: "{{ include "common.namespace" . }}-docker-registry-key"
 
 {{- end -}}

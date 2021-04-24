@@ -88,6 +88,8 @@ spec:
         - mountPath: /config
           name: properties-onapportalsdk
 {{ include "common.certInitializer.initContainer" . | indent 6 }}
+      serviceAccount: sa-anyuid
+      serviceAccountName: sa-anyuid
       containers:
       - name: {{ include "common.name" . }}
         image: "{{ include "common.repository" . }}/{{ .Values.image }}"
@@ -125,9 +127,6 @@ spec:
         - name: properties-onapportalsdk
           mountPath: "{{ .Values.global.env.tomcatDir }}/conf/server.xml"
           subPath: server.xml
-        - mountPath: /etc/localtime
-          name: localtime
-          readOnly: true
         - name: properties-onapportalsdk
           mountPath: "{{ .Values.global.env.tomcatDir }}/webapps/ONAPPORTALSDK/WEB-INF/fusion/conf/fusion.properties"
           subPath: fusion.properties
@@ -172,9 +171,6 @@ spec:
         - name: var-log-onap
           mountPath: /var/log/onap
       volumes:
-        - name: localtime
-          hostPath:
-            path: /etc/localtime
         - name: properties-onapportalsdk
           emptyDir:
             medium: Memory
@@ -192,5 +188,5 @@ spec:
         - name: portal-tomcat-logs
           emptyDir: {}
 {{ include "common.certInitializer.volumes" . | indent 8 }}
-      imagePullSecrets:
-      - name: "{{ include "common.namespace" . }}-docker-registry-key"
+      serviceAccount: sa-anyuid
+      serviceAccountName: sa-anyuid

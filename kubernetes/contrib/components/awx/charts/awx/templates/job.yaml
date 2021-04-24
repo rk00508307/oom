@@ -50,6 +50,7 @@ spec:
             fieldRef:
               apiVersion: v1
               fieldPath: metadata.namespace
+      serviceAccountName: sa-anyuid
       containers:
       - command: ["/bin/sh","-c"]
         args: ["/etc/tower/job-entrypoint.sh"]
@@ -121,5 +122,5 @@ spec:
             path: rabbitmq_definitions.json
           name: {{ include "common.fullname" . }}-rabbitmq
         name: rabbitmq-config
-      imagePullSecrets:
-      - name: "{{ include "common.namespace" . }}-docker-registry-key"
+      #imagePullSecrets:
+      #- name: "{{ include "common.namespace" . }}-docker-registry-key"

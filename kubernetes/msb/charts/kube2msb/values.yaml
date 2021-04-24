@@ -16,14 +16,14 @@
 #################################################################
 global:
   nodePortPrefix: 302
-  readinessImage: onap/oom/readiness:3.0.1
+  readinessImage: pltf-onap/readiness:3.0.1
 
 #################################################################
 # Application configuration defaults.
 #################################################################
 # application image
-repository: nexus3.onap.org:10001
-image: onap/oom/kube2msb:1.2.6
+repository: image-registry.openshift-image-registry.svc:5000
+image: pltf-onap/kube2msb:1.2.6
 pullPolicy: Always
 istioSidecar: true
 
@@ -48,7 +48,7 @@ readiness: {}
 service: {}
 
 ingress:
-  enabled: false
+  enabled: falise
 
 # Resource Limit flavor -By Default using small
 flavor: small
@@ -60,13 +60,13 @@ resources:
       cpu: 1
       memory: 1Gi
     requests:
-      cpu: 500m
-      memory: 500Mi
+      cpu: 200m
+      memory: 512m
   large:
     limits:
       cpu: 2
       memory: 2Gi
     requests:
-      cpu: 1
-      memory: 1Gi
+      cpu: 200m
+      memory: 512m
   unlimited: {}

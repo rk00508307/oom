@@ -22,12 +22,13 @@ global:
   nodePortPrefix: 302
 
   # image repositories
-  repository: nexus3.onap.org:10001
-
+  #repository: nexus3.onap.org:10001
+  repository: image-registry.openshift-image-registry.svc:5000
 
   # readiness check
-  readinessImage: onap/oom/readiness:3.0.1
-
+  #readinessImage: onap/oom/readiness:3.0.1
+  readinessImage: pltf-onap/readiness:3.0.1
+  
   # image pull policy
   pullPolicy: IfNotPresent
 
@@ -77,8 +78,12 @@ mariadb-init:
 # Application configuration defaults.
 #################################################################
 # application image
-repository: nexus3.onap.org:10001
-image: onap/ccsdk-apps-ms-neng:1.0.2
+#repository: nexus3.onap.org:10001
+#image: onap/ccsdk-apps-ms-neng:1.0.2
+repository: image-registry.openshift-image-registry.svc:5000
+image: pltf-onap/ccsdk-apps-ms-neng:latest
+
+  
 pullPolicy: IfNotPresent
 
 # application configuration
@@ -109,14 +114,14 @@ affinity: {}
 # probe configuration parameters
 liveness:
   initialDelaySeconds: 10
-  periodSeconds: 10
+  periodSeconds: 300
   # necessary to disable liveness probe when setting breakpoints
   # in debugger so K8s doesn't restart unresponsive container
   enabled: false
 
 readiness:
   initialDelaySeconds: 10
-  periodSeconds: 10
+  periodSeconds: 300
 
 service:
   type: ClusterIP

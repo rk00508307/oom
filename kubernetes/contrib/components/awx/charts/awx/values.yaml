@@ -62,7 +62,7 @@ affinity: {}
 # probe configuration parameters
 liveness:
   initialDelaySeconds: 10
-  periodSeconds: 10
+  periodSeconds: 300
   enabled: true
 
 ## Persist data to a persitent volume

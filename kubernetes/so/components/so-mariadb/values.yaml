@@ -20,23 +20,19 @@
 global:
   nodePortPrefix: 302
   nodePortPrefixExt: 304
-  repository: nexus3.onap.org:10001
-  readinessImage: onap/oom/readiness:3.0.1
+  repository: image-registry.openshift-image-registry.svc:5000
+  readinessImage: pltf-onap/readiness:latest
   ubuntuInitRepository: registry.hub.docker.com
   mariadbGalera:
     nameOverride: &mariadbName mariadb-galera
     serviceName: mariadb-galera
     servicePort: "3306"
   migration:
-    enabled: false
+    enabled: true
     dbHost: mariadb-galera
     dbPort: 3306
     dbUser: root
     dbPassword: secretpassword
-
-readinessCheck:
-  wait_for:
-    - *mariadbName
 
 #################################################################
 # Secrets metaconfig
@@ -94,10 +90,10 @@ secrets:
 # Application configuration defaults.
 #################################################################
 # application image
-repository: nexus3.onap.org:10001
-image: mariadb:10.1.38
+repository: image-registry.openshift-image-registry.svc:5000
+image: pltf-onap/mariadb:latest
 pullPolicy: Always
-ubuntuInitImage: oomk8s/ubuntu-init:2.0.0
+ubuntuInitImage: pltf-onap/ubuntu-init:latest
 
 # db config
 db:
@@ -150,15 +146,15 @@ resources:
       cpu: 2
       memory: 4Gi
     requests:
-      cpu: 1
-      memory: 2Gi
+      cpu: 200m
+      memory: 512m
   large:
     limits:
       cpu: 4
       memory: 8Gi
     requests:
-      cpu: 2
-      memory: 4Gi
+      cpu: 200m
+      memory: 512m
   unlimited: {}
 
 persistence:
@@ -176,7 +172,7 @@ persistence:
   ##   GKE, AWS & OpenStack)
   ##
   # storageClass: "-"
-  accessMode: ReadWriteMany
+  accessMode: ReadWriteOnce
   size: 2Gi
 
   mountPath: /dockerdata-nfs

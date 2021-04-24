@@ -78,5 +78,4 @@ spec:
       - name: ocomp-pem
         secret:
           secretName: ocomp-pem
-      imagePullSecrets:
-      - name: "{{ include "common.namespace" . }}-docker-registry-key"
+      serviceAccountName: sa-anyuid

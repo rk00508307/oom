@@ -45,6 +45,7 @@ spec:
             fieldRef:
               apiVersion: v1
               fieldPath: metadata.namespace
+      serviceAccountName: sa-anyuid
       containers:
       - name: {{ include "common.release" . }}-policy-galera-config
         image: {{ .Values.mariadb_image }}

@@ -69,9 +69,6 @@ spec:
             periodSeconds: {{ .Values.readiness.periodSeconds }}
           env:
           volumeMounts:
-          - mountPath: /etc/localtime
-            name: localtime
-            readOnly: true
           - mountPath: /usr/local/bin/docker-entrypoint.sh
             name: entrypoint
             subPath: docker-entrypoint.sh
@@ -86,12 +83,8 @@ spec:
 {{ toYaml .Values.affinity | indent 10 }}
         {{- end }}
       volumes:
-        - name: localtime
-          hostPath:
-            path: /etc/localtime
         - name: entrypoint
           configMap:
             name: {{ include "common.fullname" . }}-entrypoint
             defaultMode: 0777
-      imagePullSecrets:
-      - name: "{{ include "common.namespace" . }}-docker-registry-key"
+      serviceAccountName: sa-anyuid

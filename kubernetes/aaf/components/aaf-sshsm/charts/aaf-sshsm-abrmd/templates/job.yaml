@@ -43,8 +43,8 @@ spec:
         volumeMounts:
         - name: {{ include "common.fullname" . }}-data
           mountPath: /abrmd/data
-        - name: {{ include "common.fullname" . }}-tpm-device
-          mountPath: /dev/tpm0
+          # name: {{ include "common.fullname" . }}-tpm-device
+          #mountPath: /dev/tpm0
         - name: {{ include "common.fullname" . }}-tpmconfig
           mountPath: "/abrmd/cred/"
           readOnly: true
@@ -62,13 +62,11 @@ spec:
       - name: {{ include "common.fullname" . }}-data
         persistentVolumeClaim:
           claimName: {{ include "common.release" . }}-aaf-sshsm-data
-      - name: {{ include "common.fullname" . }}-tpm-device
-        hostPath:
-          path: /dev/tpm0
+          #- name: {{ include "common.fullname" . }}-tpm-device
+          # hostPath:
+          # path: /dev/tpm0
       - name: {{ include "common.fullname" . }}-tpmconfig
         secret:
           secretName: {{ include "common.release" . }}-aaf-sshsm
-      imagePullSecrets:
-      - name: "{{ include "common.namespace" . }}-docker-registry-key"
 
 {{- end -}}

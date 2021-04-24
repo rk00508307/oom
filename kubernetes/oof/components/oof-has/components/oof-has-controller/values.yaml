@@ -13,10 +13,10 @@
 # limitations under the License.
 
 global:
-  readinessImage: onap/oom/readiness:3.0.1
-  repository: nexus3.onap.org:10001
+  readinessImage: pltf-onap/readiness:3.0.1
+  repository: image-registry.openshift-image-registry.svc:5000
   image:
-    optf_has: onap/optf-has:2.1.2
+    optf_has: pltf-onap/optf-has:2.1.2
 
 #################################################################
 # Secrets metaconfig

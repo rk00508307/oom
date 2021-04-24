@@ -41,6 +41,7 @@ spec:
         release: {{ include "common.release" . }}
       name: {{ include "common.name" . }}
     spec:
+      serviceAccountName: sa-anyuid
       containers:
       - name: {{ include "common.name" . }}
         image: "{{ .Values.global.repository }}/{{ .Values.image.image }}"
@@ -102,9 +103,9 @@ spec:
         resources:
 {{ include "common.resources" . | indent 12 }}
       volumes:
-      - name: localtime
-        hostPath:
-          path: /etc/localtime
+      #- name: localtime
+           #hostPath:
+              #path: /etc/localtime
 {{- if .Values.persistence.enabled }}
   volumeClaimTemplates:
   - metadata:
@@ -117,7 +118,7 @@ spec:
     spec:
       accessModes:
       - {{ .Values.persistence.accessMode | quote }}
-      storageClassName: {{ include "common.storageClass" . }}
+      storageClassName: ocs-storagecluster-ceph-rbd
       resources:
         requests:
           storage: {{ .Values.persistence.size | quote }}

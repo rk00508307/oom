@@ -65,8 +65,8 @@ secrets:
 flavor: small
 
 # application image
-repository: nexus3.onap.org:10001
-image: onap/clamp-backend:5.1.5
+repository: image-registry.openshift-image-registry.svc:5000
+image: pltf-onap/clamp-backend:5.1.5
 pullPolicy: Always
 
 # flag to enable debugging - application support required
@@ -140,10 +140,10 @@ resources:
   small:
     limits:
       cpu: 1
-      memory: 1Gi
+      memory: 500Mi
     requests:
       cpu: 1m
-      memory: 1Gi
+      memory: 500Mi
   large:
     limits:
       cpu: 1

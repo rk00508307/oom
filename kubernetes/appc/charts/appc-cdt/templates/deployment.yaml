@@ -66,9 +66,6 @@ spec:
           - name: CDT_PORT
             value: "{{ .Values.global.nodePortPrefix | default .Values.nodePortPrefix }}{{ .Values.nodePort3 }}"
           volumeMounts:
-          - mountPath: /etc/localtime
-            name: localtime
-            readOnly: true
           resources:
 {{ include "common.resources" . | indent 12 }}
         {{- if .Values.nodeSelector }}
@@ -80,8 +77,4 @@ spec:
 {{ toYaml .Values.affinity | indent 10 }}
         {{- end }}
       volumes:
-        - name: localtime
-          hostPath:
-            path: /etc/localtime
-      imagePullSecrets:
-      - name: "{{ include "common.namespace" . }}-docker-registry-key"
+      serviceAccountName: sa-anyuid

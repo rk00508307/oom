@@ -35,6 +35,7 @@ spec:
         app: {{ include "common.name" . }}
         release: {{ include "common.release" . }}
     spec:
+      serviceAccountName: sa-anyuid
       containers:
       - name: {{ include "common.name" . }}
         image: {{ .Values.global.repository | default .Values.repository }}/{{ .Values.image }}
@@ -44,9 +45,9 @@ spec:
         ports:
         - containerPort: {{ .Values.service.internalPort }}
         volumeMounts:
-        - mountPath: /etc/localtime
-          name: localtime
-          readOnly: true
+        #- mountPath: /etc/localtime
+          #name: localtime
+          #readOnly: true
         - name: {{ include "common.fullname" . }}
           mountPath: /opt/netbox/netbox/static
         - name: {{ include "common.fullname" . }}-config
@@ -62,14 +63,14 @@ spec:
 {{ toYaml .Values.affinity | indent 10 }}
       {{- end }}
       volumes:
-        - name: localtime
-          hostPath:
-            path: /etc/localtime
+        #- name: localtime
+          #hostPath:
+            #path: /etc/localtime
         - name: {{ include "common.fullname" . }}-config
           configMap:
             name: {{ include "common.fullname" . }}-config-configmap
         - name: {{ include "common.fullname" . }}
           persistentVolumeClaim:
             claimName: {{ include "common.release" . }}-{{ .Values.persistence.staticPvName }}
-      imagePullSecrets:
-      - name: "{{ include "common.namespace" . }}-docker-registry-key"
+      # imagePullSecrets:
+      #- name: "{{ include "common.namespace" . }}-docker-registry-key"

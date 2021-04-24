@@ -39,6 +39,7 @@ spec:
         app: {{ include "common.name" . }}
         release: {{ include "common.release" . }}
     spec:
+      serviceAccountName: sa-anyuid
       initContainers: {{ include "so.certificate.container_importer" . | nindent 6 }}
       containers:
       - name: {{ include "common.name" . }}
@@ -118,5 +119,5 @@ spec:
         emptyDir: {}
       - name:  {{ include "common.fullname" . }}-logs
         emptyDir: {}
-      imagePullSecrets:
-        - name: "{{ include "common.namespace" . }}-docker-registry-key"
+
+

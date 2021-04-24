@@ -21,11 +21,11 @@ global:
   nodePortPrefix: 302
 
   # image repositories
-  repository: nexus3.onap.org:10001
-
+  #repository: nexus3.onap.org:10001
+  repository: image-registry.openshift-image-registry.svc:5000
   # readiness check
-  readinessImage: onap/oom/readiness:3.0.1
-
+  #readinessImage: onap/oom/readiness:3.0.1
+  readinessImage: pltf-onap/readiness:3.0.1
   # logging agent
   loggingRepository: docker.elastic.co
   loggingImage: beats/filebeat:5.5.0
@@ -82,8 +82,10 @@ secrets:
 # Application configuration defaults.
 #################################################################
 # application image
-repository: nexus3.onap.org:10001
-image: onap/ccsdk-dgbuilder-image:1.0.2
+#repository: nexus3.onap.org:10001
+#image: onap/ccsdk-dgbuilder-image:1.0.2
+repository: image-registry.openshift-image-registry.svc:5000
+image: pltf-onap/ccsdk-dgbuilder-image:1.0.2
 pullPolicy: Always
 
 # flag to enable debugging - application support required
@@ -132,14 +134,14 @@ affinity: {}
 # probe configuration parameters
 liveness:
   initialDelaySeconds: 10
-  periodSeconds: 10
+  periodSeconds: 300
   # necessary to disable liveness probe when setting breakpoints
   # in debugger so K8s doesn't restart unresponsive container
   enabled: true
 
 readiness:
   initialDelaySeconds: 10
-  periodSeconds: 10
+  periodSeconds: 300
 
 service:
   type: NodePort

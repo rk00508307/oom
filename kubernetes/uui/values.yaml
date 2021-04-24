@@ -17,7 +17,8 @@
 # Declare variables to be passed into your templates.
 global:
   uuiPortPrefix: 303
-  readinessImage: onap/oom/readiness:3.0.1
+  #readinessImage: onap/oom/readiness:3.0.1
+  readinessImage: pltf-onap/readiness:3.0.1
 
 subChartsOnly:
   enabled: true
@@ -25,8 +26,11 @@ subChartsOnly:
 flavor: small
 
 # application image
-repository: nexus3.onap.org:10001
-image: onap/usecase-ui:3.0.6
+#repository: nexus3.onap.org:10001
+repository: image-registry.openshift-image-registry.svc:5000
+#image: onap/usecase-ui:3.0.6
+image: pltf-onap/usecase-ui:3.0.6
+
 pullPolicy: Always
 
 # application configuration
@@ -47,14 +51,14 @@ affinity: {}
 # probe configuration parameters
 liveness:
   initialDelaySeconds: 10
-  periodSeconds: 10
+  periodSeconds: 300
   # necessary to disable liveness probe when setting breakpoints
   # in debugger so K8s doesn't restart unresponsive container
   enabled: true
 
 readiness:
   initialDelaySeconds: 10
-  periodSeconds: 10
+  periodSeconds: 300
 
 service:
   type: NodePort
@@ -89,12 +93,14 @@ resources:
       memory: 1Gi
     requests:
       cpu: 250m
-      memory: 1Gi
+      #memory: 1Gi
+      memory: 512Mi
   large:
     limits:
       cpu: 500m
       memory: 1Gi
     requests:
       cpu: 500m
-      memory: 1Gi
+      #memory: 1Gi
+      memory: 512Mi
   unlimited: {}

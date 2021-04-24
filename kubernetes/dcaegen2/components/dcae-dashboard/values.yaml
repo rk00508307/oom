@@ -20,11 +20,11 @@
 #################################################################
 global:
   nodePortPrefixExt: 304
-  readinessImage: onap/oom/readiness:3.0.1
-  loggingRepository: docker.elastic.co
-  loggingImage: beats/filebeat:5.5.0
-  tlsRepository: nexus3.onap.org:10001
-  tlsImage: onap/org.onap.dcaegen2.deployments.tls-init-container:2.1.0
+  readinessImage: pltf-onap/readiness:3.0.1
+  loggingRepository: image-registry.openshift-image-registry.svc:5000
+  loggingImage: pltf-onap/filebeat:5.5.0
+  tlsRepository: image-registry.openshift-image-registry.svc:5000
+  tlsImage: pltf-onap/org.onap.dcaegen2.deployments.tls-init-container:2.1.0
 
 secrets:
   - uid: pg-user-creds
@@ -57,14 +57,14 @@ config:
 # Application configuration defaults.
 #################################################################
 # application image
-repository: nexus3.onap.org:10001
-image: onap/org.onap.ccsdk.dashboard.ccsdk-app-os:1.4.0
+repository: image-registry.openshift-image-registry.svc:5000
+image: pltf-onap/org.onap.ccsdk.dashboard.ccsdk-app-os:1.4.0
 pullPolicy: Always
 
 # probe configuration parameters
 liveness:
   initialDelaySeconds: 10
-  periodSeconds: 10
+  periodSeconds: 300
   # necessary to disable liveness probe when setting breakpoints
   # in debugger so K8s doesn't restart unresponsive container
   # liveness not desirable for Cloudify Manager container
@@ -72,7 +72,7 @@ liveness:
 
 readiness:
   initialDelaySeconds: 30
-  periodSeconds: 30
+  periodSeconds: 300
   path: /ccsdk-app/health
   scheme: HTTPS
 
@@ -112,14 +112,14 @@ resources:
       memory: 2Gi
     requests:
       cpu: 1
-      memory: 1Gi
+      memory: 512Mi
   large:
     limits:
       cpu: 4
       memory: 4Gi
     requests:
       cpu: 2
-      memory: 2Gi
+      memory: 512Mi
   unlimited: {}
 # Kubernetes namespace for components deployed via Cloudify manager
 # If empty, use the common namespace

@@ -37,6 +37,8 @@ spec:
         app: {{ include "common.name" . }}
         release: {{ include "common.release" . }}
     spec:
+      serviceAccount: sa-anyuid
+      serviceAccountName: sa-anyuid
 {{- if .Values.persistence.enabled }}
       initContainers:
         - name: fix-permission
@@ -53,9 +55,16 @@ spec:
             - mountPath: /consul/data
               name: {{ include "common.fullname" . }}-data
 {{- end }}
+      serviceAccount: sa-anyuid
+      serviceAccountName: sa-anyuid
       containers:
       - image: "{{ include "common.repository" . }}/{{ .Values.image.vault }}"
         name: {{ include "common.name" . }}
+        env:
+        - name: "SKIP_CHOWN"
+          value: "true"
+        - name: "SKIP_SETCAP"
+          value: "true"  
         imagePullPolicy: {{ .Values.global.pullPolicy | default .Values.pullPolicy }}
         args: ["server"]
         ports:
@@ -64,9 +73,9 @@ spec:
         - mountPath: /vault/config/config.json
           name: {{ include "common.fullname" . }}-vault
           subPath: config.json
-        - mountPath: /etc/localtime
-          name: localtime
-          readOnly: true
+          #- mountPath: /etc/localtime
+          #name: localtime
+          #readOnly: true
         resources:
 {{ include "common.resources" . | indent 10 }}
       - image: "{{ include "common.repository" . }}/{{ .Values.image.consul }}"
@@ -84,9 +93,9 @@ spec:
         - mountPath: /consul/config/config.json
           name: {{ include "common.fullname" . }}-consulconfiguration
           subPath: config.json
-        - mountPath: /etc/localtime
-          name: localtime
-          readOnly: true
+          #- mountPath: /etc/localtime
+          #name: localtime
+          #readOnly: true
         resources:
 {{ include "common.resources" . | indent 10 }}
       volumes:
@@ -96,11 +105,11 @@ spec:
         - name: {{ include "common.fullname" . }}-vault
           configMap:
             name: {{ include "common.fullname" . }}-vault
-        - name: localtime
-          hostPath:
-            path: /etc/localtime
-      imagePullSecrets:
-      - name: "{{ include "common.namespace" . }}-docker-registry-key"
+            #- name: localtime
+            #hostPath:
+            #path: /etc/localtime
+            #imagePullSecrets:
+            #- name: "{{ include "common.namespace" . }}-docker-registry-key"
 {{- if .Values.persistence.enabled }}
   volumeClaimTemplates:
   - metadata:
@@ -113,7 +122,8 @@ spec:
     spec:
       accessModes:
       - {{ .Values.persistence.accessMode | quote }}
-      storageClassName: {{ include "common.storageClass" . }}
+      storageClassName: ocs-storagecluster-ceph-rbd  
+      #storageClassName: {{ include "common.storageClass" . }}
       resources:
         requests:
           storage: {{ .Values.persistence.size | quote }}

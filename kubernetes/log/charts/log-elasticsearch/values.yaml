@@ -18,8 +18,8 @@
 #################################################################
 global:
   nodePortPrefix: 302
-  loggingRepository: docker.elastic.co
-  loggingImage: beats/filebeat:5.5.0
+  loggingRepository: image-registry.openshift-image-registry.svc:5000
+  loggingImage: pltf-onap/filebeat:5.5.0
   persistence: {}
 
 #################################################################
@@ -27,8 +27,8 @@ global:
 #################################################################
 
 # BusyBox image
-busyboxRepository: registry.hub.docker.com
-busyboxImage: library/busybox:latest
+busyboxRepository: image-registry.openshift-image-registry.svc:5000
+busyboxImage: pltf-onap/busybox:latest
 
 # application image
 loggingRepository: docker.elastic.co

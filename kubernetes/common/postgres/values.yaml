@@ -45,11 +45,12 @@ secrets:
 # Application configuration defaults.
 #################################################################
 
-# BusyBox image
+ # BusyBox image
 busyboxRepository: registry.hub.docker.com
 busyboxImage: library/busybox:latest
 
-postgresRepository: crunchydata
+#postgresRepository: crunchydata
+postgresRepository: image-registry.openshift-image-registry.svc:5000
 image: crunchy-postgres:centos7-10.11-4.2.1
 pullPolicy: Always
 
@@ -101,9 +102,9 @@ persistence:
   ##   GKE, AWS & OpenStack)
   accessMode: ReadWriteOnce
   size: 1Gi
-  mountPath: /dockerdata-nfs
-  mountSubPath: postgres/data
-  mountInitPath: postgres
+  #mountPath: /dockerdata-nfs
+  #mountSubPath: postgres/data
+  #  mountInitPath: postgres
 
 service:
   type: ClusterIP
@@ -151,6 +152,6 @@ resources:
       cpu: 2
       memory: 4Gi
     requests:
-      cpu: 1
-      memory: 2Gi
+      cpu: 200m
+      memory: 512m
   unlimited: {}

@@ -15,7 +15,7 @@
 # limitations under the License.
 */}}
 
-apiVersion: extensions/v1beta1
+apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: {{ include "common.fullname" . }}
@@ -25,7 +25,13 @@ metadata:
     chart: {{ .Chart.Name }}-{{ .Chart.Version | replace "+" "_" }}
     release: {{ include "common.release" . }}
     heritage: {{ .Release.Service }}
+
+    
 spec:
+  selector: {{- include "common.selectors" . | nindent 4 }}
+  selector:
+    matchLabels:
+      app: {{ include "common.name" . }}      
   replicas: {{ .Values.replicaCount }}
   template:
     metadata:
@@ -75,17 +81,27 @@ spec:
           {{ end -}}
           env:
           volumeMounts:
-          - mountPath: /etc/localtime
-            name: localtime
-            readOnly: true
+                  #- mountPath: /etc/localtime
+                  #name: localtime
+                  #readOnly: true
           - mountPath: /usr/share/logstash/config/
             name: {{ include "common.fullname" . }}-config
           - mountPath: /usr/share/logstash/pipeline/
             name: {{ include "common.fullname" . }}-pipeline
+          resources:
+{{ include "common.resources" . | indent 12 }}
+        {{- if .Values.nodeSelector }}
+        nodeSelector:
+{{ toYaml .Values.nodeSelector | indent 10 }}
+        {{- end -}}
+        {{- if .Values.affinity }}
+        affinity:
+{{ toYaml .Values.affinity | indent 10 }}
+        {{- end }}  
       volumes:
-        - name: localtime
-          hostPath:
-            path: /etc/localtime
+              #- name: localtime
+              #hostPath:
+              #path: /etc/localtime
         - name: {{ include "common.fullname" . }}-config
           configMap:
             name: {{ include "common.fullname" . }}
@@ -100,3 +116,4 @@ spec:
               path: onap-pipeline.conf
       imagePullSecrets:
       - name: "{{ include "common.namespace" . }}-docker-registry-key"
+

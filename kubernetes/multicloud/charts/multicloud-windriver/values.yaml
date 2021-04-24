@@ -25,8 +25,10 @@ global:
 # Application configuration defaults.
 #################################################################
 # application image
-repository: nexus3.onap.org:10001
-image: onap/multicloud/openstack-windriver:1.5.5
+#repository: nexus3.onap.org:10001
+#image: onap/multicloud/openstack-windriver:1.5.5
+repository: image-registry.openshift-image-registry.svc:5000
+image: pltf-onap/multicloud-openstack-windriver:latest
 pullPolicy: Always
 
 #Istio sidecar injection policy
@@ -62,7 +64,7 @@ affinity: {}
 # probe configuration parameters
 liveness:
   initialDelaySeconds: 30
-  periodSeconds: 10
+  periodSeconds: 300
   timeoutSeconds: 10
   successThreshold: 1
   failureThreshold: 5
@@ -73,8 +75,8 @@ ingress:
 
 persistence:
   enabled: true
-  mountPath: /dockerdata-nfs
-  mountSubPath: multicloud-windriver/data
+  #mountPath: /dockerdata-nfs
+  #mountSubPath: multicloud-windriver/data
   volumeReclaimPolicy: Retain
   accessMode: ReadWriteOnce
   size: 5Gi
@@ -89,12 +91,14 @@ resources:
       memory: 4Gi
     requests:
       cpu: 10m
-      memory: 1Gi
+      #memory: 1Gi
+      memory: 512Mi
   large:
     limits:
       cpu: 2
       memory: 8Gi
     requests:
       cpu: 20m
-      memory: 2Gi
+      #memory: 2Gi
+      memory: 512Mi
   unlimited: {}

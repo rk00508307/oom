@@ -50,6 +50,7 @@ spec:
         image: "{{ include "common.repository" . }}/{{ .Values.global.readinessImage }}"
         imagePullPolicy: {{ .Values.global.pullPolicy | default .Values.pullPolicy }}
         name: {{ include "common.name" . }}-readiness
+      serviceAccountName: sa-anyuid
       containers:
         - name: {{ include "common.name" . }}
           image: "{{ include "common.repository" . }}/{{ .Values.image }}"
@@ -71,9 +72,9 @@ spec:
             periodSeconds: {{ .Values.readiness.periodSeconds }}
             timeoutSeconds: {{ .Values.readiness.timeoutSeconds }}
           volumeMounts:
-          - mountPath: /etc/localtime
-            name: localtime
-            readOnly: true
+          #- mountPath: /etc/localtime
+            #name: localtime
+              #readOnly: true
           - mountPath: {{ .Values.persistence.deployedBlueprint }}
             name: {{ include "common.fullname" . }}-blueprints
           resources:
@@ -87,11 +88,11 @@ spec:
 {{ toYaml .Values.affinity | indent 10 }}
         {{- end }}
       volumes:
-        - name: localtime
-          hostPath:
-            path: /etc/localtime
+        #- name: localtime
+           #hostPath:
+             #path: /etc/localtime
         - name: {{ include "common.fullname" . }}-blueprints
           persistentVolumeClaim:
             claimName: {{ include "common.release" . }}-cds-blueprints
-      imagePullSecrets:
-      - name: "{{ include "common.namespace" . }}-docker-registry-key"
+      #imagePullSecrets:
+      #- name: "{{ include "common.namespace" . }}-docker-registry-key"

@@ -27,6 +27,7 @@ spec:
   template:
     metadata: {{- include "common.templateMetadata" . | nindent 6 }}
     spec:
+      serviceAccountName: sa-anyuid
       hostNetwork: {{ .Values.hostNetwork }}
       containers:
       - name: {{ include "common.name" . }}
@@ -36,9 +37,9 @@ spec:
         volumeMounts:
           - name: {{ include "common.fullname" . }}-data
             mountPath: /var/lib/cassandra
-          - name: localtime
-            mountPath: /etc/localtime
-            readOnly: true
+          #- name: localtime
+            #mountPath: /etc/localtime
+            #readOnly: true
           - name: cassandra-entrypoint
             mountPath: /docker-entrypoint.sh
             subPath: docker-entrypoint.sh
@@ -119,10 +120,11 @@ spec:
       {{- if .Values.affinity }}
       affinity: {{ toYaml .Values.affinity | nindent 8 }}
       {{- end }}
+      serviceAccountName: sa-anyuid
       volumes:
-      - name: localtime
-        hostPath:
-          path: /etc/localtime
+      #- name: localtime
+        #hostPath:
+          #path: /etc/localtime
       {{- range $key, $value := .Values.configOverrides }}
       - name: cassandra-config-{{ $key | replace "." "-" }}
         configMap:
@@ -151,8 +153,9 @@ spec:
         {{- else }}
         - ReadWriteOnce
         {{- end }}
-        storageClassName: {{ include "common.storageClass" . }}
+        storageClass: ocs-storagecluster-ceph-rbd
         resources:
           requests:
             storage: {{ .Values.persistence.size | quote }}
   {{- end }}
+

@@ -18,10 +18,10 @@
 #################################################################
 global:
   nodePortPrefix: 302
-  loggingRepository: docker.elastic.co
-  loggingImage: beats/filebeat:5.5.0
+  loggingRepository: image-registry.openshift-image-registry.svc:5000
+  loggingImage: pltf-onap/filebeat:5.5.0
   persistence: {}
-  envsubstImage: dibi/envsubst
+  envsubstImage: pltf-onap/envsubst:latest
   aafEnabled: true
 
 flavor: small
@@ -31,6 +31,7 @@ flavor: small
 #################################################################
 certInitializer:
   nameOverride: aaf-sms-cert-init
+  #fullnameOverride: aaf-sms
   aafDeployFqi: deployer@people.osaaf.org
   aafDeployPass: demo123456!
   # aafDeployCredsExternalSecret: some secret
@@ -58,8 +59,8 @@ certInitializer:
 # Application configuration defaults.
 #################################################################
 # application image
-repository: nexus3.onap.org:10001
-image: onap/aaf/sms:4.0.2
+repository: image-registry.openshift-image-registry.svc:5000
+image: pltf-onap/aaf-sms:latest
 pullPolicy: Always
 
 # flag to enable debugging - application support required
@@ -114,8 +115,8 @@ persistence:
   volumeReclaimPolicy: Retain
   accessMode: ReadWriteOnce
   size: 1Gi
-  mountPath: /dockerdata-nfs
-  mountSubPath: sms/auth
+  #mountPath: /dockerdata-nfs
+  #mountSubPath: sms/auth
 
 ingress:
   enabled: false

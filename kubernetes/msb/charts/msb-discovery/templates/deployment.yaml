@@ -76,9 +76,6 @@ spec:
           - name: CONSUL_IP
             value: msb-consul.{{ include "common.namespace" . }}
           volumeMounts:
-          - mountPath: /etc/localtime
-            name: localtime
-            readOnly: true
           - mountPath: /usr/local/discover-works/logs
             name: {{ include "common.fullname" . }}-logs
           resources:
@@ -118,8 +115,4 @@ spec:
           emptyDir: {}
         - name:  {{ include "common.fullname" . }}-logs
           emptyDir: {}
-        - name: localtime
-          hostPath:
-            path: /etc/localtime
-      imagePullSecrets:
-      - name: "{{ include "common.namespace" . }}-docker-registry-key"
+      serviceAccountName: sa-anyuid

@@ -80,6 +80,7 @@ spec:
             cpu: 3m
             memory: 20Mi
       {{- end }}
+      serviceAccountName: sa-anyuid
       containers:
         - name: {{ include "common.name" . }}
           image: "{{ include "common.repository" . }}/{{ .Values.image }}"
@@ -125,9 +126,9 @@ spec:
             value: "{{ .Values.config.isTrustAll}}"
             {{ end }}
           volumeMounts:
-          - name: {{ include "common.fullname" . }}-localtime
-            mountPath: /etc/localtime
-            readOnly: true
+          #- name: {{ include "common.fullname" . }}-localtime
+            #mountPath: /etc/localtime
+            #readOnly: true
           {{- if .Values.global.aafEnabled }}
           - name: sdc-certs
             mountPath: /sdc-certs/mycreds.prop
@@ -168,9 +169,9 @@ spec:
               cpu: 3m
               memory: 20Mi
       volumes: {{ include "common.certInitializer.volumes" . | nindent 8 }}
-        - name: {{ include "common.fullname" . }}-localtime
-          hostPath:
-            path: /etc/localtime
+        #- name: {{ include "common.fullname" . }}-localtime
+           #hostPath:
+             #path: /etc/localtime
         {{- if .Values.global.aafEnabled }}
         - name: sdc-certs
           emptyDir:
@@ -183,5 +184,5 @@ spec:
           emptyDir: {}
         - name:  {{ include "common.fullname" . }}-logs
           emptyDir: {}
-      imagePullSecrets:
-      - name: "{{ include "common.namespace" . }}-docker-registry-key"
+      #imagePullSecrets:
+      #- name: "{{ include "common.namespace" . }}-docker-registry-key"

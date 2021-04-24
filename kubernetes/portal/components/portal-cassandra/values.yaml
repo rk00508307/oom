@@ -22,8 +22,8 @@ global: # global defaults
 
 
 # application image
-repository: nexus3.onap.org:10001
-image: onap/music/cassandra_music:3.0.0
+repository: image-registry.openshift-image-registry.svc:5000
+image: pltf-onap/cassandra_music:3.0.0
 pullPolicy: Always
 
 #################################################################
@@ -52,15 +52,15 @@ affinity: {}
 
 # probe configuration parameters
 liveness:
-  initialDelaySeconds: 10
-  periodSeconds: 10
+  initialDelaySeconds: 30
+  periodSeconds: 30
   # necessary to disable liveness probe when setting breakpoints
   # in debugger so K8s doesn't restart unresponsive container
   enabled: true
 
 readiness:
-  initialDelaySeconds: 10
-  periodSeconds: 10
+  initialDelaySeconds: 30
+  periodSeconds: 30
 
 ## Persist data to a persitent volume
 persistence:
@@ -82,8 +82,8 @@ persistence:
   # storageClass: "-"
   accessMode: ReadWriteOnce
   size: 2Gi
-  mountPath: /dockerdata-nfs
-  mountSubPath: portal/cassandra/data
+  # mountPath: /dockerdata-nfs
+  #mountSubPath: portal/cassandra/data
 
 service:
   type: ClusterIP

@@ -23,8 +23,8 @@ global:
 # Application configuration defaults.
 #################################################################
 # application image
-repository: nexus3.onap.org:10001
-image: onap/aaf/smsquorumclient:4.0.2
+repository: image-registry.openshift-image-registry.svc:5000
+image: pltf-onap/aaf-smsquorumclient:latest
 pullPolicy: Always
 
 # flag to enable debugging - application support required
@@ -44,8 +44,8 @@ persistence:
   volumeReclaimPolicy: Retain
   accessMode: ReadWriteOnce
   size: 10Mi
-  mountPath: /dockerdata-nfs
-  mountSubPath: sms/quorum/data
+  #mountPath: /dockerdata-nfs
+  #mountSubPath: sms/quorum/data
 
 ingress:
   enabled: false

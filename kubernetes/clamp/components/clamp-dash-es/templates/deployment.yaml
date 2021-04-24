@@ -52,7 +52,7 @@ spec:
               apiVersion: v1
               fieldPath: metadata.namespace
         securityContext:
-          privileged: true
+          privileged: false
         image: {{ .Values.global.busyboxRepository | default .Values.busyboxRepository }}/{{ .Values.busyboxImage }}
         imagePullPolicy: {{ .Values.global.pullPolicy | default .Values.pullPolicy }}
         name: init-sysctl
@@ -100,9 +100,6 @@ spec:
             timeoutSeconds: {{ .Values.readiness.timeoutSeconds }}
           env:
           volumeMounts: {{ include "common.certInitializer.volumeMount" . | nindent 10 }}
-          - mountPath: /etc/localtime
-            name: localtime
-            readOnly: true
           - mountPath: /usr/share/elasticsearch/config/elasticsearch.yml
             name: {{ include "common.fullname" . }}-config
             subPath: elasticsearch.yml
@@ -119,9 +116,6 @@ spec:
 {{ toYaml .Values.affinity | indent 10 }}
         {{- end }}
       volumes: {{ include "common.certInitializer.volumes" . | nindent 8 }}
-        - name: localtime
-          hostPath:
-            path: /etc/localtime
         - name: {{ include "common.fullname" . }}-config
           configMap:
             name: {{ include "common.fullname" . }}-configmap
@@ -132,7 +126,4 @@ spec:
           persistentVolumeClaim:
             claimName: {{ include "common.fullname" . }}
         - name: {{ include "common.fullname" . }}-logs
-          hostPath:
-            path: {{ .Values.global.persistence.mountPath | default .Values.persistence.mountPath }}/{{ include "common.release" . }}/{{ .Values.persistence.mountSubPathLogs }}
-      imagePullSecrets:
-      - name: "{{ include "common.namespace" . }}-docker-registry-key"
+      serviceAccountName: sa-anyuid

@@ -37,6 +37,7 @@ spec:
         release: {{ include "common.release" . }}
       name: {{ include "common.name" . }}
     spec:
+     serviceAccountName: sa-anyuid
      containers:
      - env:
        - name: MSB_PROTO
@@ -114,6 +115,6 @@ spec:
      - name: framework-logconfig
        configMap:
          name: {{ include "common.fullname" . }}-log-configmap
-     imagePullSecrets:
-     - name: "{{ include "common.namespace" . }}-docker-registry-key"
+     #imagePullSecrets:
+     #- name: "{{ include "common.namespace" . }}-docker-registry-key"
      restartPolicy: Always

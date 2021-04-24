@@ -74,6 +74,7 @@ spec:
             - mountPath: /opt/app/osaaf
               name: tls-info
         {{ end  }}
+      serviceAccountName: sa-anyuid
       containers:
         {{- if .Values.service.secure.enabled }}
         - name: {{ include "common.name" . }}
@@ -186,5 +187,5 @@ spec:
           emptyDir: {}
         {{ end }}
 
-      imagePullSecrets:
-      - name: "{{ include "common.namespace" . }}-docker-registry-key"
+      #imagePullSecrets:
+      #- name: "{{ include "common.namespace" . }}-docker-registry-key"

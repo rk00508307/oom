@@ -20,7 +20,7 @@ global:
   env:
     tomcatDir: "/usr/local/tomcat"
   nodePortPrefix: 302
-  readinessImage: onap/oom/readiness:3.0.1
+  readinessImage: pltf-onap/readiness:3.0.1
   loggingRepository: docker.elastic.co
   loggingImage: beats/filebeat:5.5.0
   envsubstImage: dibi/envsubst
@@ -55,8 +55,8 @@ secrets:
 #################################################################
 
 # application image
-repository: nexus3.onap.org:10001
-image: onap/portal-app:3.4.2
+repository: image-registry.openshift-image-registry.svc:5000
+image: pltf-onap/portal-app:3.4.2
 pullPolicy: Always
 
 # application configuration
@@ -97,14 +97,14 @@ affinity: {}
 # probe configuration parameters
 liveness:
   initialDelaySeconds: 10
-  periodSeconds: 10
+  periodSeconds: 300
   # necessary to disable liveness probe when setting breakpoints
   # in debugger so K8s doesn't restart unresponsive container
   enabled: true
 
 readiness:
   initialDelaySeconds: 10
-  periodSeconds: 10
+  periodSeconds: 300
 
 service:
   type: LoadBalancer
@@ -170,5 +170,5 @@ resources:
       memory: 15Gi
     requests:
       cpu: 2
-      memory: 8Gi
+      memory: 512Mi
   unlimited: {}

@@ -36,6 +36,7 @@ spec:
         app: {{ include "common.name" . }}
         release: {{ include "common.release" . }}
     spec:
+      serviceAccountName: sa-anyuid
       initContainers: {{ include "common.certInitializer.initContainer" . | nindent 8 }}
         # Currently intermediate certificate is not given by AAF CM so we need
         # to give it "by hand"
@@ -108,9 +109,9 @@ spec:
           initialDelaySeconds: {{ .Values.readiness.initialDelaySeconds }}
           periodSeconds: {{ .Values.readiness.periodSeconds }}
         volumeMounts: {{ include "common.certInitializer.volumeMount" . | nindent 10 }}
-          - mountPath: /etc/localtime
-            name: localtime
-            readOnly: true
+        #   - mountPath: /etc/localtime
+        #   name: localtime
+        #   readOnly: true
           - mountPath: /sms/smsconfig.json
             name: {{ include "common.name" .}}
             subPath: smsconfig.json
@@ -126,13 +127,15 @@ spec:
         affinity:
 {{ toYaml .Values.affinity | indent 10 }}
         {{- end }}
+      serviceAccountName: sa-anyuid
       volumes: {{ include "common.certInitializer.volumes" . | nindent 6 }}
-      - name: localtime
-        hostPath:
-          path: /etc/localtime
+      #- name: localtime
+      # hostPath:
+      #   path: /etc/localtime
       - name : {{ include "common.name" . }}
         configMap:
-          name: {{ include "common.fullname" . }}
+          name: aaf-sms-cert-wrapper-certs
+                #name: {{ include "common.fullname" . }}
       {{- if .Values.global.aafEnabled }}
       - name: {{ include "common.fullname" . }}-int-certs
         secret:
@@ -145,5 +148,3 @@ spec:
       {{- else }}
         emptyDir: {}
       {{- end }}
-      imagePullSecrets:
-      - name: "{{ include "common.namespace" . }}-docker-registry-key"

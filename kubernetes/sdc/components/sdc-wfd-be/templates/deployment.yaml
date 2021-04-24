@@ -60,6 +60,7 @@ spec:
             cpu: 3m
             memory: 20Mi
       {{ end }}
+      serviceAccountName: sa-anyuid
       containers:
         - name: {{ include "common.name" . }}
           image: "{{ include "common.repository" . }}/{{ .Values.image }}"
@@ -134,5 +135,5 @@ spec:
           volumeMounts: {{ include "common.certInitializer.volumeMount" . | nindent 10 }}
           resources: {{ include "common.resources" . | nindent 12 }}
       volumes: {{ include "common.certInitializer.volumes" . | nindent 8 }}
-      imagePullSecrets:
-      - name: "{{ include "common.namespace" . }}-docker-registry-key"
+      #imagePullSecrets:
+      #- name: "{{ include "common.namespace" . }}-docker-registry-key"

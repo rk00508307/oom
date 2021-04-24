@@ -38,7 +38,8 @@ spec:
       labels:
         app: {{ include "common.name" . }}
         release: {{ include "common.release" . }}
-    spec:
+    spec: 
+      serviceAccountName: sa-anyuid
       containers:
         - name: {{ include "common.name" . }}
           image: "{{ include "common.repository" . }}/{{ .Values.image }}"
@@ -78,5 +79,5 @@ spec:
         - name: {{ include "common.fullname" . }}-expected-components
           configMap:
             name: {{ include "common.release" . }}-dcae-expected-components
-      imagePullSecrets:
-      - name: "{{ include "common.namespace" . }}-docker-registry-key"
+      #imagePullSecrets:
+      #- name: "{{ include "common.namespace" . }}-docker-registry-key"

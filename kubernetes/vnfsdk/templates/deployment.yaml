@@ -84,8 +84,7 @@ spec:
             port: {{ .Values.service.internalPort }}
           initialDelaySeconds: {{ .Values.readiness.initialDelaySeconds }}
           periodSeconds: {{ .Values.readiness.periodSeconds }}
-      imagePullSecrets:
-      - name: "{{ include "common.namespace" . }}-docker-registry-key"
+      serviceAccountName: sa-anyuid
       volumes:
       - name: init-data-input
         configMap:

@@ -17,10 +17,10 @@
 global:
   nodePortPrefix: 302
   nodePortPrefixExt: 304
-  repository: nexus3.onap.org:10001
-  readinessImage: onap/oom/readiness:3.0.1
-  aafAgentImage: onap/aaf/aaf_agent:2.1.20
-  envsubstImage: dibi/envsubst
+  repository: image-registry.openshift-image-registry.svc:5000
+  readinessImage: pltf-onap/readiness:latest
+  aafAgentImage: pltf-onap/aaf_agent:latest
+  envsubstImage: pltf-onap/envsubst:latest
   persistence:
     mountPath: /dockerdata-nfs
   #This configuration specifies Service and port for SDNC OAM interface
@@ -60,8 +60,8 @@ secrets:
 #################################################################
 # Application configuration defaults.
 #################################################################
-repository: nexus3.onap.org:10001
-image: onap/so/sdnc-adapter:1.7.11
+repository: image-registry.openshift-image-registry.svc:5000
+image: pltf-onap/sdnc-adapter:latest
 pullPolicy: Always
 
 org:
@@ -123,15 +123,15 @@ resources:
       memory: 4Gi
       cpu: 2000m
     requests:
-      memory: 1Gi
-      cpu: 500m
+      cpu: 200m
+      memory: 512m
   large:
     limits:
       memory: 8Gi
       cpu: 4000m
     requests:
-      memory: 2Gi
-      cpu: 1000m
+      cpu: 200m
+      memory: 512m
   unlimited: {}
 livenessProbe:
     path: /manage/health

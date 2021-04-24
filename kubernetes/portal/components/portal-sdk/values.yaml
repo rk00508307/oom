@@ -20,11 +20,11 @@ global:
   env:
     tomcatDir: "/usr/local/tomcat"
   nodePortPrefix: 302
-  readinessImage: onap/oom/readiness:3.0.1
-  loggingRepository: docker.elastic.co
-  loggingImage: beats/filebeat:5.5.0
+  readinessImage: pltf-onap/readiness:3.0.1
+  loggingRepository: image-registry.openshift-image-registry.svc:5000
+  loggingImage: pltf-onap/filebeat:5.5.0
   persistence: {}
-  envsubstImage: dibi/envsubst
+  envsubstImage: pltf-onap/envsubst:latest
   #AAF service
   aafEnabled: true
 
@@ -56,8 +56,8 @@ secrets:
 #################################################################
 
 # application image
-repository: nexus3.onap.org:10001
-image: onap/portal-sdk:3.4.2
+repository: image-registry.openshift-image-registry.svc:5000
+image: pltf-onap/portal-sdk:3.4.2
 pullPolicy: Always
 
 # application configuration

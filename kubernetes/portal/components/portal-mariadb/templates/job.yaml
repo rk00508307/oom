@@ -48,6 +48,10 @@ spec:
             fieldRef:
               apiVersion: v1
               fieldPath: metadata.namespace
+      serviceAccount: sa-anyuid
+      serviceAccountName: sa-anyuid
+      #imagePullSecrets:
+      #- name: {{ .Values.global.pullPolicy | default .Values.pullPolicy }}
       containers:
       - name: {{ include "common.name" . }}-job
         image: "{{ include "common.repository" . }}/{{ .Values.mariadbInitImage }}"
@@ -90,6 +94,7 @@ spec:
       - name: portal-mariadb-sql
         configMap:
           name: {{ include "common.fullname" . }}-mariadb
-      imagePullSecrets:
-      - name: "{{ include "common.namespace" . }}-docker-registry-key"
+          #imagePullSecrets:
+          #- name: "{{ include "common.namespace" . }}-docker-registry-key"
       restartPolicy: Never
+

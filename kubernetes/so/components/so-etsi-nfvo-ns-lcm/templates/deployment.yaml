@@ -29,6 +29,7 @@ spec:
   template:
     metadata: {{- include "common.templateMetadata" . | nindent 6 }}
     spec:
+      serviceAccountName: sa-anyuid
       initContainers: {{ include "so.certificate.container_importer" . | nindent 8 }}
       containers:
         - name: {{ include "common.name" . }}
@@ -90,5 +91,3 @@ spec:
         - name: config
           configMap:
             name: {{ include "common.fullname" . }}-app-configmap
-      imagePullSecrets:
-        - name: "{{ include "common.namespace" . }}-docker-registry-key"

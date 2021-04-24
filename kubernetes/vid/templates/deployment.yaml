@@ -51,6 +51,7 @@ spec:
         image: "{{ include "common.repository" . }}/{{ .Values.global.readinessImage }}"
         imagePullPolicy: {{ .Values.global.pullPolicy | default .Values.pullPolicy }}
         name: {{ include "common.name" . }}-readiness
+      serviceAccountName: sa-anyuid
       containers:
         - name: {{ include "common.name" . }}
           image: "{{ include "common.repository" . }}/{{ .Values.image }}"
@@ -119,9 +120,9 @@ spec:
           volumeMounts:
           - mountPath: /opt/app/vid/etc
             name: vid-certs
-          - mountPath: /etc/localtime
-            name: localtime
-            readOnly: true
+          #- mountPath: /etc/localtime
+             #name: localtime
+             #readOnly: true
           - mountPath: /var/log/onap
             name: vid-logs
           - mountPath: /tmp/logback.xml
@@ -154,8 +155,8 @@ spec:
           secret:
             secretName: {{ include "common.fullname" . }}-certs
         - name: localtime
-          hostPath:
-            path: /etc/localtime
+          #hostPath:
+            #path: /etc/localtime
         - name: filebeat-conf
           configMap:
             name: {{ include "common.fullname" . }}-filebeat-configmap
@@ -166,5 +167,5 @@ spec:
         - name: vid-logback
           configMap:
             name: {{ include "common.fullname" . }}-log-configmap
-      imagePullSecrets:
-      - name: "{{ include "common.namespace" . }}-docker-registry-key"
+      #imagePullSecrets:
+      #- name: "{{ include "common.namespace" . }}-docker-registry-key"

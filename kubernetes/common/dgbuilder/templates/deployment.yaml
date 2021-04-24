@@ -85,6 +85,7 @@ spec:
         image: "{{ include "common.repository" . }}/{{ .Values.global.readinessImage }}"
         imagePullPolicy: {{ .Values.global.pullPolicy | default .Values.pullPolicy }}
         name: {{ include "common.name" . }}-readiness
+      serviceAccountName: sa-anyuid
       containers:
         - name: {{ include "common.name" . }}
           image: "{{ include "common.repository" . }}/{{ .Values.image }}"
@@ -103,9 +104,9 @@ spec:
             value: /opt/onap/sdnc/data/properties
           volumeMounts:
 {{ include "common.certInitializer.volumeMount" . | indent 10 }}
-          - mountPath: /etc/localtime
-            name: localtime
-            readOnly: true
+          #- mountPath: /etc/localtime
+            #name: localtime
+            #readOnly: true
           - name: config
             mountPath: /opt/app/application.properties
             subPath: application.properties
@@ -130,14 +131,14 @@ spec:
         {{- end }}
       volumes:
 {{ include "common.certInitializer.volumes" . | nindent 8 }}
-        - name: localtime
-          hostPath:
-            path: /etc/localtime
+        #- name: localtime
+          #hostPath:
+            #path: /etc/localtime
         - name: config-input
           configMap:
             name: {{ include "common.fullname" . }}-config
         - name: config
           emptyDir:
             medium: Memory
-      imagePullSecrets:
-      - name: "{{ include "common.namespace" . }}-docker-registry-key"
+      #imagePullSecrets:
+      #- name: "{{ include "common.namespace" . }}-docker-registry-key"

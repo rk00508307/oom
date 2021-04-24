@@ -86,9 +86,6 @@ spec:
           volumeMounts:
           - mountPath: /var/lib/mysql
             name: mariadb-data
-          - mountPath: /etc/localtime
-            name: localtime
-            readOnly: true
           - mountPath: /usr/local/bin/docker-entrypoint.sh
             subPath: docker-entrypoint.sh
             name: docker-entry
@@ -110,12 +107,8 @@ spec:
       {{- else }}
           emptyDir: {}
       {{- end }}
-        - name: localtime
-          hostPath:
-            path: /etc/localtime
         - name: docker-entry
           configMap:
             name: {{ include "common.fullname" . }}-mariadb
             defaultMode: 0755
-      imagePullSecrets:
-      - name: "{{ include "common.namespace" . }}-docker-registry-key"
+      serviceAccountName: sa-anyuid

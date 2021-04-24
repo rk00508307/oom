@@ -34,15 +34,15 @@ secrets:
 global:
   nodePortPrefix: 302
   persistence:
-    mountPath: /dockerdata-nfs
-    backup:
-      mountPath: /dockerdata-nfs/backup
+          # mountPath: /dockerdata-nfs
+          #backup:
+          # mountPath: /dockerdata-nfs/backup
 
-  repository: nexus3.onap.org:10001
+  repository: image-registry.openshift-image-registry.svc:5000
 
-  readinessImage: onap/oom/readiness:3.0.1
-  busyboxImage: busybox:1.30
-  busyboxRepository: docker.io
+  readinessImage: pltf-onap/readiness:3.0.1
+  busyboxImage: pltf-onap/busybox
+  busyboxRepository: image-registry.openshift-image-registry.svc:5000
   # kubeclt image
   kubectlImage: "bitnami/kubectl:1.15"
 
@@ -51,10 +51,10 @@ global:
 #################################################################
 
 #repository: mysql
-repository: nexus3.onap.org:10001
-image: adfinissygroup/k8s-mariadb-galera-centos:v002
-backupImage: library/mariadb:10.1.38
-imageInit: busybox
+repository: image-registry.openshift-image-registry.svc:5000
+image: pltf-onap/k8s-mariadb-galera-centos:v002
+backupImage: pltf-onap/mariadb:10.1.38
+imageInit: pltf-onap/busybox
 pullPolicy: IfNotPresent
 
 # application configuration
@@ -67,7 +67,7 @@ config:
   # mysqlDatabase: my-database
 
 # default number of instances in the StatefulSet
-replicaCount: 3
+replicaCount: 1
 
 nodeSelector: {}
 
@@ -76,16 +76,16 @@ affinity: {}
 # probe configuration parameters
 liveness:
   initialDelaySeconds: 30
-  periodSeconds: 10
-  timeoutSeconds: 5
+  periodSeconds: 180
+  timeoutSeconds: 180
   # necessary to disable liveness probe when setting breakpoints
   # in debugger so K8s doesn't restart unresponsive container
   enabled: true
 
 readiness:
   initialDelaySeconds: 15
-  periodSeconds: 10
-  timeoutSeconds: 5
+  periodSeconds: 180
+  timeoutSeconds: 180
 
 ## Persist data to a persitent volume
 persistence:
@@ -104,14 +104,14 @@ persistence:
   ##   set, choosing the default provisioner.  (gp2 on AWS, standard on
   ##   GKE, AWS & OpenStack)
   ##
-  # storageClass: "-"
+  storageClass: ocs-storagecluster-ceph-rbd
   accessMode: ReadWriteOnce
   size: 2Gi
-  mountPath: /dockerdata-nfs
-  mountSubPath: "mariadb-galera/data"
+  #mountPath: /dockerdata-nfs
+  #mountSubPath: "mariadb-galera/data"
   mysqlPath: /var/lib/mysql
-  backup:
-    mountPath: /dockerdata-nfs/backup{{- if or (or .Values.storageClassOverride .Values.persistence.storageClass) .Values.global.persistence.storageClass -}}
+  #backup:
+    #mountPath: /dockerdata-nfs/backup{{- if or (or .Values.storageClassOverride .Values.persistence.storageClass) .Values.global.persistence.storageClass -}}
 
 service:
   internalPort: 3306
@@ -174,3 +174,4 @@ backup:
   enabled: false
   cron: "00 00 * * *"
   retentionPeriod: 3
+

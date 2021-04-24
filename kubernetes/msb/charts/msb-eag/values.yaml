@@ -16,14 +16,14 @@
 #################################################################
 global:
   nodePortPrefix: 302
-  readinessImage: onap/oom/readiness:3.0.1
+  readinessImage: pltf-onap/readiness:3.0.1
 
 #################################################################
 # Application configuration defaults.
 #################################################################
 # application image
-repository: nexus3.onap.org:10001
-image: onap/msb/msb_apigateway:1.2.7
+repository: image-registry.openshift-image-registry.svc:5000
+image: pltf-onap/msb_apigateway:1.2.7
 pullPolicy: Always
 istioSidecar: true
 
@@ -78,12 +78,12 @@ resources:
       memory: 500Mi
     requests:
       cpu: 100m
-      memory: 200Mi
+      memory: 512m
   large:
     limits:
       cpu: 400m
       memory: 800Mi
     requests:
       cpu: 200m
-      memory: 400Mi
+      memory: 512m
   unlimited: {}

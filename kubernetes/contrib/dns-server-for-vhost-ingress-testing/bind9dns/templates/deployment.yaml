@@ -34,6 +34,7 @@ spec:
         app.kubernetes.io/name: {{ include "bind9dns.name" . }}
         app.kubernetes.io/instance: {{ .Release.Name }}
     spec:
+      serviceAccountName: sa-anyuid
       containers:
         - name: {{ .Chart.Name }}
           image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"

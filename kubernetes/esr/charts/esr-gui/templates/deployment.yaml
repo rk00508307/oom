@@ -36,10 +36,11 @@ spec:
         app: {{ include "common.name" . }}
         release: {{ include "common.release" . }}
     spec:
-      securityContext:
-        runAsUser: 1000
-        runAsGroup: 1001
-        fsGroup: 1001
+            # securityContext:
+              #  runAsUser: 1000
+              # runAsGroup: 1001
+              #fsGroup: 1001
+      serviceAccountName: sa-anyuid  
       initContainers:
       - command:
         - cp
@@ -48,8 +49,8 @@ spec:
         - -T
         - /home/esr/tomcat
         - /opt/tomcat
-        securityContext:
-          privileged: true
+          # securityContext:
+          #privileged: true
         image: "{{ include "common.repository" . }}/{{ .Values.image }}"
         imagePullPolicy: {{ .Values.global.pullPolicy | default .Values.pullPolicy }}
         name: create-tomcat-dir
@@ -97,6 +98,3 @@ spec:
       volumes:
       - name: tomcat-workdir
         emptyDir: {}
-
-      imagePullSecrets:
-      - name: "{{ include "common.namespace" . }}-docker-registry-key"
