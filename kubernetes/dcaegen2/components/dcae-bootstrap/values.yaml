@@ -23,7 +23,7 @@ global:
   nodePortPrefix: 302
   nodePortPrefixExt: 304
   #readinessImage: onap/oom/readiness:3.0.1
-  readinessImage: pltfonap/readiness:3.0.1
+  readinessImage: pltf-onap/readiness:3.0.1
   #loggingRepository: docker.elastic.co
   loggingRepository: image-registry.openshift-image-registry.svc:5000
   #loggingImage: beats/filebeat:5.5.0
@@ -32,8 +32,8 @@ global:
   tlsRepository: image-registry.openshift-image-registry.svc:5000
   #tlsImage: onap/org.onap.dcaegen2.deployments.tls-init-container:2.1.0
   tlsImage: pltf-onap/org.onap.dcaegen2.deployments.tls-init-container:latest
-  #envsubstImage: dibi/envsubst
-  envsubstImage: pltf-onap/envsubst
+  envsubstImage: dibi/envsubst
+  #envsubstImage: pltf-onap/envsubst
 
 secrets:
   - uid: pg-root-pass
@@ -139,7 +139,7 @@ resources:
       cpu: 2
       memory: 2Gi
     requests:
-      cpu: 1
+      cpu: 200m
       #memory: 1Gi
       memory: 512Mi
   large:
@@ -147,7 +147,7 @@ resources:
       cpu: 4
       memory: 4Gi
     requests:
-      cpu: 2
+      cpu: 200m
       memory: 512Mi
   unlimited: {}
 # Kubernetes namespace for components deployed via Cloudify manager
