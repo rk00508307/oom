@@ -112,9 +112,6 @@ spec:
         #   - mountPath: /etc/localtime
         #   name: localtime
         #   readOnly: true
-          - mountPath: /sms
-            name: {{ include "common.name" .}}
-            subPath: smsconfig.json
           - mountPath: /sms/auth
             name: {{ include "common.fullname" . }}-auth
         resources:
