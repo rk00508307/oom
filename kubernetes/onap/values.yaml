@@ -48,26 +48,26 @@ global:
   repositoryCred:
     user: docker
     password: docker
-  dockerHubRepository: docker.io
+  dockerHubRepository: image-registry.openshift-image-registry.svc:5000
 
   # readiness check
-  readinessImage: onap/oom/readiness:3.0.1
+  readinessImage: pltf-onap/readiness:3.0.1
 
   # curl image
-  curlImage: curlimages/curl:7.69.1
+  curlImage: pltf-onap/curl:7.69.1
 
   # logging agent - temporary repo until images migrated to nexus3
-  loggingRepository: docker.elastic.co
+  loggingRepository: image-registry.openshift-image-registry.svc:5000
 
   # dockerHub main repository
-  dockerHubRepository: docker.io
+  dockerHubRepository: image-registry.openshift-image-registry.svc:5000
 
   # busybox repo and image
-  busyboxRepository: docker.io
-  busyboxImage: busybox:1.30
+  busyboxRepository: image-registry.openshift-image-registry.svc:5000
+  busyboxImage: pltf-onap/busybox:1.31
 
   # kubeclt image
-  kubectlImage: "bitnami/kubectl:1.15"
+  kubectlImage: "pltf-onap/kubectl:1.15"
 
   # image pull policy
   pullPolicy: Always
@@ -79,7 +79,7 @@ global:
   # default mount path root directory referenced
   # by persistent volumes and log files
   persistence:
-    mountPath: /dockerdata-nfs
+    #mountPath: /dockerdata-nfs
     enableDefaultStorageclass: false
     parameters: {}
     storageclassProvisioner: kubernetes.io/no-provisioner
