@@ -171,9 +171,9 @@ spec:
           - "https://aaf-sms.{{ include "common.namespace" . }}"
         workingDir: /sms
         volumeMounts: {{ include "common.certInitializer.volumeMount" . | nindent 10 }}
-          - mountPath: /etc/localtime
-            name: localtime 
-            readOnly: true
+          #- mountPath: /etc/localtime
+            #name: localtime 
+            #readOnly: true
           - mountPath: /preload/config
             name: {{ include "common.name" . }}-preload
         resources:
@@ -187,9 +187,9 @@ spec:
 {{ toYaml .Values.affinity | indent 10 }}
         {{- end }}
       volumes: {{ include "common.certInitializer.volumes" . | nindent 6 }}
-      - name: localtime
-        hostPath:
-          path: /etc/localtime
+      #- name: localtime
+        #hostPath:
+          #path: /etc/localtime
       - name: {{ include "common.name" . }}-preload-input
         configMap:
           name: {{ include "common.fullname" . }}-preload

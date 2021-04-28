@@ -69,6 +69,8 @@ spec:
             {{- include "common.secret.envFromSecretFast" (dict "global" . "uid" "db-creds" "key" "login") | indent 12}}
           - name: CASSPASS
             {{- include "common.secret.envFromSecretFast" (dict "global" . "uid" "db-creds" "key" "password") | indent 12}}
+          - name: CASSANDRA_LISTEN_ADDRESS
+            value: auto  
           - name: JVM_OPTS
             value: "{{ .Values.config.cassandraJvmOpts }}"
           - name: POD_IP

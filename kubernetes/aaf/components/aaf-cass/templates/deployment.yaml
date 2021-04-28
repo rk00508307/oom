@@ -31,6 +31,9 @@ spec:
         args:
         - -c
         - |
+          mkdir -p /opt/app/aaf/status
+          cd /opt/app/aaf
+          touch status
           chown -R 1000:1000 /opt/app/aaf/status
           chown -R 1000:1000 /var/lib/cassandra
         image: "{{ .Values.global.busyboxRepository }}/{{ .Values.global.busyboxImage }}"
