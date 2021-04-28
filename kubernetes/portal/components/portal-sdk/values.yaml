@@ -24,7 +24,7 @@ global:
   loggingRepository: image-registry.openshift-image-registry.svc:5000
   loggingImage: pltf-onap/filebeat:5.5.0
   persistence: {}
-  envsubstImage: pltf-onap/envsubst:latest
+  envsubstImage: image-registry.openshift-image-registry.svc:5000/pltf-onap/envsubst:latest
   #AAF service
   aafEnabled: true
 
@@ -157,13 +157,13 @@ resources:
       cpu: 600m
       memory: 1.6Gi
     requests:
-      cpu: 10m
-      memory: 1.3Gi
+      cpu: 200m
+      memory: 512Mi
   large:
     limits:
       cpu: 8
       memory: 20Gi
     requests:
-      cpu: 4
-      memory: 10Gi
+      cpu: 200m
+      memory: 512Mi
   unlimited: {}
