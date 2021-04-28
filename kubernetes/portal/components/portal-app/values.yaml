@@ -23,7 +23,7 @@ global:
   readinessImage: pltf-onap/readiness:3.0.1
   loggingRepository: docker.elastic.co
   loggingImage: beats/filebeat:5.5.0
-  envsubstImage: dibi/envsubst
+  envsubstImage: image-registry.openshift-image-registry.svc:5000/pltf-onap/envsubst
   #AAF service
   aafEnabled: true
 
