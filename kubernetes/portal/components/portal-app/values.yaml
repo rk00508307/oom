@@ -162,13 +162,13 @@ resources:
       cpu: 2.2
       memory: 800Mi
     requests:
-      cpu: 30m
-      memory: 460Mi
+      cpu: 200m
+      memory: 512Mi
   large:
     limits:
       cpu: 4
       memory: 15Gi
     requests:
-      cpu: 2
+      cpu: 200m
       memory: 512Mi
   unlimited: {}
