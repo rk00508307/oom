@@ -109,7 +109,7 @@ flavor: small
 resources:
   small:
     limits:
-      cpu: 50000git stam
+      cpu: 500m
       memory: 3.75Gi
     requests:
       cpu: 200m
