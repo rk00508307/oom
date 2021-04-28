@@ -22,7 +22,7 @@ global:
   loggingRepository: image-registry.openshift-image-registry.svc:5000
   loggingImage: pltf-onap/filebeat:5.5.0
   ubuntuInit: pltf-onap/ubuntu-init:2.0.0
-  envsubstImage: pltf-onap/envsubst
+  envsubstImage: image-registry.openshift-image-registry.svc:5000/pltf-onap/envsubst
 
 ################################################################
 # Secrets metaconfig
@@ -120,13 +120,13 @@ resources:
       cpu: 1
       memory: 430Mi
     requests:
-      cpu: 1m
-      memory: 360Mi
+      cpu: 200m
+      memory: 512Mi
   large:
     limits:
       cpu: 2
       memory: 8Gi
     requests:
-      cpu: 1
-      memory: 4Gi
+      cpu: 200m
+      memory: 512Mi
   unlimited: {}
