@@ -87,15 +87,15 @@ resources:
       cpu: 2100m
       memory: 1792Mi
     requests:
-      cpu: 30m
-      memory: 1280Mi
+      cpu: 200m
+      memory: 512Mi
   large:
     limits:
       cpu: 4
       memory: 12000Mi
     requests:
-      cpu: 40m
-      memory: 9000Mi
+      cpu: 200m
+      memory: 512Mi
   unlimited: {}
 
 persistence:
