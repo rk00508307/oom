@@ -21,7 +21,7 @@ global:
   loggingRepository: image-registry.openshift-image-registry.svc:5000
   loggingImage: pltf-onap/filebeat:5.5.0
   persistence: {}
-  envsubstImage: pltf-onap/envsubst:latest
+  envsubstImage: image-registry.openshift-image-registry.svc:5000/pltf-onap/envsubst:latest
   aafEnabled: true
 
 flavor: small
