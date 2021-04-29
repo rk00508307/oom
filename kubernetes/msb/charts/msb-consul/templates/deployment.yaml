@@ -36,14 +36,12 @@ spec:
       annotations:
         sidecar.istio.io/inject: "{{.Values.istioSidecar}}"
     spec:
-      serviceAccountName: msb
+
       containers:
         - name: {{ include "common.name" . }}
           image: "{{ .Values.global.dockerHubRepository | default .Values.dockerHubRepository }}/{{ .Values.image }}"
           imagePullPolicy: {{ .Values.global.pullPolicy | default .Values.pullPolicy }}
-          securityContext:
-            runAsUser: {{ .Values.securityContext.runAsUser }}
-            runAsGroup: {{ .Values.securityContext.runAsGroup }}
+
           command:
             - docker-entrypoint.sh
           args:
