@@ -118,7 +118,7 @@ global:
   # POC Mode, only for use in development environment
   # Keep it enabled in production
   aafEnabled: true
-  aafAgentImage: image-registry.openshift-image-registry.svc:5000/pltf-onap/aaf_agent:2.1.20
+  aafAgentImage: pltf-onap/aaf_agent:2.1.20
 
   # Enabling CMPv2
   cmpv2Enabled: true
