@@ -86,7 +86,7 @@ global:
     volumeReclaimPolicy: Retain
 
   # override default resource limit flavor for all charts
-  flavor: unlimited
+  flavor: small
 
   # flag to enable debugging - application support required
   debugEnabled: false
