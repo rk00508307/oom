@@ -56,7 +56,7 @@ liveness:
   periodSeconds: 300
   # necessary to disable liveness probe when setting breakpoints
   # in debugger so K8s doesn't restart unresponsive container
-  enabled: true
+  enabled: false
 
 readiness:
   initialDelaySeconds: 30
