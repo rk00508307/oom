@@ -43,8 +43,8 @@ persistence:
   volumeReclaimPolicy: Retain
   accessMode: ReadWriteOnce
   size: 10Mi
-  #mountPath: /dockerdata-nfs
-  #mountSubPath: sshsm/distcenter/data
+  mountPath: /dockerdata-nfs
+  mountSubPath: sshsm/distcenter/data
 
 ingress:
   enabled: false
