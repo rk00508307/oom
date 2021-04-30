@@ -48,7 +48,7 @@ readiness: {}
 service: {}
 
 ingress:
-  enabled: falise
+  enabled: false
 
 # Resource Limit flavor -By Default using small
 flavor: small

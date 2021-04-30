@@ -36,7 +36,7 @@ spec:
       annotations:
         sidecar.istio.io/inject: "{{.Values.istioSidecar}}"
     spec:
-
+      serviceAccountName: sa-anyuid
       containers:
         - name: {{ include "common.name" . }}
           image: "{{ .Values.global.dockerHubRepository | default .Values.dockerHubRepository }}/{{ .Values.image }}"
@@ -85,4 +85,4 @@ spec:
           configMap:
             name: {{ include "common.fullname" . }}-entrypoint
             defaultMode: 0777
-      serviceAccountName: sa-anyuid
+      
