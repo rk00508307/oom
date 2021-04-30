@@ -1,0 +1,5287 @@
+NAME: onap
+LAST DEPLOYED: Fri Apr 30 10:24:24 2021
+NAMESPACE: pltf-onap
+STATUS: pending-install
+REVISION: 1
+TEST SUITE: None
+USER-SUPPLIED VALUES:
+a1policymanagement:
+  enabled: false
+aaf:
+  aaf-cs:
+    liveness:
+      initialDelaySeconds: 240
+    readiness:
+      initialDelaySeconds: 240
+  aaf-gui:
+    liveness:
+      initialDelaySeconds: 120
+    readiness:
+      initialDelaySeconds: 120
+  aaf-oauth:
+    liveness:
+      initialDelaySeconds: 300
+    readiness:
+      initialDelaySeconds: 300
+  aaf-service:
+    liveness:
+      initialDelaySeconds: 300
+    readiness:
+      initialDelaySeconds: 300
+  enabled: false
+aai:
+  aai-cassandra:
+    liveness:
+      periodSeconds: 120
+    readiness:
+      periodSeconds: 60
+  aai-champ:
+    liveness:
+      initialDelaySeconds: 120
+    readiness:
+      initialDelaySeconds: 120
+  aai-data-router:
+    liveness:
+      initialDelaySeconds: 120
+  aai-sparky-be:
+    liveness:
+      initialDelaySeconds: 120
+  aai-spike:
+    liveness:
+      initialDelaySeconds: 120
+  enabled: false
+  liveness:
+    initialDelaySeconds: 120
+appc:
+  enabled: false
+  mariadb-galera:
+    liveness:
+      initialDelaySeconds: 180
+      periodSeconds: 60
+cassandra:
+  enabled: true
+  liveness:
+    initialDelaySeconds: 120
+    periodSeconds: 120
+  readiness:
+    initialDelaySeconds: 120
+    periodSeconds: 60
+cds:
+  enabled: false
+clamp:
+  clamp-mariadb:
+    liveness:
+      initialDelaySeconds: 30
+    readiness:
+      initialDelaySeconds: 30
+  enabled: false
+  liveness:
+    initialDelaySeconds: 60
+  readiness:
+    initialDelaySeconds: 60
+cli:
+  enabled: false
+consul:
+  enabled: false
+contrib:
+  enabled: false
+dcaegen2:
+  dcae-cloudify-manager:
+    liveness:
+      initialDelaySeconds: 120
+    readiness:
+      initialDelaySeconds: 120
+  enabled: false
+dcaemod:
+  enabled: false
+dmaap:
+  dmaap-bus-controller:
+    liveness:
+      initialDelaySeconds: 120
+    readiness:
+      initialDelaySeconds: 120
+  dmaap-dr-node:
+    liveness:
+      initialDelaySeconds: 120
+    readiness:
+      initialDelaySeconds: 120
+  dmaap-dr-prov:
+    liveness:
+      initialDelaySeconds: 120
+    mariadb:
+      liveness:
+        initialDelaySeconds: 180
+        periodSeconds: 60
+    readiness:
+      initialDelaySeconds: 120
+  enabled: false
+  message-router:
+    liveness:
+      initialDelaySeconds: 120
+    readiness:
+      initialDelaySeconds: 120
+esr:
+  enabled: false
+global:
+  addTestingComponents: false
+  centralizedLoggingEnabled: false
+  masterPassword: 12345
+mariadb-galera:
+  enabled: true
+  liveness:
+    initialDelaySeconds: 180
+    periodSeconds: 60
+  mariadb-galera-server:
+    liveness:
+      initialDelaySeconds: 120
+    readiness:
+      initialDelaySeconds: 120
+modeling:
+  enabled: false
+  mariadb-galera:
+    liveness:
+      initialDelaySeconds: 180
+      periodSeconds: 60
+msb:
+  enabled: false
+multicloud:
+  enabled: false
+nbi:
+  enabled: true
+oof:
+  enabled: false
+  oof-has:
+    music:
+      music-cassandra:
+        liveness:
+          periodSeconds: 120
+        readiness:
+          periodSeconds: 60
+platform:
+  enabled: false
+policy:
+  enabled: false
+portal:
+  enabled: false
+  portal-app:
+    liveness:
+      initialDelaySeconds: 60
+    readiness:
+      initialDelaySeconds: 60
+  portal-cassandra:
+    liveness:
+      periodSeconds: 120
+    readiness:
+      periodSeconds: 60
+robot:
+  enabled: false
+sdc:
+  enabled: false
+  sdc-be:
+    liveness:
+      initialDelaySeconds: 120
+      periodSeconds: 60
+      timeoutSeconds: 15
+    readiness:
+      initialDelaySeconds: 120
+      periodSeconds: 60
+      timeoutSeconds: 15
+  sdc-cs:
+    liveness:
+      initialDelaySeconds: 120
+      periodSeconds: 120
+    readiness:
+      initialDelaySeconds: 120
+      periodSeconds: 60
+  sdc-es:
+    liveness:
+      initialDelaySeconds: 60
+    readiness:
+      initialDelaySeconds: 120
+  sdc-fe:
+    liveness:
+      initialDelaySeconds: 120
+      periodSeconds: 60
+      timeoutSeconds: 15
+    readiness:
+      initialDelaySeconds: 120
+      periodSeconds: 60
+      timeoutSeconds: 15
+  sdc-onboarding-be:
+    liveness:
+      initialDelaySeconds: 120
+      periodSeconds: 60
+      timeoutSeconds: 15
+    readiness:
+      initialDelaySeconds: 120
+      periodSeconds: 60
+      timeoutSeconds: 15
+sdnc:
+  dmaap-listener:
+    liveness:
+      initialDelaySeconds: 120
+    readiness:
+      initialDelaySeconds: 120
+  enabled: false
+  liveness:
+    initialDelaySeconds: 60
+  mariadb-galera:
+    liveness:
+      initialDelaySeconds: 180
+      periodSeconds: 60
+  readiness:
+    initialDelaySeconds: 60
+  sdnc-ansible-server:
+    readiness:
+      initialDelaySeconds: 120
+  ueb-listener:
+    liveness:
+      initialDelaySeconds: 60
+    readiness:
+      initialDelaySeconds: 60
+so:
+  enabled: false
+  liveness:
+    initialDelaySeconds: 120
+  mariadb:
+    liveness:
+      initialDelaySeconds: 900
+    readiness:
+      initialDelaySeconds: 900
+uui:
+  enabled: false
+  uui-server:
+    liveness:
+      initialDelaySeconds: 120
+    readiness:
+      initialDelaySeconds: 120
+vfc:
+  enabled: false
+  mariadb-galera:
+    liveness:
+      initialDelaySeconds: 180
+      periodSeconds: 60
+vid:
+  enabled: false
+vnfsdk:
+  enabled: false
+
+COMPUTED VALUES:
+a1policymanagement:
+  enabled: false
+aaf:
+  aaf-cs:
+    liveness:
+      initialDelaySeconds: 240
+    readiness:
+      initialDelaySeconds: 240
+  aaf-gui:
+    liveness:
+      initialDelaySeconds: 120
+    readiness:
+      initialDelaySeconds: 120
+  aaf-oauth:
+    liveness:
+      initialDelaySeconds: 300
+    readiness:
+      initialDelaySeconds: 300
+  aaf-service:
+    liveness:
+      initialDelaySeconds: 300
+    readiness:
+      initialDelaySeconds: 300
+  enabled: false
+aai:
+  aai-cassandra:
+    liveness:
+      periodSeconds: 120
+    readiness:
+      periodSeconds: 60
+  aai-champ:
+    liveness:
+      initialDelaySeconds: 120
+    readiness:
+      initialDelaySeconds: 120
+  aai-data-router:
+    liveness:
+      initialDelaySeconds: 120
+  aai-sparky-be:
+    liveness:
+      initialDelaySeconds: 120
+  aai-spike:
+    liveness:
+      initialDelaySeconds: 120
+  enabled: false
+  liveness:
+    initialDelaySeconds: 120
+appc:
+  config:
+    ansiblePort: 8000
+    ansibleServiceName: appc-ansible-server
+    appcdb:
+      dbName: appcctl
+      userName: appcctl
+    configDir: /opt/onap/appc/data/properties
+    dmaapServicePassword: onapappc
+    dmaapServiceUrl: http://localhost:8080/publish
+    dmaapServiceUser: appc
+    dmaapTopic: SUCCESS
+    dmaapTopicEnv: AUTO
+    enableAAF: true
+    enableClustering: false
+    logstashPort: 5044
+    logstashServiceName: log-ls
+    mariadbGaleraContName: appc-db
+    mariadbGaleraSVCName: appc-dbhost
+    odlGid: 101
+    odlPassword: Kp8bJ4SXszM0WXlhak3eHlcse2gAw84vaoGGmJvUy2U
+    odlUid: 100
+    odlUser: admin
+    openStackDomain: default
+    openStackEncryptedPassword: admin
+    openStackKeyStoneUrl: http://localhost:8181/apidoc/explorer/index.html
+    openStackName: OpenStack
+    openStackServiceTenantName: default
+    openStackType: OpenStackProvider
+    openStackUserName: admin
+    sdncdb:
+      dbName: sdnctl
+      userName: sdnctl
+  enabled: false
+  mariadb-galera:
+    liveness:
+      initialDelaySeconds: 180
+      periodSeconds: 60
+cassandra:
+  affinity: {}
+  backup:
+    cron: 00 00 * * *
+    dbSize: 1
+    enabled: false
+    keyspacesToSkip:
+    - name: system_traces
+    - name: system_auth
+    - name: system_distributed
+    retentionPeriod: 3
+  common:
+    global:
+      aafAgentImage: pltf-onap/aaf_agent:2.1.20
+      aafEnabled: true
+      addTestingComponents: false
+      busyboxImage: pltf-onap/busybox:1.31
+      busyboxRepository: image-registry.openshift-image-registry.svc:5000
+      centralizedLoggingEnabled: false
+      clusterName: cluster.local
+      cmpv2Enabled: true
+      curlImage: pltf-onap/curl:7.69.1
+      debugEnabled: false
+      dockerHubRepository: image-registry.openshift-image-registry.svc:5000
+      flavor: small
+      ingress:
+        enabled: false
+        virtualhost:
+          baseurl: simpledemo.onap.org
+      kubectlImage: pltf-onap/kubectl:1.15
+      loggingRepository: image-registry.openshift-image-registry.svc:5000
+      masterPassword: 12345
+      nodePortPrefix: 302
+      nodePortPrefixExt: 304
+      offlineDeploymentBuild: false
+      passwordStrength: long
+      persistence:
+        backup:
+          mountPath: /dockerdata-nfs/backup
+        enableDefaultStorageclass: false
+        enabled: true
+        mountPath: /dockerdata-nfs
+        parameters: {}
+        storageClass: ocs-storagecluster-ceph-rbd
+        storageclassProvisioner: kubernetes.io/no-provisioner
+        volumeReclaimPolicy: Retain
+      platform:
+        certPostProcessor:
+          image: image-registry.openshift-image-registry.svc:5000/org.onap.oom.platform.cert-service.oom-certservice-post-processor:2.1.1
+        certServiceClient:
+          envVariables:
+            caName: RA
+            cert_path: /var/custom-certs
+            cmpv2Country: US
+            cmpv2Location: San-Francisco
+            cmpv2Organization: Linux-Foundation
+            cmpv2OrganizationalUnit: ONAP
+            cmpv2State: California
+            common_name: sdnc.simpledemo.onap.org
+            keystorePassword: secret
+            keystorePath: /etc/onap/oom/certservice/certs/certServiceClient-keystore.jks
+            outputType: P12
+            requestTimeout: "30000"
+            requestURL: https://oom-cert-service:8443/v1/certificate/
+            truststorePassword: secret
+            truststorePath: /etc/onap/oom/certservice/certs/truststore.jks
+          image: onap/org.onap.oom.platform.cert-service.oom-certservice-client:2.1.1
+          secret:
+            mountPath: /etc/onap/oom/certservice/certs/
+            name: oom-cert-service-client-tls-secret
+          secretName: oom-cert-service-client-tls-secret
+      pullPolicy: Always
+      readinessImage: pltf-onap/readiness:3.0.1
+      repository: image-registry.openshift-image-registry.svc:5000
+      repositoryCred:
+        password: docker
+        user: docker
+      serviceMesh:
+        enabled: false
+        tls: true
+  config:
+    autoBootstrap: true
+    cluster_domain: cluster.local
+    clusterName: cassandra
+    dataCenter: Pod
+    heap:
+      max: 2048M
+      min: 100M
+    jvmOpts: -Dcassandra.consistent.rangemovement=false
+    rackName: Rack
+  configOverrides: {}
+  debugEnabled: false
+  enabled: true
+  global:
+    aafAgentImage: pltf-onap/aaf_agent:2.1.20
+    aafEnabled: true
+    addTestingComponents: false
+    busyboxImage: pltf-onap/busybox:1.31
+    busyboxRepository: image-registry.openshift-image-registry.svc:5000
+    centralizedLoggingEnabled: false
+    clusterName: cluster.local
+    cmpv2Enabled: true
+    curlImage: pltf-onap/curl:7.69.1
+    debugEnabled: false
+    dockerHubRepository: image-registry.openshift-image-registry.svc:5000
+    flavor: small
+    ingress:
+      enabled: false
+      virtualhost:
+        baseurl: simpledemo.onap.org
+    kubectlImage: pltf-onap/kubectl:1.15
+    loggingRepository: image-registry.openshift-image-registry.svc:5000
+    masterPassword: 12345
+    nodePortPrefix: 302
+    nodePortPrefixExt: 304
+    offlineDeploymentBuild: false
+    passwordStrength: long
+    persistence:
+      backup:
+        mountPath: /dockerdata-nfs/backup
+      enableDefaultStorageclass: false
+      enabled: true
+      mountPath: /dockerdata-nfs
+      parameters: {}
+      storageClass: ocs-storagecluster-ceph-rbd
+      storageclassProvisioner: kubernetes.io/no-provisioner
+      volumeReclaimPolicy: Retain
+    platform:
+      certPostProcessor:
+        image: image-registry.openshift-image-registry.svc:5000/org.onap.oom.platform.cert-service.oom-certservice-post-processor:2.1.1
+      certServiceClient:
+        envVariables:
+          caName: RA
+          cert_path: /var/custom-certs
+          cmpv2Country: US
+          cmpv2Location: San-Francisco
+          cmpv2Organization: Linux-Foundation
+          cmpv2OrganizationalUnit: ONAP
+          cmpv2State: California
+          common_name: sdnc.simpledemo.onap.org
+          keystorePassword: secret
+          keystorePath: /etc/onap/oom/certservice/certs/certServiceClient-keystore.jks
+          outputType: P12
+          requestTimeout: "30000"
+          requestURL: https://oom-cert-service:8443/v1/certificate/
+          truststorePassword: secret
+          truststorePath: /etc/onap/oom/certservice/certs/truststore.jks
+        image: onap/org.onap.oom.platform.cert-service.oom-certservice-client:2.1.1
+        secret:
+          mountPath: /etc/onap/oom/certservice/certs/
+          name: oom-cert-service-client-tls-secret
+        secretName: oom-cert-service-client-tls-secret
+    pullPolicy: Always
+    readinessImage: pltf-onap/readiness:3.0.1
+    repository: image-registry.openshift-image-registry.svc:5000
+    repositoryCred:
+      password: docker
+      user: docker
+    serviceMesh:
+      enabled: false
+      tls: true
+  hostNetwork: false
+  image: pltf-onap/cassandra:3.11.4
+  ingress:
+    enabled: false
+  liveness:
+    enabled: true
+    failureThreshold: 3
+    initialDelaySeconds: 120
+    periodSeconds: 120
+    successThreshold: 1
+    timeoutSeconds: 3
+  nodeSelector: {}
+  persistence:
+    accessMode: ReadWriteOnce
+    enabled: true
+    size: 2Gi
+    storageType: local
+    volumeReclaimPolicy: Retain
+  podAnnotations: {}
+  podManagementPolicy: OrderedReady
+  pullPolicy: Always
+  readiness:
+    failureThreshold: 3
+    initialDelaySeconds: 120
+    periodSeconds: 60
+    successThreshold: 1
+    timeoutSeconds: 3
+  replicaCount: 3
+  repository: image-registry.openshift-image-registry.svc:5000
+  resources:
+    limits:
+      cpu: 0.8
+      memory: 4Gi
+    requests:
+      cpu: 0.2
+      memory: 2.5Gi
+  service:
+    headless:
+      annotations:
+        service.alpha.kubernetes.io/tolerate-unready-endpoints: "true"
+      publishNotReadyAddresses: true
+      suffix: ""
+    headlessPorts:
+    - name: tcp-intra
+      port: 7000
+    - name: tls
+      port: 7001
+    - name: tcp-jmx
+      port: 7199
+    - name: tcp-cql
+      port: 9042
+    - name: tcp-thrift
+      port: 9160
+    - name: tcp-agent
+      port: 61621
+    name: cassandra
+  updateStrategy:
+    type: RollingUpdate
+cds:
+  enabled: false
+cert-wrapper:
+  certInitializer:
+    _secretsCache:
+      deployer-creds:
+        externalSecret: ""
+        login: deployer@people.osaaf.org
+        password: demo123456!
+        passwordPolicy: required
+        realName: onap-cert-initializer-deployer-creds
+        type: basicAuth
+        uid: deployer-creds
+      truststore-creds:
+        externalSecret: ""
+        password: changeit
+        passwordPolicy: required
+        realName: onap-cert-initializer-truststore-creds
+        type: password
+        uid: truststore-creds
+    aaf_add_config: ""
+    aafDeployFqi: deployer@people.osaaf.org
+    aafDeployPass: demo123456!
+    app_ns: org.osaaf.aaf
+    appMountPath: /opt/app/osaaf
+    cadi_latitude: "38.0"
+    cadi_longitude: "-72.0"
+    certsCMName: '{{ include "common.release" . }}-cert-wrapper-certs'
+    common:
+      global:
+        aafAgentImage: pltf-onap/aaf_agent:2.1.20
+        aafEnabled: true
+        addTestingComponents: false
+        busyboxImage: pltf-onap/busybox:1.31
+        busyboxRepository: image-registry.openshift-image-registry.svc:5000
+        centralizedLoggingEnabled: false
+        clusterName: cluster.local
+        cmpv2Enabled: true
+        curlImage: pltf-onap/curl:7.69.1
+        debugEnabled: false
+        dockerHubRepository: image-registry.openshift-image-registry.svc:5000
+        flavor: small
+        ingress:
+          enabled: false
+          virtualhost:
+            baseurl: simpledemo.onap.org
+        jreImage: image-registry.openshift-image-registry.svc:5000/pltf-onap/onap-java
+        kubectlImage: pltf-onap/kubectl:1.15
+        loggingRepository: image-registry.openshift-image-registry.svc:5000
+        masterPassword: 12345
+        nodePortPrefix: 302
+        nodePortPrefixExt: 304
+        offlineDeploymentBuild: false
+        passwordStrength: long
+        persistence:
+          backup:
+            mountPath: /dockerdata-nfs/backup
+          enableDefaultStorageclass: false
+          enabled: true
+          mountPath: /dockerdata-nfs
+          parameters: {}
+          storageClass: ocs-storagecluster-ceph-rbd
+          storageclassProvisioner: kubernetes.io/no-provisioner
+          volumeReclaimPolicy: Retain
+        platform:
+          certPostProcessor:
+            image: image-registry.openshift-image-registry.svc:5000/org.onap.oom.platform.cert-service.oom-certservice-post-processor:2.1.1
+          certServiceClient:
+            envVariables:
+              caName: RA
+              cert_path: /var/custom-certs
+              cmpv2Country: US
+              cmpv2Location: San-Francisco
+              cmpv2Organization: Linux-Foundation
+              cmpv2OrganizationalUnit: ONAP
+              cmpv2State: California
+              common_name: sdnc.simpledemo.onap.org
+              keystorePassword: secret
+              keystorePath: /etc/onap/oom/certservice/certs/certServiceClient-keystore.jks
+              outputType: P12
+              requestTimeout: "30000"
+              requestURL: https://oom-cert-service:8443/v1/certificate/
+              truststorePassword: secret
+              truststorePath: /etc/onap/oom/certservice/certs/truststore.jks
+            image: onap/org.onap.oom.platform.cert-service.oom-certservice-client:2.1.1
+            secret:
+              mountPath: /etc/onap/oom/certservice/certs/
+              name: oom-cert-service-client-tls-secret
+            secretName: oom-cert-service-client-tls-secret
+        pullPolicy: Always
+        readinessImage: pltf-onap/readiness:3.0.1
+        repository: image-registry.openshift-image-registry.svc:5000
+        repositoryCred:
+          password: docker
+          user: docker
+        serviceMesh:
+          enabled: false
+          tls: true
+    createCertsCM: true
+    fqdn: ""
+    fqi: ""
+    fqi_namespace: ""
+    global:
+      aafAgentImage: pltf-onap/aaf_agent:2.1.20
+      aafEnabled: true
+      addTestingComponents: false
+      busyboxImage: pltf-onap/busybox:1.31
+      busyboxRepository: image-registry.openshift-image-registry.svc:5000
+      centralizedLoggingEnabled: false
+      clusterName: cluster.local
+      cmpv2Enabled: true
+      curlImage: pltf-onap/curl:7.69.1
+      debugEnabled: false
+      dockerHubRepository: image-registry.openshift-image-registry.svc:5000
+      flavor: small
+      ingress:
+        enabled: false
+        virtualhost:
+          baseurl: simpledemo.onap.org
+      jreImage: image-registry.openshift-image-registry.svc:5000/pltf-onap/onap-java
+      kubectlImage: pltf-onap/kubectl:1.15
+      loggingRepository: image-registry.openshift-image-registry.svc:5000
+      masterPassword: 12345
+      nodePortPrefix: 302
+      nodePortPrefixExt: 304
+      offlineDeploymentBuild: false
+      passwordStrength: long
+      persistence:
+        backup:
+          mountPath: /dockerdata-nfs/backup
+        enableDefaultStorageclass: false
+        enabled: true
+        mountPath: /dockerdata-nfs
+        parameters: {}
+        storageClass: ocs-storagecluster-ceph-rbd
+        storageclassProvisioner: kubernetes.io/no-provisioner
+        volumeReclaimPolicy: Retain
+      platform:
+        certPostProcessor:
+          image: image-registry.openshift-image-registry.svc:5000/org.onap.oom.platform.cert-service.oom-certservice-post-processor:2.1.1
+        certServiceClient:
+          envVariables:
+            caName: RA
+            cert_path: /var/custom-certs
+            cmpv2Country: US
+            cmpv2Location: San-Francisco
+            cmpv2Organization: Linux-Foundation
+            cmpv2OrganizationalUnit: ONAP
+            cmpv2State: California
+            common_name: sdnc.simpledemo.onap.org
+            keystorePassword: secret
+            keystorePath: /etc/onap/oom/certservice/certs/certServiceClient-keystore.jks
+            outputType: P12
+            requestTimeout: "30000"
+            requestURL: https://oom-cert-service:8443/v1/certificate/
+            truststorePassword: secret
+            truststorePath: /etc/onap/oom/certservice/certs/truststore.jks
+          image: onap/org.onap.oom.platform.cert-service.oom-certservice-client:2.1.1
+          secret:
+            mountPath: /etc/onap/oom/certservice/certs/
+            name: oom-cert-service-client-tls-secret
+          secretName: oom-cert-service-client-tls-secret
+      pullPolicy: Always
+      readinessImage: pltf-onap/readiness:3.0.1
+      repository: image-registry.openshift-image-registry.svc:5000
+      repositoryCred:
+        password: docker
+        user: docker
+      serviceMesh:
+        enabled: false
+        tls: true
+    importCustomCertsEnabled: false
+    mountPath: /opt/app/osaaf
+    nameOverride: cert-initializer
+    public_fqdn: aaf.osaaf.org
+    pullPolicy: Always
+    readinessCheck:
+      common:
+        global:
+          aafAgentImage: pltf-onap/aaf_agent:2.1.20
+          aafEnabled: true
+          addTestingComponents: false
+          busyboxImage: pltf-onap/busybox:1.31
+          busyboxRepository: image-registry.openshift-image-registry.svc:5000
+          centralizedLoggingEnabled: false
+          clusterName: cluster.local
+          cmpv2Enabled: true
+          curlImage: pltf-onap/curl:7.69.1
+          debugEnabled: false
+          dockerHubRepository: image-registry.openshift-image-registry.svc:5000
+          flavor: small
+          ingress:
+            enabled: false
+            virtualhost:
+              baseurl: simpledemo.onap.org
+          jreImage: image-registry.openshift-image-registry.svc:5000/pltf-onap/onap-java
+          kubectlImage: pltf-onap/kubectl:1.15
+          loggingRepository: image-registry.openshift-image-registry.svc:5000
+          masterPassword: 12345
+          nodePortPrefix: 302
+          nodePortPrefixExt: 304
+          offlineDeploymentBuild: false
+          passwordStrength: long
+          persistence:
+            backup:
+              mountPath: /dockerdata-nfs/backup
+            enableDefaultStorageclass: false
+            enabled: true
+            mountPath: /dockerdata-nfs
+            parameters: {}
+            storageClass: ocs-storagecluster-ceph-rbd
+            storageclassProvisioner: kubernetes.io/no-provisioner
+            volumeReclaimPolicy: Retain
+          platform:
+            certPostProcessor:
+              image: image-registry.openshift-image-registry.svc:5000/org.onap.oom.platform.cert-service.oom-certservice-post-processor:2.1.1
+            certServiceClient:
+              envVariables:
+                caName: RA
+                cert_path: /var/custom-certs
+                cmpv2Country: US
+                cmpv2Location: San-Francisco
+                cmpv2Organization: Linux-Foundation
+                cmpv2OrganizationalUnit: ONAP
+                cmpv2State: California
+                common_name: sdnc.simpledemo.onap.org
+                keystorePassword: secret
+                keystorePath: /etc/onap/oom/certservice/certs/certServiceClient-keystore.jks
+                outputType: P12
+                requestTimeout: "30000"
+                requestURL: https://oom-cert-service:8443/v1/certificate/
+                truststorePassword: secret
+                truststorePath: /etc/onap/oom/certservice/certs/truststore.jks
+              image: onap/org.onap.oom.platform.cert-service.oom-certservice-client:2.1.1
+              secret:
+                mountPath: /etc/onap/oom/certservice/certs/
+                name: oom-cert-service-client-tls-secret
+              secretName: oom-cert-service-client-tls-secret
+          pullPolicy: Always
+          readinessImage: pltf-onap/readiness:3.0.1
+          repository: image-registry.openshift-image-registry.svc:5000
+          repositoryCred:
+            password: docker
+            user: docker
+          serviceMesh:
+            enabled: false
+            tls: true
+      global:
+        aafAgentImage: pltf-onap/aaf_agent:2.1.20
+        aafEnabled: true
+        addTestingComponents: false
+        busyboxImage: pltf-onap/busybox:1.31
+        busyboxRepository: image-registry.openshift-image-registry.svc:5000
+        centralizedLoggingEnabled: false
+        clusterName: cluster.local
+        cmpv2Enabled: true
+        curlImage: pltf-onap/curl:7.69.1
+        debugEnabled: false
+        dockerHubRepository: image-registry.openshift-image-registry.svc:5000
+        flavor: small
+        ingress:
+          enabled: false
+          virtualhost:
+            baseurl: simpledemo.onap.org
+        jreImage: image-registry.openshift-image-registry.svc:5000/pltf-onap/onap-java
+        kubectlImage: pltf-onap/kubectl:1.15
+        loggingRepository: image-registry.openshift-image-registry.svc:5000
+        masterPassword: 12345
+        nodePortPrefix: 302
+        nodePortPrefixExt: 304
+        offlineDeploymentBuild: false
+        passwordStrength: long
+        persistence:
+          backup:
+            mountPath: /dockerdata-nfs/backup
+          enableDefaultStorageclass: false
+          enabled: true
+          mountPath: /dockerdata-nfs
+          parameters: {}
+          storageClass: ocs-storagecluster-ceph-rbd
+          storageclassProvisioner: kubernetes.io/no-provisioner
+          volumeReclaimPolicy: Retain
+        platform:
+          certPostProcessor:
+            image: image-registry.openshift-image-registry.svc:5000/org.onap.oom.platform.cert-service.oom-certservice-post-processor:2.1.1
+          certServiceClient:
+            envVariables:
+              caName: RA
+              cert_path: /var/custom-certs
+              cmpv2Country: US
+              cmpv2Location: San-Francisco
+              cmpv2Organization: Linux-Foundation
+              cmpv2OrganizationalUnit: ONAP
+              cmpv2State: California
+              common_name: sdnc.simpledemo.onap.org
+              keystorePassword: secret
+              keystorePath: /etc/onap/oom/certservice/certs/certServiceClient-keystore.jks
+              outputType: P12
+              requestTimeout: "30000"
+              requestURL: https://oom-cert-service:8443/v1/certificate/
+              truststorePassword: secret
+              truststorePath: /etc/onap/oom/certservice/certs/truststore.jks
+            image: onap/org.onap.oom.platform.cert-service.oom-certservice-client:2.1.1
+            secret:
+              mountPath: /etc/onap/oom/certservice/certs/
+              name: oom-cert-service-client-tls-secret
+            secretName: oom-cert-service-client-tls-secret
+        pullPolicy: Always
+        readinessImage: pltf-onap/readiness:3.0.1
+        repository: image-registry.openshift-image-registry.svc:5000
+        repositoryCred:
+          password: docker
+          user: docker
+        serviceMesh:
+          enabled: false
+          tls: true
+      limits:
+        cpu: 100m
+        memory: 100Mi
+      repository: image-registry.openshift-image-registry.svc:5000
+      requests:
+        cpu: 3m
+        memory: 20Mi
+      wait_for:
+      - aaf-locate
+      - aaf-cm
+      - aaf-service
+    secrets:
+    - externalSecret: '{{ ternary (tpl (default "" .Values.aafDeployCredsExternalSecret) .) "aafIsDisabled" .Values.global.aafEnabled }}'
+      login: '{{ .Values.aafDeployFqi }}'
+      password: '{{ .Values.aafDeployPass }}'
+      passwordPolicy: required
+      type: basicAuth
+      uid: deployer-creds
+    - externalSecret: '{{ tpl (default "" .Values.truststoreCredsExternalSecret) . }}'
+      password: '{{ .Values.truststorePassword }}'
+      passwordPolicy: required
+      type: password
+      uid: truststore-creds
+    truststoreMountpath: ""
+    truststoreOutputFileName: truststore.jks
+    truststorePassword: changeit
+  enabled: true
+  global:
+    aafAgentImage: pltf-onap/aaf_agent:2.1.20
+    aafEnabled: true
+    addTestingComponents: false
+    busyboxImage: pltf-onap/busybox:1.31
+    busyboxRepository: image-registry.openshift-image-registry.svc:5000
+    centralizedLoggingEnabled: false
+    clusterName: cluster.local
+    cmpv2Enabled: true
+    curlImage: pltf-onap/curl:7.69.1
+    debugEnabled: false
+    dockerHubRepository: image-registry.openshift-image-registry.svc:5000
+    flavor: small
+    ingress:
+      enabled: false
+      virtualhost:
+        baseurl: simpledemo.onap.org
+    kubectlImage: pltf-onap/kubectl:1.15
+    loggingRepository: image-registry.openshift-image-registry.svc:5000
+    masterPassword: 12345
+    nodePortPrefix: 302
+    nodePortPrefixExt: 304
+    offlineDeploymentBuild: false
+    passwordStrength: long
+    persistence:
+      backup:
+        mountPath: /dockerdata-nfs/backup
+      enableDefaultStorageclass: false
+      enabled: true
+      mountPath: /dockerdata-nfs
+      parameters: {}
+      storageClass: ocs-storagecluster-ceph-rbd
+      storageclassProvisioner: kubernetes.io/no-provisioner
+      volumeReclaimPolicy: Retain
+    platform:
+      certPostProcessor:
+        image: image-registry.openshift-image-registry.svc:5000/org.onap.oom.platform.cert-service.oom-certservice-post-processor:2.1.1
+      certServiceClient:
+        envVariables:
+          caName: RA
+          cert_path: /var/custom-certs
+          cmpv2Country: US
+          cmpv2Location: San-Francisco
+          cmpv2Organization: Linux-Foundation
+          cmpv2OrganizationalUnit: ONAP
+          cmpv2State: California
+          common_name: sdnc.simpledemo.onap.org
+          keystorePassword: secret
+          keystorePath: /etc/onap/oom/certservice/certs/certServiceClient-keystore.jks
+          outputType: P12
+          requestTimeout: "30000"
+          requestURL: https://oom-cert-service:8443/v1/certificate/
+          truststorePassword: secret
+          truststorePath: /etc/onap/oom/certservice/certs/truststore.jks
+        image: onap/org.onap.oom.platform.cert-service.oom-certservice-client:2.1.1
+        secret:
+          mountPath: /etc/onap/oom/certservice/certs/
+          name: oom-cert-service-client-tls-secret
+        secretName: oom-cert-service-client-tls-secret
+    pullPolicy: Always
+    readinessImage: pltf-onap/readiness:3.0.1
+    repositoryCred:
+      password: docker
+      user: docker
+    serviceMesh:
+      enabled: false
+      tls: true
+clamp:
+  clamp-mariadb:
+    liveness:
+      initialDelaySeconds: 30
+    readiness:
+      initialDelaySeconds: 30
+  enabled: false
+  liveness:
+    initialDelaySeconds: 60
+  readiness:
+    initialDelaySeconds: 60
+cli:
+  enabled: false
+common:
+  global:
+    aafAgentImage: pltf-onap/aaf_agent:2.1.20
+    aafEnabled: true
+    addTestingComponents: false
+    busyboxImage: pltf-onap/busybox:1.31
+    busyboxRepository: image-registry.openshift-image-registry.svc:5000
+    centralizedLoggingEnabled: false
+    clusterName: cluster.local
+    cmpv2Enabled: true
+    curlImage: pltf-onap/curl:7.69.1
+    debugEnabled: false
+    dockerHubRepository: image-registry.openshift-image-registry.svc:5000
+    flavor: small
+    ingress:
+      enabled: false
+      virtualhost:
+        baseurl: simpledemo.onap.org
+    kubectlImage: pltf-onap/kubectl:1.15
+    loggingRepository: image-registry.openshift-image-registry.svc:5000
+    masterPassword: 12345
+    nodePortPrefix: 302
+    nodePortPrefixExt: 304
+    offlineDeploymentBuild: false
+    passwordStrength: long
+    persistence:
+      backup:
+        mountPath: /dockerdata-nfs/backup
+      enableDefaultStorageclass: false
+      enabled: true
+      mountPath: /dockerdata-nfs
+      parameters: {}
+      storageClass: ocs-storagecluster-ceph-rbd
+      storageclassProvisioner: kubernetes.io/no-provisioner
+      volumeReclaimPolicy: Retain
+    platform:
+      certPostProcessor:
+        image: image-registry.openshift-image-registry.svc:5000/org.onap.oom.platform.cert-service.oom-certservice-post-processor:2.1.1
+      certServiceClient:
+        envVariables:
+          caName: RA
+          cert_path: /var/custom-certs
+          cmpv2Country: US
+          cmpv2Location: San-Francisco
+          cmpv2Organization: Linux-Foundation
+          cmpv2OrganizationalUnit: ONAP
+          cmpv2State: California
+          common_name: sdnc.simpledemo.onap.org
+          keystorePassword: secret
+          keystorePath: /etc/onap/oom/certservice/certs/certServiceClient-keystore.jks
+          outputType: P12
+          requestTimeout: "30000"
+          requestURL: https://oom-cert-service:8443/v1/certificate/
+          truststorePassword: secret
+          truststorePath: /etc/onap/oom/certservice/certs/truststore.jks
+        image: onap/org.onap.oom.platform.cert-service.oom-certservice-client:2.1.1
+        secret:
+          mountPath: /etc/onap/oom/certservice/certs/
+          name: oom-cert-service-client-tls-secret
+        secretName: oom-cert-service-client-tls-secret
+    pullPolicy: Always
+    readinessImage: pltf-onap/readiness:3.0.1
+    repositoryCred:
+      password: docker
+      user: docker
+    serviceMesh:
+      enabled: false
+      tls: true
+consul:
+  enabled: false
+contrib:
+  enabled: false
+dcaegen2:
+  dcae-cloudify-manager:
+    liveness:
+      initialDelaySeconds: 120
+    readiness:
+      initialDelaySeconds: 120
+  enabled: false
+dcaemod:
+  enabled: false
+dmaap:
+  dmaap-bus-controller:
+    liveness:
+      initialDelaySeconds: 120
+    readiness:
+      initialDelaySeconds: 120
+  dmaap-dr-node:
+    liveness:
+      initialDelaySeconds: 120
+    readiness:
+      initialDelaySeconds: 120
+  dmaap-dr-prov:
+    liveness:
+      initialDelaySeconds: 120
+    mariadb:
+      liveness:
+        initialDelaySeconds: 180
+        periodSeconds: 60
+    readiness:
+      initialDelaySeconds: 120
+  enabled: false
+  message-router:
+    liveness:
+      initialDelaySeconds: 120
+    readiness:
+      initialDelaySeconds: 120
+esr:
+  enabled: false
+global:
+  aafAgentImage: pltf-onap/aaf_agent:2.1.20
+  aafEnabled: true
+  addTestingComponents: false
+  busyboxImage: pltf-onap/busybox:1.31
+  busyboxRepository: image-registry.openshift-image-registry.svc:5000
+  centralizedLoggingEnabled: false
+  clusterName: cluster.local
+  cmpv2Enabled: true
+  curlImage: pltf-onap/curl:7.69.1
+  debugEnabled: false
+  dockerHubRepository: image-registry.openshift-image-registry.svc:5000
+  flavor: small
+  ingress:
+    enabled: false
+    virtualhost:
+      baseurl: simpledemo.onap.org
+  kubectlImage: pltf-onap/kubectl:1.15
+  loggingRepository: image-registry.openshift-image-registry.svc:5000
+  masterPassword: 12345
+  nodePortPrefix: 302
+  nodePortPrefixExt: 304
+  offlineDeploymentBuild: false
+  passwordStrength: long
+  persistence:
+    backup:
+      mountPath: /dockerdata-nfs/backup
+    enableDefaultStorageclass: false
+    enabled: true
+    mountPath: /dockerdata-nfs
+    parameters: {}
+    storageClass: ocs-storagecluster-ceph-rbd
+    storageclassProvisioner: kubernetes.io/no-provisioner
+    volumeReclaimPolicy: Retain
+  platform:
+    certPostProcessor:
+      image: image-registry.openshift-image-registry.svc:5000/org.onap.oom.platform.cert-service.oom-certservice-post-processor:2.1.1
+    certServiceClient:
+      envVariables:
+        caName: RA
+        cert_path: /var/custom-certs
+        cmpv2Country: US
+        cmpv2Location: San-Francisco
+        cmpv2Organization: Linux-Foundation
+        cmpv2OrganizationalUnit: ONAP
+        cmpv2State: California
+        common_name: sdnc.simpledemo.onap.org
+        keystorePassword: secret
+        keystorePath: /etc/onap/oom/certservice/certs/certServiceClient-keystore.jks
+        outputType: P12
+        requestTimeout: "30000"
+        requestURL: https://oom-cert-service:8443/v1/certificate/
+        truststorePassword: secret
+        truststorePath: /etc/onap/oom/certservice/certs/truststore.jks
+      image: onap/org.onap.oom.platform.cert-service.oom-certservice-client:2.1.1
+      secret:
+        mountPath: /etc/onap/oom/certservice/certs/
+        name: oom-cert-service-client-tls-secret
+      secretName: oom-cert-service-client-tls-secret
+  pullPolicy: Always
+  readinessImage: pltf-onap/readiness:3.0.1
+  repositoryCred:
+    password: docker
+    user: docker
+  serviceMesh:
+    enabled: false
+    tls: true
+log:
+  common:
+    global:
+      aafAgentImage: pltf-onap/aaf_agent:2.1.20
+      aafEnabled: true
+      addTestingComponents: false
+      busyboxImage: pltf-onap/busybox:1.31
+      busyboxRepository: image-registry.openshift-image-registry.svc:5000
+      centralizedLoggingEnabled: false
+      clusterName: cluster.local
+      cmpv2Enabled: true
+      curlImage: pltf-onap/curl:7.69.1
+      debugEnabled: false
+      dockerHubRepository: image-registry.openshift-image-registry.svc:5000
+      flavor: small
+      ingress:
+        enabled: false
+        virtualhost:
+          baseurl: simpledemo.onap.org
+      kubectlImage: pltf-onap/kubectl:1.15
+      loggingRepository: image-registry.openshift-image-registry.svc:5000
+      masterPassword: 12345
+      nodePortPrefix: 302
+      nodePortPrefixExt: 304
+      offlineDeploymentBuild: false
+      passwordStrength: long
+      persistence:
+        backup:
+          mountPath: /dockerdata-nfs/backup
+        enableDefaultStorageclass: false
+        enabled: true
+        mountPath: /dockerdata-nfs
+        parameters: {}
+        storageClass: ocs-storagecluster-ceph-rbd
+        storageclassProvisioner: kubernetes.io/no-provisioner
+        volumeReclaimPolicy: Retain
+      platform:
+        certPostProcessor:
+          image: image-registry.openshift-image-registry.svc:5000/org.onap.oom.platform.cert-service.oom-certservice-post-processor:2.1.1
+        certServiceClient:
+          envVariables:
+            caName: RA
+            cert_path: /var/custom-certs
+            cmpv2Country: US
+            cmpv2Location: San-Francisco
+            cmpv2Organization: Linux-Foundation
+            cmpv2OrganizationalUnit: ONAP
+            cmpv2State: California
+            common_name: sdnc.simpledemo.onap.org
+            keystorePassword: secret
+            keystorePath: /etc/onap/oom/certservice/certs/certServiceClient-keystore.jks
+            outputType: P12
+            requestTimeout: "30000"
+            requestURL: https://oom-cert-service:8443/v1/certificate/
+            truststorePassword: secret
+            truststorePath: /etc/onap/oom/certservice/certs/truststore.jks
+          image: onap/org.onap.oom.platform.cert-service.oom-certservice-client:2.1.1
+          secret:
+            mountPath: /etc/onap/oom/certservice/certs/
+            name: oom-cert-service-client-tls-secret
+          secretName: oom-cert-service-client-tls-secret
+      pullPolicy: Always
+      readinessImage: pltf-onap/readiness:3.0.1
+      repositoryCred:
+        password: docker
+        user: docker
+      serviceMesh:
+        enabled: false
+        tls: true
+  enabled: false
+  global:
+    aafAgentImage: pltf-onap/aaf_agent:2.1.20
+    aafEnabled: true
+    addTestingComponents: false
+    busyboxImage: pltf-onap/busybox:1.31
+    busyboxRepository: image-registry.openshift-image-registry.svc:5000
+    centralizedLoggingEnabled: false
+    clusterName: cluster.local
+    cmpv2Enabled: true
+    curlImage: pltf-onap/curl:7.69.1
+    debugEnabled: false
+    dockerHubRepository: image-registry.openshift-image-registry.svc:5000
+    flavor: small
+    ingress:
+      enabled: false
+      virtualhost:
+        baseurl: simpledemo.onap.org
+    kubectlImage: pltf-onap/kubectl:1.15
+    loggingRepository: image-registry.openshift-image-registry.svc:5000
+    masterPassword: 12345
+    nodePortPrefix: 302
+    nodePortPrefixExt: 304
+    offlineDeploymentBuild: false
+    passwordStrength: long
+    persistence:
+      backup:
+        mountPath: /dockerdata-nfs/backup
+      enableDefaultStorageclass: false
+      enabled: true
+      mountPath: /dockerdata-nfs
+      parameters: {}
+      storageClass: ocs-storagecluster-ceph-rbd
+      storageclassProvisioner: kubernetes.io/no-provisioner
+      volumeReclaimPolicy: Retain
+    platform:
+      certPostProcessor:
+        image: image-registry.openshift-image-registry.svc:5000/org.onap.oom.platform.cert-service.oom-certservice-post-processor:2.1.1
+      certServiceClient:
+        envVariables:
+          caName: RA
+          cert_path: /var/custom-certs
+          cmpv2Country: US
+          cmpv2Location: San-Francisco
+          cmpv2Organization: Linux-Foundation
+          cmpv2OrganizationalUnit: ONAP
+          cmpv2State: California
+          common_name: sdnc.simpledemo.onap.org
+          keystorePassword: secret
+          keystorePath: /etc/onap/oom/certservice/certs/certServiceClient-keystore.jks
+          outputType: P12
+          requestTimeout: "30000"
+          requestURL: https://oom-cert-service:8443/v1/certificate/
+          truststorePassword: secret
+          truststorePath: /etc/onap/oom/certservice/certs/truststore.jks
+        image: onap/org.onap.oom.platform.cert-service.oom-certservice-client:2.1.1
+        secret:
+          mountPath: /etc/onap/oom/certservice/certs/
+          name: oom-cert-service-client-tls-secret
+        secretName: oom-cert-service-client-tls-secret
+    pullPolicy: Always
+    readinessImage: pltf-onap/readiness:3.0.1
+    repositoryCred:
+      password: docker
+      user: docker
+    serviceMesh:
+      enabled: false
+      tls: true
+  log-elasticsearch:
+    affinity: {}
+    busyboxImage: pltf-onap/busybox:latest
+    busyboxRepository: image-registry.openshift-image-registry.svc:5000
+    config: {}
+    debugEnabled: false
+    flavor: small
+    global:
+      aafAgentImage: pltf-onap/aaf_agent:2.1.20
+      aafEnabled: true
+      addTestingComponents: false
+      busyboxImage: pltf-onap/busybox:1.31
+      busyboxRepository: image-registry.openshift-image-registry.svc:5000
+      centralizedLoggingEnabled: false
+      clusterName: cluster.local
+      cmpv2Enabled: true
+      curlImage: pltf-onap/curl:7.69.1
+      debugEnabled: false
+      dockerHubRepository: image-registry.openshift-image-registry.svc:5000
+      flavor: small
+      ingress:
+        enabled: false
+        virtualhost:
+          baseurl: simpledemo.onap.org
+      kubectlImage: pltf-onap/kubectl:1.15
+      loggingImage: pltf-onap/filebeat:5.5.0
+      loggingRepository: image-registry.openshift-image-registry.svc:5000
+      masterPassword: 12345
+      nodePortPrefix: 302
+      nodePortPrefixExt: 304
+      offlineDeploymentBuild: false
+      passwordStrength: long
+      persistence:
+        backup:
+          mountPath: /dockerdata-nfs/backup
+        enableDefaultStorageclass: false
+        enabled: true
+        mountPath: /dockerdata-nfs
+        parameters: {}
+        storageClass: ocs-storagecluster-ceph-rbd
+        storageclassProvisioner: kubernetes.io/no-provisioner
+        volumeReclaimPolicy: Retain
+      platform:
+        certPostProcessor:
+          image: image-registry.openshift-image-registry.svc:5000/org.onap.oom.platform.cert-service.oom-certservice-post-processor:2.1.1
+        certServiceClient:
+          envVariables:
+            caName: RA
+            cert_path: /var/custom-certs
+            cmpv2Country: US
+            cmpv2Location: San-Francisco
+            cmpv2Organization: Linux-Foundation
+            cmpv2OrganizationalUnit: ONAP
+            cmpv2State: California
+            common_name: sdnc.simpledemo.onap.org
+            keystorePassword: secret
+            keystorePath: /etc/onap/oom/certservice/certs/certServiceClient-keystore.jks
+            outputType: P12
+            requestTimeout: "30000"
+            requestURL: https://oom-cert-service:8443/v1/certificate/
+            truststorePassword: secret
+            truststorePath: /etc/onap/oom/certservice/certs/truststore.jks
+          image: onap/org.onap.oom.platform.cert-service.oom-certservice-client:2.1.1
+          secret:
+            mountPath: /etc/onap/oom/certservice/certs/
+            name: oom-cert-service-client-tls-secret
+          secretName: oom-cert-service-client-tls-secret
+      pullPolicy: Always
+      readinessImage: pltf-onap/readiness:3.0.1
+      repositoryCred:
+        password: docker
+        user: docker
+      serviceMesh:
+        enabled: false
+        tls: true
+    image: elasticsearch/elasticsearch:5.5.0
+    ingress:
+      config:
+        ssl: none
+      enabled: false
+      service:
+      - baseaddr: loges
+        name: log-es
+        port: 9200
+    liveness:
+      enabled: true
+      initialDelaySeconds: 120
+      periodSeconds: 10
+    loggingRepository: docker.elastic.co
+    nodeSelector: {}
+    persistence:
+      accessMode: ReadWriteOnce
+      enabled: true
+      mountPath: /dockerdata-nfs
+      mountSubPath: log/elasticsearch/data
+      mountSubPathLogs: log
+      size: 1Gi
+      volumeReclaimPolicy: Retain
+    pullPolicy: Always
+    readiness:
+      initialDelaySeconds: 120
+      periodSeconds: 10
+    replicaCount: 1
+    resources:
+      large:
+        limits:
+          cpu: 2
+          memory: 8Gi
+        requests:
+          cpu: 1
+          memory: 4Gi
+      small:
+        limits:
+          cpu: 1
+          memory: 4Gi
+        requests:
+          cpu: 1
+          memory: 2Gi
+      unlimited: {}
+    service:
+      externalPort: 9200
+      externalPort2: 9300
+      internalPort: 9200
+      internalPort2: 9300
+      name: log-es
+      name2: log-es-tcp
+      nodePort: 54
+      type: NodePort
+      type2: ClusterIP
+  log-kibana:
+    affinity: {}
+    busyboxImage: library/busybox:latest
+    busyboxRepository: registry.hub.docker.com
+    config:
+      elasticsearchPort: 9200
+      elasticsearchServiceName: log-es
+    debugEnabled: false
+    elasticdumpImage: taskrabbit/elasticsearch-dump
+    elasticdumpRepository: docker.io
+    flavor: small
+    global:
+      aafAgentImage: pltf-onap/aaf_agent:2.1.20
+      aafEnabled: true
+      addTestingComponents: false
+      busyboxImage: pltf-onap/busybox:1.31
+      busyboxRepository: image-registry.openshift-image-registry.svc:5000
+      centralizedLoggingEnabled: false
+      clusterName: cluster.local
+      cmpv2Enabled: true
+      curlImage: pltf-onap/curl:7.69.1
+      debugEnabled: false
+      dockerHubRepository: image-registry.openshift-image-registry.svc:5000
+      flavor: small
+      ingress:
+        enabled: false
+        virtualhost:
+          baseurl: simpledemo.onap.org
+      kubectlImage: pltf-onap/kubectl:1.15
+      loggingRepository: image-registry.openshift-image-registry.svc:5000
+      masterPassword: 12345
+      nodePortPrefix: 302
+      nodePortPrefixExt: 304
+      offlineDeploymentBuild: false
+      passwordStrength: long
+      persistence:
+        backup:
+          mountPath: /dockerdata-nfs/backup
+        enableDefaultStorageclass: false
+        enabled: true
+        mountPath: /dockerdata-nfs
+        parameters: {}
+        storageClass: ocs-storagecluster-ceph-rbd
+        storageclassProvisioner: kubernetes.io/no-provisioner
+        volumeReclaimPolicy: Retain
+      platform:
+        certPostProcessor:
+          image: image-registry.openshift-image-registry.svc:5000/org.onap.oom.platform.cert-service.oom-certservice-post-processor:2.1.1
+        certServiceClient:
+          envVariables:
+            caName: RA
+            cert_path: /var/custom-certs
+            cmpv2Country: US
+            cmpv2Location: San-Francisco
+            cmpv2Organization: Linux-Foundation
+            cmpv2OrganizationalUnit: ONAP
+            cmpv2State: California
+            common_name: sdnc.simpledemo.onap.org
+            keystorePassword: secret
+            keystorePath: /etc/onap/oom/certservice/certs/certServiceClient-keystore.jks
+            outputType: P12
+            requestTimeout: "30000"
+            requestURL: https://oom-cert-service:8443/v1/certificate/
+            truststorePassword: secret
+            truststorePath: /etc/onap/oom/certservice/certs/truststore.jks
+          image: onap/org.onap.oom.platform.cert-service.oom-certservice-client:2.1.1
+          secret:
+            mountPath: /etc/onap/oom/certservice/certs/
+            name: oom-cert-service-client-tls-secret
+          secretName: oom-cert-service-client-tls-secret
+      pullPolicy: Always
+      readinessImage: pltf-onap/readiness:3.0.1
+      repositoryCred:
+        password: docker
+        user: docker
+      serviceMesh:
+        enabled: false
+        tls: true
+    image: kibana/kibana:5.5.0
+    ingress:
+      config:
+        ssl: none
+      enabled: false
+      service:
+      - baseaddr: kibana.api
+        name: log-kibana
+        port: 5601
+    liveness:
+      enabled: true
+      initialDelaySeconds: 300
+      periodSeconds: 10
+      timeoutSeconds: 1
+    loggingRepository: docker.elastic.co
+    nodeSelector: {}
+    pullPolicy: Always
+    readiness:
+      initialDelaySeconds: 300
+      periodSeconds: 10
+      timeoutSeconds: 1
+    replicaCount: 1
+    resources:
+      large:
+        limits:
+          cpu: 4
+          memory: 8Gi
+        requests:
+          cpu: 2
+          memory: 4Gi
+      small:
+        limits:
+          cpu: 2
+          memory: 4Gi
+        requests:
+          cpu: 1
+          memory: 2Gi
+      unlimited: {}
+    service:
+      externalPort: 5601
+      internalPort: 5601
+      name: log-kibana
+      nodePort: 53
+      type: NodePort
+  log-logstash:
+    affinity: {}
+    config:
+      elasticsearchPort: 9200
+      elasticsearchServiceName: log-es
+    debugEnabled: false
+    flavor: small
+    global:
+      aafAgentImage: pltf-onap/aaf_agent:2.1.20
+      aafEnabled: true
+      addTestingComponents: false
+      busyboxImage: pltf-onap/busybox:1.31
+      busyboxRepository: image-registry.openshift-image-registry.svc:5000
+      centralizedLoggingEnabled: false
+      clusterName: cluster.local
+      cmpv2Enabled: true
+      curlImage: pltf-onap/curl:7.69.1
+      debugEnabled: false
+      dockerHubRepository: image-registry.openshift-image-registry.svc:5000
+      flavor: small
+      ingress:
+        enabled: false
+        virtualhost:
+          baseurl: simpledemo.onap.org
+      kubectlImage: pltf-onap/kubectl:1.15
+      loggingRepository: image-registry.openshift-image-registry.svc:5000
+      masterPassword: 12345
+      nodePortPrefix: 302
+      nodePortPrefixExt: 304
+      offlineDeploymentBuild: false
+      passwordStrength: long
+      persistence:
+        backup:
+          mountPath: /dockerdata-nfs/backup
+        enableDefaultStorageclass: false
+        enabled: true
+        mountPath: /dockerdata-nfs
+        parameters: {}
+        storageClass: ocs-storagecluster-ceph-rbd
+        storageclassProvisioner: kubernetes.io/no-provisioner
+        volumeReclaimPolicy: Retain
+      platform:
+        certPostProcessor:
+          image: image-registry.openshift-image-registry.svc:5000/org.onap.oom.platform.cert-service.oom-certservice-post-processor:2.1.1
+        certServiceClient:
+          envVariables:
+            caName: RA
+            cert_path: /var/custom-certs
+            cmpv2Country: US
+            cmpv2Location: San-Francisco
+            cmpv2Organization: Linux-Foundation
+            cmpv2OrganizationalUnit: ONAP
+            cmpv2State: California
+            common_name: sdnc.simpledemo.onap.org
+            keystorePassword: secret
+            keystorePath: /etc/onap/oom/certservice/certs/certServiceClient-keystore.jks
+            outputType: P12
+            requestTimeout: "30000"
+            requestURL: https://oom-cert-service:8443/v1/certificate/
+            truststorePassword: secret
+            truststorePath: /etc/onap/oom/certservice/certs/truststore.jks
+          image: onap/org.onap.oom.platform.cert-service.oom-certservice-client:2.1.1
+          secret:
+            mountPath: /etc/onap/oom/certservice/certs/
+            name: oom-cert-service-client-tls-secret
+          secretName: oom-cert-service-client-tls-secret
+      pullPolicy: Always
+      readinessImage: pltf-onap/readiness:3.0.1
+      repositoryCred:
+        password: docker
+        user: docker
+      serviceMesh:
+        enabled: false
+        tls: true
+    image: logstash/logstash:5.4.3
+    ingress:
+      config:
+        ssl: none
+      enabled: false
+      service:
+      - baseaddr: logls
+        name: log-ls
+        port: 5044
+      - baseaddr: loglshttp
+        name: log-ls
+        port: 9600
+    liveness:
+      enabled: true
+      initialDelaySeconds: 120
+      periodSeconds: 10
+    loggingRepository: docker.elastic.co
+    nodeSelector: {}
+    pullPolicy: Always
+    readiness:
+      initialDelaySeconds: 10
+      periodSeconds: 10
+    replicaCount: 3
+    resources:
+      large:
+        limits:
+          cpu: 2
+          memory: 4Gi
+        requests:
+          cpu: 2
+          memory: 4Gi
+      small:
+        limits:
+          cpu: 1
+          memory: 2Gi
+        requests:
+          cpu: 0.5
+          memory: 1Gi
+      unlimited: {}
+    service:
+      externalPort: 5044
+      externalPort2: 9600
+      internalPort: 5044
+      internalPort2: 9600
+      name: log-ls
+      name2: log-ls-http
+      nodePort: 55
+      type: NodePort
+      type2: ClusterIP
+mariadb-galera:
+  affinity: {}
+  backup:
+    cron: 00 00 * * *
+    enabled: false
+    retentionPeriod: 3
+  backupImage: pltf-onap/mariadb:10.1.38
+  common:
+    global:
+      aafAgentImage: pltf-onap/aaf_agent:2.1.20
+      aafEnabled: true
+      addTestingComponents: false
+      busyboxImage: pltf-onap/busybox:1.31
+      busyboxRepository: image-registry.openshift-image-registry.svc:5000
+      centralizedLoggingEnabled: false
+      clusterName: cluster.local
+      cmpv2Enabled: true
+      curlImage: pltf-onap/curl:7.69.1
+      debugEnabled: false
+      dockerHubRepository: image-registry.openshift-image-registry.svc:5000
+      flavor: small
+      ingress:
+        enabled: false
+        virtualhost:
+          baseurl: simpledemo.onap.org
+      kubectlImage: pltf-onap/kubectl:1.15
+      loggingRepository: image-registry.openshift-image-registry.svc:5000
+      masterPassword: 12345
+      nodePortPrefix: 302
+      nodePortPrefixExt: 304
+      offlineDeploymentBuild: false
+      passwordStrength: long
+      persistence:
+        backup:
+          mountPath: /dockerdata-nfs/backup
+        enableDefaultStorageclass: false
+        enabled: true
+        mountPath: /dockerdata-nfs
+        parameters: {}
+        storageClass: ocs-storagecluster-ceph-rbd
+        storageclassProvisioner: kubernetes.io/no-provisioner
+        volumeReclaimPolicy: Retain
+      platform:
+        certPostProcessor:
+          image: image-registry.openshift-image-registry.svc:5000/org.onap.oom.platform.cert-service.oom-certservice-post-processor:2.1.1
+        certServiceClient:
+          envVariables:
+            caName: RA
+            cert_path: /var/custom-certs
+            cmpv2Country: US
+            cmpv2Location: San-Francisco
+            cmpv2Organization: Linux-Foundation
+            cmpv2OrganizationalUnit: ONAP
+            cmpv2State: California
+            common_name: sdnc.simpledemo.onap.org
+            keystorePassword: secret
+            keystorePath: /etc/onap/oom/certservice/certs/certServiceClient-keystore.jks
+            outputType: P12
+            requestTimeout: "30000"
+            requestURL: https://oom-cert-service:8443/v1/certificate/
+            truststorePassword: secret
+            truststorePath: /etc/onap/oom/certservice/certs/truststore.jks
+          image: onap/org.onap.oom.platform.cert-service.oom-certservice-client:2.1.1
+          secret:
+            mountPath: /etc/onap/oom/certservice/certs/
+            name: oom-cert-service-client-tls-secret
+          secretName: oom-cert-service-client-tls-secret
+      pullPolicy: Always
+      readinessImage: pltf-onap/readiness:3.0.1
+      repository: image-registry.openshift-image-registry.svc:5000
+      repositoryCred:
+        password: docker
+        user: docker
+      serviceMesh:
+        enabled: false
+        tls: true
+  config:
+    userName: my-user
+  enabled: true
+  externalConfig: ""
+  global:
+    aafAgentImage: pltf-onap/aaf_agent:2.1.20
+    aafEnabled: true
+    addTestingComponents: false
+    busyboxImage: pltf-onap/busybox:1.31
+    busyboxRepository: image-registry.openshift-image-registry.svc:5000
+    centralizedLoggingEnabled: false
+    clusterName: cluster.local
+    cmpv2Enabled: true
+    curlImage: pltf-onap/curl:7.69.1
+    debugEnabled: false
+    dockerHubRepository: image-registry.openshift-image-registry.svc:5000
+    flavor: small
+    ingress:
+      enabled: false
+      virtualhost:
+        baseurl: simpledemo.onap.org
+    kubectlImage: pltf-onap/kubectl:1.15
+    loggingRepository: image-registry.openshift-image-registry.svc:5000
+    masterPassword: 12345
+    nodePortPrefix: 302
+    nodePortPrefixExt: 304
+    offlineDeploymentBuild: false
+    passwordStrength: long
+    persistence:
+      backup:
+        mountPath: /dockerdata-nfs/backup
+      enableDefaultStorageclass: false
+      enabled: true
+      mountPath: /dockerdata-nfs
+      parameters: {}
+      storageClass: ocs-storagecluster-ceph-rbd
+      storageclassProvisioner: kubernetes.io/no-provisioner
+      volumeReclaimPolicy: Retain
+    platform:
+      certPostProcessor:
+        image: image-registry.openshift-image-registry.svc:5000/org.onap.oom.platform.cert-service.oom-certservice-post-processor:2.1.1
+      certServiceClient:
+        envVariables:
+          caName: RA
+          cert_path: /var/custom-certs
+          cmpv2Country: US
+          cmpv2Location: San-Francisco
+          cmpv2Organization: Linux-Foundation
+          cmpv2OrganizationalUnit: ONAP
+          cmpv2State: California
+          common_name: sdnc.simpledemo.onap.org
+          keystorePassword: secret
+          keystorePath: /etc/onap/oom/certservice/certs/certServiceClient-keystore.jks
+          outputType: P12
+          requestTimeout: "30000"
+          requestURL: https://oom-cert-service:8443/v1/certificate/
+          truststorePassword: secret
+          truststorePath: /etc/onap/oom/certservice/certs/truststore.jks
+        image: onap/org.onap.oom.platform.cert-service.oom-certservice-client:2.1.1
+        secret:
+          mountPath: /etc/onap/oom/certservice/certs/
+          name: oom-cert-service-client-tls-secret
+        secretName: oom-cert-service-client-tls-secret
+    pullPolicy: Always
+    readinessImage: pltf-onap/readiness:3.0.1
+    repository: image-registry.openshift-image-registry.svc:5000
+    repositoryCred:
+      password: docker
+      user: docker
+    serviceMesh:
+      enabled: false
+      tls: true
+  image: pltf-onap/k8s-mariadb-galera-centos:v002
+  imageInit: pltf-onap/busybox
+  ingress:
+    enabled: false
+  liveness:
+    enabled: true
+    initialDelaySeconds: 180
+    periodSeconds: 60
+    timeoutSeconds: 180
+  mariadb-galera-server:
+    liveness:
+      initialDelaySeconds: 120
+    readiness:
+      initialDelaySeconds: 120
+  nameOverride: mariadb-galera
+  nodeSelector: {}
+  persistence:
+    accessMode: ReadWriteOnce
+    enabled: true
+    mysqlPath: /var/lib/mysql
+    size: 2Gi
+    storageClass: ocs-storagecluster-ceph-rbd
+    volumeReclaimPolicy: Retain
+  pullPolicy: IfNotPresent
+  readiness:
+    initialDelaySeconds: 15
+    periodSeconds: 180
+    timeoutSeconds: 180
+  replicaCount: 1
+  repository: image-registry.openshift-image-registry.svc:5000
+  resources:
+    large:
+      limits:
+        cpu: 2
+        memory: 4Gi
+      requests:
+        cpu: 1
+        memory: 2Gi
+    small:
+      limits:
+        cpu: 500m
+        memory: 1.5Gi
+      requests:
+        cpu: 100m
+        memory: 750Mi
+    unlimited: {}
+  secrets:
+  - externalSecret: '{{ tpl (default "" .Values.config.mariadbRootPasswordExternalSecret) . }}'
+    password: '{{ .Values.config.mariadbRootPassword }}'
+    type: password
+    uid: '{{ include "common.mariadb.secret.rootPassUID" . }}'
+  - externalSecret: '{{ tpl (default "" .Values.config.userCredentialsExternalSecret) . }}'
+    login: '{{ .Values.config.userName }}'
+    password: '{{ .Values.config.userPassword }}'
+    type: basicAuth
+    uid: '{{ include "common.mariadb.secret.userCredentialsUID" . }}'
+  service:
+    internalPort: 3306
+    istPort: 4568
+    istPortName: ist
+    name: mariadb-galera
+    portName: mariadb-galera
+    replicationName: replication
+    replicationPort: 4567
+    sstPort: 4444
+    sstPortName: sst
+modeling:
+  enabled: false
+  mariadb-galera:
+    liveness:
+      initialDelaySeconds: 180
+      periodSeconds: 60
+msb:
+  enabled: false
+multicloud:
+  enabled: false
+nbi:
+  aafConfig:
+    permission_group: 999
+    permission_user: 1000
+  aai_authorization: Basic QUFJOkFBSQ==
+  affinity: {}
+  certInitializer:
+    _secretsCache:
+      deployer-creds:
+        externalSecret: ""
+        login: deployer@people.osaaf.org
+        password: demo123456!
+        passwordPolicy: required
+        realName: onap-nbi-cert-initializer-deployer-creds
+        type: basicAuth
+        uid: deployer-creds
+      truststore-creds:
+        externalSecret: ""
+        password: changeit
+        passwordPolicy: required
+        realName: onap-nbi-cert-initializer-truststore-creds
+        type: password
+        uid: truststore-creds
+    aaf_add_config: |
+      /opt/app/aaf_config/bin/agent.sh; /opt/app/aaf_config/bin/agent.sh local showpass {{.Values.fqi}} {{ .Values.fqdn }} > {{ .Values.credsPath }}/mycreds.prop
+    aafDeployFqi: deployer@people.osaaf.org
+    aafDeployPass: demo123456!
+    app_ns: org.osaaf.aaf
+    appMountPath: /opt/app/osaaf
+    cadi_latitude: "0.0"
+    cadi_longitude: "0.0"
+    certsCMName: '{{ include "common.release" . }}-cert-wrapper-certs'
+    common:
+      global:
+        aafAgentImage: pltf-onap/aaf_agent:2.1.20
+        aafEnabled: true
+        addTestingComponents: false
+        busyBoxImage: busybox:1.30
+        busyBoxRepository: docker.io
+        busyboxImage: pltf-onap/busybox:1.31
+        busyboxRepository: image-registry.openshift-image-registry.svc:5000
+        centralizedLoggingEnabled: false
+        clusterName: cluster.local
+        cmpv2Enabled: true
+        curlImage: pltf-onap/curl:7.69.1
+        debugEnabled: false
+        dockerHubRepository: image-registry.openshift-image-registry.svc:5000
+        flavor: small
+        ingress:
+          enabled: false
+          virtualhost:
+            baseurl: simpledemo.onap.org
+        jreImage: image-registry.openshift-image-registry.svc:5000/pltf-onap/onap-java
+        kubectlImage: pltf-onap/kubectl:1.15
+        loggingImage: beats/filebeat:5.5.0
+        loggingRepository: image-registry.openshift-image-registry.svc:5000
+        mariadbGalera:
+          internalPort: 3306
+          localCluster: false
+          nameOverride: mariadb-galera
+          service: mariadb-galera
+          servicePort: 3306
+        masterPassword: 12345
+        nodePortPrefix: 302
+        nodePortPrefixExt: 304
+        offlineDeploymentBuild: false
+        passwordStrength: long
+        persistence:
+          backup:
+            mountPath: /dockerdata-nfs/backup
+          enableDefaultStorageclass: false
+          enabled: true
+          mountPath: /dockerdata-nfs
+          parameters: {}
+          storageClass: ocs-storagecluster-ceph-rbd
+          storageclassProvisioner: kubernetes.io/no-provisioner
+          volumeReclaimPolicy: Retain
+        platform:
+          certPostProcessor:
+            image: image-registry.openshift-image-registry.svc:5000/org.onap.oom.platform.cert-service.oom-certservice-post-processor:2.1.1
+          certServiceClient:
+            envVariables:
+              caName: RA
+              cert_path: /var/custom-certs
+              cmpv2Country: US
+              cmpv2Location: San-Francisco
+              cmpv2Organization: Linux-Foundation
+              cmpv2OrganizationalUnit: ONAP
+              cmpv2State: California
+              common_name: sdnc.simpledemo.onap.org
+              keystorePassword: secret
+              keystorePath: /etc/onap/oom/certservice/certs/certServiceClient-keystore.jks
+              outputType: P12
+              requestTimeout: "30000"
+              requestURL: https://oom-cert-service:8443/v1/certificate/
+              truststorePassword: secret
+              truststorePath: /etc/onap/oom/certservice/certs/truststore.jks
+            image: onap/org.onap.oom.platform.cert-service.oom-certservice-client:2.1.1
+            secret:
+              mountPath: /etc/onap/oom/certservice/certs/
+              name: oom-cert-service-client-tls-secret
+            secretName: oom-cert-service-client-tls-secret
+        pullPolicy: Always
+        readinessImage: pltf-onap/readiness:3.0.1
+        repository: image-registry.openshift-image-registry.svc:5000
+        repositoryCred:
+          password: docker
+          user: docker
+        serviceMesh:
+          enabled: false
+          tls: true
+    credsPath: /opt/app/osaaf/local
+    fqdn: nbi
+    fqi: nbi@nbi.onap.org
+    fqi_namespace: ""
+    global:
+      aafAgentImage: pltf-onap/aaf_agent:2.1.20
+      aafEnabled: true
+      addTestingComponents: false
+      busyBoxImage: busybox:1.30
+      busyBoxRepository: docker.io
+      busyboxImage: pltf-onap/busybox:1.31
+      busyboxRepository: image-registry.openshift-image-registry.svc:5000
+      centralizedLoggingEnabled: false
+      clusterName: cluster.local
+      cmpv2Enabled: true
+      curlImage: pltf-onap/curl:7.69.1
+      debugEnabled: false
+      dockerHubRepository: image-registry.openshift-image-registry.svc:5000
+      flavor: small
+      ingress:
+        enabled: false
+        virtualhost:
+          baseurl: simpledemo.onap.org
+      jreImage: image-registry.openshift-image-registry.svc:5000/pltf-onap/onap-java
+      kubectlImage: pltf-onap/kubectl:1.15
+      loggingImage: beats/filebeat:5.5.0
+      loggingRepository: image-registry.openshift-image-registry.svc:5000
+      mariadbGalera:
+        internalPort: 3306
+        localCluster: false
+        nameOverride: mariadb-galera
+        service: mariadb-galera
+        servicePort: 3306
+      masterPassword: 12345
+      nodePortPrefix: 302
+      nodePortPrefixExt: 304
+      offlineDeploymentBuild: false
+      passwordStrength: long
+      persistence:
+        backup:
+          mountPath: /dockerdata-nfs/backup
+        enableDefaultStorageclass: false
+        enabled: true
+        mountPath: /dockerdata-nfs
+        parameters: {}
+        storageClass: ocs-storagecluster-ceph-rbd
+        storageclassProvisioner: kubernetes.io/no-provisioner
+        volumeReclaimPolicy: Retain
+      platform:
+        certPostProcessor:
+          image: image-registry.openshift-image-registry.svc:5000/org.onap.oom.platform.cert-service.oom-certservice-post-processor:2.1.1
+        certServiceClient:
+          envVariables:
+            caName: RA
+            cert_path: /var/custom-certs
+            cmpv2Country: US
+            cmpv2Location: San-Francisco
+            cmpv2Organization: Linux-Foundation
+            cmpv2OrganizationalUnit: ONAP
+            cmpv2State: California
+            common_name: sdnc.simpledemo.onap.org
+            keystorePassword: secret
+            keystorePath: /etc/onap/oom/certservice/certs/certServiceClient-keystore.jks
+            outputType: P12
+            requestTimeout: "30000"
+            requestURL: https://oom-cert-service:8443/v1/certificate/
+            truststorePassword: secret
+            truststorePath: /etc/onap/oom/certservice/certs/truststore.jks
+          image: onap/org.onap.oom.platform.cert-service.oom-certservice-client:2.1.1
+          secret:
+            mountPath: /etc/onap/oom/certservice/certs/
+            name: oom-cert-service-client-tls-secret
+          secretName: oom-cert-service-client-tls-secret
+      pullPolicy: Always
+      readinessImage: pltf-onap/readiness:3.0.1
+      repository: image-registry.openshift-image-registry.svc:5000
+      repositoryCred:
+        password: docker
+        user: docker
+      serviceMesh:
+        enabled: false
+        tls: true
+    importCustomCertsEnabled: false
+    mountPath: /opt/app/osaaf
+    nameOverride: nbi-cert-initializer
+    public_fqdn: nbi.onap.org
+    pullPolicy: Always
+    readinessCheck:
+      common:
+        global:
+          aafAgentImage: pltf-onap/aaf_agent:2.1.20
+          aafEnabled: true
+          addTestingComponents: false
+          busyBoxImage: busybox:1.30
+          busyBoxRepository: docker.io
+          busyboxImage: pltf-onap/busybox:1.31
+          busyboxRepository: image-registry.openshift-image-registry.svc:5000
+          centralizedLoggingEnabled: false
+          clusterName: cluster.local
+          cmpv2Enabled: true
+          curlImage: pltf-onap/curl:7.69.1
+          debugEnabled: false
+          dockerHubRepository: image-registry.openshift-image-registry.svc:5000
+          flavor: small
+          ingress:
+            enabled: false
+            virtualhost:
+              baseurl: simpledemo.onap.org
+          jreImage: image-registry.openshift-image-registry.svc:5000/pltf-onap/onap-java
+          kubectlImage: pltf-onap/kubectl:1.15
+          loggingImage: beats/filebeat:5.5.0
+          loggingRepository: image-registry.openshift-image-registry.svc:5000
+          mariadbGalera:
+            internalPort: 3306
+            localCluster: false
+            nameOverride: mariadb-galera
+            service: mariadb-galera
+            servicePort: 3306
+          masterPassword: 12345
+          nodePortPrefix: 302
+          nodePortPrefixExt: 304
+          offlineDeploymentBuild: false
+          passwordStrength: long
+          persistence:
+            backup:
+              mountPath: /dockerdata-nfs/backup
+            enableDefaultStorageclass: false
+            enabled: true
+            mountPath: /dockerdata-nfs
+            parameters: {}
+            storageClass: ocs-storagecluster-ceph-rbd
+            storageclassProvisioner: kubernetes.io/no-provisioner
+            volumeReclaimPolicy: Retain
+          platform:
+            certPostProcessor:
+              image: image-registry.openshift-image-registry.svc:5000/org.onap.oom.platform.cert-service.oom-certservice-post-processor:2.1.1
+            certServiceClient:
+              envVariables:
+                caName: RA
+                cert_path: /var/custom-certs
+                cmpv2Country: US
+                cmpv2Location: San-Francisco
+                cmpv2Organization: Linux-Foundation
+                cmpv2OrganizationalUnit: ONAP
+                cmpv2State: California
+                common_name: sdnc.simpledemo.onap.org
+                keystorePassword: secret
+                keystorePath: /etc/onap/oom/certservice/certs/certServiceClient-keystore.jks
+                outputType: P12
+                requestTimeout: "30000"
+                requestURL: https://oom-cert-service:8443/v1/certificate/
+                truststorePassword: secret
+                truststorePath: /etc/onap/oom/certservice/certs/truststore.jks
+              image: onap/org.onap.oom.platform.cert-service.oom-certservice-client:2.1.1
+              secret:
+                mountPath: /etc/onap/oom/certservice/certs/
+                name: oom-cert-service-client-tls-secret
+              secretName: oom-cert-service-client-tls-secret
+          pullPolicy: Always
+          readinessImage: pltf-onap/readiness:3.0.1
+          repository: image-registry.openshift-image-registry.svc:5000
+          repositoryCred:
+            password: docker
+            user: docker
+          serviceMesh:
+            enabled: false
+            tls: true
+      global:
+        aafAgentImage: pltf-onap/aaf_agent:2.1.20
+        aafEnabled: true
+        addTestingComponents: false
+        busyBoxImage: busybox:1.30
+        busyBoxRepository: docker.io
+        busyboxImage: pltf-onap/busybox:1.31
+        busyboxRepository: image-registry.openshift-image-registry.svc:5000
+        centralizedLoggingEnabled: false
+        clusterName: cluster.local
+        cmpv2Enabled: true
+        curlImage: pltf-onap/curl:7.69.1
+        debugEnabled: false
+        dockerHubRepository: image-registry.openshift-image-registry.svc:5000
+        flavor: small
+        ingress:
+          enabled: false
+          virtualhost:
+            baseurl: simpledemo.onap.org
+        jreImage: image-registry.openshift-image-registry.svc:5000/pltf-onap/onap-java
+        kubectlImage: pltf-onap/kubectl:1.15
+        loggingImage: beats/filebeat:5.5.0
+        loggingRepository: image-registry.openshift-image-registry.svc:5000
+        mariadbGalera:
+          internalPort: 3306
+          localCluster: false
+          nameOverride: mariadb-galera
+          service: mariadb-galera
+          servicePort: 3306
+        masterPassword: 12345
+        nodePortPrefix: 302
+        nodePortPrefixExt: 304
+        offlineDeploymentBuild: false
+        passwordStrength: long
+        persistence:
+          backup:
+            mountPath: /dockerdata-nfs/backup
+          enableDefaultStorageclass: false
+          enabled: true
+          mountPath: /dockerdata-nfs
+          parameters: {}
+          storageClass: ocs-storagecluster-ceph-rbd
+          storageclassProvisioner: kubernetes.io/no-provisioner
+          volumeReclaimPolicy: Retain
+        platform:
+          certPostProcessor:
+            image: image-registry.openshift-image-registry.svc:5000/org.onap.oom.platform.cert-service.oom-certservice-post-processor:2.1.1
+          certServiceClient:
+            envVariables:
+              caName: RA
+              cert_path: /var/custom-certs
+              cmpv2Country: US
+              cmpv2Location: San-Francisco
+              cmpv2Organization: Linux-Foundation
+              cmpv2OrganizationalUnit: ONAP
+              cmpv2State: California
+              common_name: sdnc.simpledemo.onap.org
+              keystorePassword: secret
+              keystorePath: /etc/onap/oom/certservice/certs/certServiceClient-keystore.jks
+              outputType: P12
+              requestTimeout: "30000"
+              requestURL: https://oom-cert-service:8443/v1/certificate/
+              truststorePassword: secret
+              truststorePath: /etc/onap/oom/certservice/certs/truststore.jks
+            image: onap/org.onap.oom.platform.cert-service.oom-certservice-client:2.1.1
+            secret:
+              mountPath: /etc/onap/oom/certservice/certs/
+              name: oom-cert-service-client-tls-secret
+            secretName: oom-cert-service-client-tls-secret
+        pullPolicy: Always
+        readinessImage: pltf-onap/readiness:3.0.1
+        repository: image-registry.openshift-image-registry.svc:5000
+        repositoryCred:
+          password: docker
+          user: docker
+        serviceMesh:
+          enabled: false
+          tls: true
+      limits:
+        cpu: 100m
+        memory: 100Mi
+      repository: image-registry.openshift-image-registry.svc:5000
+      requests:
+        cpu: 3m
+        memory: 20Mi
+      wait_for:
+      - aaf-locate
+      - aaf-cm
+      - aaf-service
+    secrets:
+    - externalSecret: '{{ ternary (tpl (default "" .Values.aafDeployCredsExternalSecret) .) "aafIsDisabled" .Values.global.aafEnabled }}'
+      login: '{{ .Values.aafDeployFqi }}'
+      password: '{{ .Values.aafDeployPass }}'
+      passwordPolicy: required
+      type: basicAuth
+      uid: deployer-creds
+    - externalSecret: '{{ tpl (default "" .Values.truststoreCredsExternalSecret) . }}'
+      password: '{{ .Values.truststorePassword }}'
+      passwordPolicy: required
+      type: password
+      uid: truststore-creds
+    truststoreMountpath: ""
+    truststoreOutputFileName: truststore.jks
+    truststorePassword: changeit
+  common:
+    global:
+      aafAgentImage: pltf-onap/aaf_agent:2.1.20
+      aafEnabled: true
+      addTestingComponents: false
+      busyBoxImage: busybox:1.30
+      busyBoxRepository: docker.io
+      busyboxImage: pltf-onap/busybox:1.31
+      busyboxRepository: image-registry.openshift-image-registry.svc:5000
+      centralizedLoggingEnabled: false
+      clusterName: cluster.local
+      cmpv2Enabled: true
+      curlImage: pltf-onap/curl:7.69.1
+      debugEnabled: false
+      dockerHubRepository: image-registry.openshift-image-registry.svc:5000
+      flavor: small
+      ingress:
+        enabled: false
+        virtualhost:
+          baseurl: simpledemo.onap.org
+      kubectlImage: pltf-onap/kubectl:1.15
+      loggingImage: beats/filebeat:5.5.0
+      loggingRepository: image-registry.openshift-image-registry.svc:5000
+      mariadbGalera:
+        internalPort: 3306
+        localCluster: false
+        nameOverride: mariadb-galera
+        service: mariadb-galera
+        servicePort: 3306
+      masterPassword: 12345
+      nodePortPrefix: 302
+      nodePortPrefixExt: 304
+      offlineDeploymentBuild: false
+      passwordStrength: long
+      persistence:
+        backup:
+          mountPath: /dockerdata-nfs/backup
+        enableDefaultStorageclass: false
+        enabled: true
+        mountPath: /dockerdata-nfs
+        parameters: {}
+        storageClass: ocs-storagecluster-ceph-rbd
+        storageclassProvisioner: kubernetes.io/no-provisioner
+        volumeReclaimPolicy: Retain
+      platform:
+        certPostProcessor:
+          image: image-registry.openshift-image-registry.svc:5000/org.onap.oom.platform.cert-service.oom-certservice-post-processor:2.1.1
+        certServiceClient:
+          envVariables:
+            caName: RA
+            cert_path: /var/custom-certs
+            cmpv2Country: US
+            cmpv2Location: San-Francisco
+            cmpv2Organization: Linux-Foundation
+            cmpv2OrganizationalUnit: ONAP
+            cmpv2State: California
+            common_name: sdnc.simpledemo.onap.org
+            keystorePassword: secret
+            keystorePath: /etc/onap/oom/certservice/certs/certServiceClient-keystore.jks
+            outputType: P12
+            requestTimeout: "30000"
+            requestURL: https://oom-cert-service:8443/v1/certificate/
+            truststorePassword: secret
+            truststorePath: /etc/onap/oom/certservice/certs/truststore.jks
+          image: onap/org.onap.oom.platform.cert-service.oom-certservice-client:2.1.1
+          secret:
+            mountPath: /etc/onap/oom/certservice/certs/
+            name: oom-cert-service-client-tls-secret
+          secretName: oom-cert-service-client-tls-secret
+      pullPolicy: Always
+      readinessImage: pltf-onap/readiness:3.0.1
+      repositoryCred:
+        password: docker
+        user: docker
+      serviceMesh:
+        enabled: false
+        tls: true
+  config:
+    cloudOwner: CloudOwner
+    db:
+      userName: rene
+    ecompInstanceId: OOM
+    k8sCloudOwner: k8scloudowner4
+    k8sCloudRegionId: k8sregionfour
+    loglevel: INFO
+    logstashPort: 5044
+    logstashServiceName: log-ls
+    openStackRegion: Yolo
+    openStackVNFTenantId: "1234"
+  enabled: true
+  flavor: small
+  global:
+    aafAgentImage: pltf-onap/aaf_agent:2.1.20
+    aafEnabled: true
+    addTestingComponents: false
+    busyBoxImage: busybox:1.30
+    busyBoxRepository: docker.io
+    busyboxImage: pltf-onap/busybox:1.31
+    busyboxRepository: image-registry.openshift-image-registry.svc:5000
+    centralizedLoggingEnabled: false
+    clusterName: cluster.local
+    cmpv2Enabled: true
+    curlImage: pltf-onap/curl:7.69.1
+    debugEnabled: false
+    dockerHubRepository: image-registry.openshift-image-registry.svc:5000
+    flavor: small
+    ingress:
+      enabled: false
+      virtualhost:
+        baseurl: simpledemo.onap.org
+    kubectlImage: pltf-onap/kubectl:1.15
+    loggingImage: beats/filebeat:5.5.0
+    loggingRepository: image-registry.openshift-image-registry.svc:5000
+    mariadbGalera:
+      internalPort: 3306
+      localCluster: false
+      nameOverride: mariadb-galera
+      service: mariadb-galera
+      servicePort: 3306
+    masterPassword: 12345
+    nodePortPrefix: 302
+    nodePortPrefixExt: 304
+    offlineDeploymentBuild: false
+    passwordStrength: long
+    persistence:
+      backup:
+        mountPath: /dockerdata-nfs/backup
+      enableDefaultStorageclass: false
+      enabled: true
+      mountPath: /dockerdata-nfs
+      parameters: {}
+      storageClass: ocs-storagecluster-ceph-rbd
+      storageclassProvisioner: kubernetes.io/no-provisioner
+      volumeReclaimPolicy: Retain
+    platform:
+      certPostProcessor:
+        image: image-registry.openshift-image-registry.svc:5000/org.onap.oom.platform.cert-service.oom-certservice-post-processor:2.1.1
+      certServiceClient:
+        envVariables:
+          caName: RA
+          cert_path: /var/custom-certs
+          cmpv2Country: US
+          cmpv2Location: San-Francisco
+          cmpv2Organization: Linux-Foundation
+          cmpv2OrganizationalUnit: ONAP
+          cmpv2State: California
+          common_name: sdnc.simpledemo.onap.org
+          keystorePassword: secret
+          keystorePath: /etc/onap/oom/certservice/certs/certServiceClient-keystore.jks
+          outputType: P12
+          requestTimeout: "30000"
+          requestURL: https://oom-cert-service:8443/v1/certificate/
+          truststorePassword: secret
+          truststorePath: /etc/onap/oom/certservice/certs/truststore.jks
+        image: onap/org.onap.oom.platform.cert-service.oom-certservice-client:2.1.1
+        secret:
+          mountPath: /etc/onap/oom/certservice/certs/
+          name: oom-cert-service-client-tls-secret
+        secretName: oom-cert-service-client-tls-secret
+    pullPolicy: Always
+    readinessImage: pltf-onap/readiness:3.0.1
+    repositoryCred:
+      password: docker
+      user: docker
+    serviceMesh:
+      enabled: false
+      tls: true
+  image: pltf-onap/nbi:7.0.2
+  ingress:
+    config:
+      ssl: redirect
+    enabled: false
+    service:
+    - baseaddr: nbi.api
+      name: nbi
+      port: 8443
+  liveness:
+    enabled: true
+    initialDelaySeconds: 180
+    path: /nbi/api/v4/status
+    periodSeconds: 30
+    port: 8443
+  mariadb-galera:
+    affinity: {}
+    backup:
+      cron: 00 00 * * *
+      enabled: false
+      retentionPeriod: 3
+    backupImage: pltf-onap/mariadb:10.1.38
+    common:
+      global:
+        aafAgentImage: pltf-onap/aaf_agent:2.1.20
+        aafEnabled: true
+        addTestingComponents: false
+        busyBoxImage: busybox:1.30
+        busyBoxRepository: docker.io
+        busyboxImage: pltf-onap/busybox:1.31
+        busyboxRepository: image-registry.openshift-image-registry.svc:5000
+        centralizedLoggingEnabled: false
+        clusterName: cluster.local
+        cmpv2Enabled: true
+        curlImage: pltf-onap/curl:7.69.1
+        debugEnabled: false
+        dockerHubRepository: image-registry.openshift-image-registry.svc:5000
+        flavor: small
+        ingress:
+          enabled: false
+          virtualhost:
+            baseurl: simpledemo.onap.org
+        kubectlImage: pltf-onap/kubectl:1.15
+        loggingImage: beats/filebeat:5.5.0
+        loggingRepository: image-registry.openshift-image-registry.svc:5000
+        mariadbGalera:
+          internalPort: 3306
+          localCluster: false
+          nameOverride: mariadb-galera
+          service: mariadb-galera
+          servicePort: 3306
+        masterPassword: 12345
+        nodePortPrefix: 302
+        nodePortPrefixExt: 304
+        offlineDeploymentBuild: false
+        passwordStrength: long
+        persistence:
+          backup:
+            mountPath: /dockerdata-nfs/backup
+          enableDefaultStorageclass: false
+          enabled: true
+          mountPath: /dockerdata-nfs
+          parameters: {}
+          storageClass: ocs-storagecluster-ceph-rbd
+          storageclassProvisioner: kubernetes.io/no-provisioner
+          volumeReclaimPolicy: Retain
+        platform:
+          certPostProcessor:
+            image: image-registry.openshift-image-registry.svc:5000/org.onap.oom.platform.cert-service.oom-certservice-post-processor:2.1.1
+          certServiceClient:
+            envVariables:
+              caName: RA
+              cert_path: /var/custom-certs
+              cmpv2Country: US
+              cmpv2Location: San-Francisco
+              cmpv2Organization: Linux-Foundation
+              cmpv2OrganizationalUnit: ONAP
+              cmpv2State: California
+              common_name: sdnc.simpledemo.onap.org
+              keystorePassword: secret
+              keystorePath: /etc/onap/oom/certservice/certs/certServiceClient-keystore.jks
+              outputType: P12
+              requestTimeout: "30000"
+              requestURL: https://oom-cert-service:8443/v1/certificate/
+              truststorePassword: secret
+              truststorePath: /etc/onap/oom/certservice/certs/truststore.jks
+            image: onap/org.onap.oom.platform.cert-service.oom-certservice-client:2.1.1
+            secret:
+              mountPath: /etc/onap/oom/certservice/certs/
+              name: oom-cert-service-client-tls-secret
+            secretName: oom-cert-service-client-tls-secret
+        pullPolicy: Always
+        readinessImage: pltf-onap/readiness:3.0.1
+        repository: image-registry.openshift-image-registry.svc:5000
+        repositoryCred:
+          password: docker
+          user: docker
+        serviceMesh:
+          enabled: false
+          tls: true
+    config:
+      mysqlDatabase: nbi
+      userCredentialsExternalSecret: '{{ include "common.release" . }}-nbi-db-secret'
+      userName: my-user
+    externalConfig: ""
+    global:
+      aafAgentImage: pltf-onap/aaf_agent:2.1.20
+      aafEnabled: true
+      addTestingComponents: false
+      busyBoxImage: busybox:1.30
+      busyBoxRepository: docker.io
+      busyboxImage: pltf-onap/busybox:1.31
+      busyboxRepository: image-registry.openshift-image-registry.svc:5000
+      centralizedLoggingEnabled: false
+      clusterName: cluster.local
+      cmpv2Enabled: true
+      curlImage: pltf-onap/curl:7.69.1
+      debugEnabled: false
+      dockerHubRepository: image-registry.openshift-image-registry.svc:5000
+      flavor: small
+      ingress:
+        enabled: false
+        virtualhost:
+          baseurl: simpledemo.onap.org
+      kubectlImage: pltf-onap/kubectl:1.15
+      loggingImage: beats/filebeat:5.5.0
+      loggingRepository: image-registry.openshift-image-registry.svc:5000
+      mariadbGalera:
+        internalPort: 3306
+        localCluster: false
+        nameOverride: mariadb-galera
+        service: mariadb-galera
+        servicePort: 3306
+      masterPassword: 12345
+      nodePortPrefix: 302
+      nodePortPrefixExt: 304
+      offlineDeploymentBuild: false
+      passwordStrength: long
+      persistence:
+        backup:
+          mountPath: /dockerdata-nfs/backup
+        enableDefaultStorageclass: false
+        enabled: true
+        mountPath: /dockerdata-nfs
+        parameters: {}
+        storageClass: ocs-storagecluster-ceph-rbd
+        storageclassProvisioner: kubernetes.io/no-provisioner
+        volumeReclaimPolicy: Retain
+      platform:
+        certPostProcessor:
+          image: image-registry.openshift-image-registry.svc:5000/org.onap.oom.platform.cert-service.oom-certservice-post-processor:2.1.1
+        certServiceClient:
+          envVariables:
+            caName: RA
+            cert_path: /var/custom-certs
+            cmpv2Country: US
+            cmpv2Location: San-Francisco
+            cmpv2Organization: Linux-Foundation
+            cmpv2OrganizationalUnit: ONAP
+            cmpv2State: California
+            common_name: sdnc.simpledemo.onap.org
+            keystorePassword: secret
+            keystorePath: /etc/onap/oom/certservice/certs/certServiceClient-keystore.jks
+            outputType: P12
+            requestTimeout: "30000"
+            requestURL: https://oom-cert-service:8443/v1/certificate/
+            truststorePassword: secret
+            truststorePath: /etc/onap/oom/certservice/certs/truststore.jks
+          image: onap/org.onap.oom.platform.cert-service.oom-certservice-client:2.1.1
+          secret:
+            mountPath: /etc/onap/oom/certservice/certs/
+            name: oom-cert-service-client-tls-secret
+          secretName: oom-cert-service-client-tls-secret
+      pullPolicy: Always
+      readinessImage: pltf-onap/readiness:3.0.1
+      repository: image-registry.openshift-image-registry.svc:5000
+      repositoryCred:
+        password: docker
+        user: docker
+      serviceMesh:
+        enabled: false
+        tls: true
+    image: pltf-onap/k8s-mariadb-galera-centos:v002
+    imageInit: pltf-onap/busybox
+    ingress:
+      enabled: false
+    liveness:
+      enabled: true
+      initialDelaySeconds: 30
+      periodSeconds: 180
+      timeoutSeconds: 180
+    nameOverride: nbi-galera
+    nodeSelector: {}
+    persistence:
+      accessMode: ReadWriteOnce
+      enabled: false
+      mountSubPath: nbi/maria/data
+      mysqlPath: /var/lib/mysql
+      size: 2Gi
+      storageClass: ocs-storagecluster-ceph-rbd
+      volumeReclaimPolicy: Retain
+    pullPolicy: IfNotPresent
+    readiness:
+      initialDelaySeconds: 15
+      periodSeconds: 180
+      timeoutSeconds: 180
+    replicaCount: 1
+    repository: image-registry.openshift-image-registry.svc:5000
+    resources:
+      large:
+        limits:
+          cpu: 2
+          memory: 4Gi
+        requests:
+          cpu: 1
+          memory: 2Gi
+      small:
+        limits:
+          cpu: 500m
+          memory: 1.5Gi
+        requests:
+          cpu: 100m
+          memory: 750Mi
+      unlimited: {}
+    secrets:
+    - externalSecret: '{{ tpl (default "" .Values.config.mariadbRootPasswordExternalSecret) . }}'
+      password: '{{ .Values.config.mariadbRootPassword }}'
+      type: password
+      uid: '{{ include "common.mariadb.secret.rootPassUID" . }}'
+    - externalSecret: '{{ tpl (default "" .Values.config.userCredentialsExternalSecret) . }}'
+      login: '{{ .Values.config.userName }}'
+      password: '{{ .Values.config.userPassword }}'
+      type: basicAuth
+      uid: '{{ include "common.mariadb.secret.userCredentialsUID" . }}'
+    service:
+      internalPort: 3306
+      istPort: 4568
+      istPortName: ist
+      name: nbi-galera
+      portName: nbi-galera
+      replicationName: replication
+      replicationPort: 4567
+      sstPort: 4444
+      sstPortName: sst
+  mariadb-init:
+    _secretsCache:
+      nbi:
+        externalSecret: onap-nbi-db-secret
+        login: u5WZ1GMSIS1wHZF
+        password: Ci@shsOd3pky1Vji
+        passwordPolicy: required
+        realName: onap-nbi-db-secret
+        type: basicAuth
+        uid: nbi
+      root-password:
+        externalSecret: onap-mariadb-galera-db-root-password
+        password: ""
+        realName: onap-mariadb-galera-db-root-password
+        type: password
+        uid: root-password
+    affinity: {}
+    common:
+      global:
+        aafAgentImage: pltf-onap/aaf_agent:2.1.20
+        aafEnabled: true
+        addTestingComponents: false
+        busyBoxImage: busybox:1.30
+        busyBoxRepository: docker.io
+        busyboxImage: pltf-onap/busybox:1.31
+        busyboxRepository: image-registry.openshift-image-registry.svc:5000
+        centralizedLoggingEnabled: false
+        clusterName: cluster.local
+        cmpv2Enabled: true
+        curlImage: pltf-onap/curl:7.69.1
+        debugEnabled: false
+        dockerHubRepository: image-registry.openshift-image-registry.svc:5000
+        flavor: small
+        ingress:
+          enabled: false
+          virtualhost:
+            baseurl: simpledemo.onap.org
+        kubectlImage: pltf-onap/kubectl:1.15
+        loggingImage: beats/filebeat:5.5.0
+        loggingRepository: image-registry.openshift-image-registry.svc:5000
+        mariadbGalera:
+          internalPort: 3306
+          localCluster: false
+          nameOverride: mariadb-galera
+          service: mariadb-galera
+          servicePort: 3306
+        masterPassword: 12345
+        nodePortPrefix: 302
+        nodePortPrefixExt: 304
+        offlineDeploymentBuild: false
+        passwordStrength: long
+        persistence:
+          backup:
+            mountPath: /dockerdata-nfs/backup
+          enableDefaultStorageclass: false
+          enabled: true
+          mountPath: /dockerdata-nfs
+          parameters: {}
+          storageClass: ocs-storagecluster-ceph-rbd
+          storageclassProvisioner: kubernetes.io/no-provisioner
+          volumeReclaimPolicy: Retain
+        platform:
+          certPostProcessor:
+            image: image-registry.openshift-image-registry.svc:5000/org.onap.oom.platform.cert-service.oom-certservice-post-processor:2.1.1
+          certServiceClient:
+            envVariables:
+              caName: RA
+              cert_path: /var/custom-certs
+              cmpv2Country: US
+              cmpv2Location: San-Francisco
+              cmpv2Organization: Linux-Foundation
+              cmpv2OrganizationalUnit: ONAP
+              cmpv2State: California
+              common_name: sdnc.simpledemo.onap.org
+              keystorePassword: secret
+              keystorePath: /etc/onap/oom/certservice/certs/certServiceClient-keystore.jks
+              outputType: P12
+              requestTimeout: "30000"
+              requestURL: https://oom-cert-service:8443/v1/certificate/
+              truststorePassword: secret
+              truststorePath: /etc/onap/oom/certservice/certs/truststore.jks
+            image: onap/org.onap.oom.platform.cert-service.oom-certservice-client:2.1.1
+            secret:
+              mountPath: /etc/onap/oom/certservice/certs/
+              name: oom-cert-service-client-tls-secret
+            secretName: oom-cert-service-client-tls-secret
+        pullPolicy: Always
+        readinessImage: pltf-onap/readiness:3.0.1
+        repository: image-registry.openshift-image-registry.svc:5000
+        repositoryCred:
+          password: docker
+          user: docker
+        serviceMesh:
+          enabled: false
+          tls: true
+    config:
+      config_map: default
+      mysqlAdditionalDatabases: {}
+      mysqlDatabase: nbi
+      userCredentialsExternalSecret: '{{ include "common.release" . }}-nbi-db-secret'
+      userName: u5WZ1GMSIS1wHZF
+      userPassword: Ci@shsOd3pky1Vji
+    flavor: small
+    global:
+      aafAgentImage: pltf-onap/aaf_agent:2.1.20
+      aafEnabled: true
+      addTestingComponents: false
+      busyBoxImage: busybox:1.30
+      busyBoxRepository: docker.io
+      busyboxImage: pltf-onap/busybox:1.31
+      busyboxRepository: image-registry.openshift-image-registry.svc:5000
+      centralizedLoggingEnabled: false
+      clusterName: cluster.local
+      cmpv2Enabled: true
+      curlImage: pltf-onap/curl:7.69.1
+      debugEnabled: false
+      dockerHubRepository: image-registry.openshift-image-registry.svc:5000
+      flavor: small
+      ingress:
+        enabled: false
+        virtualhost:
+          baseurl: simpledemo.onap.org
+      kubectlImage: pltf-onap/kubectl:1.15
+      loggingImage: beats/filebeat:5.5.0
+      loggingRepository: image-registry.openshift-image-registry.svc:5000
+      mariadbGalera:
+        internalPort: 3306
+        localCluster: false
+        nameOverride: mariadb-galera
+        service: mariadb-galera
+        servicePort: 3306
+      masterPassword: 12345
+      nodePortPrefix: 302
+      nodePortPrefixExt: 304
+      offlineDeploymentBuild: false
+      passwordStrength: long
+      persistence:
+        backup:
+          mountPath: /dockerdata-nfs/backup
+        enableDefaultStorageclass: false
+        enabled: true
+        mountPath: /dockerdata-nfs
+        parameters: {}
+        storageClass: ocs-storagecluster-ceph-rbd
+        storageclassProvisioner: kubernetes.io/no-provisioner
+        volumeReclaimPolicy: Retain
+      platform:
+        certPostProcessor:
+          image: image-registry.openshift-image-registry.svc:5000/org.onap.oom.platform.cert-service.oom-certservice-post-processor:2.1.1
+        certServiceClient:
+          envVariables:
+            caName: RA
+            cert_path: /var/custom-certs
+            cmpv2Country: US
+            cmpv2Location: San-Francisco
+            cmpv2Organization: Linux-Foundation
+            cmpv2OrganizationalUnit: ONAP
+            cmpv2State: California
+            common_name: sdnc.simpledemo.onap.org
+            keystorePassword: secret
+            keystorePath: /etc/onap/oom/certservice/certs/certServiceClient-keystore.jks
+            outputType: P12
+            requestTimeout: "30000"
+            requestURL: https://oom-cert-service:8443/v1/certificate/
+            truststorePassword: secret
+            truststorePath: /etc/onap/oom/certservice/certs/truststore.jks
+          image: onap/org.onap.oom.platform.cert-service.oom-certservice-client:2.1.1
+          secret:
+            mountPath: /etc/onap/oom/certservice/certs/
+            name: oom-cert-service-client-tls-secret
+          secretName: oom-cert-service-client-tls-secret
+      pullPolicy: Always
+      readinessImage: pltf-onap/readiness:3.0.1
+      repository: image-registry.openshift-image-registry.svc:5000
+      repositoryCred:
+        password: docker
+        user: docker
+      serviceMesh:
+        enabled: false
+        tls: true
+    image: pltf-onap/mariadb:10.1.38
+    mariadbGalera: {}
+    nameOverride: nbi-config
+    nodeSelector: {}
+    pullPolicy: IfNotPresent
+    resources:
+      large:
+        limits:
+          cpu: 200m
+          memory: 500Mi
+        requests:
+          cpu: 20m
+          memory: 20Mi
+      small:
+        limits:
+          cpu: 100m
+          memory: 500Mi
+        requests:
+          cpu: 10m
+          memory: 10Mi
+      unlimited: {}
+    secrets:
+    - externalSecret: '{{ tpl (ternary (default "" .Values.mariadbGalera.userRootSecret) (default (include "mariadbInit.mariadbClusterSecret" .) .Values.global.mariadbGalera.userRootSecret) (not (empty (default "" .Values.mariadbGalera.serviceName)))) . }}'
+      password: '{{ tpl (ternary (default "" .Values.mariadbGalera.userRootPassword) (default "" .Values.global.mariadbGalera.userRootPassword) (not (empty (default "" .Values.mariadbGalera.serviceName)))) . }}'
+      type: password
+      uid: root-password
+    - externalSecret: '{{ tpl (default "" .Values.config.userCredentialsExternalSecret) . }}'
+      login: '{{ .Values.config.userName }}'
+      password: '{{ .Values.config.userPassword }}'
+      passwordPolicy: required
+      type: basicAuth
+      uid: '{{ .Values.config.mysqlDatabase }}'
+    secretsUpdated: true
+  mongo:
+    affinity: {}
+    common:
+      global:
+        aafAgentImage: pltf-onap/aaf_agent:2.1.20
+        aafEnabled: true
+        addTestingComponents: false
+        busyBoxImage: busybox:1.30
+        busyBoxRepository: docker.io
+        busyboxImage: pltf-onap/busybox:1.31
+        busyboxRepository: image-registry.openshift-image-registry.svc:5000
+        centralizedLoggingEnabled: false
+        clusterName: cluster.local
+        cmpv2Enabled: true
+        curlImage: pltf-onap/curl:7.69.1
+        debugEnabled: false
+        dockerHubRepository: image-registry.openshift-image-registry.svc:5000
+        flavor: small
+        ingress:
+          enabled: false
+          virtualhost:
+            baseurl: simpledemo.onap.org
+        kubectlImage: pltf-onap/kubectl:1.15
+        loggingImage: beats/filebeat:5.5.0
+        loggingRepository: image-registry.openshift-image-registry.svc:5000
+        mariadbGalera:
+          internalPort: 3306
+          localCluster: false
+          nameOverride: mariadb-galera
+          service: mariadb-galera
+          servicePort: 3306
+        masterPassword: 12345
+        nodePortPrefix: 302
+        nodePortPrefixExt: 304
+        offlineDeploymentBuild: false
+        passwordStrength: long
+        persistence:
+          backup:
+            mountPath: /dockerdata-nfs/backup
+          enableDefaultStorageclass: false
+          enabled: true
+          mountPath: /dockerdata-nfs
+          parameters: {}
+          storageClass: ocs-storagecluster-ceph-rbd
+          storageclassProvisioner: kubernetes.io/no-provisioner
+          volumeReclaimPolicy: Retain
+        platform:
+          certPostProcessor:
+            image: image-registry.openshift-image-registry.svc:5000/org.onap.oom.platform.cert-service.oom-certservice-post-processor:2.1.1
+          certServiceClient:
+            envVariables:
+              caName: RA
+              cert_path: /var/custom-certs
+              cmpv2Country: US
+              cmpv2Location: San-Francisco
+              cmpv2Organization: Linux-Foundation
+              cmpv2OrganizationalUnit: ONAP
+              cmpv2State: California
+              common_name: sdnc.simpledemo.onap.org
+              keystorePassword: secret
+              keystorePath: /etc/onap/oom/certservice/certs/certServiceClient-keystore.jks
+              outputType: P12
+              requestTimeout: "30000"
+              requestURL: https://oom-cert-service:8443/v1/certificate/
+              truststorePassword: secret
+              truststorePath: /etc/onap/oom/certservice/certs/truststore.jks
+            image: onap/org.onap.oom.platform.cert-service.oom-certservice-client:2.1.1
+            secret:
+              mountPath: /etc/onap/oom/certservice/certs/
+              name: oom-cert-service-client-tls-secret
+            secretName: oom-cert-service-client-tls-secret
+        pullPolicy: Always
+        readinessImage: pltf-onap/readiness:3.0.1
+        repositoryCred:
+          password: docker
+          user: docker
+        serviceMesh:
+          enabled: false
+          tls: true
+    config:
+      dbName: ServiceOrderDB
+    disableNfsProvisioner: true
+    dockerHubRepository: registry.hub.docker.com
+    geoEnabled: false
+    geoSiteId: 1
+    global:
+      aafAgentImage: pltf-onap/aaf_agent:2.1.20
+      aafEnabled: true
+      addTestingComponents: false
+      busyBoxImage: busybox:1.30
+      busyBoxRepository: docker.io
+      busyboxImage: pltf-onap/busybox:1.31
+      busyboxRepository: image-registry.openshift-image-registry.svc:5000
+      centralizedLoggingEnabled: false
+      clusterName: cluster.local
+      cmpv2Enabled: true
+      curlImage: pltf-onap/curl:7.69.1
+      debugEnabled: false
+      dockerHubRepository: image-registry.openshift-image-registry.svc:5000
+      flavor: small
+      ingress:
+        enabled: false
+        virtualhost:
+          baseurl: simpledemo.onap.org
+      kubectlImage: pltf-onap/kubectl:1.15
+      loggingImage: beats/filebeat:5.5.0
+      loggingRepository: image-registry.openshift-image-registry.svc:5000
+      mariadbGalera:
+        internalPort: 3306
+        localCluster: false
+        nameOverride: mariadb-galera
+        service: mariadb-galera
+        servicePort: 3306
+      masterPassword: 12345
+      nodePortPrefix: 302
+      nodePortPrefixExt: 304
+      offlineDeploymentBuild: false
+      passwordStrength: long
+      persistence:
+        backup:
+          mountPath: /dockerdata-nfs/backup
+        enableDefaultStorageclass: false
+        enabled: true
+        mountPath: /dockerdata-nfs
+        parameters: {}
+        storageClass: ocs-storagecluster-ceph-rbd
+        storageclassProvisioner: kubernetes.io/no-provisioner
+        volumeReclaimPolicy: Retain
+      platform:
+        certPostProcessor:
+          image: image-registry.openshift-image-registry.svc:5000/org.onap.oom.platform.cert-service.oom-certservice-post-processor:2.1.1
+        certServiceClient:
+          envVariables:
+            caName: RA
+            cert_path: /var/custom-certs
+            cmpv2Country: US
+            cmpv2Location: San-Francisco
+            cmpv2Organization: Linux-Foundation
+            cmpv2OrganizationalUnit: ONAP
+            cmpv2State: California
+            common_name: sdnc.simpledemo.onap.org
+            keystorePassword: secret
+            keystorePath: /etc/onap/oom/certservice/certs/certServiceClient-keystore.jks
+            outputType: P12
+            requestTimeout: "30000"
+            requestURL: https://oom-cert-service:8443/v1/certificate/
+            truststorePassword: secret
+            truststorePath: /etc/onap/oom/certservice/certs/truststore.jks
+          image: onap/org.onap.oom.platform.cert-service.oom-certservice-client:2.1.1
+          secret:
+            mountPath: /etc/onap/oom/certservice/certs/
+            name: oom-cert-service-client-tls-secret
+          secretName: oom-cert-service-client-tls-secret
+      pullPolicy: Always
+      readinessImage: pltf-onap/readiness:3.0.1
+      repositoryCred:
+        password: docker
+        user: docker
+      serviceMesh:
+        enabled: false
+        tls: true
+    image: library/mongo:4.0.8
+    ingress:
+      enabled: false
+    liveness:
+      enabled: true
+      initialDelaySeconds: 30
+      periodSeconds: 300
+      timeoutSeconds: 5
+    nameOverride: nbi-mongo
+    nfsprovisionerPrefix: nbi
+    nodeSelector: {}
+    persistence:
+      accessMode: ReadWriteOnce
+      enabled: true
+      mountPath: /dockerdata-nfs
+      mountSubPath: nbi/mongo/data
+      size: 1Gi
+      volumeReclaimPolicy: Retain
+    pullPolicy: Always
+    readiness:
+      initialDelaySeconds: 5
+      periodSeconds: 300
+    replicaCount: 1
+    resources:
+      large:
+        limits:
+          cpu: 2
+          memory: 4Gi
+        requests:
+          cpu: 1
+          memory: 2Gi
+      small:
+        limits:
+          cpu: 100m
+          memory: 200Mi
+        requests:
+          cpu: 10m
+          memory: 50Mi
+      unlimited: {}
+    sdnctlPrefix: nbi
+    securityContext:
+      group_id: 999
+      user_id: 999
+    service:
+      internalPort: 27017
+      mountdPort: 20048
+      name: nbi-mongohost
+      nfsPort: 2049
+      portName: mongo
+      rpcbindPort: 111
+      rpcbindUdpPort: 111
+  nodeSelector: {}
+  pullPolicy: IfNotPresent
+  readiness:
+    initialDelaySeconds: 185
+    path: /nbi/api/v4/status
+    periodSeconds: 30
+    port: 8443
+  replicaCount: 1
+  repository: image-registry.openshift-image-registry.svc:5000
+  resources:
+    large:
+      limits:
+        cpu: 2
+        memory: 4Gi
+      requests:
+        cpu: 200m
+        memory: 2Gi
+    small:
+      limits:
+        cpu: 1
+        memory: 2Gi
+      requests:
+        cpu: 100m
+        memory: 1Gi
+    unlimited: {}
+  sdc_authorization: Basic YWFpOktwOGJKNFNYc3pNMFdYbGhhazNlSGxjc2UyZ0F3ODR2YW9HR21KdlV5MlU=
+  secrets:
+  - externalSecret: '{{ tpl (default "" .Values.config.db.userCredentialsExternalSecret) . }}'
+    login: '{{ .Values.config.db.userName }}'
+    name: '{{ include "common.release" . }}-nbi-db-secret'
+    password: '{{ .Values.config.db.userPassword }}'
+    type: basicAuth
+    uid: nbi-db-secret
+  service:
+    internalPort: 8443
+    name: nbi
+    nodePort: 74
+    portName: api
+    type: NodePort
+  subChartsOnly:
+    enabled: true
+oof:
+  enabled: false
+  oof-has:
+    music:
+      music-cassandra:
+        liveness:
+          periodSeconds: 120
+        readiness:
+          periodSeconds: 60
+platform:
+  enabled: false
+policy:
+  enabled: false
+pomba:
+  common:
+    global:
+      aafAgentImage: pltf-onap/aaf_agent:2.1.20
+      aafEnabled: true
+      addTestingComponents: false
+      busyboxImage: pltf-onap/busybox:1.31
+      busyboxRepository: image-registry.openshift-image-registry.svc:5000
+      centralizedLoggingEnabled: false
+      clusterName: cluster.local
+      cmpv2Enabled: true
+      curlImage: pltf-onap/curl:7.69.1
+      debugEnabled: false
+      dockerHubRepository: image-registry.openshift-image-registry.svc:5000
+      dockerhubRepository: docker.io
+      flavor: small
+      ingress:
+        enabled: false
+        virtualhost:
+          baseurl: simpledemo.onap.org
+      kubectlImage: pltf-onap/kubectl:1.15
+      loggingImage: beats/filebeat:5.5.0
+      loggingRepository: image-registry.openshift-image-registry.svc:5000
+      masterPassword: 12345
+      networkdiscoveryCtxBuilderHost: pomba-networkdiscoveryctxbuilder
+      nodePortPrefix: 302
+      nodePortPrefixExt: 304
+      offlineDeploymentBuild: false
+      passwordStrength: long
+      persistence:
+        backup:
+          mountPath: /dockerdata-nfs/backup
+        enableDefaultStorageclass: false
+        enabled: true
+        mountPath: /dockerdata-nfs
+        parameters: {}
+        storageClass: ocs-storagecluster-ceph-rbd
+        storageclassProvisioner: kubernetes.io/no-provisioner
+        volumeReclaimPolicy: Retain
+      platform:
+        certPostProcessor:
+          image: image-registry.openshift-image-registry.svc:5000/org.onap.oom.platform.cert-service.oom-certservice-post-processor:2.1.1
+        certServiceClient:
+          envVariables:
+            caName: RA
+            cert_path: /var/custom-certs
+            cmpv2Country: US
+            cmpv2Location: San-Francisco
+            cmpv2Organization: Linux-Foundation
+            cmpv2OrganizationalUnit: ONAP
+            cmpv2State: California
+            common_name: sdnc.simpledemo.onap.org
+            keystorePassword: secret
+            keystorePath: /etc/onap/oom/certservice/certs/certServiceClient-keystore.jks
+            outputType: P12
+            requestTimeout: "30000"
+            requestURL: https://oom-cert-service:8443/v1/certificate/
+            truststorePassword: secret
+            truststorePath: /etc/onap/oom/certservice/certs/truststore.jks
+          image: onap/org.onap.oom.platform.cert-service.oom-certservice-client:2.1.1
+          secret:
+            mountPath: /etc/onap/oom/certservice/certs/
+            name: oom-cert-service-client-tls-secret
+          secretName: oom-cert-service-client-tls-secret
+      pullPolicy: Always
+      readinessImage: pltf-onap/readiness:3.0.1
+      repository: nexus3.onap.org:10001
+      repositoryCred:
+        password: docker
+        user: docker
+      serviceMesh:
+        enabled: false
+        tls: true
+  config:
+    logstashPort: 5044
+    logstashServiceName: log-ls
+  enabled: false
+  global:
+    aafAgentImage: pltf-onap/aaf_agent:2.1.20
+    aafEnabled: true
+    addTestingComponents: false
+    busyboxImage: pltf-onap/busybox:1.31
+    busyboxRepository: image-registry.openshift-image-registry.svc:5000
+    centralizedLoggingEnabled: false
+    clusterName: cluster.local
+    cmpv2Enabled: true
+    curlImage: pltf-onap/curl:7.69.1
+    debugEnabled: false
+    dockerHubRepository: image-registry.openshift-image-registry.svc:5000
+    dockerhubRepository: docker.io
+    flavor: small
+    ingress:
+      enabled: false
+      virtualhost:
+        baseurl: simpledemo.onap.org
+    kubectlImage: pltf-onap/kubectl:1.15
+    loggingImage: beats/filebeat:5.5.0
+    loggingRepository: image-registry.openshift-image-registry.svc:5000
+    masterPassword: 12345
+    networkdiscoveryCtxBuilderHost: pomba-networkdiscoveryctxbuilder
+    nodePortPrefix: 302
+    nodePortPrefixExt: 304
+    offlineDeploymentBuild: false
+    passwordStrength: long
+    persistence:
+      backup:
+        mountPath: /dockerdata-nfs/backup
+      enableDefaultStorageclass: false
+      enabled: true
+      mountPath: /dockerdata-nfs
+      parameters: {}
+      storageClass: ocs-storagecluster-ceph-rbd
+      storageclassProvisioner: kubernetes.io/no-provisioner
+      volumeReclaimPolicy: Retain
+    platform:
+      certPostProcessor:
+        image: image-registry.openshift-image-registry.svc:5000/org.onap.oom.platform.cert-service.oom-certservice-post-processor:2.1.1
+      certServiceClient:
+        envVariables:
+          caName: RA
+          cert_path: /var/custom-certs
+          cmpv2Country: US
+          cmpv2Location: San-Francisco
+          cmpv2Organization: Linux-Foundation
+          cmpv2OrganizationalUnit: ONAP
+          cmpv2State: California
+          common_name: sdnc.simpledemo.onap.org
+          keystorePassword: secret
+          keystorePath: /etc/onap/oom/certservice/certs/certServiceClient-keystore.jks
+          outputType: P12
+          requestTimeout: "30000"
+          requestURL: https://oom-cert-service:8443/v1/certificate/
+          truststorePassword: secret
+          truststorePath: /etc/onap/oom/certservice/certs/truststore.jks
+        image: onap/org.onap.oom.platform.cert-service.oom-certservice-client:2.1.1
+        secret:
+          mountPath: /etc/onap/oom/certservice/certs/
+          name: oom-cert-service-client-tls-secret
+        secretName: oom-cert-service-client-tls-secret
+    pullPolicy: Always
+    readinessImage: pltf-onap/readiness:3.0.1
+    repository: nexus3.onap.org:10001
+    repositoryCred:
+      password: docker
+      user: docker
+    serviceMesh:
+      enabled: false
+      tls: true
+  pomba-aaictxbuilder:
+    affinity: {}
+    config:
+      aaiConnectionTimeout: 60000
+      aaiHttpProtocol: https
+      aaiPassword: OBF:1gfr1ev31gg7
+      aaiPort: 8443
+      aaiReadTimeout: 60000
+      aaiServiceName: aai
+      aaiUsername: AAI
+      httpPassword: OBF:1u2a1toa1w8v1tok1u30
+      httpUserId: admin
+    debugEnabled: false
+    flavor: small
+    global:
+      aafAgentImage: pltf-onap/aaf_agent:2.1.20
+      aafEnabled: true
+      addTestingComponents: false
+      busyboxImage: pltf-onap/busybox:1.31
+      busyboxRepository: image-registry.openshift-image-registry.svc:5000
+      centralizedLoggingEnabled: false
+      clusterName: cluster.local
+      cmpv2Enabled: true
+      curlImage: pltf-onap/curl:7.69.1
+      debugEnabled: false
+      dockerHubRepository: image-registry.openshift-image-registry.svc:5000
+      dockerhubRepository: docker.io
+      flavor: small
+      ingress:
+        enabled: false
+        virtualhost:
+          baseurl: simpledemo.onap.org
+      kubectlImage: pltf-onap/kubectl:1.15
+      loggingImage: beats/filebeat:5.5.0
+      loggingRepository: image-registry.openshift-image-registry.svc:5000
+      masterPassword: 12345
+      networkdiscoveryCtxBuilderHost: pomba-networkdiscoveryctxbuilder
+      nodePortPrefix: 302
+      nodePortPrefixExt: 304
+      offlineDeploymentBuild: false
+      passwordStrength: long
+      persistence:
+        backup:
+          mountPath: /dockerdata-nfs/backup
+        enableDefaultStorageclass: false
+        enabled: true
+        mountPath: /dockerdata-nfs
+        parameters: {}
+        storageClass: ocs-storagecluster-ceph-rbd
+        storageclassProvisioner: kubernetes.io/no-provisioner
+        volumeReclaimPolicy: Retain
+      platform:
+        certPostProcessor:
+          image: image-registry.openshift-image-registry.svc:5000/org.onap.oom.platform.cert-service.oom-certservice-post-processor:2.1.1
+        certServiceClient:
+          envVariables:
+            caName: RA
+            cert_path: /var/custom-certs
+            cmpv2Country: US
+            cmpv2Location: San-Francisco
+            cmpv2Organization: Linux-Foundation
+            cmpv2OrganizationalUnit: ONAP
+            cmpv2State: California
+            common_name: sdnc.simpledemo.onap.org
+            keystorePassword: secret
+            keystorePath: /etc/onap/oom/certservice/certs/certServiceClient-keystore.jks
+            outputType: P12
+            requestTimeout: "30000"
+            requestURL: https://oom-cert-service:8443/v1/certificate/
+            truststorePassword: secret
+            truststorePath: /etc/onap/oom/certservice/certs/truststore.jks
+          image: onap/org.onap.oom.platform.cert-service.oom-certservice-client:2.1.1
+          secret:
+            mountPath: /etc/onap/oom/certservice/certs/
+            name: oom-cert-service-client-tls-secret
+          secretName: oom-cert-service-client-tls-secret
+      pullPolicy: Always
+      readinessImage: pltf-onap/readiness:3.0.1
+      repository: nexus3.onap.org:10001
+      repositoryCred:
+        password: docker
+        user: docker
+      serviceMesh:
+        enabled: false
+        tls: true
+    image: onap/pomba-aai-context-builder:1.5.1
+    ingress:
+      enabled: false
+    liveness:
+      enabled: true
+      initialDelaySeconds: 30
+      periodSeconds: 10
+    nodeSelector: {}
+    pullPolicy: Always
+    readiness:
+      initialDelaySeconds: 30
+      periodSeconds: 10
+    replicaCount: 1
+    repository: nexus3.onap.org:10001
+    resources:
+      large:
+        limits:
+          cpu: 2
+          memory: 1600Mi
+        requests:
+          cpu: 200m
+          memory: 800Mi
+      small:
+        limits:
+          cpu: 1
+          memory: 800Mi
+        requests:
+          cpu: 100m
+          memory: 400Mi
+      unlimited: {}
+    secrets:
+    - externalSecret: '{{ tpl (default "" .Values.db.credsExternalSecret) . }}'
+      login: '{{ .Values.db.user }}'
+      password: '{{ .Values.db.password }}'
+      passwordPolicy: required
+      type: basicAuth
+      uid: db-secret
+    - externalSecret: '{{ tpl (default "" .Values.pdp.pdpCredsExternalSecret) . }}'
+      login: '{{ .Values.pdp.pdphttpuserid }}'
+      password: '{{ .Values.pdp.pdphttppassword }}'
+      passwordPolicy: required
+      type: basicAuth
+      uid: pdp-http-creds
+    - externalSecret: '{{ tpl (default "" .Values.pap.papCredsExternalSecret) . }}'
+      login: '{{ .Values.pap.pdppappdphttpuserid }}'
+      password: '{{ .Values.pap.pdppappdphttppassword }}'
+      passwordPolicy: required
+      type: basicAuth
+      uid: pap-http-creds
+    service:
+      externalPort: 9530
+      internalPort: 8080
+      type: ClusterIP
+  pomba-contextaggregator:
+    affinity: {}
+    config:
+      aaiCtxBuilderHost: pomba-aaictxbuilder
+      aaiCtxBuilderPassword: OBF:1u2a1toa1w8v1tok1u30
+      aaiCtxBuilderUsername: admin
+      ctxBuilderExternalPort: 9530
+      networkdiscoveryCtxBuilderPassword: OBF:1u2a1toa1w8v1tok1u30
+      networkdiscoveryCtxBuilderUsername: admin
+      sdcCtxBuilderHost: pomba-sdcctxbuilder
+      sdcCtxBuilderPassword: OBF:1u2a1toa1w8v1tok1u30
+      sdcCtxBuilderUsername: admin
+      sdncCtxBuilderHost: pomba-sdncctxbuilder
+      sdncCtxBuilderPassword: OBF:1u2a1toa1w8v1tok1u30
+      sdncCtxBuilderUsername: admin
+    debugEnabled: false
+    flavor: small
+    global:
+      aafAgentImage: pltf-onap/aaf_agent:2.1.20
+      aafEnabled: true
+      addTestingComponents: false
+      busyboxImage: pltf-onap/busybox:1.31
+      busyboxRepository: image-registry.openshift-image-registry.svc:5000
+      centralizedLoggingEnabled: false
+      clusterName: cluster.local
+      cmpv2Enabled: true
+      curlImage: pltf-onap/curl:7.69.1
+      debugEnabled: false
+      dockerHubRepository: image-registry.openshift-image-registry.svc:5000
+      dockerhubRepository: docker.io
+      flavor: small
+      ingress:
+        enabled: false
+        virtualhost:
+          baseurl: simpledemo.onap.org
+      kubectlImage: pltf-onap/kubectl:1.15
+      loggingImage: beats/filebeat:5.5.0
+      loggingRepository: image-registry.openshift-image-registry.svc:5000
+      masterPassword: 12345
+      networkdiscoveryCtxBuilderHost: pomba-networkdiscoveryctxbuilder
+      nodePortPrefix: 302
+      nodePortPrefixExt: 304
+      offlineDeploymentBuild: false
+      passwordStrength: long
+      persistence:
+        backup:
+          mountPath: /dockerdata-nfs/backup
+        enableDefaultStorageclass: false
+        enabled: true
+        mountPath: /dockerdata-nfs
+        parameters: {}
+        storageClass: ocs-storagecluster-ceph-rbd
+        storageclassProvisioner: kubernetes.io/no-provisioner
+        volumeReclaimPolicy: Retain
+      platform:
+        certPostProcessor:
+          image: image-registry.openshift-image-registry.svc:5000/org.onap.oom.platform.cert-service.oom-certservice-post-processor:2.1.1
+        certServiceClient:
+          envVariables:
+            caName: RA
+            cert_path: /var/custom-certs
+            cmpv2Country: US
+            cmpv2Location: San-Francisco
+            cmpv2Organization: Linux-Foundation
+            cmpv2OrganizationalUnit: ONAP
+            cmpv2State: California
+            common_name: sdnc.simpledemo.onap.org
+            keystorePassword: secret
+            keystorePath: /etc/onap/oom/certservice/certs/certServiceClient-keystore.jks
+            outputType: P12
+            requestTimeout: "30000"
+            requestURL: https://oom-cert-service:8443/v1/certificate/
+            truststorePassword: secret
+            truststorePath: /etc/onap/oom/certservice/certs/truststore.jks
+          image: onap/org.onap.oom.platform.cert-service.oom-certservice-client:2.1.1
+          secret:
+            mountPath: /etc/onap/oom/certservice/certs/
+            name: oom-cert-service-client-tls-secret
+          secretName: oom-cert-service-client-tls-secret
+      pullPolicy: Always
+      readinessImage: pltf-onap/readiness:3.0.1
+      repository: nexus3.onap.org:10001
+      repositoryCred:
+        password: docker
+        user: docker
+      serviceMesh:
+        enabled: false
+        tls: true
+    image: onap/pomba-context-aggregator:1.5.1
+    ingress:
+      enabled: false
+    liveness:
+      enabled: true
+      initialDelaySeconds: 30
+      periodSeconds: 10
+    nodeSelector: {}
+    pullPolicy: Always
+    readiness:
+      enabled: false
+      initialDelaySeconds: 30
+      periodSeconds: 10
+    replicaCount: 1
+    resources:
+      large:
+        limits:
+          cpu: 2
+          memory: 1600Mi
+        requests:
+          cpu: 20m
+          memory: 800Mi
+      small:
+        limits:
+          cpu: 1
+          memory: 800Mi
+        requests:
+          cpu: 10m
+          memory: 400Mi
+      unlimited: {}
+    service:
+      externalPort: 9529
+      internalPort: 9529
+      type: ClusterIP
+  pomba-data-router:
+    affinity: {}
+    busyboxImage: library/busybox:latest
+    busyboxRepository: registry.hub.docker.com
+    config:
+      keyManagerPassword: OBF:1y0q1uvc1uum1uvg1pil1pjl1uuq1uvk1uuu1y10
+      keyStorePassword: OBF:1y0q1uvc1uum1uvg1pil1pjl1uuq1uvk1uuu1y10
+    flavor: small
+    global:
+      aafAgentImage: pltf-onap/aaf_agent:2.1.20
+      aafEnabled: true
+      addTestingComponents: false
+      busyboxImage: pltf-onap/busybox:1.31
+      busyboxRepository: image-registry.openshift-image-registry.svc:5000
+      centralizedLoggingEnabled: false
+      clusterName: cluster.local
+      cmpv2Enabled: true
+      curlImage: pltf-onap/curl:7.69.1
+      debugEnabled: false
+      dockerHubRepository: image-registry.openshift-image-registry.svc:5000
+      dockerhubRepository: docker.io
+      flavor: small
+      ingress:
+        enabled: false
+        virtualhost:
+          baseurl: simpledemo.onap.org
+      kubectlImage: pltf-onap/kubectl:1.15
+      loggingImage: beats/filebeat:5.5.0
+      loggingRepository: image-registry.openshift-image-registry.svc:5000
+      masterPassword: 12345
+      networkdiscoveryCtxBuilderHost: pomba-networkdiscoveryctxbuilder
+      nodePortPrefix: 302
+      nodePortPrefixExt: 304
+      offlineDeploymentBuild: false
+      passwordStrength: long
+      persistence:
+        backup:
+          mountPath: /dockerdata-nfs/backup
+        enableDefaultStorageclass: false
+        enabled: true
+        mountPath: /dockerdata-nfs
+        parameters: {}
+        storageClass: ocs-storagecluster-ceph-rbd
+        storageclassProvisioner: kubernetes.io/no-provisioner
+        volumeReclaimPolicy: Retain
+      platform:
+        certPostProcessor:
+          image: image-registry.openshift-image-registry.svc:5000/org.onap.oom.platform.cert-service.oom-certservice-post-processor:2.1.1
+        certServiceClient:
+          envVariables:
+            caName: RA
+            cert_path: /var/custom-certs
+            cmpv2Country: US
+            cmpv2Location: San-Francisco
+            cmpv2Organization: Linux-Foundation
+            cmpv2OrganizationalUnit: ONAP
+            cmpv2State: California
+            common_name: sdnc.simpledemo.onap.org
+            keystorePassword: secret
+            keystorePath: /etc/onap/oom/certservice/certs/certServiceClient-keystore.jks
+            outputType: P12
+            requestTimeout: "30000"
+            requestURL: https://oom-cert-service:8443/v1/certificate/
+            truststorePassword: secret
+            truststorePath: /etc/onap/oom/certservice/certs/truststore.jks
+          image: onap/org.onap.oom.platform.cert-service.oom-certservice-client:2.1.1
+          secret:
+            mountPath: /etc/onap/oom/certservice/certs/
+            name: oom-cert-service-client-tls-secret
+          secretName: oom-cert-service-client-tls-secret
+      pullPolicy: Always
+      readinessImage: pltf-onap/readiness:3.0.1
+      repository: nexus3.onap.org:10001
+      repositoryCred:
+        password: docker
+        user: docker
+      serviceMesh:
+        enabled: false
+        tls: true
+    image: onap/data-router:1.3.3
+    ingress:
+      config:
+        ssl: none
+      enabled: false
+      service:
+      - baseaddr: pombadatarouter
+        name: pomba-data-router
+        port: 9502
+    liveness:
+      enabled: true
+      initialDelaySeconds: 60
+      periodSeconds: 30
+    nodeSelector: {}
+    persistence:
+      accessMode: ReadWriteOnce
+      enabled: true
+      mountPath: /dockerdata-nfs
+      mountSubPath: pomba/data-router/logs
+      size: 2Gi
+      volumeReclaimPolicy: Retain
+    pullPolicy: Always
+    readiness:
+      initialDelaySeconds: 60
+      periodSeconds: 30
+    replicaCount: 1
+    repository: nexus3.onap.org:10001
+    resources:
+      large:
+        limits:
+          cpu: 2
+          memory: 2800Mi
+        requests:
+          cpu: 200m
+          memory: 1400Mi
+      small:
+        limits:
+          cpu: 1
+          memory: 1400Mi
+        requests:
+          cpu: 100m
+          memory: 700Mi
+      unlimited: {}
+    restartPolicy: Always
+    service:
+      externalPort: 9502
+      internalPort: 9502
+      name: pomba-data-router
+      nodePort: 49
+      type: NodePort
+  pomba-elasticsearch:
+    affinity: {}
+    busyboxImage: library/busybox:latest
+    busyboxRepository: registry.hub.docker.com
+    config: {}
+    debugEnabled: false
+    flavor: small
+    global:
+      aafAgentImage: pltf-onap/aaf_agent:2.1.20
+      aafEnabled: true
+      addTestingComponents: false
+      busyboxImage: pltf-onap/busybox:1.31
+      busyboxRepository: image-registry.openshift-image-registry.svc:5000
+      centralizedLoggingEnabled: false
+      clusterName: cluster.local
+      cmpv2Enabled: true
+      curlImage: pltf-onap/curl:7.69.1
+      debugEnabled: false
+      dockerHubRepository: image-registry.openshift-image-registry.svc:5000
+      dockerhubRepository: docker.io
+      flavor: small
+      ingress:
+        enabled: false
+        virtualhost:
+          baseurl: simpledemo.onap.org
+      kubectlImage: pltf-onap/kubectl:1.15
+      loggingImage: beats/filebeat:5.5.0
+      loggingRepository: image-registry.openshift-image-registry.svc:5000
+      masterPassword: 12345
+      networkdiscoveryCtxBuilderHost: pomba-networkdiscoveryctxbuilder
+      nodePortPrefix: 302
+      nodePortPrefixExt: 304
+      offlineDeploymentBuild: false
+      passwordStrength: long
+      persistence:
+        backup:
+          mountPath: /dockerdata-nfs/backup
+        enableDefaultStorageclass: false
+        enabled: true
+        mountPath: /dockerdata-nfs
+        parameters: {}
+        storageClass: ocs-storagecluster-ceph-rbd
+        storageclassProvisioner: kubernetes.io/no-provisioner
+        volumeReclaimPolicy: Retain
+      platform:
+        certPostProcessor:
+          image: image-registry.openshift-image-registry.svc:5000/org.onap.oom.platform.cert-service.oom-certservice-post-processor:2.1.1
+        certServiceClient:
+          envVariables:
+            caName: RA
+            cert_path: /var/custom-certs
+            cmpv2Country: US
+            cmpv2Location: San-Francisco
+            cmpv2Organization: Linux-Foundation
+            cmpv2OrganizationalUnit: ONAP
+            cmpv2State: California
+            common_name: sdnc.simpledemo.onap.org
+            keystorePassword: secret
+            keystorePath: /etc/onap/oom/certservice/certs/certServiceClient-keystore.jks
+            outputType: P12
+            requestTimeout: "30000"
+            requestURL: https://oom-cert-service:8443/v1/certificate/
+            truststorePassword: secret
+            truststorePath: /etc/onap/oom/certservice/certs/truststore.jks
+          image: onap/org.onap.oom.platform.cert-service.oom-certservice-client:2.1.1
+          secret:
+            mountPath: /etc/onap/oom/certservice/certs/
+            name: oom-cert-service-client-tls-secret
+          secretName: oom-cert-service-client-tls-secret
+      pullPolicy: Always
+      readinessImage: pltf-onap/readiness:3.0.1
+      repository: nexus3.onap.org:10001
+      repositoryCred:
+        password: docker
+        user: docker
+      serviceMesh:
+        enabled: false
+        tls: true
+    image: elasticsearch/elasticsearch:6.6.2
+    ingress:
+      enabled: false
+    liveness:
+      enabled: true
+      initialDelaySeconds: 120
+      periodSeconds: 10
+    loggingRepository: docker.elastic.co
+    nodeSelector: {}
+    persistence:
+      accessMode: ReadWriteOnce
+      enabled: true
+      mountPath: /dockerdata-nfs
+      mountSubPath: pomba/elasticsearch/data
+      mountSubPathLogs: pomba
+      size: 1Gi
+      volumeReclaimPolicy: Retain
+    pullPolicy: Always
+    readiness:
+      initialDelaySeconds: 120
+      periodSeconds: 10
+    replicaCount: 1
+    resources:
+      large:
+        limits:
+          cpu: 4
+          memory: 6Gi
+        requests:
+          cpu: 2
+          memory: 3Gi
+      small:
+        limits:
+          cpu: 2
+          memory: 3Gi
+        requests:
+          cpu: 1
+          memory: 1.5Gi
+      unlimited: {}
+    service:
+      externalPort: 9200
+      externalPort2: 9300
+      internalPort: 9200
+      internalPort2: 9300
+      name: pomba-es
+      name2: pomba-es-tcp
+      type: ClusterIP
+      type2: ClusterIP
+  pomba-kibana:
+    affinity: {}
+    busyboxImage: library/busybox:latest
+    busyboxRepository: registry.hub.docker.com
+    config:
+      elasticsearchPort: 9200
+      elasticsearchServiceName: pomba-es
+      serverSslCertificate: /usr/share/kibana/auth/pomba.crt.pem
+      serverSslEnabled: true
+      serverSslKey: /usr/share/kibana/auth/pomba.key.pem
+    configImage: taskrabbit/elasticsearch-dump
+    configRepository: docker.io
+    debugEnabled: false
+    flavor: small
+    global:
+      aafAgentImage: pltf-onap/aaf_agent:2.1.20
+      aafEnabled: true
+      addTestingComponents: false
+      busyboxImage: pltf-onap/busybox:1.31
+      busyboxRepository: image-registry.openshift-image-registry.svc:5000
+      centralizedLoggingEnabled: false
+      clusterName: cluster.local
+      cmpv2Enabled: true
+      curlImage: pltf-onap/curl:7.69.1
+      debugEnabled: false
+      dockerHubRepository: image-registry.openshift-image-registry.svc:5000
+      dockerhubRepository: docker.io
+      flavor: small
+      ingress:
+        enabled: false
+        virtualhost:
+          baseurl: simpledemo.onap.org
+      kubectlImage: pltf-onap/kubectl:1.15
+      loggingImage: beats/filebeat:5.5.0
+      loggingRepository: image-registry.openshift-image-registry.svc:5000
+      masterPassword: 12345
+      networkdiscoveryCtxBuilderHost: pomba-networkdiscoveryctxbuilder
+      nodePortPrefix: 302
+      nodePortPrefixExt: 304
+      offlineDeploymentBuild: false
+      passwordStrength: long
+      persistence:
+        backup:
+          mountPath: /dockerdata-nfs/backup
+        enableDefaultStorageclass: false
+        enabled: true
+        mountPath: /dockerdata-nfs
+        parameters: {}
+        storageClass: ocs-storagecluster-ceph-rbd
+        storageclassProvisioner: kubernetes.io/no-provisioner
+        volumeReclaimPolicy: Retain
+      platform:
+        certPostProcessor:
+          image: image-registry.openshift-image-registry.svc:5000/org.onap.oom.platform.cert-service.oom-certservice-post-processor:2.1.1
+        certServiceClient:
+          envVariables:
+            caName: RA
+            cert_path: /var/custom-certs
+            cmpv2Country: US
+            cmpv2Location: San-Francisco
+            cmpv2Organization: Linux-Foundation
+            cmpv2OrganizationalUnit: ONAP
+            cmpv2State: California
+            common_name: sdnc.simpledemo.onap.org
+            keystorePassword: secret
+            keystorePath: /etc/onap/oom/certservice/certs/certServiceClient-keystore.jks
+            outputType: P12
+            requestTimeout: "30000"
+            requestURL: https://oom-cert-service:8443/v1/certificate/
+            truststorePassword: secret
+            truststorePath: /etc/onap/oom/certservice/certs/truststore.jks
+          image: onap/org.onap.oom.platform.cert-service.oom-certservice-client:2.1.1
+          secret:
+            mountPath: /etc/onap/oom/certservice/certs/
+            name: oom-cert-service-client-tls-secret
+          secretName: oom-cert-service-client-tls-secret
+      pullPolicy: Always
+      readinessImage: pltf-onap/readiness:3.0.1
+      repository: nexus3.onap.org:10001
+      repositoryCred:
+        password: docker
+        user: docker
+      serviceMesh:
+        enabled: false
+        tls: true
+    image: kibana/kibana:6.6.2
+    ingress:
+      config:
+        ssl: none
+      enabled: false
+      service:
+      - baseaddr: pombakibana
+        name: pomba-kibana
+        port: 5601
+    liveness:
+      enabled: true
+      initialDelaySeconds: 300
+      periodSeconds: 10
+      timeoutSeconds: 1
+    loggingRepository: docker.elastic.co
+    nodeSelector: {}
+    pullPolicy: Always
+    readiness:
+      initialDelaySeconds: 300
+      periodSeconds: 10
+      timeoutSeconds: 1
+    replicaCount: 1
+    resources:
+      large:
+        limits:
+          cpu: 4
+          memory: 3200Mi
+        requests:
+          cpu: 2
+          memory: 1600Mi
+      small:
+        limits:
+          cpu: 2
+          memory: 1600Mi
+        requests:
+          cpu: 1
+          memory: 800Mi
+      unlimited: {}
+    service:
+      externalPort: 5601
+      internalPort: 5601
+      name: pomba-kibana
+      nodePort: 34
+      type: NodePort
+  pomba-networkdiscovery:
+    affinity: {}
+    config:
+      networkDiscoveryPassword: OBF:1u2a1toa1w8v1tok1u30
+      networkDiscoveryUserId: admin
+      openstackIdentityUrl: http://10.69.36.11:5000/v3/auth/tokens
+      openstackPassword: OBF:1w951ugg1vun1uha1w8l
+      openstackTypeL3NetworkUrl: http://10.69.36.11:9696/v2.0/networks/{0}
+      openstackTypePortUrl: http://10.69.36.11:9696/v2.0/ports/{0}
+      openstackTypeVserverUrl: http://10.69.36.11:8774/v2.1/servers/{0}
+      openstackUserId: admin
+      serverSslClientAuth: want
+      serverSslEnabled: true
+      serverSslEnabledProtocols: TLSv1.1,TLSv1.2
+      serverSslKeyStore: /opt/app/config/auth/tomcat_keystore
+      serverSslKeyStorePassword: password(OBF:1y0q1uvc1uum1uvg1pil1pjl1uuq1uvk1uuu1y10)
+      serverSslPort: 8443
+    debugEnabled: false
+    flavor: small
+    global:
+      aafAgentImage: pltf-onap/aaf_agent:2.1.20
+      aafEnabled: true
+      addTestingComponents: false
+      busyboxImage: pltf-onap/busybox:1.31
+      busyboxRepository: image-registry.openshift-image-registry.svc:5000
+      centralizedLoggingEnabled: false
+      clusterName: cluster.local
+      cmpv2Enabled: true
+      curlImage: pltf-onap/curl:7.69.1
+      debugEnabled: false
+      dockerHubRepository: image-registry.openshift-image-registry.svc:5000
+      dockerhubRepository: docker.io
+      flavor: small
+      ingress:
+        enabled: false
+        virtualhost:
+          baseurl: simpledemo.onap.org
+      kubectlImage: pltf-onap/kubectl:1.15
+      loggingImage: beats/filebeat:5.5.0
+      loggingRepository: image-registry.openshift-image-registry.svc:5000
+      masterPassword: 12345
+      networkdiscoveryCtxBuilderHost: pomba-networkdiscoveryctxbuilder
+      nodePortPrefix: 302
+      nodePortPrefixExt: 304
+      offlineDeploymentBuild: false
+      passwordStrength: long
+      persistence:
+        backup:
+          mountPath: /dockerdata-nfs/backup
+        enableDefaultStorageclass: false
+        enabled: true
+        mountPath: /dockerdata-nfs
+        parameters: {}
+        storageClass: ocs-storagecluster-ceph-rbd
+        storageclassProvisioner: kubernetes.io/no-provisioner
+        volumeReclaimPolicy: Retain
+      platform:
+        certPostProcessor:
+          image: image-registry.openshift-image-registry.svc:5000/org.onap.oom.platform.cert-service.oom-certservice-post-processor:2.1.1
+        certServiceClient:
+          envVariables:
+            caName: RA
+            cert_path: /var/custom-certs
+            cmpv2Country: US
+            cmpv2Location: San-Francisco
+            cmpv2Organization: Linux-Foundation
+            cmpv2OrganizationalUnit: ONAP
+            cmpv2State: California
+            common_name: sdnc.simpledemo.onap.org
+            keystorePassword: secret
+            keystorePath: /etc/onap/oom/certservice/certs/certServiceClient-keystore.jks
+            outputType: P12
+            requestTimeout: "30000"
+            requestURL: https://oom-cert-service:8443/v1/certificate/
+            truststorePassword: secret
+            truststorePath: /etc/onap/oom/certservice/certs/truststore.jks
+          image: onap/org.onap.oom.platform.cert-service.oom-certservice-client:2.1.1
+          secret:
+            mountPath: /etc/onap/oom/certservice/certs/
+            name: oom-cert-service-client-tls-secret
+          secretName: oom-cert-service-client-tls-secret
+      pullPolicy: Always
+      readinessImage: pltf-onap/readiness:3.0.1
+      repository: nexus3.onap.org:10001
+      repositoryCred:
+        password: docker
+        user: docker
+      serviceMesh:
+        enabled: false
+        tls: true
+    image: onap/network-discovery:1.5.1
+    ingress:
+      config:
+        ssl: redirect
+      enabled: false
+      service:
+      - baseaddr: pombanetworkdiscovery
+        name: pomba-networkdiscovery
+        port: 8443
+    liveness:
+      enabled: true
+      initialDelaySeconds: 30
+      periodSeconds: 10
+    nodeSelector: {}
+    pullPolicy: Always
+    readiness:
+      initialDelaySeconds: 30
+      periodSeconds: 10
+    replicaCount: 1
+    repository: nexus3.onap.org:10001
+    resources:
+      large:
+        limits:
+          cpu: 2
+          memory: 1600Mi
+        requests:
+          cpu: 20m
+          memory: 800Mi
+      small:
+        limits:
+          cpu: 1
+          memory: 800Mi
+        requests:
+          cpu: 10m
+          memory: 400Mi
+      unlimited: {}
+    service:
+      externalPort: 9531
+      internalPort: 8443
+      name: pomba-networkdiscovery
+      nodePort: 99
+      portName: https
+      type: NodePort
+  pomba-networkdiscoveryctxbuilder:
+    affinity: {}
+    config:
+      networkDiscoveryCtxBuilderHttpProtocol: http
+      networkDiscoveryCtxBuilderPassword: OBF:1u2a1toa1w8v1tok1u30
+      networkDiscoveryCtxBuilderPort: 9530
+      networkDiscoveryCtxBuilderResourceList: vnfcs,vservers,l3-networks
+      networkDiscoveryCtxBuilderUserId: admin
+      networkDiscoveryHttpProtocol: https
+      networkDiscoveryPassword: OBF:1u2a1toa1w8v1tok1u30
+      networkDiscoveryPath: /network-discovery/v1/network/resource
+      networkDiscoveryPort: 9531
+      networkDiscoveryServiceName: pomba-networkdiscovery
+      networkDiscoveryTimeOutInMilliseconds: 60000
+      networkDiscoveryUserId: admin
+      serviceDecompositionHttpProtocol: http
+      serviceDecompositionInstancePath: /service-decomposition/service/context
+      serviceDecompositionPassword: OBF:1u2a1toa1w8v1tok1u30
+      serviceDecompositionPort: 9532
+      serviceDecompositionServiceName: pomba-servicedecomposition
+      serviceDecompositionUserId: admin
+    debugEnabled: false
+    flavor: small
+    global:
+      aafAgentImage: pltf-onap/aaf_agent:2.1.20
+      aafEnabled: true
+      addTestingComponents: false
+      busyboxImage: pltf-onap/busybox:1.31
+      busyboxRepository: image-registry.openshift-image-registry.svc:5000
+      centralizedLoggingEnabled: false
+      clusterName: cluster.local
+      cmpv2Enabled: true
+      curlImage: pltf-onap/curl:7.69.1
+      debugEnabled: false
+      dockerHubRepository: image-registry.openshift-image-registry.svc:5000
+      dockerhubRepository: docker.io
+      flavor: small
+      ingress:
+        enabled: false
+        virtualhost:
+          baseurl: simpledemo.onap.org
+      kubectlImage: pltf-onap/kubectl:1.15
+      loggingImage: beats/filebeat:5.5.0
+      loggingRepository: image-registry.openshift-image-registry.svc:5000
+      masterPassword: 12345
+      networkdiscoveryCtxBuilderHost: pomba-networkdiscoveryctxbuilder
+      nodePortPrefix: 302
+      nodePortPrefixExt: 304
+      offlineDeploymentBuild: false
+      passwordStrength: long
+      persistence:
+        backup:
+          mountPath: /dockerdata-nfs/backup
+        enableDefaultStorageclass: false
+        enabled: true
+        mountPath: /dockerdata-nfs
+        parameters: {}
+        storageClass: ocs-storagecluster-ceph-rbd
+        storageclassProvisioner: kubernetes.io/no-provisioner
+        volumeReclaimPolicy: Retain
+      platform:
+        certPostProcessor:
+          image: image-registry.openshift-image-registry.svc:5000/org.onap.oom.platform.cert-service.oom-certservice-post-processor:2.1.1
+        certServiceClient:
+          envVariables:
+            caName: RA
+            cert_path: /var/custom-certs
+            cmpv2Country: US
+            cmpv2Location: San-Francisco
+            cmpv2Organization: Linux-Foundation
+            cmpv2OrganizationalUnit: ONAP
+            cmpv2State: California
+            common_name: sdnc.simpledemo.onap.org
+            keystorePassword: secret
+            keystorePath: /etc/onap/oom/certservice/certs/certServiceClient-keystore.jks
+            outputType: P12
+            requestTimeout: "30000"
+            requestURL: https://oom-cert-service:8443/v1/certificate/
+            truststorePassword: secret
+            truststorePath: /etc/onap/oom/certservice/certs/truststore.jks
+          image: onap/org.onap.oom.platform.cert-service.oom-certservice-client:2.1.1
+          secret:
+            mountPath: /etc/onap/oom/certservice/certs/
+            name: oom-cert-service-client-tls-secret
+          secretName: oom-cert-service-client-tls-secret
+      pullPolicy: Always
+      readinessImage: pltf-onap/readiness:3.0.1
+      repository: nexus3.onap.org:10001
+      repositoryCred:
+        password: docker
+        user: docker
+      serviceMesh:
+        enabled: false
+        tls: true
+    image: onap/pomba-network-discovery-context-builder:1.5.1
+    ingress:
+      enabled: false
+    liveness:
+      enabled: true
+      initialDelaySeconds: 30
+      periodSeconds: 10
+    nodeSelector: {}
+    pullPolicy: Always
+    readiness:
+      initialDelaySeconds: 30
+      periodSeconds: 10
+    replicaCount: 1
+    repository: nexus3.onap.org:10001
+    resources:
+      large:
+        limits:
+          cpu: 2
+          memory: 1600Mi
+        requests:
+          cpu: 200m
+          memory: 800Mi
+      small:
+        limits:
+          cpu: 1
+          memory: 800Mi
+        requests:
+          cpu: 100m
+          memory: 400Mi
+      unlimited: {}
+    service:
+      externalPort: 9530
+      internalPort: 8080
+      type: ClusterIP
+  pomba-sdcctxbuilder:
+    affinity: {}
+    config:
+      sdcConsumerId: pomba
+      sdcCtxBuilderPassword: OBF:1u2a1toa1w8v1tok1u30
+      sdcCtxBuilderUserId: admin
+      sdcPassword: OBF:1ks51l8d1o3i1pcc1r2r1e211r391kls1pyj1z7u1njf1lx51go21hnj1y0k1mli1sop1k8o1j651vu91mxw1vun1mze1vv11j8x1k5i1sp11mjc1y161hlr1gm41m111nkj1z781pw31kku1r4p1e391r571pbm1o741l4x1ksp
+      sdcPort: 8443
+      sdcServiceName: sdc-be
+      sdcUsername: pomba
+    debugEnabled: false
+    flavor: small
+    global:
+      aafAgentImage: pltf-onap/aaf_agent:2.1.20
+      aafEnabled: true
+      addTestingComponents: false
+      busyboxImage: pltf-onap/busybox:1.31
+      busyboxRepository: image-registry.openshift-image-registry.svc:5000
+      centralizedLoggingEnabled: false
+      clusterName: cluster.local
+      cmpv2Enabled: true
+      curlImage: pltf-onap/curl:7.69.1
+      debugEnabled: false
+      dockerHubRepository: image-registry.openshift-image-registry.svc:5000
+      dockerhubRepository: docker.io
+      flavor: small
+      ingress:
+        enabled: false
+        virtualhost:
+          baseurl: simpledemo.onap.org
+      kubectlImage: pltf-onap/kubectl:1.15
+      loggingImage: beats/filebeat:5.5.0
+      loggingRepository: image-registry.openshift-image-registry.svc:5000
+      masterPassword: 12345
+      networkdiscoveryCtxBuilderHost: pomba-networkdiscoveryctxbuilder
+      nodePortPrefix: 302
+      nodePortPrefixExt: 304
+      offlineDeploymentBuild: false
+      passwordStrength: long
+      persistence:
+        backup:
+          mountPath: /dockerdata-nfs/backup
+        enableDefaultStorageclass: false
+        enabled: true
+        mountPath: /dockerdata-nfs
+        parameters: {}
+        storageClass: ocs-storagecluster-ceph-rbd
+        storageclassProvisioner: kubernetes.io/no-provisioner
+        volumeReclaimPolicy: Retain
+      platform:
+        certPostProcessor:
+          image: image-registry.openshift-image-registry.svc:5000/org.onap.oom.platform.cert-service.oom-certservice-post-processor:2.1.1
+        certServiceClient:
+          envVariables:
+            caName: RA
+            cert_path: /var/custom-certs
+            cmpv2Country: US
+            cmpv2Location: San-Francisco
+            cmpv2Organization: Linux-Foundation
+            cmpv2OrganizationalUnit: ONAP
+            cmpv2State: California
+            common_name: sdnc.simpledemo.onap.org
+            keystorePassword: secret
+            keystorePath: /etc/onap/oom/certservice/certs/certServiceClient-keystore.jks
+            outputType: P12
+            requestTimeout: "30000"
+            requestURL: https://oom-cert-service:8443/v1/certificate/
+            truststorePassword: secret
+            truststorePath: /etc/onap/oom/certservice/certs/truststore.jks
+          image: onap/org.onap.oom.platform.cert-service.oom-certservice-client:2.1.1
+          secret:
+            mountPath: /etc/onap/oom/certservice/certs/
+            name: oom-cert-service-client-tls-secret
+          secretName: oom-cert-service-client-tls-secret
+      pullPolicy: Always
+      readinessImage: pltf-onap/readiness:3.0.1
+      repository: nexus3.onap.org:10001
+      repositoryCred:
+        password: docker
+        user: docker
+      serviceMesh:
+        enabled: false
+        tls: true
+    image: onap/pomba-sdc-context-builder:1.5.1
+    ingress:
+      enabled: false
+    liveness:
+      enabled: true
+      initialDelaySeconds: 30
+      periodSeconds: 10
+    nodeSelector: {}
+    pullPolicy: Always
+    readiness:
+      initialDelaySeconds: 30
+      periodSeconds: 10
+    replicaCount: 1
+    repository: nexus3.onap.org:10001
+    resources:
+      large:
+        limits:
+          cpu: 2
+          memory: 1600Mi
+        requests:
+          cpu: 200m
+          memory: 800Mi
+      small:
+        limits:
+          cpu: 1
+          memory: 800Mi
+        requests:
+          cpu: 100m
+          memory: 400Mi
+      unlimited: {}
+    service:
+      externalPort: 9530
+      internalPort: 8080
+      type: ClusterIP
+  pomba-sdncctxbuilder:
+    affinity: {}
+    config:
+      aaiAuthentication: basic_auth
+      aaiConnectionTimeout: 5000
+      aaiHttpPassword: OBF:1u2a1toa1w8v1tok1u30
+      aaiHttpProtocol: https
+      aaiHttpUserId: admin
+      aaiKeyStorePassword: n/a
+      aaiKeyStorePath: n/a
+      aaiPassword: OBF:1gfr1ev31gg7
+      aaiPort: 8443
+      aaiReadTimeout: 5000
+      aaiServiceName: aai
+      aaiTrustStorePath: n/a
+      aaiUsername: AAI
+      sdncConnectionTimeout: 5000
+      sdncCtxBuilderPassword: OBF:1u2a1toa1w8v1tok1u30
+      sdncCtxBuilderUserId: admin
+      sdncHttpProtocol: http
+      sdncPassword: OBF:1ks51l8d1o3i1pcc1r2r1e211r391kls1pyj1z7u1njf1lx51go21hnj1y0k1mli1sop1k8o1j651vu91mxw1vun1mze1vv11j8x1k5i1sp11mjc1y161hlr1gm41m111nkj1z781pw31kku1r4p1e391r571pbm1o741l4x1ksp
+      sdncPort: 8282
+      sdncReadTimeout: 5000
+      sdncServiceName: sdnc
+      sdncUsername: admin
+    debugEnabled: false
+    flavor: small
+    global:
+      aafAgentImage: pltf-onap/aaf_agent:2.1.20
+      aafEnabled: true
+      addTestingComponents: false
+      busyboxImage: pltf-onap/busybox:1.31
+      busyboxRepository: image-registry.openshift-image-registry.svc:5000
+      centralizedLoggingEnabled: false
+      clusterName: cluster.local
+      cmpv2Enabled: true
+      curlImage: pltf-onap/curl:7.69.1
+      debugEnabled: false
+      dockerHubRepository: image-registry.openshift-image-registry.svc:5000
+      dockerhubRepository: docker.io
+      flavor: small
+      ingress:
+        enabled: false
+        virtualhost:
+          baseurl: simpledemo.onap.org
+      kubectlImage: pltf-onap/kubectl:1.15
+      loggingImage: beats/filebeat:5.5.0
+      loggingRepository: image-registry.openshift-image-registry.svc:5000
+      masterPassword: 12345
+      networkdiscoveryCtxBuilderHost: pomba-networkdiscoveryctxbuilder
+      nodePortPrefix: 302
+      nodePortPrefixExt: 304
+      offlineDeploymentBuild: false
+      passwordStrength: long
+      persistence:
+        backup:
+          mountPath: /dockerdata-nfs/backup
+        enableDefaultStorageclass: false
+        enabled: true
+        mountPath: /dockerdata-nfs
+        parameters: {}
+        storageClass: ocs-storagecluster-ceph-rbd
+        storageclassProvisioner: kubernetes.io/no-provisioner
+        volumeReclaimPolicy: Retain
+      platform:
+        certPostProcessor:
+          image: image-registry.openshift-image-registry.svc:5000/org.onap.oom.platform.cert-service.oom-certservice-post-processor:2.1.1
+        certServiceClient:
+          envVariables:
+            caName: RA
+            cert_path: /var/custom-certs
+            cmpv2Country: US
+            cmpv2Location: San-Francisco
+            cmpv2Organization: Linux-Foundation
+            cmpv2OrganizationalUnit: ONAP
+            cmpv2State: California
+            common_name: sdnc.simpledemo.onap.org
+            keystorePassword: secret
+            keystorePath: /etc/onap/oom/certservice/certs/certServiceClient-keystore.jks
+            outputType: P12
+            requestTimeout: "30000"
+            requestURL: https://oom-cert-service:8443/v1/certificate/
+            truststorePassword: secret
+            truststorePath: /etc/onap/oom/certservice/certs/truststore.jks
+          image: onap/org.onap.oom.platform.cert-service.oom-certservice-client:2.1.1
+          secret:
+            mountPath: /etc/onap/oom/certservice/certs/
+            name: oom-cert-service-client-tls-secret
+          secretName: oom-cert-service-client-tls-secret
+      pullPolicy: Always
+      readinessImage: pltf-onap/readiness:3.0.1
+      repository: nexus3.onap.org:10001
+      repositoryCred:
+        password: docker
+        user: docker
+      serviceMesh:
+        enabled: false
+        tls: true
+    image: onap/pomba-sdnc-context-builder:1.5.1
+    ingress:
+      enabled: false
+    liveness:
+      enabled: true
+      initialDelaySeconds: 60
+      periodSeconds: 30
+    nodeSelector: {}
+    pullPolicy: Always
+    readiness:
+      initialDelaySeconds: 60
+      periodSeconds: 30
+    replicaCount: 1
+    repository: nexus3.onap.org:10001
+    resources:
+      large:
+        limits:
+          cpu: 2
+          memory: 1600Mi
+        requests:
+          cpu: 200m
+          memory: 800Mi
+      small:
+        limits:
+          cpu: 1
+          memory: 800Mi
+        requests:
+          cpu: 100m
+          memory: 400Mi
+      unlimited: {}
+    service:
+      externalPort: 9530
+      internalPort: 8080
+      type: ClusterIP
+  pomba-search-data:
+    affinity: {}
+    config:
+      elasticsearchHttpPort: 9200
+      keyManagerPassword: OBF:1y0q1uvc1uum1uvg1pil1pjl1uuq1uvk1uuu1y10
+      keyStorePassword: OBF:1y0q1uvc1uum1uvg1pil1pjl1uuq1uvk1uuu1y10
+    flavor: small
+    global:
+      aafAgentImage: pltf-onap/aaf_agent:2.1.20
+      aafEnabled: true
+      addTestingComponents: false
+      busyboxImage: pltf-onap/busybox:1.31
+      busyboxRepository: image-registry.openshift-image-registry.svc:5000
+      centralizedLoggingEnabled: false
+      clusterName: cluster.local
+      cmpv2Enabled: true
+      curlImage: pltf-onap/curl:7.69.1
+      debugEnabled: false
+      dockerHubRepository: image-registry.openshift-image-registry.svc:5000
+      dockerhubRepository: docker.io
+      flavor: small
+      ingress:
+        enabled: false
+        virtualhost:
+          baseurl: simpledemo.onap.org
+      kubectlImage: pltf-onap/kubectl:1.15
+      loggingImage: beats/filebeat:5.5.0
+      loggingRepository: image-registry.openshift-image-registry.svc:5000
+      masterPassword: 12345
+      networkdiscoveryCtxBuilderHost: pomba-networkdiscoveryctxbuilder
+      nodePortPrefix: 302
+      nodePortPrefixExt: 304
+      offlineDeploymentBuild: false
+      passwordStrength: long
+      persistence:
+        backup:
+          mountPath: /dockerdata-nfs/backup
+        enableDefaultStorageclass: false
+        enabled: true
+        mountPath: /dockerdata-nfs
+        parameters: {}
+        storageClass: ocs-storagecluster-ceph-rbd
+        storageclassProvisioner: kubernetes.io/no-provisioner
+        volumeReclaimPolicy: Retain
+      platform:
+        certPostProcessor:
+          image: image-registry.openshift-image-registry.svc:5000/org.onap.oom.platform.cert-service.oom-certservice-post-processor:2.1.1
+        certServiceClient:
+          envVariables:
+            caName: RA
+            cert_path: /var/custom-certs
+            cmpv2Country: US
+            cmpv2Location: San-Francisco
+            cmpv2Organization: Linux-Foundation
+            cmpv2OrganizationalUnit: ONAP
+            cmpv2State: California
+            common_name: sdnc.simpledemo.onap.org
+            keystorePassword: secret
+            keystorePath: /etc/onap/oom/certservice/certs/certServiceClient-keystore.jks
+            outputType: P12
+            requestTimeout: "30000"
+            requestURL: https://oom-cert-service:8443/v1/certificate/
+            truststorePassword: secret
+            truststorePath: /etc/onap/oom/certservice/certs/truststore.jks
+          image: onap/org.onap.oom.platform.cert-service.oom-certservice-client:2.1.1
+          secret:
+            mountPath: /etc/onap/oom/certservice/certs/
+            name: oom-cert-service-client-tls-secret
+          secretName: oom-cert-service-client-tls-secret
+      pullPolicy: Always
+      readinessImage: pltf-onap/readiness:3.0.1
+      repository: nexus3.onap.org:10001
+      repositoryCred:
+        password: docker
+        user: docker
+      serviceMesh:
+        enabled: false
+        tls: true
+    image: onap/search-data-service:1.3.1
+    ingress:
+      enabled: false
+    liveness:
+      enabled: true
+      initialDelaySeconds: 30
+      periodSeconds: 10
+    nodeSelector: {}
+    pullPolicy: Always
+    readiness:
+      initialDelaySeconds: 30
+      periodSeconds: 10
+    replicaCount: 1
+    repository: nexus3.onap.org:10001
+    resources:
+      large:
+        limits:
+          cpu: 2
+          memory: 3600Mi
+        requests:
+          cpu: 100m
+          memory: 1800Mi
+      small:
+        limits:
+          cpu: 1
+          memory: 1800Mi
+        requests:
+          cpu: 50m
+          memory: 900Mi
+      unlimited: {}
+    restartPolicy: Always
+    service:
+      internalPort: 9509
+      portName: pomba-search-data
+      type: ClusterIP
+  pomba-servicedecomposition:
+    affinity: {}
+    config:
+      aaiHttpProtocol: https
+      aaiPassword: OBF:1gfr1ev31gg7
+      aaiPort: 8443
+      aaiServiceName: aai
+      aaiUsername: AAI
+      serviceDecompositionPassword: OBF:1u2a1toa1w8v1tok1u30
+      serviceDecompositionUserId: admin
+    debugEnabled: false
+    flavor: small
+    global:
+      aafAgentImage: pltf-onap/aaf_agent:2.1.20
+      aafEnabled: true
+      addTestingComponents: false
+      busyboxImage: pltf-onap/busybox:1.31
+      busyboxRepository: image-registry.openshift-image-registry.svc:5000
+      centralizedLoggingEnabled: false
+      clusterName: cluster.local
+      cmpv2Enabled: true
+      curlImage: pltf-onap/curl:7.69.1
+      debugEnabled: false
+      dockerHubRepository: image-registry.openshift-image-registry.svc:5000
+      dockerhubRepository: docker.io
+      flavor: small
+      ingress:
+        enabled: false
+        virtualhost:
+          baseurl: simpledemo.onap.org
+      kubectlImage: pltf-onap/kubectl:1.15
+      loggingImage: beats/filebeat:5.5.0
+      loggingRepository: image-registry.openshift-image-registry.svc:5000
+      masterPassword: 12345
+      networkdiscoveryCtxBuilderHost: pomba-networkdiscoveryctxbuilder
+      nodePortPrefix: 302
+      nodePortPrefixExt: 304
+      offlineDeploymentBuild: false
+      passwordStrength: long
+      persistence:
+        backup:
+          mountPath: /dockerdata-nfs/backup
+        enableDefaultStorageclass: false
+        enabled: true
+        mountPath: /dockerdata-nfs
+        parameters: {}
+        storageClass: ocs-storagecluster-ceph-rbd
+        storageclassProvisioner: kubernetes.io/no-provisioner
+        volumeReclaimPolicy: Retain
+      platform:
+        certPostProcessor:
+          image: image-registry.openshift-image-registry.svc:5000/org.onap.oom.platform.cert-service.oom-certservice-post-processor:2.1.1
+        certServiceClient:
+          envVariables:
+            caName: RA
+            cert_path: /var/custom-certs
+            cmpv2Country: US
+            cmpv2Location: San-Francisco
+            cmpv2Organization: Linux-Foundation
+            cmpv2OrganizationalUnit: ONAP
+            cmpv2State: California
+            common_name: sdnc.simpledemo.onap.org
+            keystorePassword: secret
+            keystorePath: /etc/onap/oom/certservice/certs/certServiceClient-keystore.jks
+            outputType: P12
+            requestTimeout: "30000"
+            requestURL: https://oom-cert-service:8443/v1/certificate/
+            truststorePassword: secret
+            truststorePath: /etc/onap/oom/certservice/certs/truststore.jks
+          image: onap/org.onap.oom.platform.cert-service.oom-certservice-client:2.1.1
+          secret:
+            mountPath: /etc/onap/oom/certservice/certs/
+            name: oom-cert-service-client-tls-secret
+          secretName: oom-cert-service-client-tls-secret
+      pullPolicy: Always
+      readinessImage: pltf-onap/readiness:3.0.1
+      repository: nexus3.onap.org:10001
+      repositoryCred:
+        password: docker
+        user: docker
+      serviceMesh:
+        enabled: false
+        tls: true
+    image: onap/service-decomposition:1.5.1
+    ingress:
+      enabled: false
+    liveness:
+      enabled: true
+      initialDelaySeconds: 30
+      periodSeconds: 10
+    nodeSelector: {}
+    pullPolicy: Always
+    readiness:
+      initialDelaySeconds: 30
+      periodSeconds: 10
+    replicaCount: 1
+    repository: nexus3.onap.org:10001
+    resources:
+      large:
+        limits:
+          cpu: 2
+          memory: 1600Mi
+        requests:
+          cpu: 200m
+          memory: 800Mi
+      small:
+        limits:
+          cpu: 1
+          memory: 800Mi
+        requests:
+          cpu: 100m
+          memory: 400Mi
+      unlimited: {}
+    service:
+      externalPort: 9532
+      internalPort: 8080
+      type: ClusterIP
+  pomba-validation-service:
+    affinity: {}
+    config:
+      appDir: /opt/app/validation-service
+      configAuthDir: /opt/app/validation-service/appconfig/auth
+      configDir: /opt/app/validation-service/appconfig
+      configTopicsDir: /opt/app/validation-service/appconfig/topics
+      dataDictCredentials: cG9tYmE6cG9tYmE=
+      dataDictHostPort: http://dummy-host:443
+      maxHeap: 1024
+      rulesDir: /opt/app/validation-service/bundleconfig/etc/rules/poa-event
+    debugEnabled: false
+    flavor: small
+    global:
+      aafAgentImage: pltf-onap/aaf_agent:2.1.20
+      aafEnabled: true
+      addTestingComponents: false
+      busyboxImage: pltf-onap/busybox:1.31
+      busyboxRepository: image-registry.openshift-image-registry.svc:5000
+      centralizedLoggingEnabled: false
+      clusterName: cluster.local
+      cmpv2Enabled: true
+      curlImage: pltf-onap/curl:7.69.1
+      debugEnabled: false
+      dockerHubRepository: image-registry.openshift-image-registry.svc:5000
+      dockerhubRepository: docker.io
+      flavor: small
+      ingress:
+        enabled: false
+        virtualhost:
+          baseurl: simpledemo.onap.org
+      kubectlImage: pltf-onap/kubectl:1.15
+      loggingImage: beats/filebeat:5.5.0
+      loggingRepository: image-registry.openshift-image-registry.svc:5000
+      masterPassword: 12345
+      networkdiscoveryCtxBuilderHost: pomba-networkdiscoveryctxbuilder
+      nodePortPrefix: 302
+      nodePortPrefixExt: 304
+      offlineDeploymentBuild: false
+      passwordStrength: long
+      persistence:
+        backup:
+          mountPath: /dockerdata-nfs/backup
+        enableDefaultStorageclass: false
+        enabled: true
+        mountPath: /dockerdata-nfs
+        parameters: {}
+        storageClass: ocs-storagecluster-ceph-rbd
+        storageclassProvisioner: kubernetes.io/no-provisioner
+        volumeReclaimPolicy: Retain
+      platform:
+        certPostProcessor:
+          image: image-registry.openshift-image-registry.svc:5000/org.onap.oom.platform.cert-service.oom-certservice-post-processor:2.1.1
+        certServiceClient:
+          envVariables:
+            caName: RA
+            cert_path: /var/custom-certs
+            cmpv2Country: US
+            cmpv2Location: San-Francisco
+            cmpv2Organization: Linux-Foundation
+            cmpv2OrganizationalUnit: ONAP
+            cmpv2State: California
+            common_name: sdnc.simpledemo.onap.org
+            keystorePassword: secret
+            keystorePath: /etc/onap/oom/certservice/certs/certServiceClient-keystore.jks
+            outputType: P12
+            requestTimeout: "30000"
+            requestURL: https://oom-cert-service:8443/v1/certificate/
+            truststorePassword: secret
+            truststorePath: /etc/onap/oom/certservice/certs/truststore.jks
+          image: onap/org.onap.oom.platform.cert-service.oom-certservice-client:2.1.1
+          secret:
+            mountPath: /etc/onap/oom/certservice/certs/
+            name: oom-cert-service-client-tls-secret
+          secretName: oom-cert-service-client-tls-secret
+      pullPolicy: Always
+      readinessImage: pltf-onap/readiness:3.0.1
+      repository: nexus3.onap.org:10001
+      repositoryCred:
+        password: docker
+        user: docker
+      serviceMesh:
+        enabled: false
+        tls: true
+    image: onap/validation:1.3.1
+    ingress:
+      enabled: false
+    liveness:
+      enabled: false
+      initialDelaySeconds: 30
+      periodSeconds: 10
+    nodeSelector: {}
+    pullPolicy: IfNotPresent
+    readiness:
+      enabled: false
+      initialDelaySeconds: 30
+      periodSeconds: 10
+    replicaCount: 1
+    repository: nexus3.onap.org:10001
+    resources:
+      large:
+        limits:
+          cpu: 2
+          memory: 2800Mi
+        requests:
+          cpu: 100m
+          memory: 1400Mi
+      small:
+        limits:
+          cpu: 1
+          memory: 1400Mi
+        requests:
+          cpu: 50m
+          memory: 700Mi
+      unlimited: {}
+    service:
+      externalPort: 9529
+      internalPort: 8080
+      type: ClusterIP
+portal:
+  enabled: false
+  portal-app:
+    liveness:
+      initialDelaySeconds: 60
+    readiness:
+      initialDelaySeconds: 60
+  portal-cassandra:
+    liveness:
+      periodSeconds: 120
+    readiness:
+      periodSeconds: 60
+robot:
+  config:
+    openStackEncryptedPasswordHere: c124921a3a0efbe579782cde8227681e
+    openStackSoEncryptedPassword: SAME_STRING_AS_SO_JAVA_ENCRYPTED_PASSWORD
+    robotWebPassword: test
+    robotWebUser: test
+    useIngressHost:
+      aaf_service:
+        enabled: true
+        hostname: aafservice
+        https: true
+      aaf_sms:
+        enabled: false
+        https: true
+      aai:
+        enabled: true
+        hostname: aai.api.sparky
+        https: true
+      appc:
+        enabled: true
+        hostname: appc.api
+        https: true
+      appc_cdt:
+        enabled: true
+        hostname: appccdt
+        https: true
+      cds_blueprints_processor_http:
+        enabled: true
+        hostname: blueprintsprocessorhttp
+      clamp:
+        enabled: true
+        https: true
+      cli:
+        enabled: true
+        https: true
+      dcae_healthcheck:
+        enabled: false
+      dcae_hv_ves_collector:
+        enabled: false
+      dcae_ves_colector_https:
+        enabled: false
+        https: true
+      dcae_ves_collector:
+        enabled: false
+      deployment-handler:
+        enabled: false
+        https: true
+      dmaap_bc:
+        enabled: true
+        hostname: dmaapbc
+        https: true
+      dmaap_dr_node:
+        enabled: true
+        hostname: dmaapdrnode
+        https: true
+      dmaap_dr_prov:
+        enabled: true
+        hostname: dmaapdrprov
+        https: true
+      drools:
+        enabled: false
+      enabled: false
+      inventory:
+        enabled: false
+        https: true
+      log_es:
+        enabled: false
+      log_kibana:
+        enabled: false
+      log_ls_http:
+        enabled: false
+      message_router:
+        enabled: false
+        https: true
+      message_router_kafka:
+        enabled: false
+      msb_iag:
+        enabled: false
+      music:
+        enabled: false
+        https: true
+      nbi:
+        enabled: false
+        https: true
+      oof_cmso:
+        enabled: false
+        https: true
+      oof_has_api:
+        enabled: true
+        https: true
+      oof_osdf:
+        enabled: true
+        hostname: oofsdf
+        https: true
+      pdp:
+        enabled: false
+      policy_apex_pdp:
+        enabled: false
+      policy_api:
+        enabled: false
+      policy_distribution:
+        enabled: false
+      policy_pap:
+        enabled: false
+      policy_xacml_pdp:
+        enabled: false
+      pomba_aaictxbuilder:
+        enabled: false
+      pomba_contextaggregator:
+        enabled: false
+      pomba_es:
+        enabled: false
+      pomba_kibana:
+        enabled: false
+      pomba_networkdiscovery:
+        enabled: false
+      pomba_networkdiscoveryctxbuilder:
+        enabled: false
+      pomba_sdctxbuilder:
+        enabled: false
+      pomba_sdncctxbuilder:
+        enabled: false
+      pomba_servicedecomposition:
+        enabled: false
+      pomba_validation_service:
+        enabled: false
+      portal_app:
+        enabled: false
+        hostname: portal.api
+        https: true
+      refrepo:
+        enabled: true
+        https: true
+      sdc_be:
+        enabled: true
+        https: true
+      sdc_dcae_be:
+        enabled: false
+        https: true
+      sdc_fe:
+        enabled: true
+        hostname: sdc.api.fe
+        https: true
+      sdc_onboarding_be:
+        enabled: false
+        https: true
+      sdnc:
+        enabled: false
+        https: true
+      sdnc_portal:
+        enabled: false
+        https: true
+      so:
+        enabled: true
+        hostname: so.api
+      so_catalog_db_adapter:
+        enabled: false
+      so_nssmf_adapter:
+        enabled: false
+      so_openstack_adapter:
+        enabled: false
+      so_pbmn_infra:
+        enabled: false
+      so_request_db_adapter:
+        enabled: false
+      so_sdc_controller:
+        enabled: false
+      so_sdnc_adapter:
+        enabled: false
+      so_vfc_adapter:
+        enabled: false
+      so_vnfm_adapter:
+        enabled: false
+      vid:
+        enabled: false
+  enabled: false
+sdc:
+  enabled: false
+  sdc-be:
+    liveness:
+      initialDelaySeconds: 120
+      periodSeconds: 60
+      timeoutSeconds: 15
+    readiness:
+      initialDelaySeconds: 120
+      periodSeconds: 60
+      timeoutSeconds: 15
+  sdc-cs:
+    liveness:
+      initialDelaySeconds: 120
+      periodSeconds: 120
+    readiness:
+      initialDelaySeconds: 120
+      periodSeconds: 60
+  sdc-es:
+    liveness:
+      initialDelaySeconds: 60
+    readiness:
+      initialDelaySeconds: 120
+  sdc-fe:
+    liveness:
+      initialDelaySeconds: 120
+      periodSeconds: 60
+      timeoutSeconds: 15
+    readiness:
+      initialDelaySeconds: 120
+      periodSeconds: 60
+      timeoutSeconds: 15
+  sdc-onboarding-be:
+    liveness:
+      initialDelaySeconds: 120
+      periodSeconds: 60
+      timeoutSeconds: 15
+    readiness:
+      initialDelaySeconds: 120
+      periodSeconds: 60
+      timeoutSeconds: 15
+sdnc:
+  dmaap-listener:
+    liveness:
+      initialDelaySeconds: 120
+    readiness:
+      initialDelaySeconds: 120
+  enabled: false
+  liveness:
+    initialDelaySeconds: 60
+  mariadb-galera:
+    liveness:
+      initialDelaySeconds: 180
+      periodSeconds: 60
+  mysql:
+    replicaCount: 1
+  readiness:
+    initialDelaySeconds: 60
+  replicaCount: 1
+  sdnc-ansible-server:
+    readiness:
+      initialDelaySeconds: 120
+  ueb-listener:
+    liveness:
+      initialDelaySeconds: 60
+    readiness:
+      initialDelaySeconds: 60
+sniro-emulator:
+  affinity: {}
+  common:
+    global:
+      aafAgentImage: pltf-onap/aaf_agent:2.1.20
+      aafEnabled: true
+      addTestingComponents: false
+      busyboxImage: pltf-onap/busybox:1.31
+      busyboxRepository: image-registry.openshift-image-registry.svc:5000
+      centralizedLoggingEnabled: false
+      clusterName: cluster.local
+      cmpv2Enabled: true
+      curlImage: pltf-onap/curl:7.69.1
+      debugEnabled: false
+      dockerHubRepository: image-registry.openshift-image-registry.svc:5000
+      flavor: small
+      ingress:
+        enabled: false
+        virtualhost:
+          baseurl: simpledemo.onap.org
+      kubectlImage: pltf-onap/kubectl:1.15
+      loggingRepository: image-registry.openshift-image-registry.svc:5000
+      masterPassword: 12345
+      nodePortPrefix: 302
+      nodePortPrefixExt: 304
+      offlineDeploymentBuild: false
+      passwordStrength: long
+      persistence:
+        backup:
+          mountPath: /dockerdata-nfs/backup
+        enableDefaultStorageclass: false
+        enabled: true
+        mountPath: /dockerdata-nfs
+        parameters: {}
+        storageClass: ocs-storagecluster-ceph-rbd
+        storageclassProvisioner: kubernetes.io/no-provisioner
+        volumeReclaimPolicy: Retain
+      platform:
+        certPostProcessor:
+          image: image-registry.openshift-image-registry.svc:5000/org.onap.oom.platform.cert-service.oom-certservice-post-processor:2.1.1
+        certServiceClient:
+          envVariables:
+            caName: RA
+            cert_path: /var/custom-certs
+            cmpv2Country: US
+            cmpv2Location: San-Francisco
+            cmpv2Organization: Linux-Foundation
+            cmpv2OrganizationalUnit: ONAP
+            cmpv2State: California
+            common_name: sdnc.simpledemo.onap.org
+            keystorePassword: secret
+            keystorePath: /etc/onap/oom/certservice/certs/certServiceClient-keystore.jks
+            outputType: P12
+            requestTimeout: "30000"
+            requestURL: https://oom-cert-service:8443/v1/certificate/
+            truststorePassword: secret
+            truststorePath: /etc/onap/oom/certservice/certs/truststore.jks
+          image: onap/org.onap.oom.platform.cert-service.oom-certservice-client:2.1.1
+          secret:
+            mountPath: /etc/onap/oom/certservice/certs/
+            name: oom-cert-service-client-tls-secret
+          secretName: oom-cert-service-client-tls-secret
+      pullPolicy: Always
+      readinessImage: pltf-onap/readiness:3.0.1
+      repositoryCred:
+        password: docker
+        user: docker
+      serviceMesh:
+        enabled: false
+        tls: true
+  debugEnabled: false
+  enabled: false
+  global:
+    aafAgentImage: pltf-onap/aaf_agent:2.1.20
+    aafEnabled: true
+    addTestingComponents: false
+    busyboxImage: pltf-onap/busybox:1.31
+    busyboxRepository: image-registry.openshift-image-registry.svc:5000
+    centralizedLoggingEnabled: false
+    clusterName: cluster.local
+    cmpv2Enabled: true
+    curlImage: pltf-onap/curl:7.69.1
+    debugEnabled: false
+    dockerHubRepository: image-registry.openshift-image-registry.svc:5000
+    flavor: small
+    ingress:
+      enabled: false
+      virtualhost:
+        baseurl: simpledemo.onap.org
+    kubectlImage: pltf-onap/kubectl:1.15
+    loggingRepository: image-registry.openshift-image-registry.svc:5000
+    masterPassword: 12345
+    nodePortPrefix: 302
+    nodePortPrefixExt: 304
+    offlineDeploymentBuild: false
+    passwordStrength: long
+    persistence:
+      backup:
+        mountPath: /dockerdata-nfs/backup
+      enableDefaultStorageclass: false
+      enabled: true
+      mountPath: /dockerdata-nfs
+      parameters: {}
+      storageClass: ocs-storagecluster-ceph-rbd
+      storageclassProvisioner: kubernetes.io/no-provisioner
+      volumeReclaimPolicy: Retain
+    platform:
+      certPostProcessor:
+        image: image-registry.openshift-image-registry.svc:5000/org.onap.oom.platform.cert-service.oom-certservice-post-processor:2.1.1
+      certServiceClient:
+        envVariables:
+          caName: RA
+          cert_path: /var/custom-certs
+          cmpv2Country: US
+          cmpv2Location: San-Francisco
+          cmpv2Organization: Linux-Foundation
+          cmpv2OrganizationalUnit: ONAP
+          cmpv2State: California
+          common_name: sdnc.simpledemo.onap.org
+          keystorePassword: secret
+          keystorePath: /etc/onap/oom/certservice/certs/certServiceClient-keystore.jks
+          outputType: P12
+          requestTimeout: "30000"
+          requestURL: https://oom-cert-service:8443/v1/certificate/
+          truststorePassword: secret
+          truststorePath: /etc/onap/oom/certservice/certs/truststore.jks
+        image: onap/org.onap.oom.platform.cert-service.oom-certservice-client:2.1.1
+        secret:
+          mountPath: /etc/onap/oom/certservice/certs/
+          name: oom-cert-service-client-tls-secret
+        secretName: oom-cert-service-client-tls-secret
+    pullPolicy: Always
+    readinessImage: pltf-onap/readiness:3.0.1
+    repositoryCred:
+      password: docker
+      user: docker
+    serviceMesh:
+      enabled: false
+      tls: true
+  image: onap/sniroemulator:1.0.0
+  ingress:
+    enabled: false
+  liveness:
+    enabled: true
+    initialDelaySeconds: 10
+    periodSeconds: 10
+  nodeSelector: {}
+  pullPolicy: IfNotPresent
+  readiness:
+    initialDelaySeconds: 10
+    periodSeconds: 10
+  replicaCount: 1
+  repository: nexus3.onap.org:10001
+  resources: {}
+  service:
+    externalPort: 80
+    internalPort: 9999
+    name: sniro-emulator
+    nodePort: 88
+    portName: httpd
+    type: NodePort
+so:
+  config:
+    dmaapTopic: AUTO
+    logstashPort: 5044
+    logstashServiceName: log-ls
+    openStackEncryptedPasswordHere: c124921a3a0efbe579782cde8227681e
+    openStackKeyStoneUrl: http://1.2.3.4:5000
+    openStackRegion: RegionOne
+    openStackServiceTenantName: service
+    openStackUserName: vnf_user
+  enabled: false
+  liveness:
+    enabled: false
+    initialDelaySeconds: 120
+  mariadb:
+    config:
+      mariadbRootPassword: password
+    liveness:
+      initialDelaySeconds: 900
+    readiness:
+      initialDelaySeconds: 900
+  replicaCount: 1
+uui:
+  enabled: false
+  uui-server:
+    liveness:
+      initialDelaySeconds: 120
+    readiness:
+      initialDelaySeconds: 120
+vfc:
+  enabled: false
+  mariadb-galera:
+    liveness:
+      initialDelaySeconds: 180
+      periodSeconds: 60
+vid:
+  enabled: false
+vnfsdk:
+  enabled: false
+
+HOOKS:
+MANIFEST:
