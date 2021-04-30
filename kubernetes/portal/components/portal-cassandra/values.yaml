@@ -82,8 +82,8 @@ persistence:
   # storageClass: "-"
   accessMode: ReadWriteOnce
   size: 2Gi
-  # mountPath: /dockerdata-nfs
-  #mountSubPath: portal/cassandra/data
+  mountPath: /dockerdata-nfs
+  mountSubPath: portal/cassandra/data
 
 service:
   type: ClusterIP

@@ -119,8 +119,8 @@ persistence:
   # storageClass: "-"
   accessMode: ReadWriteOnce
   size: 2Gi
-  #  mountPath: /dockerdata-nfs
-  #mountSubPath: portal/mariadb/data
+  mountPath: /dockerdata-nfs
+  mountSubPath: portal/mariadb/data
 
 service:
   type: ClusterIP
