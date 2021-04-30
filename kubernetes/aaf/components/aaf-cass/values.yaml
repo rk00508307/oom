@@ -61,8 +61,8 @@ config:
   dc: dc1
 
 readiness:
-  initialDelaySeconds: 5
-  periodSeconds: 10
+  initialDelaySeconds: 50
+  periodSeconds: 100
 
 service:
   name: aaf-cass

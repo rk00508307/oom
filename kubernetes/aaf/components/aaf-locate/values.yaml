@@ -63,8 +63,8 @@ liveness:
   port: api
 
 readiness:
-  initialDelaySeconds: 5
-  periodSeconds: 10
+  initialDelaySeconds: 50
+  periodSeconds: 100
   port: api
 
 service:
