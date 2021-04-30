@@ -16,11 +16,11 @@
 
 
 
-{{- define "common.certinitializer._aafConfigVolumeName" -}}
+{{- define "common.certInitializer._aafConfigVolumeName" -}}
   {{ include "common.fullname" . }}-aaf-config
 {{- end -}}
 
-{{- define "common.certinitializer._aafAddConfigVolumeName" -}}
+{{- define "common.certInitializer._aafAddConfigVolumeName" -}}
   {{ print "aaf-add-config" }}
 {{- end -}}
 
@@ -29,18 +29,18 @@
 
   In deployments/jobs/stateful include:
   initContainers:
-    {{ include "common.certinitializer.initContainer" . | nindent XX }}
+    {{ include "common.certInitializer.initContainer" . | nindent XX }}
 
   containers:
     volumeMounts:
-      {{- include "common.certinitializer.volumeMount" . | nindent XX }}
+      {{- include "common.certInitializer.volumeMount" . | nindent XX }}
     volumes:
-      {{- include "common.certinitializer.volume" . | nindent XX}}
+      {{- include "common.certInitializer.volume" . | nindent XX}}
 */}}
-{{- define "common.certinitializer._initContainer" -}}
+{{- define "common.certInitializer._initContainer" -}}
 {{-   $dot := default . .dot -}}
-{{-   $initRoot := default $dot.Values.certinitializer .initRoot -}}
-{{-   $initName := default "certinitializer" -}}
+{{-   $initRoot := default $dot.Values.certInitializer .initRoot -}}
+{{-   $initName := default "certInitializer" -}}
 {{- $subchartDot := fromJson (include "common.subChartDot" (dict "dot" $dot "initRoot" $initRoot)) }}
 {{ include "common.readinessCheck.waitFor" $subchartDot }}
 - name: {{ include "common.name" $dot }}-aaf-config
@@ -48,7 +48,7 @@
   imagePullPolicy: {{ $subchartDot.Values.global.pullPolicy | default $subchartDot.Values.pullPolicy }}
   volumeMounts:
   - mountPath: {{ $initRoot.mountPath }}
-    name: {{ include "common.certinitializer._aafConfigVolumeName" $dot }}
+    name: {{ include "common.certInitializer._aafConfigVolumeName" $dot }}
   - mountPath: /opt/app/aaf_config/cert/truststoreONAPall.jks.b64
     name: aaf-agent-certs
     subPath: truststoreONAPall.jks.b64
@@ -56,7 +56,7 @@
     name: aaf-agent-certs
     subPath: truststoreONAP.p12.b64
 {{-     if $initRoot.aaf_add_config }}
-  - name: {{ include "common.certinitializer._aafAddConfigVolumeName" $dot }}
+  - name: {{ include "common.certInitializer._aafAddConfigVolumeName" $dot }}
     mountPath: /opt/app/aaf_config/bin/aaf-add-config.sh
     subPath: aaf-add-config.sh
 {{-     end }}
@@ -98,7 +98,7 @@
 
 {{/*
   This init container will import custom .pem certificates to truststoreONAPall.jks
-  Custom certificates must be placed in common/certinitializer/resources directory.
+  Custom certificates must be placed in common/certInitializer/resources directory.
 
   The feature is enabled by setting Values.global.importCustomCertsEnabled = true
   It can be used independently of aafEnabled, however it requires the same includes
@@ -108,12 +108,12 @@
   to import custom certificates, otherwise the default java keystore will be used.
 
   The updated truststore file will be placed in /updatedTruststore and can be mounted per component
-  to a specific path by defining Values.certinitializer.truststoreMountpath (see _trustStoreVolumeMount)
+  to a specific path by defining Values.certInitializer.truststoreMountpath (see _trustStoreVolumeMount)
   The truststore file will be available to mount even if no custom certificates were imported.
 */}}
-{{- define "common.certinitializer._initImportCustomCertsContainer" -}}
+{{- define "common.certInitializer._initImportCustomCertsContainer" -}}
 {{-   $dot := default . .dot -}}
-{{-   $initRoot := default $dot.Values.certinitializer .initRoot -}}
+{{-   $initRoot := default $dot.Values.certInitializer .initRoot -}}
 {{- $subchartDot := fromJson (include "common.subChartDot" (dict "dot" $dot "initRoot" $initRoot)) }}
 - name: {{ include "common.name" $dot }}-import-custom-certs
   image: {{ $subchartDot.Values.global.jreImage }}
@@ -141,11 +141,11 @@
       name: updated-truststore
 {{- end -}}
 
-{{- define "common.certinitializer._volumeMount" -}}
+{{- define "common.certInitializer._volumeMount" -}}
 {{-   $dot := default . .dot -}}
-{{-   $initRoot := default $dot.Values.certinitializer .initRoot -}}
+{{-   $initRoot := default $dot.Values.certInitializer .initRoot -}}
 - mountPath: {{ $initRoot.appMountPath }}
-  name: {{ include "common.certinitializer._aafConfigVolumeName" $dot }}
+  name: {{ include "common.certInitializer._aafConfigVolumeName" $dot }}
 {{- end -}}
 
 {{/*
@@ -153,9 +153,9 @@
   It mounts the updated truststore (with imported custom certificates) to the
   truststoreMountpath defined in the values file for the component.
 */}}
-{{- define "common.certinitializer._trustStoreVolumeMount" -}}
+{{- define "common.certInitializer._trustStoreVolumeMount" -}}
 {{-   $dot := default . .dot -}}
-{{-   $initRoot := default $dot.Values.certinitializer .initRoot -}}
+{{-   $initRoot := default $dot.Values.certInitializer .initRoot -}}
 {{- if gt (len $initRoot.truststoreMountpath) 0 }}
 - mountPath: {{ $initRoot.truststoreMountpath }}/{{ $initRoot.truststoreOutputFileName }}
   name: updated-truststore
@@ -163,11 +163,11 @@
 {{- end -}}
 {{- end -}}
 
-{{- define "common.certinitializer._volumes" -}}
+{{- define "common.certInitializer._volumes" -}}
 {{-   $dot := default . .dot -}}
-{{-   $initRoot := default $dot.Values.certinitializer .initRoot -}}
+{{-   $initRoot := default $dot.Values.certInitializer .initRoot -}}
 {{- $subchartDot := mergeOverwrite (deepCopy (omit $dot "Values")) (dict "Chart" (set (fromJson (toJson $dot.Chart)) "Name" $initRoot.nameOverride) "Values" (mergeOverwrite (deepCopy $initRoot) (dict "global" $dot.Values.global))) }}
-- name: {{ include "common.certinitializer._aafConfigVolumeName" $dot }}
+- name: {{ include "common.certInitializer._aafConfigVolumeName" $dot }}
   emptyDir:
     medium: Memory
 - name: aaf-agent-certs
@@ -176,7 +176,7 @@
     defaultMode: 0700
 
 {{-     if $initRoot.aaf_add_config }}
-- name: {{ include "common.certinitializer._aafAddConfigVolumeName" $dot }}
+- name: {{ include "common.certInitializer._aafAddConfigVolumeName" $dot }}
   configMap:
     name: {{ include "common.fullname" $subchartDot }}-add-config
     defaultMode: 0700
@@ -187,29 +187,29 @@
 {{-     end -}}
 {{- end -}}
 
-{{- define "common.certinitializer.initContainer" -}}
+{{- define "common.certInitializer.initContainer" -}}
 {{-   $dot := default . .dot -}}
   {{- if $dot.Values.global.importCustomCertsEnabled }}
-    {{ include "common.certinitializer._initImportCustomCertsContainer" . }}
+    {{ include "common.certInitializer._initImportCustomCertsContainer" . }}
   {{- end -}}
   {{- if $dot.Values.global.aafEnabled }}
-    {{ include "common.certinitializer._initContainer" . }}
+    {{ include "common.certInitializer._initContainer" . }}
   {{- end -}}
 {{- end -}}
 
-{{- define "common.certinitializer.volumeMount" -}}
+{{- define "common.certInitializer.volumeMount" -}}
 {{-   $dot := default . .dot -}}
   {{- if $dot.Values.global.aafEnabled }}
-    {{- include "common.certinitializer._volumeMount" . }}
+    {{- include "common.certInitializer._volumeMount" . }}
   {{- end -}}
   {{- if $dot.Values.global.importCustomCertsEnabled }}
-    {{- include "common.certinitializer._trustStoreVolumeMount" . }}
+    {{- include "common.certInitializer._trustStoreVolumeMount" . }}
   {{- end -}}
 {{- end -}}
 
-{{- define "common.certinitializer.volumes" -}}
+{{- define "common.certInitializer.volumes" -}}
 {{-   $dot := default . .dot -}}
   {{- if or ($dot.Values.global.aafEnabled ) ($dot.Values.global.importCustomCertsEnabled) }}
-    {{- include "common.certinitializer._volumes" . }}
+    {{- include "common.certInitializer._volumes" . }}
   {{- end -}}
 {{- end -}}

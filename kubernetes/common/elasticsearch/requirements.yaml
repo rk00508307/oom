@@ -27,6 +27,6 @@ dependencies:
     version: ~7.x-0
     repository: 'file://components/curator'
     condition: elasticsearch.curator.enabled,curator.enabled
-  - name: certinitializer
+  - name: certInitializer
     version: ~7.x-0
-    repository: 'file://../certinitializer'
+    repository: 'file://../certInitializer'
