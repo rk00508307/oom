@@ -66,9 +66,9 @@ spec:
             initialDelaySeconds: {{ .Values.readiness.initialDelaySeconds }}
             periodSeconds: {{ .Values.readiness.periodSeconds }}
           volumeMounts:
-          - mountPath: /etc/localtime
-            name: localtime
-            readOnly: true
+          #- mountPath: /etc/localtime
+            #name: localtime
+            #readOnly: true
           - mountPath: {{ .Values.config.configDir }}/RestServer_config
             name: config
             subPath: RestServer_config
@@ -85,9 +85,9 @@ spec:
 {{ toYaml .Values.affinity | indent 10 }}
         {{- end }}
       volumes:
-        - name: localtime
-          hostPath:
-            path: /etc/localtime
+        #- name: localtime
+          #hostPath:
+            #path: /etc/localtime
         - name: config
           configMap:
             name: {{ include "common.fullname" . }}
@@ -107,7 +107,7 @@ spec:
     spec:
       accessModes:
       - {{ .Values.persistence.accessMode }}
-      storageClassName: {{ include "common.storageClass" . }}
+      storageClassName: ocs-storagecluster-ceph-rbd
       resources:
         requests:
           storage: {{ .Values.persistence.size }}

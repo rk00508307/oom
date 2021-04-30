@@ -131,9 +131,9 @@ spec:
             - name: APPC_REPLICAS
               value: "{{ .Values.replicaCount }}"
           volumeMounts:
-          - mountPath: /etc/localtime
-            name: localtime
-            readOnly: true
+          #- mountPath: /etc/localtime
+            #name: localtime
+            #readOnly: true
           - mountPath: /opt/onap/appc/data/properties/dblib.properties
             name: onap-appc-data-properties
             subPath: dblib.properties
@@ -221,9 +221,9 @@ spec:
         - name: p12-certs
           secret:
             secretName: {{ include "common.fullname" . }}-certs
-        - name: localtime
-          hostPath:
-            path: /etc/localtime
+        #- name: localtime
+          #hostPath:
+            #path: /etc/localtime
         - name: log-config
           configMap:
             name: {{ include "common.fullname" . }}-logging-cfg
@@ -285,7 +285,7 @@ spec:
     spec:
       accessModes:
       - {{ .Values.persistence.accessMode }}
-      storageClassName: {{ include "common.storageClass" . }}
+      storageClassName: ocs-storagecluster-ceph-rbd
       resources:
         requests:
           storage: {{ .Values.persistence.size }}
