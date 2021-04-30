@@ -63,7 +63,7 @@ spec:
           securityContext:
             privileged: true
       {{- end }}
-          {{ include "common.certInitializer.initContainer" . | nindent 8 }}
+          {{ include "common.certinitializer.initContainer" . | nindent 8 }}
 
       containers:
         - name: {{ include "common.name" . }}-nginx
@@ -84,7 +84,7 @@ spec:
           - name: nginx-server-block
             mountPath: /opt/bitnami/nginx/conf/server_blocks
           {{- end }}
-          {{- include "common.certInitializer.volumeMount" . | nindent 10 }}
+          {{- include "common.certinitializer.volumeMount" . | nindent 10 }}
 
         - name: {{ include "common.name" . }}-elasticsearch
           image: {{ printf "%s/%s" (include "common.repository" .)  .Values.image }}
@@ -165,4 +165,4 @@ spec:
           configMap:
             name: {{ include "common.fullname" . }}-nginx-server-block
         {{- end }}
-         {{ include "common.certInitializer.volumes" . | nindent 8 }}
+         {{ include "common.certinitializer.volumes" . | nindent 8 }}
