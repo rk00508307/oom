@@ -54,13 +54,13 @@ persistence:
     size: 10Mi
     volumeReclaimPolicy: Retain
     accessMode: ReadWriteOnce
-    #mountSubPath: sshsm/data
+    mountSubPath: sshsm/data
   dbus:
     enabled: true
     size: 10Mi
     volumeReclaimPolicy: Retain
     accessMode: ReadWriteOnce
-    #mountSubPath: sshsm/dbus
+    mountSubPath: sshsm/dbus
 
 
 

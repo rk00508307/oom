@@ -53,7 +53,7 @@ spec:
       - name: {{ include "common.name" . }}
         image: {{ include "common.repository" . }}/{{ .Values.image }}
         imagePullPolicy: {{ .Values.global.pullPolicy | default .Values.pullPolicy }}
-        # installing with cmd "onap     " will not only initialize the DB, but add ONAP bootstrap data as well
+        # installing with cmd "onap" will not only initialize the DB, but add ONAP bootstrap data as well
         command: ["/bin/bash","/opt/app/aaf/cass_init/cmd.sh","onap"]
         ports: {{ include "common.containerPorts" . | nindent 10  }}
         env:

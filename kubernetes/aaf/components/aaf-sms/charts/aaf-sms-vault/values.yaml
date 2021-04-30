@@ -77,8 +77,8 @@ persistence:
   volumeReclaimPolicy: Retain
   accessMode: ReadWriteOnce
   size: 2Gi
-  #mountPath: /dockerdata-nfs
-  #mountSubPath: sms/consul/data
+  mountPath: /dockerdata-nfs
+  mountSubPath: sms/consul/data
 
 service:
   type: ClusterIP

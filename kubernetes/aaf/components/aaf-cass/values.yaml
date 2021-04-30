@@ -101,8 +101,8 @@ resources:
 persistence:
   enabled: true
   #existingClaim:
-  #mountPath: /dockerdata-nfs
-  #mountSubPath: "cass"
+  mountPath: /dockerdata-nfs
+  mountSubPath: "cass"
   volumeReclaimPolicy: Retain
   accessMode: ReadWriteOnce
   size: 20Gi

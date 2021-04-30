@@ -115,8 +115,8 @@ persistence:
   volumeReclaimPolicy: Retain
   accessMode: ReadWriteOnce
   size: 1Gi
-  #mountPath: /dockerdata-nfs
-  #mountSubPath: sms/auth
+  mountPath: /dockerdata-nfs
+  mountSubPath: sms/auth
 
 ingress:
   enabled: false
