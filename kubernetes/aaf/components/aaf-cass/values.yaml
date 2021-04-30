@@ -52,6 +52,7 @@ liveness:
   enabled: true
   port: tcp-cql
 
+
 image: pltf-onap/aaf_cass:latest
 
 config:
