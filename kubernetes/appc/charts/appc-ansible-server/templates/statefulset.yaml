@@ -45,7 +45,7 @@ spec:
             name: {{ include "common.fullname" . }}-playbook
       serviceAccountName: sa-anyuid
       containers:
-          - name: {{ include "common.name" . }}
+        - name: {{ include "common.name" . }}
           command: ["/bin/bash"]
           args: ["-c", "cd /opt/onap/ccsdk && ./startAnsibleServer.sh"]
           image: "{{ include "common.repository" . }}/{{ .Values.image }}"
