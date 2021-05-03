@@ -135,8 +135,7 @@ spec:
       #   path: /etc/localtime
       - name : {{ include "common.name" . }}
         configMap:
-          name: aaf-sms-cert-wrapper-certs
-                #name: {{ include "common.fullname" . }}
+          name: {{ include "common.fullname" . }}
       {{- if .Values.global.aafEnabled }}
       - name: {{ include "common.fullname" . }}-int-certs
         secret:
