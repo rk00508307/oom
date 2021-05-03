@@ -21,7 +21,7 @@
 #################################################################
 # application image
 repository: image-registry.openshift-image-registry.svc:5000
-image: pltf-onap/aaf-abrmd:latest
+image: pltf-onap/aaf-abrmd:4.0.0
 pullPolicy: Always
 
 # flag to enable debugging - application support required
