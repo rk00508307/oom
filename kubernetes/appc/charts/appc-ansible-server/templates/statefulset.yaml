@@ -38,14 +38,11 @@ spec:
     spec:
       initContainers:
       - name: {{ include "common.name" . }}-chown
-        image: "busybox"
+        image: "image-registry.openshift-image-registry.svc:5000/pltf-onap/busybox"
         command: ["sh", "-c", "chown -R {{ .Values.config.ansibleUid }}:{{ .Values.config.ansibleGid}} {{ .Values.persistence.playbookPath }}"]
         volumeMounts:
           - mountPath: {{ .Values.persistence.playbookPath }}
             name: {{ include "common.fullname" . }}-playbook
-      serviceAccountName: sa-anyuid
-      containers:
-        - name: {{ include "common.name" . }}
           command: ["/bin/bash"]
           args: ["-c", "cd /opt/onap/ccsdk && ./startAnsibleServer.sh"]
           image: "{{ include "common.repository" . }}/{{ .Values.image }}"
