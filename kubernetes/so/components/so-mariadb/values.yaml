@@ -28,11 +28,15 @@ global:
     serviceName: mariadb-galera
     servicePort: "3306"
   migration:
-    enabled: true
+    enabled: false
     dbHost: mariadb-galera
     dbPort: 3306
     dbUser: root
     dbPassword: secretpassword
+
+readinessCheck:
+  wait_for:
+    - *mariadbName
 
 #################################################################
 # Secrets metaconfig

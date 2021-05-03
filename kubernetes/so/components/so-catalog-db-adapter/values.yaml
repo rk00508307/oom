@@ -21,8 +21,8 @@ global:
   readinessImage: pltf-onap/readiness:latest
   aafAgentImage: pltf-onap/aaf_agent:latest
   envsubstImage: pltf-onap/envsubst:latest
-  persistence: {}
-    #mountPath: /dockerdata-nfs
+  persistence:
+    mountPath: /dockerdata-nfs
   security:
     aaf:
       enabled: false

@@ -26,6 +26,7 @@ global:
   envsubstImage: image-registry.openshift-image-registry.svc:5000/pltf-onap/envsubst
   persistence:
     mountPath: /dockerdata-nfs
+    storageClass: ocs-storagecluster-ceph-rbd
 
 #################################################################
 # Secrets metaconfig

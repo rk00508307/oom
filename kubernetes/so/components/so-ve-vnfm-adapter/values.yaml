@@ -69,14 +69,14 @@ resources:
       cpu: 500m
     requests:
       cpu: 200m
-      memory: 512m
+      memory: 512Mi
   large:
     limits:
       memory: 8Gi
       cpu: 4000m
     requests:
       cpu: 200m
-      memory: 512m
+      memory: 512Mi
   unlimited: {}
 livenessProbe:
   port: 9098

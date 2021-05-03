@@ -20,8 +20,8 @@ global:
   soCryptoImage: sdesbure/so_crypto:latest
   dockerHubRepository: docker.io
   readinessImage: onap/oom/readiness:3.0.1
-  persistence: {}
-    #mountPath: /dockerdata-nfs
+  persistence:
+    mountPath: /dockerdata-nfs
   security:
     aaf:
       enabled: false

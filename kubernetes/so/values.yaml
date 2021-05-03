@@ -21,7 +21,7 @@ global:
   readinessImage: pltf-onap/readiness:latest
   loggingRepository: image-registry.openshift-image-registry.svc:5000
   loggingImage: pltf-onap/filebeat:latest
-  soBaseImage: pltf-onap/base-image:latest
+  soBaseImage: pltf-onap/so-base-image:latest
   aafAgentImage: pltf-onap/aaf_agent:latest
   mariadbGalera:
     nameOverride: mariadb-galera
@@ -36,7 +36,7 @@ global:
     localCluster: false
   persistence:
     storageClass: ocs-storagecluster-ceph-rbd
-    #mountPath: /dockerdata-nfs
+    mountPath: /dockerdata-nfs
   #This configuration specifies Service and port for SDNC OAM interface
   sdncOamService: sdnc-oam
   sdncOamPort: 8282
