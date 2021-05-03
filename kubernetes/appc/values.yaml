@@ -210,8 +210,8 @@ persistence:
   ##   GKE, AWS & OpenStack)
   accessMode: ReadWriteOnce
   size: 1Gi
-  # mountPath: /dockerdata-nfs
-  # mountSubPath: appc/mdsal
+  mountPath: /dockerdata-nfs
+  mountSubPath: appc/mdsal
   mdsalPath: /opt/opendaylight/current/daexim
 
 ingress:

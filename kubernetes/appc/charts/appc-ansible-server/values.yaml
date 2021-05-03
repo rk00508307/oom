@@ -88,8 +88,8 @@ persistence:
   ##   GKE, AWS & OpenStack)
   accessMode: ReadWriteOnce
   size: 1Gi
-  #  mountPath: /dockerdata-nfs
-  #  mountSubPath: appc/ansible
+  mountPath: /dockerdata-nfs
+  mountSubPath: appc/ansible
   playbookPath: /home/ansible
 
 ingress:
