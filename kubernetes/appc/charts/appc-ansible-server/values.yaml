@@ -17,7 +17,7 @@
 #################################################################
 global:
   nodePortPrefix: 302
-  readinessImage: pltf-onap/readiness:3.0.1
+  readinessImage: pltf-onap/readiness:latest
   loggingRepository: docker.elastic.co
   loggingImage: beats/filebeat:5.5.0
 
@@ -52,14 +52,14 @@ affinity: {}
 # probe configuration parameters
 liveness:
   initialDelaySeconds: 180
-  periodSeconds: 10
+  periodSeconds: 300
   # necessary to disable liveness probe when setting breakpoints
   # in debugger so K8s doesn't restart unresponsive container
   enabled: true
 
 readiness:
   initialDelaySeconds: 60
-  periodSeconds: 10
+  periodSeconds: 300
 
 service:
   type: ClusterIP
@@ -101,13 +101,13 @@ resources:
       cpu: 1
       memory: 1Gi
     requests:
-      cpu: 0.5
-      memory: 0.5Mi
+      cpu: 200m
+      memory: 512Mi
   large:
     limits:
       cpu: 2
       memory: 2Gi
     requests:
-      cpu: 1
-      memory: 1Gi
+      cpu: 200m
+      memory: 512Mi
   unlimited: {}

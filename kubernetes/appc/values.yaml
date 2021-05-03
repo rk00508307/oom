@@ -18,12 +18,12 @@
 #################################################################
 global:
   nodePortPrefix: 302
-  readinessImage: pltf-onap/readiness:3.0.1
+  readinessImage: pltf-onap/readiness:latest
   centralizedLoggingEnabled: false
   loggingRepository: docker.elastic.co
   loggingImage: beats/filebeat:5.5.0
   # envsusbt
-  envsubstImage: dibi/envsubst
+  envsubstImage: image-registry.openshift-image-registry.svc:5000/pltf-onap/envsubst
   persistence:
     mountPath: /dockerdata-nfs
 
@@ -231,13 +231,13 @@ resources:
       cpu: 2
       memory: 4Gi
     requests:
-      cpu: 1
-      memory: 2Gi
+      cpu: 200m
+      memory: 512Mi
   large:
     limits:
       cpu: 4
       memory: 8Gi
     requests:
-      cpu: 2
-      memory: 4Gi
+      cpu: 200m
+      memory: 512Mi
   unlimited: {}
