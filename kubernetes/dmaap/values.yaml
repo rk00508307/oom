@@ -19,13 +19,13 @@
 global:
   nodePortPrefix: 302
   nodePortPrefixExt: 304
-  readinessImage: onap/oom/readiness:3.0.1
-  loggingRepository: docker.elastic.co
-  loggingImage: beats/filebeat:5.5.0
-  clientImage: onap/dmaap/dbc-client:1.0.9
+  readinessImage: pltf-onap/readiness:3.0.1
+  loggingRepository: image-registry.openshift-image-registry.svc:5000
+  loggingImage: pltf-onap/filebeat:5.5.0
+  clientImage: pltf-onap/dbc-client:1.0.9
   repository: image-registry.openshift-image-registry.svc:5000
-  busyBoxImage: busybox:1.30
-  busyBoxRepository: docker.io
+  busyBoxImage: pltf-onap/busybox:1.30
+  busyBoxRepository: image-registry.openshift-image-registry.svc:5000
 
 #Global DMaaP app config
   allow_http: false
@@ -41,7 +41,7 @@ global:
 
   #AAF global config overrides
   aafEnabled: true
-  aafAgentImage: onap/aaf/aaf_agent:2.1.20
+  aafAgentImage: pltf-onap/aaf_agent:2.1.20
   aafAppNs: org.osaaf.aaf
   aafLocatorContainer: oom
 

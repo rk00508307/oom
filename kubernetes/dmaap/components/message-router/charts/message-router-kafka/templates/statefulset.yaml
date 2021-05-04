@@ -46,8 +46,9 @@ spec:
       nodeAffinity:
       {{ toYaml .Values.nodeAffinity | indent 10 }}
       {{- end }}
-      imagePullSecrets:
-      - name: "{{ include "common.namespace" . }}-docker-registry-key"
+      serviceAccountName: sa-anyuid
+      #imagePullSecrets:
+      #- name: "{{ include "common.namespace" . }}-docker-registry-key"
       initContainers:
       - name: {{ include "common.name" . }}-initcontainer
         image: "{{ .Values.global.ubuntuInitRepository }}/{{ .Values.ubuntuInitImage }}"
@@ -210,9 +211,9 @@ spec:
         - name: enableCadi
           value: "{{ .Values.global.aafEnabled }}"
         volumeMounts:
-        - mountPath: /etc/localtime
-          name: localtime
-          readOnly: true
+        #- mountPath: /etc/localtime
+          #name: localtime
+          #readOnly: true
         - mountPath: /var/run/docker.sock
           name: docker-socket
         {{- if .Values.global.aafEnabled }}
@@ -229,9 +230,9 @@ spec:
         {{ toYaml .Values.tolerations | indent 10 }}
       {{- end }}
       volumes:
-      - name: localtime
-        hostPath:
-          path: /etc/localtime
+      #- name: localtime
+        #hostPath:
+          #path: /etc/localtime
       - name: jaas-config
         emptyDir:
           medium: Memory
