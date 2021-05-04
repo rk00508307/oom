@@ -35,7 +35,7 @@ secrets:
 # Application configuration defaults.
 #################################################################
 # application image
-image: pltf-onap/dmaap/datarouter-prov:2.1.7
+image: pltf-onap/datarouter-prov:2.1.7
 pullPolicy: Always
 
 # flag to enable debugging - application support required
@@ -144,12 +144,12 @@ resources:
       memory: 4Gi
     requests:
       cpu: 200m
-      memory: 512m
+      memory: 512Mi
   large:
     limits:
       cpu: 4000m
       memory: 8Gi
     requests:
       cpu: 200m
-      memory: 512m
+      memory: 512Mi
   unlimited: {}

@@ -18,16 +18,16 @@
 #################################################################
 global:
   nodePortPrefix: 302
-  readinessImage: onap/oom/readiness:3.0.1
-  loggingRepository: docker.elastic.co
-  loggingImage: beats/filebeat:5.5.0
+  readinessImage: pltf-onap/readiness:3.0.1
+  loggingRepository: image-registry.openshift-image-registry.svc:5000
+  loggingImage: pltf-onap/filebeat:5.5.0
 
 #################################################################
 # Application configuration defaults.
 #################################################################
 # application image
 repository: image-registry.openshift-image-registry.svc:5000
-image: pltf-onap/dmaap/dmaap-mr:1.1.18
+image: pltf-onap/dmaap-mr:1.1.18
 pullPolicy: Always
 
 kafka:
@@ -88,7 +88,7 @@ prometheus:
     enabled: false
     image: solsson/kafka-prometheus-jmx-exporter@sha256
     imageTag: 6f82e2b0464f50da8104acd7363fb9b995001ddff77d248379f8788e78946143
-    imageRepository: docker.io
+    imageRepository: image-registry.openshift-image-registry.svc:5000
     port: 5556
     targetPort: 5555
 
@@ -111,13 +111,13 @@ resources:
       cpu: 2000m
       memory: 4Gi
     requests:
-      cpu: 500m
-      memory: 1Gi
+      cpu: 200m
+      memory: 512Mi
   large:
     limits:
       cpu: 4000m
       memory: 8Gi
     requests:
-      cpu: 1000m
-      memory: 2Gi
+      cpu: 200m
+      memory: 512Mi
   unlimited: {}
