@@ -18,9 +18,9 @@
 #################################################################
 global:
   nodePortPrefix: 302
-  readinessImage: pltf-onap/readiness:3.0.1
-  loggingRepository: docker.elastic.co
-  loggingImage: beats/filebeat:5.5.0
+  readinessImage: pltf-onap/readiness:latest
+  loggingRepository: image-registry.openshift-image-registry.svc:5000
+  loggingImage: pltf-onap/filebeat:5.5.0
   mariadbGalera: &mariadbGalera
     #This flag allows SO to instantiate its own mariadb-galera cluster
     localCluster: false
@@ -28,8 +28,8 @@ global:
     internalPort: 3306
     nameOverride: mariadb-galera
   aafEnabled: true
-  busyBoxImage: busybox:1.30
-  busyBoxRepository: docker.io
+  busyBoxImage: pltf-onap/busybox:1.30
+  busyBoxRepository: image-registry.openshift-image-registry.svc:5000
 
 #################################################################
 # AAF part
@@ -175,13 +175,13 @@ resources:
       cpu: 1
       memory: 2Gi
     requests:
-      cpu: 100m
-      memory: 1Gi
+      cpu: 200m
+      memory: 512Mi
   large:
     limits:
       cpu: 2
       memory: 4Gi
     requests:
       cpu: 200m
-      memory: 2Gi
+      memory: 512Mi
   unlimited: {}
