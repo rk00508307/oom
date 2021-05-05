@@ -18,7 +18,7 @@
 global:
   nodePortPrefix: 302
   #readinessImage: onap/oom/readiness:3.0.1
-  readinessImage: pltf-onap/readiness:3.0.1
+  readinessImage: pltf-onap/readiness:latest
   #loggingRepository: docker.elastic.co
   loggingRepository: image-registry.openshift-image-registry.svc:5000
   #loggingImage: beats/filebeat:5.5.0
@@ -176,13 +176,13 @@ resources:
       cpu: 200m
       memory: 500Mi
     requests:
-      cpu: 100m
-      memory: 250Mi
+      cpu: 200m
+      memory: 512Mi
   large:
     limits:
       cpu: 400m
       memory: 1000Mi
     requests:
       cpu: 200m
-      memory: 500Mi
+      memory: 512Mi
   unlimited: {}
