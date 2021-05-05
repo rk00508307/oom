@@ -46,7 +46,7 @@ spec:
         fsGroup: {{ .Values.securityContext.fsGroup }}
       {{- end }}
 
-      ## Image that performs the sysctl operation to modify Kernel settings (needed sometimes to avoid boot errors)
+      ## Image that performs the sysctl operation to common.certinitializer.initContainermodify Kernel settings (needed sometimes to avoid boot errors)
       initContainers:
       {{- if .Values.sysctlImage.enabled }}
         - name: sysctl
@@ -63,7 +63,7 @@ spec:
           securityContext:
             privileged: true
       {{- end }}
-          {{ include "common.certinitializer.initContainer" . | nindent 8 }}
+          {{ include "common.certInitializer.initContainer" . | nindent 8 }}
 
       containers:
         - name: {{ include "common.name" . }}-nginx
@@ -84,7 +84,7 @@ spec:
           - name: nginx-server-block
             mountPath: /opt/bitnami/nginx/conf/server_blocks
           {{- end }}
-          {{- include "common.certinitializer.volumeMount" . | nindent 10 }}
+          {{- include "common.certInitializer.volumeMount" . | nindent 10 }}
 
         - name: {{ include "common.name" . }}-elasticsearch
           image: {{ printf "%s/%s" (include "common.repository" .)  .Values.image }}
@@ -165,4 +165,4 @@ spec:
           configMap:
             name: {{ include "common.fullname" . }}-nginx-server-block
         {{- end }}
-         {{ include "common.certinitializer.volumes" . | nindent 8 }}
+         {{ include "common.certInitializer.volumes" . | nindent 8 }}
