@@ -20,7 +20,6 @@ global:
 
 pullPolicy: Always
 
-
 secrets:
   - uid: deployer-creds
     type: basicAuth
