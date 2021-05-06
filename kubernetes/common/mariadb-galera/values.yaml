@@ -34,9 +34,9 @@ secrets:
 global:
   nodePortPrefix: 302
   persistence:
-          # mountPath: /dockerdata-nfs
-          #backup:
-          # mountPath: /dockerdata-nfs/backup
+    mountPath: /dockerdata-nfs
+    backup:
+      mountPath: /dockerdata-nfs/backup
 
   repository: image-registry.openshift-image-registry.svc:5000
 
@@ -44,7 +44,7 @@ global:
   busyboxImage: pltf-onap/busybox
   busyboxRepository: image-registry.openshift-image-registry.svc:5000
   # kubeclt image
-  kubectlImage: "bitnami/kubectl:1.15"
+  kubectlImage: pltf-onap/kubectl:1.15
 
 #################################################################
 # Application configuration defaults.
@@ -107,11 +107,11 @@ persistence:
   storageClass: ocs-storagecluster-ceph-rbd
   accessMode: ReadWriteOnce
   size: 2Gi
-  #mountPath: /dockerdata-nfs
-  #mountSubPath: "mariadb-galera/data"
+  mountPath: /dockerdata-nfs
+  mountSubPath: "mariadb-galera/data"
   mysqlPath: /var/lib/mysql
-  #backup:
-    #mountPath: /dockerdata-nfs/backup{{- if or (or .Values.storageClassOverride .Values.persistence.storageClass) .Values.global.persistence.storageClass -}}
+  backup:
+    mountPath: /dockerdata-nfs/backup{{- if or (or .Values.storageClassOverride .Values.persistence.storageClass) .Values.global.persistence.storageClass -}}
 
 service:
   internalPort: 3306
