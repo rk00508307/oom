@@ -21,7 +21,7 @@ global:
   readinessImage: pltf-onap/readiness:3.0.1
   loggingRepository: image-registry.openshift-image-registry.svc:5000
   loggingImage: pltf-onap/filebeat:5.5.0
-  envsubstImage: pltf-onap/envsubst
+  envsubstImage: image-registry.openshift-image-registry.svc:5000/pltf-onap/envsubst
 
 secrets:
   - uid: pg-root-pass

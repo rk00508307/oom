@@ -23,7 +23,7 @@ global:
   loggingImage: pltf-onap/filebeat:5.5.0
   persistence: {}
   ubuntuInitRepository: image-registry.openshift-image-registry.svc:5000
-  envsubstImage: pltf-onap/envsubst
+  envsubstImage: image-registry.openshift-image-registry.svc:5000/pltf-onap/envsubst
 
 #################################################################
 # Application configuration defaults.
