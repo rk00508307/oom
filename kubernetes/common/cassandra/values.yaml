@@ -19,9 +19,9 @@ global: # global defaults
   nodePortPrefix: 302
   persistence:
     storageClass: ocs-storagecluster-ceph-rbd
-    #mountPath: /dockerdata-nfs
-    #backup:
-      #mountPath: /dockerdata-nfs/backup
+    mountPath: /dockerdata-nfs
+    backup:
+      mountPath: /dockerdata-nfs/backup
   repository: image-registry.openshift-image-registry.svc:5000
   readinessImage: pltf-onap/readiness:3.0.1
 
@@ -124,11 +124,11 @@ persistence:
   ## Not set as it depends of the backup enabledment or not.
   accessMode: ReadWriteOnce
   size: 2Gi
-  #mountPath: /dockerdata-nfs
-  #mountSubPath: cassandra
+  mountPath: /dockerdata-nfs
+  mountSubPath: cassandra
   storageType: local
-  #backup:
-      #mountPath: /dockerdata-nfs/backup
+  backup:
+      mountPath: /dockerdata-nfs/backup
 
 configOverrides: {}
 

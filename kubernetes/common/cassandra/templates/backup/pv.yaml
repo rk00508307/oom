@@ -33,7 +33,7 @@ spec:
   accessModes:
   - {{ .Values.persistence.accessMode }}
   persistentVolumeReclaimPolicy: {{ .Values.persistence.volumeReclaimPolicy }}
-  storageClassName: "{{ include "common.fullname" . }}-data"
+  storageClassName: ocs-storagecluster-ceph-rbd
   hostPath:
     path: {{ .Values.global.persistence.backup.mountPath | default .Values.persistence.backup.mountPath }}/{{ include "common.namespace" . }}/{{ include "common.fullname" . }}
 {{- end -}}
