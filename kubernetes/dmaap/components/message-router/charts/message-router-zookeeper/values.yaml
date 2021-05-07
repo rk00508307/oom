@@ -18,23 +18,14 @@
 #################################################################
 global:
   nodePortPrefix: 302
-  readinessImage: pltf-onap/readiness:3.0.1
-  loggingRepository: image-registry.openshift-image-registry.svc:5000
-  loggingImage: pltf-onap/filebeat:5.5.0
-  ubuntuInitRepository: image-registry.openshift-image-registry.svc:5000
   persistence: {}
-  envsubstImage: image-registry.openshift-image-registry.svc:5000/pltf-onap/envsubst
 
 #################################################################
 # Application configuration defaults.
 #################################################################
 # application image
-repository: image-registry.openshift-image-registry.svc:5000
 image: pltf-onap/zookeeper:6.0.3
 pullPolicy: Always
-ubuntuInitImage: pltf-onap/ubuntu-init:2.0.0
-busyBoxImage: pltf-onap/busybox:1.30
-busyBoxRepository: image-registry.openshift-image-registry.svc:5000
 
 # flag to enable debugging - application support required
 debugEnabled: false
@@ -85,7 +76,6 @@ prometheus:
     enabled: false
     image: solsson/kafka-prometheus-jmx-exporter@sha256
     imageTag: 6f82e2b0464f50da8104acd7363fb9b995001ddff77d248379f8788e78946143
-    imageRepository: image-registry.openshift-image-registry.svc:5000
     port: 5556
 
 jaas:
@@ -122,8 +112,8 @@ persistence:
   # storageClass: "-"
   accessMode: ReadWriteOnce
   size: 2Gi
-  #mountPath: /dockerdata-nfs
-  #mountSubPath: message-router/data-zookeeper
+  mountPath: /dockerdata-nfs
+  mountSubPath: message-router/data-zookeeper
 
 
 rollingUpdate:
@@ -132,11 +122,11 @@ service:
   type: ClusterIP
   name: message-router-zookeeper
   portName: message-router-zookeeper
-  clientPortName: client
+  clientPortName: tcp-client
   clientPort: 2181
-  serverPortName: server
+  serverPortName: tcp-server
   serverPort: 2888
-  leaderElectionPortName: leader-election
+  leaderElectionPortName: tcp-leader
   leaderElectionPort: 3888
 
 ingress:
