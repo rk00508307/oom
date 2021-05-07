@@ -209,7 +209,7 @@ resources:
       cpu: 2000m
       memory: 4Gi
     requests:
-      cpu: 500m
+      cpu: 400m
       memory: 1Gi
   large:
     limits:
