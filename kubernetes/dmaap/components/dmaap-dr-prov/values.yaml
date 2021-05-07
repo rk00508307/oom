@@ -35,7 +35,7 @@ secrets:
 # Application configuration defaults.
 #################################################################
 # application image
-image: pltf-onap/datarouter-prov:2.1.7
+image: onap/dmaap/datarouter-prov:2.1.7
 pullPolicy: Always
 
 # flag to enable debugging - application support required
@@ -67,7 +67,7 @@ persistence:
   enabled: true
   volumeReclaimPolicy: Retain
   accessMode: ReadWriteOnce
-  #  mountPath: /dockerdata-nfs
+  mountPath: /dockerdata-nfs
 
 ingress:
   enabled: false
@@ -115,7 +115,7 @@ mariadb:
   nfsprovisionerPrefix: dmaap-dr-db
   persistence:
     size: 1Gi
-    # mountSubPath: data-router/dr-db-data
+    mountSubPath: data-router/dr-db-data
 
 #################################################################
 # AAF part
@@ -143,7 +143,7 @@ resources:
       cpu: 2000m
       memory: 4Gi
     requests:
-      cpu: 200m
+      cpu: 500m
       memory: 1Gi
   large:
     limits:

@@ -85,6 +85,9 @@ spec:
           - name: DB_PASSWORD
             {{- include "common.secret.envFromSecretFast" (dict "global" . "uid" "dmaap-dr-db-user-secret" "key" "password") | indent 12 }}
           volumeMounts: {{ include "common.certInitializer.volumeMount" . | nindent 10 }}
+          - mountPath: /etc/localtime
+            name: localtime
+            readOnly: false
           - mountPath: /opt/app/datartr/etc/provserver.properties
             name: {{ include "common.fullname" . }}-config
             subPath: provserver.properties
@@ -102,7 +105,7 @@ spec:
         {{- if .Values.affinity }}
         affinity:
 {{ toYaml .Values.affinity | indent 10 }}
-        {{- end -}}
+        {{- end }}
       # Filebeat sidecar container
         - name: {{ include "common.name" . }}-filebeat-onap
           image: "{{ .Values.global.loggingRepository }}/{{ .Values.global.loggingImage }}"
@@ -116,6 +119,9 @@ spec:
           - name: {{ include "common.fullname" . }}-logs
             mountPath: /var/log/onap/datarouter-prov
       volumes: {{ include "common.certInitializer.volumes" . | nindent 6 }}
+      - name: localtime
+        hostPath:
+          path: /etc/localtime
       - name: {{ include "common.fullname" . }}-config
         configMap:
           name: {{ include "common.fullname" . }}-configmap
@@ -132,4 +138,5 @@ spec:
         emptyDir: {}
       - name:  {{ include "common.fullname" . }}-logs
         emptyDir: {}
-      serviceAccountName: sa-anyuid
+      imagePullSecrets:
+      - name: "{{ include "common.namespace" . }}-docker-registry-key"

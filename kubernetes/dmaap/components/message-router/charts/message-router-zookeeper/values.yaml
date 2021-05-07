@@ -18,14 +18,23 @@
 #################################################################
 global:
   nodePortPrefix: 302
+  readinessImage: onap/oom/readiness:3.0.1
+  loggingRepository: docker.elastic.co
+  loggingImage: beats/filebeat:5.5.0
+  ubuntuInitRepository: registry.hub.docker.com
   persistence: {}
+  envsubstImage: dibi/envsubst
 
 #################################################################
 # Application configuration defaults.
 #################################################################
 # application image
-image: pltf-onap/zookeeper:6.0.3
+repository: nexus3.onap.org:10001
+image: onap/dmaap/zookeeper:6.0.3
 pullPolicy: Always
+ubuntuInitImage: oomk8s/ubuntu-init:2.0.0
+busyBoxImage: busybox:1.30
+busyBoxRepository: docker.io
 
 # flag to enable debugging - application support required
 debugEnabled: false
@@ -76,6 +85,7 @@ prometheus:
     enabled: false
     image: solsson/kafka-prometheus-jmx-exporter@sha256
     imageTag: 6f82e2b0464f50da8104acd7363fb9b995001ddff77d248379f8788e78946143
+    imageRepository: docker.io
     port: 5556
 
 jaas:
@@ -122,11 +132,11 @@ service:
   type: ClusterIP
   name: message-router-zookeeper
   portName: message-router-zookeeper
-  clientPortName: tcp-client
+  clientPortName: client
   clientPort: 2181
-  serverPortName: tcp-server
+  serverPortName: server
   serverPort: 2888
-  leaderElectionPortName: tcp-leader
+  leaderElectionPortName: leader-election
   leaderElectionPort: 3888
 
 ingress:

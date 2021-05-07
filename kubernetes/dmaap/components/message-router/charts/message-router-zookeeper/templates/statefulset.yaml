@@ -51,9 +51,8 @@ spec:
       nodeAffinity:
         {{ toYaml .Values.nodeAffinity | indent 10 }}
       {{- end }}
-      serviceAccountName: sa-anyuid
-      #imagePullSecrets:
-      #- name: "{{ include "common.namespace" . }}-docker-registry-key"
+      imagePullSecrets:
+      - name: "{{ include "common.namespace" . }}-docker-registry-key"
       initContainers:
       - name: {{ include "common.name" . }}-permission-fixer
         command:
@@ -175,9 +174,9 @@ spec:
           ZOOKEEPER_SERVER_ID=$((${HOSTNAME##*-}+1)) \
           /etc/confluent/docker/run
         volumeMounts:
-        #- mountPath: /etc/localtime
-          #name: localtime
-          #readOnly: true
+        - mountPath: /etc/localtime
+          name: localtime
+          readOnly: true
         - mountPath: /var/lib/zookeeper/data
           name: zookeeper-data
         - name: jaas-config
@@ -187,9 +186,9 @@ spec:
         {{ toYaml .Values.tolerations | indent 10 }}
       {{- end }}
       volumes:
-      #- name: localtime
-        #hostPath:
-          #path: /etc/localtime
+      - name: localtime
+        hostPath:
+          path: /etc/localtime
       - name: jaas-config
         emptyDir:
           medium: Memory
