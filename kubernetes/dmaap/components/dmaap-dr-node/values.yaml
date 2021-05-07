@@ -24,7 +24,7 @@ global:
 # Application configuration defaults.
 #################################################################
 # application image
-image: pltf-onap/datarouter-node:2.1.7
+image: pltf-onap/datarouter-node:2.1.8
 pullPolicy: Always
 
 # flag to enable debugging - application support required
@@ -56,12 +56,12 @@ readiness:
 ## Persist data to a persitent volume
 persistence:
   enabled: true
-  #mountPath: /dockerdata-nfs
+  mountPath: /dockerdata-nfs
   spool:
     enabled: true
     volumeReclaimPolicy: Retain
     accessMode: ReadWriteOnce
-    # mountSubPath: data-router/dr-node/spool-data
+    mountSubPath: data-router/dr-node/spool-data
     size: 2Gi
     path: /opt/app/datartr/spool
     labels:
@@ -71,7 +71,7 @@ persistence:
     enabled: true
     volumeReclaimPolicy: Retain
     accessMode: ReadWriteOnce
-    # mountSubPath: data-router/dr-node/event-logs
+    mountSubPath: data-router/dr-node/event-logs
     path: /opt/app/datartr/logs
     size: 2Gi
     labels:
