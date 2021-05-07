@@ -31,7 +31,7 @@ global:
   loggingImage: beats/filebeat:5.5.0
 
   # envsusbt
-  envsubstImage: dibi/envsubst
+  envsubstImage: image-registry.openshift-image-registry.svc:5000/pltf-onap/envsubst
 
   # image pull policy
   pullPolicy: Always
