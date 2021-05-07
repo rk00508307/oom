@@ -18,10 +18,10 @@
 #################################################################
 global:
   nodePortPrefix: 302
-  readinessImage: onap/oom/readiness:3.0.1
-  loggingRepository: docker.elastic.co
-  loggingImage: beats/filebeat:5.5.0
-  envsubstImage: dibi/envsubst
+  readinessImage: pltf-onap/readiness:3.0.1
+  loggingRepository: image-registry.openshift-image-registry.svc:5000
+  loggingImage: pltf-onap/filebeat:5.5.0
+  envsubstImage: pltf-onap/envsubst
 
 secrets:
   - uid: pg-root-pass
@@ -44,9 +44,9 @@ secrets:
 pullPolicy: Always
 
 # application images
-repository: nexus3.onap.org:10001
+repository: image-registry.openshift-image-registry.svc:5000
 #repository:  10.12.7.57:5000
-image: onap/dmaap/dmaap-bc:2.0.4
+image: pltf-onap/dmaap-bc:2.0.4
 
 
 # application configuration

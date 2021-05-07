@@ -41,9 +41,6 @@ spec:
         - name: REQUESTID
           value: "{{.Chart.Name}}-dmaap-provisioning"
         volumeMounts:
-        - mountPath: /etc/localtime
-          name: localtime
-          readOnly: true
 # NOTE: on the following several configMaps, careful to include / at end
 #       since there may be more than one file in each mountPath
 # NOTE: the basename of the subdirectory of mountPath is important - it matches the DBCL API URI
@@ -67,9 +64,6 @@ spec:
       affinity: {{ toYaml .Values.affinity | nindent 8 }}
         {{- end }}
       volumes:
-        - name: localtime
-          hostPath:
-            path: /etc/localtime
         - name: {{ include "common.fullname" . }}-dbc-dmaap
           configMap:
             name: {{ include "common.fullname" . }}-dbc-dmaap
@@ -88,5 +82,4 @@ spec:
         - name: {{ include "common.fullname" . }}-topics
           configMap:
             name: {{ include "common.fullname" . }}-topics
-      imagePullSecrets:
-      - name: "{{ include "common.namespace" . }}-docker-registry-key"
+      serviceAccountName: sa-anyuid

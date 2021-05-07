@@ -70,9 +70,6 @@ spec:
             name: {{ include "common.fullname" . }}-spool
           - mountPath: {{ .Values.persistence.event.path }}
             name: {{ include "common.fullname" . }}-event-logs
-          - mountPath: /etc/localtime
-            name: localtime
-            readOnly: false
           - mountPath: /opt/app/datartr/etc/node.properties
             name: {{ include "common.fullname" . }}-config
             subPath: node.properties
@@ -100,12 +97,8 @@ spec:
             mountPath: /usr/share/filebeat/data
           - name: {{ include "common.fullname" . }}-logs
             mountPath: /var/log/onap/datarouter-node
-      imagePullSecrets:
-      - name: "{{ include "common.namespace" . }}-docker-registry-key"
+      serviceAccountName: sa-anyuid
       volumes: {{ include "common.aaf-config-volumes" . | nindent 8 }}
-        - name: localtime
-          hostPath:
-            path: /etc/localtime
         - name: {{ include "common.fullname" . }}-config
           configMap:
             name: {{ include "common.fullname" . }}-configmap

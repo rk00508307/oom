@@ -86,9 +86,6 @@ spec:
           - name: enableCadi
             value: "{{ .Values.global.aafEnabled }}"
           volumeMounts:
-          - mountPath: /etc/localtime
-            name: localtime
-            readOnly: true
           - mountPath: /appl/dmaapMR1/bundleconfig/etc/appprops/MsgRtrApi.properties
             subPath: MsgRtrApi.properties
             name: appprops
@@ -108,9 +105,6 @@ spec:
             name: certs
           resources: {{ include "common.resources" . | nindent 12 }}
       volumes:
-        - name: localtime
-          hostPath:
-            path: /etc/localtime
         - name: appprops
           configMap:
             name: {{ include "common.fullname" . }}-msgrtrapi-prop-configmap
@@ -131,5 +125,4 @@ spec:
         - name: certs
           secret:
             secretName: {{ include "common.fullname" . }}-certs
-      imagePullSecrets:
-      - name: "{{ include "common.namespace" . }}-docker-registry-key"
+      serviceAccountName: sa-anyuid

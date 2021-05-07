@@ -100,9 +100,6 @@ spec:
             initialDelaySeconds: {{ .Values.readiness.initialDelaySeconds }}
             periodSeconds: {{ .Values.readiness.periodSeconds }}
           volumeMounts: {{ include "common.certInitializer.volumeMount" . | nindent 10 }}
-          - mountPath: /etc/localtime
-            name: localtime
-            readOnly: true
 # NOTE: on the following several configMaps, careful to include / at end
 #       since there may be more than one file in each mountPath
           - name: {{ include "common.name" . }}-config
@@ -115,14 +112,10 @@ spec:
         affinity: {{ toYaml .Values.affinity | nindent 10 }}
         {{- end }}
       volumes: {{ include "common.certInitializer.volumes" . | nindent 8 }}
-        - name: localtime
-          hostPath:
-            path: /etc/localtime
         - name: {{ include "common.name" . }}-config-input
           configMap:
             name: {{ include "common.fullname" . }}-config
         - name: {{ include "common.name" . }}-config
           emptyDir:
             medium: Memory
-      imagePullSecrets:
-      - name: "{{ include "common.namespace" . }}-docker-registry-key"
+      serviceAccountName: sa-anyuid
