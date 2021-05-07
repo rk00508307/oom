@@ -35,7 +35,7 @@ secrets:
 # Application configuration defaults.
 #################################################################
 # application image
-image: pltf-onap/datarouter-prov:2.1.8
+image: pltf-onap/datarouter-prov:2.1.7
 pullPolicy: Always
 
 # flag to enable debugging - application support required
@@ -67,7 +67,7 @@ persistence:
   enabled: true
   volumeReclaimPolicy: Retain
   accessMode: ReadWriteOnce
-  mountPath: /dockerdata-nfs
+  #  mountPath: /dockerdata-nfs
 
 ingress:
   enabled: false
@@ -94,29 +94,28 @@ config:
 
   # dr-prov db configuration
   dmaapDrDb:
-    mariadbServiceName: dmaap-dr-db
+    mariadbServiceName: dmaap-dr-db-svc
     mariadbServicePort: 3306
-    mariadbContName: &dmaap-dr-db dmaap-dr-db
+    mariadbContName: dmaap-dr-db
     userName: datarouter
 #    userPassword: password
 #    userCredentialsExternalSecret: some secret
 
 # mariadb-galera configuration
 mariadb:
-  name: *dmaap-dr-db
-  nameOverride: *dmaap-dr-db
-  replicaCount: 3
-  db:
-    externalSecret: *dbSecretName
-    name: datarouter
+  name: dmaap-dr-db
+  nameOverride: dmaap-dr-db
+  replicaCount: 2
+  config:
+    userCredentialsExternalSecret: *dbSecretName
+    mysqlDatabase: datarouter
   service:
-    name: dmaap-dr-db
+    name: dmaap-dr-db-svc
+    portName: dmaap-dr-db-svc
   nfsprovisionerPrefix: dmaap-dr-db
   persistence:
     size: 1Gi
-    mountSubPath: data-router/dr-db-data
-  serviceAccount:
-    nameOverride: *dmaap-dr-db
+    # mountSubPath: data-router/dr-db-data
 
 #################################################################
 # AAF part
