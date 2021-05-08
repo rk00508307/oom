@@ -70,9 +70,6 @@ spec:
             name: {{ include "common.fullname" . }}-spool
           - mountPath: {{ .Values.persistence.event.path }}
             name: {{ include "common.fullname" . }}-event-logs
-          #- mountPath: /etc/localtime
-            #name: localtime
-            #readOnly: false
           - mountPath: /opt/app/datartr/etc/node.properties
             name: {{ include "common.fullname" . }}-config
             subPath: node.properties
@@ -87,7 +84,7 @@ spec:
         {{- end -}}
         {{- if .Values.affinity }}
         affinity: {{ toYaml .Values.affinity | nindent 10 }}
-        {{- end -}}
+        {{- end }}
         # Filebeat sidecar container
         - name: {{ include "common.name" . }}-filebeat-onap
           image: "{{ .Values.global.loggingRepository }}/{{ .Values.global.loggingImage }}"
@@ -101,12 +98,7 @@ spec:
           - name: {{ include "common.fullname" . }}-logs
             mountPath: /var/log/onap/datarouter-node
       serviceAccountName: sa-anyuid
-      #imagePullSecrets:
-      #- name: "{{ include "common.namespace" . }}-docker-registry-key"
       volumes: {{ include "common.aaf-config-volumes" . | nindent 8 }}
-        #- name: localtime
-          #hostPath:
-            #path: /etc/localtime
         - name: {{ include "common.fullname" . }}-config
           configMap:
             name: {{ include "common.fullname" . }}-configmap

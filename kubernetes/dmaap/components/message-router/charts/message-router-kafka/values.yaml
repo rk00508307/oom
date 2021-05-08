@@ -18,49 +18,28 @@
 #################################################################
 global:
   nodePortPrefix: 302
+  readinessImage: pltf-onap/readiness:3.0.1
+  loggingRepository: image-registry.openshift-image-registry.svc:5000
+  loggingImage: pltf-onap/filebeat:5.5.0
   persistence: {}
-
-
-#################################################################
-# AAF part
-#################################################################
-certInitializer:
-  nameOverride: dmaap-mr-kafka-cert-initializer
-  aafDeployFqi: deployer@people.osaaf.org
-  aafDeployPass: demo123456!
-  # aafDeployCredsExternalSecret: some secret
-  fqdn: dmaap-mr
-  fqi: dmaapmr@mr.dmaap.onap.org
-  public_fqdn: mr.dmaap.onap.org
-  cadi_longitude: "-122.26147"
-  cadi_latitude: "37.78187"
-  app_ns: org.osaaf.aaf
-  credsPath: /opt/app/osaaf/local
-  fqi_namespace: org.onap.dmaap.mr
-  final_cadi_files: cadi.properties
-  aaf_add_config: |
-    echo "*** concat the three prop files"
-    cd {{ .Values.credsPath }}
-    cat {{ .Values.fqi_namespace }}.props > {{ .Values.final_cadi_files }}
-    cat {{ .Values.fqi_namespace }}.cred.props >> {{ .Values.final_cadi_files }}
-    cat {{ .Values.fqi_namespace }}.location.props >> {{ .Values.final_cadi_files }}
-    echo "*** configuration result:"
-    cat {{ .Values.final_cadi_files }}
-    chown -R 1000 .
-
+  ubuntuInitRepository: image-registry.openshift-image-registry.svc:5000
+  envsubstImage: image-registry.openshift-image-registry.svc:5000/pltf-onap/envsubst
 
 #################################################################
 # Application configuration defaults.
 #################################################################
 # application image
-image: pltf-onap/kafka111:1.0.5
+repository: image-registry.openshift-image-registry.svc:5000
+image: pltf-onap/kafka111:1.0.4
 pullPolicy: Always
+ubuntuInitImage: pltf-onap/ubuntu-init:2.0.0
+busyBoxImage: pltf-onap/busybox:1.30
+busyBoxRepository: image-registry.openshift-image-registry.svc:5000
 
 
 zookeeper:
   name: message-router-zookeeper
   port: 2181
-  replicaCount: 3
 
 kafka:
   heapOptions: -Xmx5G -Xms1G
@@ -100,6 +79,7 @@ prometheus:
     enabled: false
     image: solsson/kafka-prometheus-jmx-exporter@sha256
     imageTag: 6f82e2b0464f50da8104acd7363fb9b995001ddff77d248379f8788e78946143
+    imageRepository: image-registry.openshift-image-registry.svc:5000
     port: 5556
 
 jaas:
@@ -189,7 +169,7 @@ persistence:
 service:
   type: NodePort
   name: message-router-kafka
-  portName: tcp-message-router-kafka
+  portName: message-router-kafka
   internalPort: 9092
   internalSSLPort: 9093
   externalPort: 9091
@@ -209,7 +189,7 @@ resources:
       cpu: 2000m
       memory: 4Gi
     requests:
-      cpu: 400m
+      cpu: 500m
       memory: 1Gi
   large:
     limits:

@@ -56,12 +56,12 @@ readiness:
 ## Persist data to a persitent volume
 persistence:
   enabled: true
-  #mountPath: /dockerdata-nfs
+  mountPath: /dockerdata-nfs
   spool:
     enabled: true
     volumeReclaimPolicy: Retain
     accessMode: ReadWriteOnce
-    # mountSubPath: data-router/dr-node/spool-data
+    mountSubPath: data-router/dr-node/spool-data
     size: 2Gi
     path: /opt/app/datartr/spool
     labels:
@@ -71,7 +71,7 @@ persistence:
     enabled: true
     volumeReclaimPolicy: Retain
     accessMode: ReadWriteOnce
-    # mountSubPath: data-router/dr-node/event-logs
+    mountSubPath: data-router/dr-node/event-logs
     path: /opt/app/datartr/logs
     size: 2Gi
     labels:
@@ -123,7 +123,7 @@ resources:
       cpu: 2000m
       memory: 4Gi
     requests:
-      cpu: 100m
+      cpu: 500m
       memory: 1Gi
   large:
     limits:

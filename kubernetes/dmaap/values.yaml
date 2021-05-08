@@ -53,4 +53,4 @@ dmaap-bc:
 dmaap-dr-node:
   enabled: true
 dmaap-dr-prov:
-  enabled: false
+  enabled: true
