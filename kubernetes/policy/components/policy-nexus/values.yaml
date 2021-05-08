@@ -18,8 +18,8 @@
 #################################################################
 global:
   nodePortPrefix: 302
-  readinessImage: pltf-onap/readiness:latest
-  ubuntuInitRepository: oomk8s
+  readinessImage: pltf-onap/readiness:3.0.1
+  ubuntuInitRepository: image-registry.openshift-image-registry.svc:5000
   ubuntuInitImage: ubuntu-init:1.0.0
   persistence: {}
 
@@ -27,7 +27,7 @@ global:
 # Application configuration defaults.
 #################################################################
 # application image
-repository: nexus3.onap.org:10001
+repository: image-registry.openshift-image-registry.svc:5000
 image: sonatype/nexus:2.14.13-01
 pullPolicy: Always
 

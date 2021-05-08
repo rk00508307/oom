@@ -22,8 +22,8 @@
 #################################################################
 global:
   nodePortPrefix: 302
-  readinessImage: pltf-onap/readiness:latest
-  envsubstImage: dibi/envsubst
+  readinessImage: pltf-onap/readiness:3.0.1
+  envsubstImage: image-registry.openshift-image-registry.svc:5000/envsubst
   aafEnabled: true
   persistence: {}
 

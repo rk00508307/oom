@@ -22,9 +22,9 @@
 global:
   nodePortPrefix: 304
   persistence: {}
-  envsubstImage: dibi/envsubst
+  envsubstImage: image-registry.openshift-image-registry.svc:5000/pltf-onap/envsubst
   aafEnabled: true
-  readinessImage: pltf-onap/readiness:latest
+  readinessImage: pltf-onap/readiness:3.0.1
 
 #################################################################
 # Secrets metaconfig

@@ -137,6 +137,4 @@ spec:
             defaultMode: 0755
         - name: pdpxconfig-processed
           emptyDir:
-            medium: Memory
-      #imagePullSecrets:
-      #- name: "{{ include "common.namespace" . }}-docker-registry-key"
+            medium: Memory      
