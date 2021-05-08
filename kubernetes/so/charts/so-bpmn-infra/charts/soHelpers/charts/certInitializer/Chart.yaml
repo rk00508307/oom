@@ -1,4 +1,0 @@
-apiVersion: v1
-description: Template used to obtain certificates in onap
-name: certInitializer
-version: 7.0.0

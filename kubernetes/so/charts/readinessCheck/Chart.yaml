@@ -1,4 +1,0 @@
-apiVersion: v1
-description: Template used to wait for other deployment/sts/jobs in onap
-name: readinessCheck
-version: 7.0.0
