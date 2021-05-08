@@ -23,7 +23,7 @@
 global:
   nodePortPrefix: 302
   readinessImage: pltf-onap/readiness:3.0.1
-  envsubstImage: image-registry.openshift-image-registry.svc:5000/envsubst
+  envsubstImage: image-registry.openshift-image-registry.svc:5000/pltf-onap/envsubst
   aafEnabled: true
   persistence: {}
 
