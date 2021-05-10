@@ -155,6 +155,7 @@ spec:
         affinity:
 {{ toYaml $dot.Values.affinity | indent 10 }}
         {{- end }}
+      serviceAccountName: sa-anyuid
       volumes:
       - name: {{ include "common.fullname" $dot }}-backup
         emptyDir: {}
