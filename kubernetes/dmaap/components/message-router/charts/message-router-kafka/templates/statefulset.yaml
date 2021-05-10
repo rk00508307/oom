@@ -207,8 +207,8 @@ spec:
         - name: enableCadi
           value: "{{ .Values.global.aafEnabled }}"
         volumeMounts:
-        - mountPath: /var/run/docker.sock
-          name: docker-socket
+       # - mountPath: /var/run/docker.sock
+         # name: docker-socket
         {{- if .Values.global.aafEnabled }}
         - mountPath: /etc/kafka/data/cadi.properties
           subPath: cadi.properties
@@ -235,9 +235,9 @@ spec:
       - name: jaas-config
         emptyDir:
           medium: Memory
-      - name: docker-socket
-        hostPath:
-          path: /var/run/docker.sock
+      #- name: docker-socket
+      #  hostPath:
+       #   path: /var/run/docker.sock
       {{- if .Values.global.aafEnabled }}
       - name: certs
         secret:
