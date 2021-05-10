@@ -18,10 +18,10 @@
 global:
   nodePortPrefix: 302
   persistence: {}
-  readinessImage: onap/oom/readiness:3.0.1
+  readinessImage: pltf-onap/readiness:3.0.1
 
   # envsusbt
-  envsubstImage: dibi/envsubst
+  envsubstImage: pltf-onap/envsubst
 
 #################################################################
 # Secrets metaconfig
@@ -46,12 +46,12 @@ secrets:
 #################################################################
 
  # BusyBox image
-busyboxRepository: registry.hub.docker.com
-busyboxImage: library/busybox:latest
+busyboxRepository: image-registry.openshift-image-registry.svc:5000
+busyboxImage: pltf-onap/busybox:latest
 
 #postgresRepository: crunchydata
 postgresRepository: image-registry.openshift-image-registry.svc:5000
-image: crunchy-postgres:centos7-10.11-4.2.1
+image: pltf-onap/crunchy-postgres:centos7-10.11-4.2.1
 pullPolicy: Always
 
 # application configuration
