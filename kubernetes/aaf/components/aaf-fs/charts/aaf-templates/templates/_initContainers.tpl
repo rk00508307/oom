@@ -61,7 +61,7 @@
   - name: cadi_x509_issuers
     value: "{{ .Values.global.aaf.cadi_x509_issuers }}"
   - name: aaf_locate_url
-    value: "http://aaf-locate.{{ .Release.Namespace}}:8095"
+    value: "https://aaf-locate.{{ .Release.Namespace}}:8095"
   - name: aaf_locator_container
     value: "oom"
   - name: aaf_release

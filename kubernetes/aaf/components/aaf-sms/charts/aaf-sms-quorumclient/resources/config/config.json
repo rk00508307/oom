@@ -1,5 +1,5 @@
 {
-    "url":"http://aaf-sms.{{ include "common.namespace" . }}:10443",
+    "url":"https://aaf-sms.{{ include "common.namespace" . }}:10443",
     "cafile": "/quorumclient/certs/aaf_root_ca.cer",
     "clientcert":"client.cert",
     "clientkey":"client.key",

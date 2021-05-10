@@ -107,7 +107,7 @@
     - name: APP_FQI
       value: "{{ $aafRoot.fqi }}"
     - name: aaf_locate_url
-      value: "http://aaf-locate.{{ $dot.Release.Namespace}}:8095"
+      value: "https://aaf-locate.{{ $dot.Release.Namespace}}:8095"
     - name: aaf_locator_container
       value: "oom"
     - name: aaf_locator_container_ns

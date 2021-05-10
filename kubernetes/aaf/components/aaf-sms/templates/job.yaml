@@ -168,7 +168,7 @@ spec:
           - "-serviceport"
           - "{{ .Values.service.internalPort }}"
           - "-serviceurl"
-          - "http://aaf-sms.{{ include "common.namespace" . }}"
+          - "https://aaf-sms.{{ include "common.namespace" . }}"
         workingDir: /sms
         volumeMounts: {{ include "common.certInitializer.volumeMount" . | nindent 10 }}
           #- mountPath: /etc/localtime
