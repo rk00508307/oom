@@ -185,9 +185,9 @@ spec:
       - name: jaas-config
         emptyDir:
           medium: Memory
-      - name: docker-socket
-        hostPath:
-          path: /var/run/docker.sock
+      #- name: docker-socket
+       # hostPath:
+        #  path: /var/run/docker.sock
       - name: jaas
         configMap:
           name: {{ include "common.fullname" . }}-jaas-configmap
