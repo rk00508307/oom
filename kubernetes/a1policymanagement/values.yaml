@@ -23,6 +23,7 @@ global:
   envsubstImage: image-registry.openshift-image-registry.svc:5000/pltf-onap/envsubst:1
 
 
+
 secrets:
   - uid: controller-secret
     type: basicAuth
