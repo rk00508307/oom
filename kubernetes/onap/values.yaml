@@ -79,7 +79,7 @@ global:
   # default mount path root directory referenced
   # by persistent volumes and log files
   persistence:
-    #mountPath: /dockerdata-nfs
+    mountPath: /dockerdata-nfs
     enableDefaultStorageclass: false
     parameters: {}
     storageclassProvisioner: kubernetes.io/no-provisioner
