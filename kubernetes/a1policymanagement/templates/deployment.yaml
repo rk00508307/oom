@@ -51,10 +51,6 @@ spec:
       - name: {{ include "common.name" . }}-update-config
         image: "{{ .Values.global.envsubstImage }}"
         imagePullPolicy: {{ .Values.global.pullPolicy | default .Values.pullPolicy }}
-        securityContext:
-          runAsGroup: {{ .Values.groupID }}
-          runAsUser: {{ .Values.userID }}
-          runAsNonRoot: true
         command:
         - sh
         args:
