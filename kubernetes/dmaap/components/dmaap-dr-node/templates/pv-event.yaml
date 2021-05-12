@@ -18,5 +18,5 @@
   # ============LICENSE_END=====================================================
 */}}
 
-{{ include "common.replicaPV" (dict "dot" . "suffix" "event-logs" "persistenceInfos" .Values.persistence.event) }}
+{{ include "common.replicaPVDmaap" (dict "dot" . "suffix" "event-logs" "persistenceInfos" .Values.persistence.event) }}
 #{{ include "common.replicaPVDmaap" }}
