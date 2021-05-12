@@ -18,5 +18,5 @@
   # ============LICENSE_END=====================================================
 */}}
 
-{{ include "common.replicaPVDmaap" (dict "dot" . "suffix" "spool" "persistenceInfos" .Values.persistence.spool) }}
+{{ include "common.replicaPV" (dict "dot" . "suffix" "spool" "persistenceInfos" .Values.persistence.spool) }}
 #{{ include "common.replicaPVDmaap " }}

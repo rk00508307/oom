@@ -209,60 +209,7 @@ spec:
 {{- end -}}
 {{- end -}}
 {{- end -}}
-{{/*
-  Generate N PV for a statefulset
 
-  The function takes up to two arguments (inside a dictionary):
-     - .dot : environment (.)
-     - .suffix: suffix to name. if not set, default to "data".
-     - .persistenceInfos: the persitence values to use, default to
-                          `.Values.persistence`.
-                          Need to be the dict key from `.Values` in string
-                          format.
-                          let's say you have:
-
-                              persistence:
-                                logs:
-                                  enabled: true
-                                  size: 100Mi
-                                  accessMode: ReadWriteOnce
-                                  ...
-
-                          then you have to put `.Values.persitence.logs` in
-                          order to use it.
-
-  Example calls:
-    {{ include "common.replicaPV" . }}
-    {{ include "common.replicaPV" (dict "dot" . "suffix" "my-awesome-suffix" "persistenceInfos" .Values.persistenceLog) }}
-    {{ include "common.replicaPV" (dict dot" . "subPath" "persistenceInfos" .Values.persistence.log) }}
-*/}}
-{{- define "common.replicaPVDmaap" -}}
-{{- $dot := default . .dot -}}
-{{- $suffix := default "data" .suffix -}}
-{{- $metadata_suffix := ternary "" $suffix (eq $suffix "data") -}}
-{{- $persistenceInfos := default $dot.Values.persistence .persistenceInfos -}}
-{{- if and $persistenceInfos.enabled (not $persistenceInfos.existingClaim) -}}
-{{- if (include "common.needPV" $dot) -}}
-{{/* TODO: see if we can use "common.PV" after branching F release */}}
-{{- range $i := until (int $dot.Values.replicaCount) }}
-{{- $range_suffix := printf "%s-%d" $metadata_suffix $i }}
----
-kind: PersistentVolume
-apiVersion: v1
-metadata: {{- include "common.resourceMetadata" (dict "dot" $dot "suffix" $range_suffix "labels" $persistenceInfos.labels) | nindent 2 }}
-spec:
-  capacity:
-    storage: {{ $persistenceInfos.size }}
-  accessModes:
-    - {{ $persistenceInfos.accessMode }}
-  persistentVolumeReclaimPolicy: {{ $persistenceInfos.volumeReclaimPolicy }}
-  storageClassName: ocs-storagecluster-ceph-rbd
-  hostPath:
-    path: {{ include "common.persistencePath"  (dict "dot" $dot "subPath" $persistenceInfos.mountSubPath) }}-{{ $i }}
-{{- end -}}
-{{- end -}}
-{{- end -}}
-{{- end -}}
 {{/*
   Generate a PVC
 
