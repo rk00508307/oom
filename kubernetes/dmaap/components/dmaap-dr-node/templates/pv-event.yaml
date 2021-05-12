@@ -18,4 +18,4 @@
   # ============LICENSE_END=====================================================
 */}}
 
-{{ include "common.replicaPV" }}
+{{ include "common.replicaPV" (dict "dot" . "suffix" "event-logs" "persistenceInfos" .Values.persistence.event) }}
