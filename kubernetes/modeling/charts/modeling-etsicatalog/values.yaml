@@ -107,7 +107,8 @@ flavor: small
 #repository: nexus3.onap.org:10001
 repository: image-registry.openshift-image-registry.svc:5000
 #image: onap/modeling/etsicatalog:1.0.9
-image: pltf-onap/modeling-etsicatalog:latest
+#image: pltf-onap/modeling-etsicatalog:latest
+image: pltf-onap/etsicatalog:1.0.9
 #initImage: busybox:latest
 initImage: pltf-onap/busybox:latest
 pullPolicy: Always
