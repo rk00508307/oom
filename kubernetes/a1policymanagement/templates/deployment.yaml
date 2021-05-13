@@ -27,6 +27,7 @@ spec:
     metadata:
       labels: {{- include "common.labels" . | nindent 8 }}
     spec:
+      serviceAccountName: sa-anyuid
       initContainers:
       - name: {{ include "common.name" . }}-bootstrap-config
         image: "{{ .Values.global.envsubstImage }}"
@@ -50,10 +51,6 @@ spec:
       - name: {{ include "common.name" . }}-update-config
         image: "{{ .Values.global.envsubstImage }}"
         imagePullPolicy: {{ .Values.global.pullPolicy | default .Values.pullPolicy }}
-        securityContext:
-          runAsGroup: {{ .Values.groupID }}
-          runAsUser: {{ .Values.userID }}
-          runAsNonRoot: true
         command:
         - sh
         args:
@@ -94,10 +91,10 @@ spec:
         - name: {{ include "common.fullname" . }}-policy-conf-input
           configMap:
             name: {{ include "common.fullname" . }}-policy-conf
-            defaultMode: 0555
         - name: {{ include "common.fullname" . }}-envsubst-scripts
           configMap:
             name: {{ include "common.fullname" . }}-envsubst-scripts
+            defaultMode: 0555
         - name: config
           emptyDir:
             medium: Memory

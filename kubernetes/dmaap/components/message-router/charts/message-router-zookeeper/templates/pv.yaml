@@ -34,7 +34,7 @@ spec:
     storage: {{ $global.Values.persistence.size }}
   accessModes:
     - {{ $global.Values.persistence.accessMode }}
-  storageClassName: "{{ include "common.fullname" $global }}-data"
+  storageClassName: ocs-storagecluster-ceph-rbd
   hostPath:
     path: {{ $global.Values.persistence.mountPath }}/{{ include "common.release" $global }}/{{ $global.Values.persistence.mountSubPath }}-{{ $i }}
   persistentVolumeReclaimPolicy: {{ $global.Values.persistence.volumeReclaimPolicy }}

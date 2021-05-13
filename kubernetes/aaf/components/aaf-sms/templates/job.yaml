@@ -164,7 +164,7 @@ spec:
           - "-cacert"
           - "{{ .Values.certInitializer.mountPath }}/local/{{ .Values.certInitializer.root_ca_name }}"
           - "-jsondir"
-          - "/preloa d/config"
+          - "/preload/config"
           - "-serviceport"
           - "{{ .Values.service.internalPort }}"
           - "-serviceurl"
