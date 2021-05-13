@@ -154,7 +154,7 @@ spec:
         - name: vid-certs
           secret:
             secretName: {{ include "common.fullname" . }}-certs
-        - name: localtime
+       # - name: localtime
           #hostPath:
             #path: /etc/localtime
         - name: filebeat-conf
@@ -167,5 +167,6 @@ spec:
         - name: vid-logback
           configMap:
             name: {{ include "common.fullname" . }}-log-configmap
+      serviceAccountName: sa-anyuid
       #imagePullSecrets:
       #- name: "{{ include "common.namespace" . }}-docker-registry-key"
