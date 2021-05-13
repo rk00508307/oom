@@ -27,7 +27,8 @@ global:
 #################################################################
 # application image
 repository: image-registry.openshift-image-registry.svc:5000
-image: pltf-onap/dmaap-mr:1.1.18
+#image: pltf-onap/dmaap-mr:1.1.18
+image: pltf-onap/dmaap-mr:latest
 pullPolicy: Always
 
 kafka:

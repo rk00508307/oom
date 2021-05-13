@@ -30,7 +30,8 @@ global:
 #################################################################
 # application image
 repository: image-registry.openshift-image-registry.svc:5000
-image: pltf-onap/zookeeper:6.0.3
+#image: pltf-onap/zookeeper:6.0.3
+image: pltf-onap/zookeeper:latest
 pullPolicy: Always
 ubuntuInitImage: pltf-onap/ubuntu-init:2.0.0
 busyBoxImage: pltf-onap/busybox:1.30
