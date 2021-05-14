@@ -31,6 +31,8 @@ spec:
         app: {{ include "common.name" . }}
         release: {{ include "common.release" . }}
     spec:
+      serviceAccountName: sa-anyuid
+      serviceAccount: sa-anyuid
       initContainers: {{ include "common.certInitializer.initContainer" . | nindent 6 }}
       - command:
         - sh
