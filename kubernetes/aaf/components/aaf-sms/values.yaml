@@ -60,7 +60,7 @@ certInitializer:
 #################################################################
 # application image
 repository: image-registry.openshift-image-registry.svc:5000
-image: pltf-onap/aaf-sms:4.0.2
+image: pltf-onap/aaf-sms:latest
 pullPolicy: Always
 
 # flag to enable debugging - application support required

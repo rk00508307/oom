@@ -34,7 +34,7 @@ global:
 
   aaf:
     config:
-      image: pltf-onap/aaf_config:2.1.23
+      image: pltf-onap/aaf_config:latest
 
 flavor: small
 #################################################################

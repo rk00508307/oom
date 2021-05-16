@@ -118,7 +118,7 @@ global:
   # POC Mode, only for use in development environment
   # Keep it enabled in production
   aafEnabled: true
-  aafAgentImage: pltf-onap/aaf_agent:2.1.20
+  aafAgentImage: pltf-onap/aaf_agent:latest
 
   # Enabling CMPv2
   cmpv2Enabled: true

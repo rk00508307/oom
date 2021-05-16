@@ -41,7 +41,7 @@ aaf_init:
 
 replicaCount: 0
 
-image: pltf-onap/aaf_hello:2.1.23
+image: pltf-onap/aaf_hello:latest
 
 service:
   name: aaf-hello
