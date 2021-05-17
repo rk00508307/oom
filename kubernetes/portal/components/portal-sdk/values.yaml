@@ -60,6 +60,7 @@ repository: image-registry.openshift-image-registry.svc:5000
 image: pltf-onap/portal-sdk:3.4.2
 pullPolicy: Always
 
+
 # application configuration
 config:
   # cipherEncKeyExternalSecret: some secret
