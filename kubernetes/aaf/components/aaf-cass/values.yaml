@@ -53,7 +53,7 @@ liveness:
   port: tcp-cql
 
 
-image: pltf-onap/aaf_cass:latest
+image: pltf-onap/aaf_cass:telus
 
 config:
   cluster_name: osaaf
