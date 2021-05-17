@@ -106,7 +106,7 @@ mariadb-galera:
     internalPort: 3306
   replicaCount: 1
   persistence:
-    enabled: false
+    enabled: true
     mountSubPath: nbi/maria/data
 
 mariadb-init:
