@@ -196,6 +196,6 @@ resources:
       cpu: 4000m
       memory: 8Gi
     requests:
-      cpu: 500m
-      memory: 1Gi
+      cpu: 200m
+      memory: 512Mi
   unlimited: {}
