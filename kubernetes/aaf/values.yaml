@@ -46,7 +46,7 @@ global:
   addTestingComponents: false
   aaf:
     readiness: false
-    image: pltf-onap/aaf_core:latest
+    image: pltf-onap/aaf_core:telus
     aaf_env: "DEV"
     public_fqdn: "aaf.osaaf.org"
     aaf_release: "Frankfurt"
@@ -61,7 +61,7 @@ global:
     cadi_x509_issuers: "CN=intermediateCA_1, OU=OSAAF, O=ONAP, C=US:CN=intermediateCA_7, OU=OSAAF, O=ONAP, C=US"
 
     config:
-      image: pltf-onap/aaf_config:latest
+      image: pltf-onap/aaf_config:telus
 
     service:
       fqdn: "aaf-service"

@@ -34,7 +34,7 @@ global:
 
   aaf:
     config:
-      image: pltf-onap/aaf_config:latest
+      image: pltf-onap/aaf_config:telus
 
 flavor: small
 
