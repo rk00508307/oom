@@ -232,13 +232,13 @@ resources:
       cpu: 2
       memory: 4Gi
     requests:
-      cpu: 200m
+      cpu: 1
       memory: 512Mi
   large:
     limits:
       cpu: 4
       memory: 8Gi
     requests:
-      cpu: 200m
+      cpu: 2
       memory: 512Mi
   unlimited: {}
