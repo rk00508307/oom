@@ -80,3 +80,4 @@ spec:
                 path: db_cmd.sh
               - key: vid-pre-init.sql
                 path: vid-pre-init.sql
+      serviceAccountName: sa-anyuid
