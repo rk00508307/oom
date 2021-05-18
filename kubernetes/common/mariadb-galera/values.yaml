@@ -40,11 +40,11 @@ global:
 
   repository: image-registry.openshift-image-registry.svc:5000
 
-  readinessImage: onap/readiness:3.0.1
-  busyboxImage: onap/busybox
+  readinessImage: pltf-onap/readiness:3.0.1
+  busyboxImage: pltf-onap/busybox
   busyboxRepository: image-registry.openshift-image-registry.svc:5000
   # kubeclt image
-  kubectlImage: onap/kubectl:1.15
+  kubectlImage: pltf-onap/kubectl:1.15
 
 #################################################################
 # Application configuration defaults.
@@ -52,9 +52,9 @@ global:
 
 #repository: mysql
 repository: image-registry.openshift-image-registry.svc:5000
-image: onap/k8s-mariadb-galera-centos:v002
-backupImage: onap/mariadb:10.1.38
-imageInit: onap/busybox
+image: pltf-onap/k8s-mariadb-galera-centos:v002
+backupImage: pltf-onap/mariadb:10.1.38
+imageInit: pltf-onap/busybox
 pullPolicy: IfNotPresent
 
 # application configuration

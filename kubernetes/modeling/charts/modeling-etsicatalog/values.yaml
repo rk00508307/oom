@@ -18,11 +18,11 @@
 global:
   nodePortPrefix: 302
   #readinessImage: onap/oom/readiness:3.0.1
-  readinessImage: onap/readiness:latest
+  readinessImage: pltf-onap/readiness:latest
   #loggingRepository: docker.elastic.co
   loggingRepository: image-registry.openshift-image-registry.svc:5000
   #loggingImage: beats/filebeat:5.5.0
-  loggingImage: onap/filebeat:5.5.0
+  loggingImage: pltf-onap/filebeat:5.5.0
 
   persistence:
     mountPath: /dockerdata-nfs
@@ -107,10 +107,10 @@ flavor: small
 #repository: nexus3.onap.org:10001
 repository: image-registry.openshift-image-registry.svc:5000
 #image: onap/modeling/etsicatalog:1.0.9
-#image: onap/modeling-etsicatalog:latest
-image: onap/etsicatalog:1.0.9
+#image: pltf-onap/modeling-etsicatalog:latest
+image: pltf-onap/etsicatalog:1.0.9
 #initImage: busybox:latest
-initImage: onap/busybox:latest
+initImage: pltf-onap/busybox:latest
 pullPolicy: Always
 
 #Istio sidecar injection policy

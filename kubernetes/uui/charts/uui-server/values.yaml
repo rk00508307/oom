@@ -27,7 +27,7 @@ flavor: small
 #repository: nexus3.onap.org:10001
 repository: image-registry.openshift-image-registry.svc:5000
 #image: onap/usecase-ui-server:3.0.6
-image: onap/usecase-ui-server:3.0.6
+image: pltf-onap/usecase-ui-server:3.0.6
 pullPolicy: Always
 
 # application configuration

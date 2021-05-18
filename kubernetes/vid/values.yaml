@@ -19,11 +19,11 @@
 global:
   nodePortPrefix: 302
   #readinessImage: onap/oom/readiness:3.0.1
-  readinessImage: onap/readiness:3.0.1
+  readinessImage: pltf-onap/readiness:3.0.1
   #loggingRepository: docker.elastic.co
   loggingRepository: image-registry.openshift-image-registry.svc:5000
   #loggingImage: beats/filebeat:5.5.0
-  loggingImage: onap/filebeat:5.5.0
+  loggingImage: pltf-onap/filebeat:5.5.0
 
 #################################################################
 # Secrets metaconfig
@@ -43,12 +43,12 @@ subChartsOnly:
 #repository: nexus3.onap.org:10001
 repository: image-registry.openshift-image-registry.svc:5000
 #image: onap/vid:7.0.0
-image: onap/vid:latest
+image: pltf-onap/vid:latest
 pullPolicy: Always
 
 # mariadb image for initializing
 #mariadb_image: library/mariadb:10
-mariadb_image: onap/mariadb:10.1.38
+mariadb_image: pltf-onap/mariadb:10.1.38
 # application configuration
 config:
   db:

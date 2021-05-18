@@ -26,7 +26,7 @@ flavor: small
 
 # application image
 repository: image-registry.openshift-image-registry.svc:5000
-image: onap/appc-cdt-image:1.7.2
+image: pltf-onap/appc-cdt-image:1.7.2
 pullPolicy: Always
 
 # application configuration

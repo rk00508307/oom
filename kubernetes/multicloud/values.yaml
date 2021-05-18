@@ -19,9 +19,9 @@
 global:
   nodePortPrefix: 302
   loggingRepository: image-registry.openshift-image-registry.svc:5000
-  loggingImage: onap/filebeat:5.5.0
+  loggingImage: pltf-onap/filebeat:5.5.0
   #artifactImage: onap/multicloud/framework-artifactbroker:1.6.0
-  artifactImage: onap/multicloud-framework-artifactbroker:latest
+  artifactImage: pltf-onap/multicloud-framework-artifactbroker:latest
   prometheus:
     enabled: false
   persistence:
@@ -34,7 +34,7 @@ global:
 # application image
 repository: image-registry.openshift-image-registry.svc:5000
 #image: onap/multicloud/framework:1.6.0
-image: onap/multicloud-framework:latest
+image: pltf-onap/multicloud-framework:latest
 pullPolicy: Always
 
 #Istio sidecar injection policy

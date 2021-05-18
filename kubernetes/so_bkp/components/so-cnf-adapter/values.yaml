@@ -77,7 +77,7 @@ secrets:
 # Application configuration defaults.
 #################################################################
 repository: image-registry.openshift-image-registry.svc:5000
-image: onap/mso-cnf-adapter:latest
+image: pltf-onap/mso-cnf-adapter:latest
 pullPolicy: Always
 db:
   userName: so_user

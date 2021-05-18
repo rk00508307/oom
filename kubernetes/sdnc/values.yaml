@@ -20,9 +20,9 @@ global:
   nodePortPrefix: 302
   nodePortPrefixExt: 304
   repository: image-registry.openshift-image-registry.svc:5000
-  readinessImage: onap/readiness:3.0.1
+  readinessImage: pltf-onap/readiness:3.0.1
   loggingRepository: image-registry.openshift-image-registry.svc:5000
-  loggingImage: onap/filebeat:5.5.0
+  loggingImage: pltf-onap/filebeat:5.5.0
   persistence:
     mountPath: /dockerdata-nfs
   aafEnabled: true
@@ -136,9 +136,9 @@ secrets:
 
 repository: image-registry.openshift-image-registry.svc:5000
 pullPolicy: Always
-image: onap/sdnc-image:2.0.5
+image: pltf-onap/sdnc-image:2.0.5
 busyboxRepository: image-registry.openshift-image-registry.svc:5000
-busyboxImage: onap/busybox:1.31
+busyboxImage: pltf-onap/busybox:1.31
 
 # flag to enable debugging - application support required
 debugEnabled: false

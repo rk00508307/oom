@@ -28,7 +28,7 @@ global:
 #repository: nexus3.onap.org:10001
 #image: onap/multicloud/openstack-windriver:1.5.5
 repository: image-registry.openshift-image-registry.svc:5000
-image: onap/multicloud-openstack-windriver:latest
+image: pltf-onap/multicloud-openstack-windriver:latest
 pullPolicy: Always
 
 #Istio sidecar injection policy

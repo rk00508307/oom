@@ -4,8 +4,8 @@ metadata:
   annotations:
     deployment.kubernetes.io/revision: '1'
     meta.helm.sh/release-name: so
-    meta.helm.sh/release-namespace: onap
-  selfLink: /apis/apps/v1/namespaces/onap/deployments/so-so-monitoring
+    meta.helm.sh/release-namespace: pltf-onap
+  selfLink: /apis/apps/v1/namespaces/pltf-onap/deployments/so-so-monitoring
   resourceVersion: '308548052'
   name: so-so-monitoring
   uid: 4b8babc5-6519-4ea3-a950-fc973e471be4
@@ -377,7 +377,7 @@ metadata:
                   'f:name': {}
               'f:imagePullSecrets':
                 .: {}
-                'k:{"name":"onap-docker-registry-key"}':
+                'k:{"name":"pltf-onap-docker-registry-key"}':
                   .: {}
                   'f:name': {}
               'f:securityContext': {}
@@ -413,7 +413,7 @@ metadata:
           'f:replicas': {}
           'f:unavailableReplicas': {}
           'f:updatedReplicas': {}
-  namespace: onap
+  namespace: pltf-onap
   labels:
     app: so-so-monitoring
     app.kubernetes.io/managed-by: Helm
@@ -453,7 +453,7 @@ spec:
           imagePullPolicy: Always
           terminationMessagePolicy: File
           image: >-
-            image-registry.openshift-image-registry.svc:5000/onap/readiness:latest
+            image-registry.openshift-image-registry.svc:5000/pltf-onap/readiness:latest
           args:
             - '--container-name'
             - aaf-locate
@@ -475,11 +475,11 @@ spec:
             - name: APP_FQI
               value: so@so.onap.org
             - name: aaf_locate_url
-              value: 'https://aaf-locate.onap:8095'
+              value: 'https://aaf-locate.pltf-onap:8095'
             - name: aaf_locator_container
               value: oom
             - name: aaf_locator_container_ns
-              value: onap
+              value: pltf-onap
             - name: aaf_locator_fqdn
               value: so
             - name: aaf_locator_app_ns
@@ -515,7 +515,7 @@ spec:
               subPath: aaf-add-config.sh
           terminationMessagePolicy: File
           image: >-
-            image-registry.openshift-image-registry.svc:5000/onap/aaf_agent:latest
+            image-registry.openshift-image-registry.svc:5000/pltf-onap/aaf_agent:latest
         - resources: {}
           terminationMessagePath: /dev/termination-log
           name: so-monitoring-msb-cert-importer
@@ -529,7 +529,7 @@ spec:
               mountPath: /certificates
           terminationMessagePolicy: File
           image: >-
-            image-registry.openshift-image-registry.svc:5000/onap/aaf_agent:latest
+            image-registry.openshift-image-registry.svc:5000/pltf-onap/aaf_agent:latest
           args:
             - '-c'
             - >
@@ -558,7 +558,7 @@ spec:
           terminationMessagePolicy: File
           imagePullPolicy: Always
       imagePullSecrets:
-        - name: onap-docker-registry-key
+        - name: pltf-onap-docker-registry-key
       schedulerName: default-scheduler
       terminationGracePeriodSeconds: 30
       securityContext: {}
@@ -643,7 +643,7 @@ spec:
             - configMapRef:
                 name: so-so-monitoring-configmap
           image: >-
-            image-registry.openshift-image-registry.svc:5000/onap/so-monitoring:latest
+            image-registry.openshift-image-registry.svc:5000/pltf-onap/so-monitoring:latest
           args:
             - '-c'
             - >

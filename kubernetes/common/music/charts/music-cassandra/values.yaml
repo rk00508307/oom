@@ -23,7 +23,7 @@ global:
 
   # readiness check
   #readinessImage: onap/oom/readiness:3.0.1
-  readinessImage: onap/readiness:latest
+  readinessImage: pltf-onap/readiness:latest
 
   # logging agent
   loggingRepository: docker.elastic.co
@@ -37,7 +37,7 @@ replicaCount: 3
 # kubectl exec -it <cassandra-n> -n <namespace> cqlsh -u cassandra -p cassandra
 image:
   #image: onap/music/cassandra_3_11:3.0.24
-  image: onap/cassandra_3_11:latest
+  image: pltf-onap/cassandra_3_11:latest
   pullPolicy: Always
 
 # Cassandra ENV configuration

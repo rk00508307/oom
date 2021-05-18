@@ -21,7 +21,7 @@ global:
   nodePortPrefix: 302
   nodePortPrefixExt: 304
   repository: image-registry.openshift-image-registry.svc:5000
-  readinessImage: onap/readiness:latest
+  readinessImage: pltf-onap/readiness:latest
   ubuntuInitRepository: registry.hub.docker.com
   mariadbGalera:
     nameOverride: &mariadbName mariadb-galera
@@ -95,9 +95,9 @@ secrets:
 #################################################################
 # application image
 repository: image-registry.openshift-image-registry.svc:5000
-image: onap/mariadb:latest
+image: pltf-onap/mariadb:latest
 pullPolicy: Always
-ubuntuInitImage: onap/ubuntu-init:latest
+ubuntuInitImage: pltf-onap/ubuntu-init:latest
 
 # db config
 db:

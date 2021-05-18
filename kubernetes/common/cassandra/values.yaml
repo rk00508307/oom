@@ -23,11 +23,11 @@ global: # global defaults
     backup:
       mountPath: /dockerdata-nfs/backup
   repository: image-registry.openshift-image-registry.svc:5000
-  readinessImage: onap/readiness:3.0.1
+  readinessImage: pltf-onap/readiness:3.0.1
 
 # application image
 repository: image-registry.openshift-image-registry.svc:5000
-image: onap/cassandra:3.11.4
+image: pltf-onap/cassandra:3.11.4
 pullPolicy: Always
 
 # flag to enable debugging - application support required

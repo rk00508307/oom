@@ -24,7 +24,7 @@ global:
   repository: image-registry.openshift-image-registry.svc:5000
   # readiness check
   #readinessImage: onap/oom/readiness:3.0.1
-  readinessImage: onap/readiness:3.0.1
+  readinessImage: pltf-onap/readiness:3.0.1
 
 
   # image pull policy
@@ -40,7 +40,7 @@ global:
 #repository: nexus3.onap.org:10001
 repository: image-registry.openshift-image-registry.svc:5000
 #image: onap/ccsdk-sdclistener:1.0.3
-image: onap/ccsdk-sdclistener:latest
+image: pltf-onap/ccsdk-sdclistener:latest
 name: sdc-listener
 pullPolicy: Always
 

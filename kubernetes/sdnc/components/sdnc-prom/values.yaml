@@ -18,9 +18,9 @@
 global:
   nodePortPrefix: 302
   repository: image-registry.openshift-image-registry.svc:5000
-  readinessImage: onap/readiness:3.0.1
+  readinessImage: pltf-onap/readiness:3.0.1
   loggingRepository: image-registry.openshift-image-registry.svc:5000
-  loggingImage: onap/filebeat:5.5.0
+  loggingImage: pltf-onap/filebeat:5.5.0
   persistence:
     mountPath: /dockerdata-nfs
 
@@ -30,7 +30,7 @@ global:
 # application image
 repository: image-registry.openshift-image-registry.svc:5000
 pullPolicy: Always
-image: onap/prom:1.0.5
+image: pltf-onap/prom:1.0.5
 
 # application configuration
 config:

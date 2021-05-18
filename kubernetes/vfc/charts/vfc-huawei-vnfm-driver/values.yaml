@@ -18,11 +18,11 @@
 global:
   nodePortPrefix: 302
   #readinessImage: onap/oom/readiness:3.0.1
-  readinessImage: onap/readiness:3.0.1
+  readinessImage: pltf-onap/readiness:3.0.1
   #loggingRepository: docker.elastic.co
   loggingRepository: image-registry.openshift-image-registry.svc:5000
   #loggingImage: beats/filebeat:5.5.0
-  loggingImage: onap/filebeat:5.5.0
+  loggingImage: pltf-onap/filebeat:5.5.0
   
 
 #################################################################
@@ -34,7 +34,7 @@ flavor: small
 #repository: nexus3.onap.org:10001
 repository: image-registry.openshift-image-registry.svc:5000
 #image: onap/vfc/nfvo/svnfm/huawei:1.3.8
-image: onap/vfc-nfvo-svnfm-huawei:latest
+image: pltf-onap/vfc-nfvo-svnfm-huawei:latest
 pullPolicy: Always
 
 #Istio sidecar injection policy

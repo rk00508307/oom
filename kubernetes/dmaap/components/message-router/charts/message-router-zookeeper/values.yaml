@@ -18,23 +18,23 @@
 #################################################################
 global:
   nodePortPrefix: 302
-  readinessImage: onap/readiness:3.0.1
+  readinessImage: pltf-onap/readiness:3.0.1
   loggingRepository: image-registry.openshift-image-registry.svc:5000
-  loggingImage: onap/filebeat:5.5.0
+  loggingImage: pltf-onap/filebeat:5.5.0
   ubuntuInitRepository: image-registry.openshift-image-registry.svc:5000
   persistence: {}
-  envsubstImage: image-registry.openshift-image-registry.svc:5000/onap/envsubst
+  envsubstImage: image-registry.openshift-image-registry.svc:5000/pltf-onap/envsubst
 
 #################################################################
 # Application configuration defaults.
 #################################################################
 # application image
 repository: image-registry.openshift-image-registry.svc:5000
-#image: onap/zookeeper:6.0.3
-image: onap/zookeeper:latest
+#image: pltf-onap/zookeeper:6.0.3
+image: pltf-onap/zookeeper:latest
 pullPolicy: Always
-ubuntuInitImage: onap/ubuntu-init:2.0.0
-busyBoxImage: onap/busybox:1.30
+ubuntuInitImage: pltf-onap/ubuntu-init:2.0.0
+busyBoxImage: pltf-onap/busybox:1.30
 busyBoxRepository: image-registry.openshift-image-registry.svc:5000
 
 # flag to enable debugging - application support required

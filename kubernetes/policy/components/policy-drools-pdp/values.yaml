@@ -18,10 +18,10 @@
 #################################################################
 global:
   nodePortPrefix: 302
-  readinessImage: onap/readiness:3.0.1
+  readinessImage: pltf-onap/readiness:3.0.1
   loggingRepository: image-registry.openshift-image-registry.svc:5000
-  loggingImage: onap/filebeat:5.5.0
-  ubuntuImage: image-registry.openshift-image-registry.svc:5000/onap/ubuntu:16.04
+  loggingImage: pltf-onap/filebeat:5.5.0
+  ubuntuImage: image-registry.openshift-image-registry.svc:5000/pltf-onap/ubuntu:16.04
 
 #################################################################
 # Secrets metaconfig
@@ -39,7 +39,7 @@ secrets:
 #################################################################
 # application image
 repository: image-registry.openshift-image-registry.svc:5000
-image: onap/policy-pdpd-cl:latest
+image: pltf-onap/policy-pdpd-cl:latest
 pullPolicy: Always
 
 # flag to enable debugging - application support required

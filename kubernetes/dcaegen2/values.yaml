@@ -22,15 +22,15 @@ global:
   #tlsRepository: nexus3.onap.org:10001
   tlsRepository: image-registry.openshift-image-registry.svc:5000
   #tlsImage: onap/org.onap.dcaegen2.deployments.tls-init-container:2.1.0
-  tlsImage: onap/org.onap.dcaegen2.deployments.tls-init-container:latest
+  tlsImage: pltf-onap/org.onap.dcaegen2.deployments.tls-init-container:latest
   #consulLoaderRepository: nexus3.onap.org:10001
   consulLoaderRepository: image-registry.openshift-image-registry.svc:5000
   #consulLoaderImage: onap/org.onap.dcaegen2.deployments.consul-loader-container:1.0.0
-  consulLoaderImage: onap/org.onap.dcaegen2.deployments.consul-loader-container:latest
+  consulLoaderImage: pltf-onap/org.onap.dcaegen2.deployments.consul-loader-container:latest
   #busyboxRepository: docker.io
   busyboxRepository: image-registry.openshift-image-registry.svc:5000
   #busyboxImage: library/busybox:1.30
-  busyboxImage: onap/busybox:1.30
+  busyboxImage: pltf-onap/busybox:1.30
 
 #################################################################
 # Secrets metaconfig

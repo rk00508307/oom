@@ -15,8 +15,8 @@
 # Global configuration defaults.
 #################################################################
 global:
-  soBaseImage: onap/so-base-image:latest
-  aafAgentImage: onap/aaf_agent:2.1.20
+  soBaseImage: pltf-onap/so-base-image:latest
+  aafAgentImage: pltf-onap/aaf_agent:2.1.20
   msbEnabled: true
   security:
     aaf:

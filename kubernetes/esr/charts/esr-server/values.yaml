@@ -20,9 +20,9 @@ global:
   #readinessImage: onap/oom/readiness:3.0.1
   # loggingRepository: docker.elastic.co
   #loggingImage: beats/filebeat:5.5.0
-  readinessImage: onap/readiness:3.0.1
+  readinessImage: pltf-onap/readiness:3.0.1
   loggingRepository: image-registry.openshift-image-registry.svc:5000
-  loggingImage: onap/filebeat:5.5.0
+  loggingImage: pltf-onap/filebeat:5.5.0
 
 
 subChartsOnly:
@@ -32,7 +32,7 @@ subChartsOnly:
 #repository: nexus3.onap.org:10001
 #image: onap/aai/esr-server:1.5.2
 repository: image-registry.openshift-image-registry.svc:5000
-image: onap/aai-esr-server:latest
+image: pltf-onap/aai-esr-server:latest
 pullPolicy: Always
 msbaddr: msb-iag.{{ include "common.namespace" . }}:443
 

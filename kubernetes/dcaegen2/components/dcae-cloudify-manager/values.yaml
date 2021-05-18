@@ -24,15 +24,15 @@ global:
   nodePortPrefix: 302
   persistence: {}
   #readinessImage: onap/oom/readiness:3.0.1
-  readinessImage: onap/readiness:3.0.1
+  readinessImage: pltf-onap/readiness:3.0.1
   #loggingRepository: docker.elastic.co
   loggingRepository: image-registry.openshift-image-registry.svc:5000
   #loggingImage: beats/filebeat:5.5.0
-  loggingImage: onap/filebeat:5.5.0
+  loggingImage: pltf-onap/filebeat:5.5.0
   #tlsRepository: nexus3.onap.org:10001
   tlsRepository: image-registry.openshift-image-registry.svc:5000
   #tlsImage: onap/org.onap.dcaegen2.deployments.tls-init-container:2.1.0
-  tlsImage: onap/org.onap.dcaegen2.deployments.tls-init-container:latest
+  tlsImage: pltf-onap/org.onap.dcaegen2.deployments.tls-init-container:latest
   repositoryCred:
     user: docker
     password: docker
@@ -59,7 +59,7 @@ config:
 #################################################################
 # application image
 repository: image-registry.openshift-image-registry.svc:5000
-image: onap/org.onap.dcaegen2.deployments.cm-container:3.3.4
+image: pltf-onap/org.onap.dcaegen2.deployments.cm-container:3.3.4
 pullPolicy: Always
 
 # name of shared ConfigMap with kubeconfig for multiple clusters

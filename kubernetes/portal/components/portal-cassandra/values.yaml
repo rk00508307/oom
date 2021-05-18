@@ -23,7 +23,7 @@ global: # global defaults
 
 # application image
 repository: image-registry.openshift-image-registry.svc:5000
-image: onap/cassandra_music:3.0.0
+image: pltf-onap/cassandra_music:3.0.0
 pullPolicy: Always
 
 #################################################################

@@ -19,15 +19,15 @@ global:
   aafEnabled: true
   nodePortPrefix: 302
   #readinessImage: onap/oom/readiness:3.0.1
-  readinessImage: onap/readiness:3.0.1
+  readinessImage: pltf-onap/readiness:3.0.1
   #loggingRepository: docker.elastic.co
   loggingRepository: image-registry.openshift-image-registry.svc:5000
   #loggingImage: beats/filebeat:5.5.0
-  loggingImage: onap/filebeat:5.5.0
+  loggingImage: pltf-onap/filebeat:5.5.0
   #busyboxRepository: registry.hub.docker.com
   busyboxRepository: image-registry.openshift-image-registry.svc:5000
   #busyboxImage: library/busybox:latest
-  busyboxImage: onap/busybox:latest
+  busyboxImage: pltf-onap/busybox:latest
   clusterName: cluster.local
 
 persistence:

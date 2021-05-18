@@ -25,7 +25,7 @@ global:
 #repository: nexus3.onap.org:10001
 repository: image-registry.openshift-image-registry.svc:5000
 #image: onap/multicloud/openstack-pike:1.5.5
-image: onap/multicloud-openstack-pike:1.5.5
+image: pltf-onap/multicloud-openstack-pike:1.5.5
 pullPolicy: Always
 
 #Istio sidecar injection policy

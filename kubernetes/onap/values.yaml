@@ -51,10 +51,10 @@ global:
   dockerHubRepository: image-registry.openshift-image-registry.svc:5000
 
   # readiness check
-  readinessImage: onap/readiness:3.0.1
+  readinessImage: pltf-onap/readiness:3.0.1
 
   # curl image
-  curlImage: onap/curl:7.69.1
+  curlImage: pltf-onap/curl:7.69.1
 
   # logging agent - temporary repo until images migrated to nexus3
   loggingRepository: image-registry.openshift-image-registry.svc:5000
@@ -64,10 +64,10 @@ global:
 
   # busybox repo and image
   busyboxRepository: image-registry.openshift-image-registry.svc:5000
-  busyboxImage: onap/busybox:1.31
+  busyboxImage: pltf-onap/busybox:1.31
 
   # kubeclt image
-  kubectlImage: "onap/kubectl:1.15"
+  kubectlImage: "pltf-onap/kubectl:1.15"
 
   # image pull policy
   pullPolicy: Always
@@ -118,7 +118,7 @@ global:
   # POC Mode, only for use in development environment
   # Keep it enabled in production
   aafEnabled: true
-  aafAgentImage: onap/aaf_agent:2.1.20
+  aafAgentImage: pltf-onap/aaf_agent:2.1.20
 
 
   # Enabling CMPv2

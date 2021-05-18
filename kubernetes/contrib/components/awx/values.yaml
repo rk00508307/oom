@@ -19,7 +19,7 @@ global:
   readinessRepository: image-registry.openshift-image-registry.svc:5000
   nodePortPrefixExt: 304
   commonConfigPrefix: awx
-  readinessImage: onap/readiness:3.0.1
+  readinessImage: pltf-onap/readiness:3.0.1
 
 #################################################################
 # Application configuration defaults.

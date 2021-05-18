@@ -17,9 +17,9 @@
 #################################################################
 global:
   nodePortPrefix: 302
-  readinessImage: onap/readiness:3.0.1
+  readinessImage: pltf-onap/readiness:3.0.1
   loggingRepository: image-registry.openshift-image-registry.svc:5000
-  loggingImage: onap/filebeat:5.5.0
+  loggingImage: pltf-onap/filebeat:5.5.0
   # envsusbt
   envsubstImage: dibi/envsubst
   mariadbGalera:
@@ -55,7 +55,7 @@ secrets:
 #################################################################
 # application image
 repository: image-registry.openshift-image-registry.svc:5000
-image: onap/sdnc-dmaap-listener-image:2.0.5
+image: pltf-onap/sdnc-dmaap-listener-image:2.0.5
 pullPolicy: Always
 
 # flag to enable debugging - application support required

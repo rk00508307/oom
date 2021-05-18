@@ -23,7 +23,7 @@ enabled: true
 #################################################################
 # application image
 repository: image-registry.openshift-image-registry.svc:5000
-image: onap/aaf-testcaservice:4.0.0
+image: pltf-onap/aaf-testcaservice:4.0.0
 pullPolicy: Always
 
 # flag to enable debugging - application support required

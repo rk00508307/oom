@@ -18,10 +18,10 @@
 #################################################################
 global:
   nodePortPrefix: 302
-  readinessImage: onap/readiness:3.0.1
+  readinessImage: pltf-onap/readiness:3.0.1
   loggingRepository: image-registry.openshift-image-registry.svc:5000
-  loggingImage: onap/filebeat:5.5.0
-  envsubstImage: image-registry.openshift-image-registry.svc:5000/onap/envsubst
+  loggingImage: pltf-onap/filebeat:5.5.0
+  envsubstImage: image-registry.openshift-image-registry.svc:5000/pltf-onap/envsubst
 
 secrets:
   - uid: pg-root-pass
@@ -46,8 +46,8 @@ pullPolicy: Always
 # application images
 repository: image-registry.openshift-image-registry.svc:5000
 #repository:  10.12.7.57:5000
-#image: onap/dmaap-bc:2.0.4
-image: onap/dmaap-bc:latest
+#image: pltf-onap/dmaap-bc:2.0.4
+image: pltf-onap/dmaap-bc:latest
 
 
 # application configuration

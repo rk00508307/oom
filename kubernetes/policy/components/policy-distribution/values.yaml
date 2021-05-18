@@ -61,16 +61,16 @@ secrets:
 #################################################################
 global:
   persistence: {}
-  envsubstImage: image-registry.openshift-image-registry.svc:5000/onap/envsubst
+  envsubstImage: image-registry.openshift-image-registry.svc:5000/pltf-onap/envsubst
   aafEnabled: true
-  readinessImage: onap/readiness:3.0.1
+  readinessImage: pltf-onap/readiness:3.0.1
 
 #################################################################
 # Application configuration defaults.
 #################################################################
 # application image
 repository: image-registry.openshift-image-registry.svc:5000
-image: onap/policy-distribution:latest
+image: pltf-onap/policy-distribution:latest
 pullPolicy: Always
 
 # flag to enable debugging - application support required

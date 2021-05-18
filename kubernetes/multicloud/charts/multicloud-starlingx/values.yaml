@@ -23,7 +23,7 @@ global:
 #################################################################
 # application image
 repository: image-registry.openshift-image-registry.svc:5000
-image: onap/multicloud-openstack-starlingx:latest
+image: pltf-onap/multicloud-openstack-starlingx:latest
 pullPolicy: Always
 
 #Istio sidecar injection policy

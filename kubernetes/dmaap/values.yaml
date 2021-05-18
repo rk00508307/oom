@@ -19,12 +19,12 @@
 global:
   nodePortPrefix: 302
   nodePortPrefixExt: 304
-  readinessImage: onap/readiness:3.0.1
+  readinessImage: pltf-onap/readiness:3.0.1
   loggingRepository: image-registry.openshift-image-registry.svc:5000
-  loggingImage: onap/filebeat:5.5.0
-  clientImage: onap/dbc-client:1.0.9
+  loggingImage: pltf-onap/filebeat:5.5.0
+  clientImage: pltf-onap/dbc-client:1.0.9
   repository: image-registry.openshift-image-registry.svc:5000
-  busyBoxImage: onap/busybox:1.30
+  busyBoxImage: pltf-onap/busybox:1.30
   busyBoxRepository: image-registry.openshift-image-registry.svc:5000
 
 #Global DMaaP app config
@@ -41,7 +41,7 @@ global:
 
   #AAF global config overrides
   aafEnabled: true
-  aafAgentImage: onap/aaf_agent:2.1.20
+  aafAgentImage: pltf-onap/aaf_agent:2.1.20
   aafAppNs: org.osaaf.aaf
   aafLocatorContainer: oom
 

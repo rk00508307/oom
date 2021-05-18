@@ -25,13 +25,13 @@ global:
   repository: image-registry.openshift-image-registry.svc:5000
   # readiness check
   #readinessImage: onap/oom/readiness:3.0.1
-  readinessImage: onap/readiness:3.0.1
+  readinessImage: pltf-onap/readiness:3.0.1
   # logging agent
   loggingRepository: docker.elastic.co
   loggingImage: beats/filebeat:5.5.0
 
   # envsusbt
-  envsubstImage: image-registry.openshift-image-registry.svc:5000/onap/envsubst
+  envsubstImage: image-registry.openshift-image-registry.svc:5000/pltf-onap/envsubst
 
   # image pull policy
   pullPolicy: Always
@@ -85,7 +85,7 @@ secrets:
 #repository: nexus3.onap.org:10001
 #image: onap/ccsdk-dgbuilder-image:1.0.2
 repository: image-registry.openshift-image-registry.svc:5000
-image: onap/ccsdk-dgbuilder-image:1.0.2
+image: pltf-onap/ccsdk-dgbuilder-image:1.0.2
 pullPolicy: Always
 
 # flag to enable debugging - application support required
