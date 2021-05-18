@@ -26,7 +26,7 @@ global:
 #repository: etcd
 #repository: "k8s.gcr.io"
 repository: "image-registry.openshift-image-registry.svc:5000"
-image: "pltf-onap/etcd-amd64:3.2.24"
+image: "onap/etcd-amd64:3.2.24"
 pullPolicy: Always
 
 # default number of instances in the StatefulSet

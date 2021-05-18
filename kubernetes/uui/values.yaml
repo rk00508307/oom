@@ -18,7 +18,7 @@
 global:
   uuiPortPrefix: 303
   #readinessImage: onap/oom/readiness:3.0.1
-  readinessImage: pltf-onap/readiness:3.0.1
+  readinessImage: onap/readiness:3.0.1
 
 subChartsOnly:
   enabled: true
@@ -29,7 +29,7 @@ flavor: small
 #repository: nexus3.onap.org:10001
 repository: image-registry.openshift-image-registry.svc:5000
 #image: onap/usecase-ui:3.0.6
-image: pltf-onap/usecase-ui:3.0.6
+image: onap/usecase-ui:3.0.6
 
 pullPolicy: Always
 

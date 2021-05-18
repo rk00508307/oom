@@ -24,7 +24,7 @@ subChartsOnly:
 
 # application image
 repository: image-registry.openshift-image-registry.svc:5000
-image: pltf-onap/optf-cmso-ticketmgt:2.3.0
+image: onap/optf-cmso-ticketmgt:2.3.0
 pullPolicy: Always
 
 

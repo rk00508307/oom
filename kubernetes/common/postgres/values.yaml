@@ -18,10 +18,10 @@
 global:
   nodePortPrefix: 302
   persistence: {}
-  readinessImage: pltf-onap/readiness:3.0.1
+  readinessImage: onap/readiness:3.0.1
 
   # envsusbt
-  envsubstImage: pltf-onap/envsubst
+  envsubstImage: onap/envsubst
 
 #################################################################
 # Secrets metaconfig
@@ -47,11 +47,11 @@ secrets:
 
  # BusyBox image
 busyboxRepository: image-registry.openshift-image-registry.svc:5000
-busyboxImage: pltf-onap/busybox:latest
+busyboxImage: onap/busybox:latest
 
 #postgresRepository: crunchydata
 postgresRepository: image-registry.openshift-image-registry.svc:5000
-image: pltf-onap/crunchy-postgres:centos7-10.11-4.2.1
+image: onap/crunchy-postgres:centos7-10.11-4.2.1
 pullPolicy: Always
 
 # application configuration

@@ -19,17 +19,17 @@
 global: # global defaults
   nodePortPrefix: 302
   persistence: {}
-  readinessImage: pltf-onap/readiness:3.0.1
-  busyboxImage: pltf-onap/busybox:1.30
+  readinessImage: onap/readiness:3.0.1
+  busyboxImage: onap/busybox:1.30
   busyboxRepository: image-registry.openshift-image-registry.svc:5000
 
 # application image
 repository: image-registry.openshift-image-registry.svc:5000
-image: pltf-onap/portal-db:3.4.1
+image: onap/portal-db:3.4.1
 pullPolicy: Always
 
 #mariadbInitImage: "oomk8s/mariadb-client-init:3.0.0"
-mariadbInitImage: pltf-onap/mariadb-client-init:3.0.0
+mariadbInitImage: onap/mariadb-client-init:3.0.0
 
 # application configuration
 config:

@@ -21,7 +21,7 @@ global:
   repository: image-registry.openshift-image-registry.svc:5000
   # readiness check
   #readinessImage: onap/oom/readiness:3.0.1
-  readinessImage: pltf-onap/readiness:latest
+  readinessImage: onap/readiness:latest
   # Set default to 4 hrs.
   # On slow environments dealys this long have been seen.
   readinessTimeout: 240
@@ -36,10 +36,10 @@ job:
   port: 9042
   busybox:
     #image: library/busybox:latest
-    image: pltf-onap/busybox:latest
+    image: onap/busybox:latest
   cassandra:
     #image: onap/music/cassandra_job:3.0.24
-    image: pltf-onap/cassandra_job:latest
+    image: onap/cassandra_job:latest
   timeout: 30
   delay: 120
 cql:

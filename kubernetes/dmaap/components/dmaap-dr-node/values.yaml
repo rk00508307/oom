@@ -24,8 +24,8 @@ global:
 # Application configuration defaults.
 #################################################################
 # application image
-#image: pltf-onap/datarouter-node:2.1.7
-image: pltf-onap/datarouter-node:latest
+#image: onap/datarouter-node:2.1.7
+image: onap/datarouter-node:latest
 pullPolicy: Always
 
 # flag to enable debugging - application support required

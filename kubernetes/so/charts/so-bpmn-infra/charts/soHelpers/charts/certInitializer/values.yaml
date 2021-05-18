@@ -14,9 +14,9 @@
 
 global:
   repository: image-registry.openshift-image-registry.svc:5000
-  aafAgentImage: pltf-onap/aaf_agent:2.1.20
+  aafAgentImage: onap/aaf_agent:2.1.20
   aafEnabled: true
-  jreImage: image-registry.openshift-image-registry.svc:5000/pltf-onap/onap-java
+  jreImage: image-registry.openshift-image-registry.svc:5000/onap/onap-java
 
 pullPolicy: Always
 

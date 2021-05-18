@@ -14,7 +14,7 @@
 
 global:
   #readinessImage: onap/oom/readiness:3.0.1
-  readinessImage: pltf-onap/readiness:3.0.1
+  readinessImage: onap/readiness:3.0.1
   pullPolicy: Always
 
 #repository: nexus3.onap.org:10001

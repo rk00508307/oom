@@ -18,9 +18,9 @@
 #################################################################
 global:
   nodePortPrefix: 302
-  readinessImage: pltf-onap/readiness:latest
+  readinessImage: onap/readiness:latest
   loggingRepository: image-registry.openshift-image-registry.svc:5000
-  loggingImage: pltf-onap/filebeat:5.5.0
+  loggingImage: onap/filebeat:5.5.0
   mariadbGalera: &mariadbGalera
     #This flag allows SO to instantiate its own mariadb-galera cluster
     localCluster: false
@@ -28,7 +28,7 @@ global:
     internalPort: 3306
     nameOverride: mariadb-galera
   aafEnabled: true
-  busyBoxImage: pltf-onap/busybox:1.30
+  busyBoxImage: onap/busybox:1.30
   busyBoxRepository: image-registry.openshift-image-registry.svc:5000
 
 #################################################################
@@ -71,7 +71,7 @@ subChartsOnly:
 
 # application image
 repository: image-registry.openshift-image-registry.svc:5000
-image: pltf-onap/nbi:7.0.2
+image: onap/nbi:7.0.2
 pullPolicy: IfNotPresent
 sdc_authorization: Basic YWFpOktwOGJKNFNYc3pNMFdYbGhhazNlSGxjc2UyZ0F3ODR2YW9HR21KdlV5MlU=
 aai_authorization: Basic QUFJOkFBSQ==

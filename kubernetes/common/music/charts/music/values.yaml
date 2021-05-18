@@ -21,11 +21,11 @@ global:
   #repository: nexus3.onap.org:10001
   repository: image-registry.openshift-image-registry.svc:5000
   #envsubstImage: dibi/envsubst
-  envsubstImage: pltf-onap/envsubst
+  envsubstImage: onap/envsubst
 
   # readiness check
   #readinessImage: onap/oom/readiness:3.0.1
-  readinessImage: pltf-onap/readiness:latest
+  readinessImage: onap/readiness:latest
   # logging agent
   loggingRepository: docker.elastic.co
   loggingImage: beats/filebeat:5.5.0
@@ -61,7 +61,7 @@ secrets:
 #repository: nexus3.onap.org:10001
 #image: onap/music/music_sb:3.2.40
 repository: image-registry.openshift-image-registry.svc:5000
-image: pltf-onap/music_sb:latest
+image: onap/music_sb:latest
 
     
 pullPolicy: Always
@@ -70,7 +70,7 @@ job:
   host: cassandra
   port: 9042
   busybox:
-    image: pltf-onap/busybox:latest
+    image: onap/busybox:latest
 
 
 # default number of instances

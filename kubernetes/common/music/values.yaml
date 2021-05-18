@@ -20,11 +20,11 @@ global:
   #repository: nexus3.onap.org:10001
   repository: image-registry.openshift-image-registry.svc:5000
   #readinessImage: onap/oom/readiness:3.0.1
-  readinessImage: pltf-onap/readiness:latest
+  readinessImage: onap/readiness:latest
   #loggingRepository: docker.elastic.co
   loggingRepository: image-registry.openshift-image-registry.svc:5000
   #loggingImage: beats/filebeat:5.5.0
-  loggingImage: pltf-onap/filebeat:5.5.0
+  loggingImage: onap/filebeat:5.5.0
 
 # flag to enable debugging - application support required
 debugEnabled: false
