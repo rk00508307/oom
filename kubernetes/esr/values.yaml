@@ -18,7 +18,7 @@
 #################################################################
 global:
   loggingRepository: image-registry.openshift-image-registry.svc:5000
-  loggingImage: pltf-onap/filebeat:5.5.0
+  loggingImage: onap/filebeat:5.5.0
 
 # application configuration
 config:

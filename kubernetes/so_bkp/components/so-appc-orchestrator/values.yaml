@@ -20,9 +20,9 @@ global:
   nodePortPrefix: 302
   nodePortPrefixExt: 304
   repository: image-registry.openshift-image-registry.svc:5000
-  readinessImage: pltf-onap/readiness:latest
-  envsubstImage: pltf-onap/envsubst:latest
-  aafAgentImage: pltf-onap/aaf_agent:latest
+  readinessImage: onap/readiness:latest
+  envsubstImage: onap/envsubst:latest
+  aafAgentImage: onap/aaf_agent:latest
   persistence: {}
     #mountPath: /dockerdata-nfs
   htpasswdImage: xmartlabs/htpasswd
@@ -64,7 +64,7 @@ secrets:
 # Application configuration defaults.
 #################################################################
 repository: image-registry.openshift-image-registry.svc:5000
-image: pltf-onap/so-appc-orchestrator:latest
+image: onap/so-appc-orchestrator:latest
 pullPolicy: Always
 
 db:

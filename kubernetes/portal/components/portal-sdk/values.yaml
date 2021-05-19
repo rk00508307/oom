@@ -20,11 +20,11 @@ global:
   env:
     tomcatDir: "/usr/local/tomcat"
   nodePortPrefix: 302
-  readinessImage: pltf-onap/readiness:3.0.1
+  readinessImage: onap/readiness:3.0.1
   loggingRepository: image-registry.openshift-image-registry.svc:5000
-  loggingImage: pltf-onap/filebeat:5.5.0
+  loggingImage: onap/filebeat:5.5.0
   persistence: {}
-  envsubstImage: image-registry.openshift-image-registry.svc:5000/pltf-onap/envsubst:latest
+  envsubstImage: image-registry.openshift-image-registry.svc:5000/onap/envsubst:latest
   #AAF service
   aafEnabled: true
 
@@ -57,7 +57,7 @@ secrets:
 
 # application image
 repository: image-registry.openshift-image-registry.svc:5000
-image: pltf-onap/portal-sdk:3.4.2
+image: onap/portal-sdk:3.4.2
 pullPolicy: Always
 
 

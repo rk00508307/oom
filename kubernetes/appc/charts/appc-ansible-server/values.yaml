@@ -17,7 +17,7 @@
 #################################################################
 global:
   nodePortPrefix: 302
-  readinessImage: pltf-onap/readiness:latest
+  readinessImage: onap/readiness:latest
   loggingRepository: docker.elastic.co
   loggingImage: beats/filebeat:5.5.0
 
@@ -28,7 +28,7 @@ flavor: small
 
 # application image
 repository: image-registry.openshift-image-registry.svc:5000
-image: pltf-onap/ccsdk-ansible-server-image:0.4.4
+image: onap/ccsdk-ansible-server-image:0.4.4
 pullPolicy: Always
 
 # flag to enable debugging - application support required

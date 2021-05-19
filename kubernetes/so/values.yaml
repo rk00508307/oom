@@ -18,11 +18,11 @@ global:
   nodePortPrefix: 302
   nodePortPrefixExt: 304
   repository: image-registry.openshift-image-registry.svc:5000
-  readinessImage: pltf-onap/readiness:latest
+  readinessImage: onap/readiness:latest
   loggingRepository: image-registry.openshift-image-registry.svc:5000
-  loggingImage: pltf-onap/filebeat:latest
-  soBaseImage: pltf-onap/so-base-image:latest
-  aafAgentImage: pltf-onap/aaf_agent:latest
+  loggingImage: onap/filebeat:latest
+  soBaseImage: onap/so-base-image:latest
+  aafAgentImage: onap/aaf_agent:latest
   mariadbGalera:
     nameOverride: mariadb-galera
     serviceName: mariadb-galera
@@ -177,7 +177,7 @@ dbCreds:
 
 
 repository: image-registry.openshift-image-registry.svc:5000
-image: pltf-onap/api-handler-infra:latest
+image: onap/api-handler-infra:latest
 
 server:
   aaf:

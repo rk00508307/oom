@@ -23,17 +23,17 @@ global:
   nodePortPrefix: 302
   nodePortPrefixExt: 304
   #readinessImage: onap/oom/readiness:3.0.1
-  readinessImage: pltf-onap/readiness:3.0.1
+  readinessImage: onap/readiness:3.0.1
   #loggingRepository: docker.elastic.co
   loggingRepository: image-registry.openshift-image-registry.svc:5000
   #loggingImage: beats/filebeat:5.5.0
-  loggingImage: pltf-onap/filebeat:5.5.0
+  loggingImage: onap/filebeat:5.5.0
   #tlsRepository: nexus3.onap.org:10001
   tlsRepository: image-registry.openshift-image-registry.svc:5000
   #tlsImage: onap/org.onap.dcaegen2.deployments.tls-init-container:2.1.0
-  tlsImage: pltf-onap/org.onap.dcaegen2.deployments.tls-init-container:latest
+  tlsImage: onap/org.onap.dcaegen2.deployments.tls-init-container:latest
   envsubstImage: dibi/envsubst
-  #envsubstImage: pltf-onap/envsubst
+  #envsubstImage: onap/envsubst
 
 secrets:
   - uid: pg-root-pass
@@ -115,7 +115,7 @@ mongo:
 # application image
 #repository: nexus3.onap.org:10001
 repository: image-registry.openshift-image-registry.svc:5000
-image: pltf-onap/org.onap.dcaegen2.deployments.k8s-bootstrap-container:latest
+image: onap/org.onap.dcaegen2.deployments.k8s-bootstrap-container:latest
 
 default_k8s_location: central
 

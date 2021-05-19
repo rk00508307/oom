@@ -18,8 +18,8 @@ global:
   nodePortPrefix: 302
   nodePortPrefixExt: 304
   repository: image-registry.openshift-image-registry.svc:5000
-  readinessImage: pltf-onap/readiness:latest
-  aafAgentImage: pltf-onap/aaf_agent:latest
+  readinessImage: onap/readiness:latest
+  aafAgentImage: onap/aaf_agent:latest
   persistence:
     mountPath: /dockerdata-nfs
   security:
@@ -61,7 +61,7 @@ secrets:
 # Application configuration defaults.
 #################################################################
 repository: image-registry.openshift-image-registry.svc:5000
-image: pltf-onap/vfc-adapter:latest
+image: onap/vfc-adapter:latest
 
 pullPolicy: Always
 

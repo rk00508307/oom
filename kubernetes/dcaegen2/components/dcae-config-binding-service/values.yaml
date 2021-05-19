@@ -22,7 +22,7 @@ global:
   nodePortPrefix: 302
   nodePortPrefixExt: 304
   #readinessImage: onap/oom/readiness:3.0.1
-  readinessImage: pltf-onap/readiness:3.0.1
+  readinessImage: onap/readiness:3.0.1
   #loggingRepository: docker.elastic.co
   loggingRepository: image-registry.openshift-image-registry.svc:5000
   #loggingImage: beats/filebeat:5.5.0
@@ -30,7 +30,7 @@ global:
   #tlsRepository: nexus3.onap.org:10001
   tlsRepository: image-registry.openshift-image-registry.svc:5000
   #tlsImage: onap/org.onap.dcaegen2.deployments.tls-init-container:2.1.0
-  tlsImage: pltf-onap/org.onap.dcaegen2.deployments.tls-init-container:latest
+  tlsImage: onap/org.onap.dcaegen2.deployments.tls-init-container:latest
 
   repositoryCred:
     user: docker
@@ -52,7 +52,7 @@ config:
 #repository: nexus3.onap.org:10001
 repository: image-registry.openshift-image-registry.svc:5000
 #image: onap/org.onap.dcaegen2.platform.configbinding:2.5.3
-image: pltf-onap/org.onap.dcaegen2.platform.configbinding:latest
+image: onap/org.onap.dcaegen2.platform.configbinding:latest
 pullPolicy: Always
 
 # probe configuration parameters

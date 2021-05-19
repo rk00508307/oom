@@ -20,7 +20,7 @@
 
 global:
   nodePortPrefix: 300
-  envsubstImage: image-registry.openshift-image-registry.svc:5000/pltf-onap/envsubst:1
+  envsubstImage: image-registry.openshift-image-registry.svc:5000/onap/envsubst:1
 
 
 
@@ -33,7 +33,7 @@ secrets:
     passwordPolicy: required
 
 repository: image-registry.openshift-image-registry.svc:5000
-image: pltf-onap/ccsdk-oran-a1policymanagementservice:1.0.1
+image: onap/ccsdk-oran-a1policymanagementservice:1.0.1
 userID: 1000 #Should match with image-defined user ID
 groupID: 999 #Should match with image-defined group ID
 pullPolicy: IfNotPresent

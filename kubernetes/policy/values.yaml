@@ -17,7 +17,7 @@
 # Global configuration defaults.
 #################################################################
 global:
-  readinessImage: pltf-onap/readiness:3.0.1
+  readinessImage: onap/readiness:3.0.1
   aafEnabled: true
   mariadb:
     # '&mariadbConfig' means we "store" the values for  later use in the file
@@ -76,7 +76,7 @@ policy-nexus:
 #################################################################
 
 repository: image-registry.openshift-image-registry.svc:5000
-mariadb_image: image-registry.openshift-image-registry.svc:5000/pltf-onap/mariadb:10.1.38
+mariadb_image: image-registry.openshift-image-registry.svc:5000/onap/mariadb:10.1.38
 pullPolicy: Always
 
 subChartsOnly:
