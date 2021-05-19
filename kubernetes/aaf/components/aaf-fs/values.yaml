@@ -91,11 +91,11 @@ ingress:
 resources:
   small:
     limits:
-      cpu: 200m
-      memory: 110Mi
+      cpu: 400m
+      memory: 750Mi
     requests:
-      cpu: 1m
-      memory: 80Mi
+      cpu: 200m
+      memory: 512Mi
   large:
     limits:
       cpu: 500m
