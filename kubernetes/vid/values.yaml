@@ -48,7 +48,7 @@ pullPolicy: Always
 
 # mariadb image for initializing
 #mariadb_image: library/mariadb:10
-mariadb_image: onap/mariadb:10.1.38
+mariadb_image: image-registry.openshift-image-registry.svc:5000/onap/mariadb:10.1.38
 # application configuration
 config:
   db:
