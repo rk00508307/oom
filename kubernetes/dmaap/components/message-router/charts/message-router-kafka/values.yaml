@@ -18,22 +18,22 @@
 #################################################################
 global:
   nodePortPrefix: 302
-  readinessImage: pltf-onap/readiness:3.0.1
+  readinessImage: onap/readiness:3.0.1
   loggingRepository: image-registry.openshift-image-registry.svc:5000
-  loggingImage: pltf-onap/filebeat:5.5.0
+  loggingImage: onap/filebeat:5.5.0
   persistence: {}
   ubuntuInitRepository: image-registry.openshift-image-registry.svc:5000
-  envsubstImage: image-registry.openshift-image-registry.svc:5000/pltf-onap/envsubst
+  envsubstImage: image-registry.openshift-image-registry.svc:5000/onap/envsubst
 
 #################################################################
 # Application configuration defaults.
 #################################################################
 # application image
 repository: image-registry.openshift-image-registry.svc:5000
-image: pltf-onap/kafka111:1.0.4
+image: onap/kafka111:1.0.4
 pullPolicy: Always
-ubuntuInitImage: pltf-onap/ubuntu-init:2.0.0
-busyBoxImage: pltf-onap/busybox:1.30
+ubuntuInitImage: onap/ubuntu-init:2.0.0
+busyBoxImage: onap/busybox:1.30
 busyBoxRepository: image-registry.openshift-image-registry.svc:5000
 
 

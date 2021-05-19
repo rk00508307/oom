@@ -19,11 +19,11 @@ global:
   nodePortPrefix: 302
   nodePortPrefixExt: 304
   #readinessImage: onap/oom/readiness:3.0.1
-  readinessImage: pltf-onap/readiness:3.0.1
+  readinessImage: onap/readiness:3.0.1
   #loggingRepository: docker.elastic.co
   loggingRepository: image-registry.openshift-image-registry.svc:5000
   #loggingImage: beats/filebeat:5.5.0
-  loggingImage: pltf-onap/filebeat:5.5.0
+  loggingImage: onap/filebeat:5.5.0
   aafEnabled: true
 
 #################################################################
@@ -56,7 +56,7 @@ certInitializer:
 #repository: nexus3.onap.org:10001
 repository: image-registry.openshift-image-registry.svc:5000
 #image: onap/sdc-workflow-frontend:1.7.0
-image: pltf-onap/sdc-workflow-frontend:1.7.0
+image: onap/sdc-workflow-frontend:1.7.0
 
 pullPolicy: Always
 

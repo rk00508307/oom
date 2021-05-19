@@ -38,7 +38,7 @@ spec:
     spec:
       initContainers:
       - name: {{ include "common.name" . }}-chown
-        image: "image-registry.openshift-image-registry.svc:5000/pltf-onap/busybox"
+        image: "image-registry.openshift-image-registry.svc:5000/onap/busybox"
         command: ["sh", "-c", "chown -R {{ .Values.config.ansibleUid }}:{{ .Values.config.ansibleGid}} {{ .Values.persistence.playbookPath }}"]
         volumeMounts:
           - mountPath: {{ .Values.persistence.playbookPath }}

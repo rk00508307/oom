@@ -18,7 +18,7 @@
 #################################################################
 global:
   nodePortPrefix: 302
-  readinessImage: pltf-onap/readiness:3.0.1
+  readinessImage: onap/readiness:3.0.1
   persistence: {}
 
 #################################################################
@@ -31,7 +31,7 @@ elasticdumpImage: taskrabbit/elasticsearch-dump
 
 # BusyBox image
 busyboxRepository: image-registry.openshift-image-registry.svc:5000
-busyboxImage: pltf-onap/busybox:1.31
+busyboxImage: onap/busybox:1.31
 
 # application image
 loggingRepository: docker.elastic.co

@@ -18,11 +18,11 @@
 #################################################################
 global:
   nodePortPrefix: 302
-  readinessImage: pltf-onap/readiness:3.0.1
+  readinessImage: onap/readiness:3.0.1
   loggingRepository: image-registry.openshift-image-registry.svc:5000
-  loggingImage: pltf-onap/filebeat:5.5.0
-  ubuntuInit: pltf-onap/ubuntu-init:1.0.0
-  envsubstImage: image-registry.openshift-image-registry.svc:5000/pltf-onap/envsubst
+  loggingImage: onap/filebeat:5.5.0
+  ubuntuInit: onap/ubuntu-init:1.0.0
+  envsubstImage: image-registry.openshift-image-registry.svc:5000/onap/envsubst
 
 ################################################################
 # Secrets metaconfig
@@ -68,7 +68,7 @@ config:
 #################################################################
 # application image
 repository: image-registry.openshift-image-registry.svc:5000
-image: pltf-onap/portal-wms:3.4.2
+image: onap/portal-wms:3.4.2
 pullPolicy: Always
 
 # flag to enable debugging - application support required
@@ -127,6 +127,6 @@ resources:
       cpu: 2
       memory: 8Gi
     requests:
-      cpu: 1m
+      cpu: 1
       memory: 4Gi
   unlimited: {}

@@ -23,7 +23,7 @@ global: # global defaults
 
 # application image
 repository: image-registry.openshift-image-registry.svc:5000
-image: pltf-onap/cassandra_music:3.0.0
+image: onap/cassandra_music:3.0.0
 pullPolicy: Always
 
 #################################################################
@@ -56,7 +56,7 @@ liveness:
   periodSeconds: 300
   # necessary to disable liveness probe when setting breakpoints
   # in debugger so K8s doesn't restart unresponsive container
-  enabled: false
+  enabled: true
 
 readiness:
   initialDelaySeconds: 30

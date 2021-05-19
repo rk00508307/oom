@@ -20,13 +20,13 @@
 #################################################################
 global:
   nodePortPrefix: 302
-  readinessImage: pltf-onap/readiness:3.0.1
+  readinessImage: onap/readiness:3.0.1
   loggingRepository: image-registry.openshift-image-registry.svc:5000
-  loggingImage: pltf-onap/filebeat:5.5.0
+  loggingImage: onap/filebeat:5.5.0
   tlsRepository: image-registry.openshift-image-registry.svc:5000
-  tlsImage: pltf-onap/org.onap.dcaegen2.deployments.tls-init-container:latest
+  tlsImage: onap/org.onap.dcaegen2.deployments.tls-init-container:latest
   consulLoaderRepository: image-registry.openshift-image-registry.svc:5000
-  consulLoaderImage: pltf-onap/org.onap.dcaegen2.deployments.consul-loader-container:latest
+  consulLoaderImage: onap/org.onap.dcaegen2.deployments.consul-loader-container:latest
   repositoryCred:
     user: docker
     password: docker
@@ -54,7 +54,7 @@ config:
 #################################################################
 # application image
 repository: image-registry.openshift-image-registry.svc:5000
-image: pltf-onap/org.onap.dcaegen2.platform.policy-handler:latest
+image: onap/org.onap.dcaegen2.platform.policy-handler:latest
 pullPolicy: Always
 
 # probe configuration parameters

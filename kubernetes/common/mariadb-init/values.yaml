@@ -17,7 +17,7 @@
 #################################################################
 global:
   repository: image-registry.openshift-image-registry.svc:5000
-  readinessImage: pltf-onap/readiness:3.0.1
+  readinessImage: onap/readiness:3.0.1
   mariadbGalera:
     nameOverride: mariadb-galera
     servicePort: 3306
@@ -45,7 +45,7 @@ secrets:
 # Application configuration defaults.
 #################################################################
 
-image: pltf-onap/mariadb:10.1.38
+image: onap/mariadb:10.1.38
 pullPolicy: IfNotPresent
 
 # Set it if you want to change the name of the different components

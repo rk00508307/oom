@@ -67,7 +67,7 @@ flavor: small
 
 # application image
 repository: image-registry.openshift-image-registry.svc:5000
-image: pltf-onap/clamp-dashboard-logstash:5.0.4
+image: onap/clamp-dashboard-logstash:5.0.4
 pullPolicy: Always
 
 # flag to enable debugging - application support required

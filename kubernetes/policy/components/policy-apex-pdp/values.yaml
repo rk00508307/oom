@@ -22,8 +22,8 @@
 #################################################################
 global:
   nodePortPrefix: 302
-  readinessImage: pltf-onap/readiness:3.0.1
-  envsubstImage: image-registry.openshift-image-registry.svc:5000/pltf-onap/envsubst
+  readinessImage: onap/readiness:3.0.1
+  envsubstImage: image-registry.openshift-image-registry.svc:5000/onap/envsubst
   aafEnabled: true
   persistence: {}
 
@@ -52,7 +52,7 @@ secrets:
 #################################################################
 # application image
 repository: image-registry.openshift-image-registry.svc:5000
-image: pltf-onap/policy-apex-pdp:latest
+image: onap/policy-apex-pdp:latest
 pullPolicy: Always
 
 # flag to enable debugging - application support required

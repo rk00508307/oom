@@ -20,11 +20,11 @@
 #################################################################
 global:
   nodePortPrefixExt: 304
-  readinessImage: pltf-onap/readiness:3.0.1
+  readinessImage: onap/readiness:3.0.1
   loggingRepository: image-registry.openshift-image-registry.svc:5000
-  loggingImage: pltf-onap/filebeat:5.5.0
+  loggingImage: onap/filebeat:5.5.0
   tlsRepository: image-registry.openshift-image-registry.svc:5000
-  tlsImage: pltf-onap/org.onap.dcaegen2.deployments.tls-init-container:2.1.0
+  tlsImage: onap/org.onap.dcaegen2.deployments.tls-init-container:2.1.0
 
 secrets:
   - uid: pg-user-creds
@@ -58,7 +58,7 @@ config:
 #################################################################
 # application image
 repository: image-registry.openshift-image-registry.svc:5000
-image: pltf-onap/org.onap.ccsdk.dashboard.ccsdk-app-os:1.4.0
+image: onap/org.onap.ccsdk.dashboard.ccsdk-app-os:1.4.0
 pullPolicy: Always
 
 # probe configuration parameters

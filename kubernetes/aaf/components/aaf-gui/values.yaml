@@ -16,16 +16,16 @@
 global:
   nodePortPrefix: 302
   # Readiness image
-  readinessImage: pltf-onap/readiness:3.0.1
+  readinessImage: onap/readiness:3.0.1
   # Ubuntu Init image
   ubuntuInitRepository: image-registry.openshift-image-registry.svc:5000
-  ubuntuInitImage: pltf-onap/ubuntu-init:2.0.0
+  ubuntuInitImage: onap/ubuntu-init:2.0.0
   # Logging image
   loggingRepository: image-registry.openshift-image-registry.svc:5000
-  loggingImage: pltf-onap/filebeat:5.5.0
+  loggingImage: onap/filebeat:5.5.0
   # BusyBox image
   busyboxRepository: image-registry.openshift-image-registry.svc:5000
-  busyboxImage: pltf-onap/busybox:1.31
+  busyboxImage: onap/busybox:1.31
   persistence:
     enabled: true
   # Standard OOM
@@ -34,7 +34,7 @@ global:
 
   aaf:
     config:
-      image: pltf-onap/aaf_config:telus
+      image: onap/aaf_config:2.1.23
 
 flavor: small
 #################################################################

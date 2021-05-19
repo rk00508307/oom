@@ -18,7 +18,7 @@
 #################################################################
 global:
   nodePortPrefix: 302
-  readinessImage: pltf-onap/readiness:3.0.1
+  readinessImage: onap/readiness:3.0.1
   ubuntuInitRepository: image-registry.openshift-image-registry.svc:5000
   ubuntuInitImage: ubuntu-init:1.0.0
   persistence: {}

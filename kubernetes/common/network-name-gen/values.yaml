@@ -27,7 +27,7 @@ global:
 
   # readiness check
   #readinessImage: onap/oom/readiness:3.0.1
-  readinessImage: pltf-onap/readiness:3.0.1
+  readinessImage: onap/readiness:3.0.1
   
   # image pull policy
   pullPolicy: IfNotPresent
@@ -81,7 +81,7 @@ mariadb-init:
 #repository: nexus3.onap.org:10001
 #image: onap/ccsdk-apps-ms-neng:1.0.2
 repository: image-registry.openshift-image-registry.svc:5000
-image: pltf-onap/ccsdk-apps-ms-neng:latest
+image: onap/ccsdk-apps-ms-neng:latest
 
   
 pullPolicy: IfNotPresent

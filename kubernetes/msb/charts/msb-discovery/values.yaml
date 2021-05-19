@@ -16,14 +16,14 @@
 #################################################################
 global:
   nodePortPrefix: 302
-  readinessImage: pltf-onap/readiness:3.0.1
+  readinessImage: onap/readiness:3.0.1
 
 #################################################################
 # Application configuration defaults.
 #################################################################
 # application image
 repository: image-registry.openshift-image-registry.svc:5000
-image: pltf-onap/msb_discovery:1.2.6
+image: onap/msb_discovery:1.2.6
 pullPolicy: Always
 istioSidecar: true
 

@@ -23,7 +23,7 @@ global:
 # application image
 #dockerHubRepository: registry.hub.docker.com
 dockerHubRepository: image-registry.openshift-image-registry.svc:5000
-image: pltf-onap/consul:1.4.3
+image: onap/consul:1.4.3
 pullPolicy: Always
 istioSidecar: true
 

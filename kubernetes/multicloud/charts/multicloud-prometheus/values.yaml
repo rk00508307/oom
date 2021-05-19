@@ -22,11 +22,11 @@ global:
   #loggingImage: beats/filebeat:5.5.0
   #busyboxRepository: registry.hub.docker.com
   #busyboxImage: library/busybox:latest
-  readinessImage: pltf-onap/readiness:3.0.1
+  readinessImage: onap/readiness:3.0.1
   loggingRepository: image-registry.openshift-image-registry.svc:5000
-  loggingImage: pltf-onap/filebeat:5.5.0
+  loggingImage: onap/filebeat:5.5.0
   busyboxRepository: image-registry.openshift-image-registry.svc:5000
-  busyboxImage: pltf-onap/busybox:latest
+  busyboxImage: onap/busybox:latest
 
   alertmanager:
     enabled: false
