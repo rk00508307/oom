@@ -106,6 +106,7 @@ secrets:
 ## Persist data to a persitent volume
 persistence:
   enabled: true
+  storageClass: ocs-storagecluster-ceph-rbd
 
   ## A manually managed Persistent Volume and Claim
   ## Requires persistence.enabled: true
