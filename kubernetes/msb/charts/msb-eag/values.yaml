@@ -23,7 +23,7 @@ global:
 #################################################################
 # application image
 repository: image-registry.openshift-image-registry.svc:5000
-image: onap/msb_apigateway:1.2.7
+image: onap/msb-apigateway:latest
 pullPolicy: Always
 istioSidecar: true
 
