@@ -24,7 +24,7 @@ global:
 #################################################################
 
 # application image
-image: pltf-onap/babel:1.7.1
+image: onap/babel:1.7.1
 
 flavor: small
 flavorOverride: small
