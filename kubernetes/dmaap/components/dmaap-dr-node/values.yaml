@@ -58,6 +58,7 @@ readiness:
 persistence:
   enabled: true
   mountPath: /dockerdata-nfs
+  storageClass: ocs-storagecluster-ceph-rbd
   spool:
     enabled: true
     volumeReclaimPolicy: Retain
