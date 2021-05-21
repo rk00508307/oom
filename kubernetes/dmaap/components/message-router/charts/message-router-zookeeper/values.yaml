@@ -25,6 +25,7 @@ global:
   persistence: {}
   envsubstImage: image-registry.openshift-image-registry.svc:5000/onap/envsubst
 
+
 #################################################################
 # Application configuration defaults.
 #################################################################

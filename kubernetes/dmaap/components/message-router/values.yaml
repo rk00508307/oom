@@ -22,13 +22,14 @@ global:
   loggingRepository: image-registry.openshift-image-registry.svc:5000
   loggingImage: onap/filebeat:5.5.0
 
+
 #################################################################
 # Application configuration defaults.
 #################################################################
 # application image
 repository: image-registry.openshift-image-registry.svc:5000
-#image: onap/dmaap-mr:1.1.18
-image: onap/dmaap-mr:latest
+image: onap/dmaap-mr:1.1.18
+#image: onap/dmaap-mr:latest
 pullPolicy: Always
 
 kafka:
