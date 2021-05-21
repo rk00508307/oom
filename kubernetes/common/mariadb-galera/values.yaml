@@ -67,7 +67,7 @@ config:
   # mysqlDatabase: my-database
 
 # default number of instances in the StatefulSet
-replicaCount: 1
+replicaCount: 3
 
 nodeSelector: {}
 
