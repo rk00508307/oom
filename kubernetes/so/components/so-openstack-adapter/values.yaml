@@ -61,7 +61,7 @@ secrets:
 #################################################################
 # Application configuration defaults.
 #################################################################
-image: onap/openstack-adapter:1.7.10
+image: onap/openstack-adapter:1.7.12
 pullPolicy: Always
 repository: image-registry.openshift-image-registry.svc:5000
 
