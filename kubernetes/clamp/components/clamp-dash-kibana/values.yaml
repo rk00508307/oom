@@ -71,7 +71,7 @@ busyboxImage: library/busybox:latest
 
 # application image
 repository: image-registry.openshift-image-registry.svc:5000
-image: onap/clamp-dashboard-kibana:5.0.4
+image: onap/clamp-dashboard-kibana:latest
 pullPolicy: Always
 
 # flag to enable debugging - application support required

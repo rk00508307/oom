@@ -61,7 +61,7 @@ config:
 #repository: nexus3.onap.org:10001
 repository: image-registry.openshift-image-registry.svc:5000
 #image: onap/org.onap.dcaegen2.platform.inventory-api:3.5.1
-image: onap/org.onap.dcaegen2.platform.inventory-api:3.5.1
+image: onap/org.onap.dcaegen2.platform.inventory-api:latest
 
 pullPolicy: Always
 

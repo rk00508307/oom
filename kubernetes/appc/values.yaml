@@ -57,8 +57,8 @@ secrets:
 flavor: small
 # application image
 repository: image-registry.openshift-image-registry.svc:5000
-#image: onap/appc-image:1.7.2
 image: onap/appc-image:latest
+
 pullPolicy: Always
 
 # flag to enable debugging - application support required

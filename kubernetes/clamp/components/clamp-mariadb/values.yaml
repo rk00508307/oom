@@ -87,7 +87,8 @@ persistence:
   # storageClass: "-"
   accessMode: ReadWriteOnce
   size: 2Gi
-  # mountSubPath: clamp/mariadb/data
+  mountPath: /dockerdata-nfs
+  mountSubPath: clamp/mariadb/data
 
 service:
   type: ClusterIP

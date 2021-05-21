@@ -70,7 +70,7 @@ busyboxImage: library/busybox:latest
 
 # application image
 repository: image-registry.openshift-image-registry.svc:5000
-image: onap/clamp-dashboard-elasticsearch:5.0.4
+image: onap/clamp-dashboard-elasticsearch:latest
 pullPolicy: Always
 
 # flag to enable debugging - application support required
@@ -119,8 +119,9 @@ persistence:
   ##   GKE, AWS & OpenStack)
   accessMode: ReadWriteOnce
   size: 4Gi
-  #mountSubPath: clamp/dashboard-elasticsearch/data
-  #mountSubPathLogs: clamp
+  mountPath: /dockerdata-nfs
+  mountSubPath: clamp/dashboard-elasticsearch/data
+  mountSubPathLogs: clamp
 
 security:
   ssl:
