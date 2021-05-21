@@ -148,7 +148,7 @@ spec:
   accessModes:
     - {{ $persistenceInfos.accessMode }}
   persistentVolumeReclaimPolicy: {{ $persistenceInfos.volumeReclaimPolicy }}
-  storageClassName: "{{ include "common.fullname" $dot }}-{{ $suffix }}"
+  storageClassName: ocs-storagecluster-ceph-rbd
   hostPath:
     path: {{ include "common.persistencePath" (dict "dot" $dot "subPath" $persistenceInfos.mountSubPath) }}
 {{- end -}}
@@ -202,7 +202,7 @@ spec:
   accessModes:
     - {{ $persistenceInfos.accessMode }}
   persistentVolumeReclaimPolicy: {{ $persistenceInfos.volumeReclaimPolicy }}
-  storageClassName: "{{ include "common.fullname" $dot }}-{{ $suffix }}"
+  storageClassName: ocs-storagecluster-ceph-rbd
   hostPath:
     path: {{ include "common.persistencePath"  (dict "dot" $dot "subPath" $persistenceInfos.mountSubPath) }}-{{ $i }}
 {{- end -}}
@@ -285,7 +285,7 @@ metadata: {{- include "common.resourceMetadata" (dict "dot" $dot "suffix" $metad
 spec:
   accessModes:
   - {{ $persistenceInfos.accessMode }}
-  storageClassName: {{ include "common.storageClass" (dict "dot" $dot "suffix" $suffix "persistenceInfos" $persistenceInfos ) }}
+  storageClassName: ocs-storagecluster-ceph-rbd
   resources:
     requests:
       storage: {{ $persistenceInfos.size }}
