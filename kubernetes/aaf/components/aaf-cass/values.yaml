@@ -45,8 +45,8 @@ affinity: {}
 
 # probe configuration parameters
 liveness:
-  initialDelaySeconds: 120
-  periodSeconds: 10
+  initialDelaySeconds: 240
+  periodSeconds: 30
   # necessary to disable liveness probe when setting breakpoints
   # in debugger so K8s doesn't restart unresponsive container
   enabled: true
@@ -86,10 +86,10 @@ resources:
   small:
     limits:
       cpu: 2100m
-      memory: 1792Mi
+      memory: 2400Mi
     requests:
       cpu: 30m
-      memory: 512Mi
+      memory: 1900Mi
   large:
     limits:
       cpu: 4
