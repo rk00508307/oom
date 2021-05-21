@@ -25,13 +25,14 @@ global:
   persistence: {}
   envsubstImage: image-registry.openshift-image-registry.svc:5000/onap/envsubst
 
+
 #################################################################
 # Application configuration defaults.
 #################################################################
 # application image
 repository: image-registry.openshift-image-registry.svc:5000
 #image: onap/zookeeper:6.0.3
-image: onap/zookeeper:latest
+image: onap/zookeeper:6.0.3
 pullPolicy: Always
 ubuntuInitImage: onap/ubuntu-init:2.0.0
 busyBoxImage: onap/busybox:1.30
@@ -106,6 +107,7 @@ secrets:
 ## Persist data to a persitent volume
 persistence:
   enabled: true
+  storageClass: ocs-storagecluster-ceph-rbd
 
   ## A manually managed Persistent Volume and Claim
   ## Requires persistence.enabled: true

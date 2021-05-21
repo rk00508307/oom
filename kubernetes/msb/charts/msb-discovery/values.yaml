@@ -23,7 +23,7 @@ global:
 #################################################################
 # application image
 repository: image-registry.openshift-image-registry.svc:5000
-image: onap/msb_discovery:1.2.6
+image: onap/msb-discovery:latest
 pullPolicy: Always
 istioSidecar: true
 

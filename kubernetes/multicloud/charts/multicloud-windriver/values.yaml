@@ -18,8 +18,8 @@
 #################################################################
 global:
   nodePortPrefix: 302
-  ubuntuInitRepository: oomk8s
-  ubuntuInitImage: ubuntu-init:1.0.0
+  ubuntuInitRepository: image-registry.openshift-image-registry.svc:5000
+  ubuntuInitImage: onap/ubuntu-init:1.0.0
 
 #################################################################
 # Application configuration defaults.
