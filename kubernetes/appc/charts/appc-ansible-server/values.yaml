@@ -18,8 +18,8 @@
 global:
   nodePortPrefix: 302
   readinessImage: onap/readiness:latest
-  loggingRepository: docker.elastic.co
-  loggingImage: beats/filebeat:5.5.0
+  loggingRepository: image-registry.openshift-image-registry.svc:5000
+  loggingImage: onap/filebeat:5.5.0
 
 #################################################################
 # Application configuration defaults.
