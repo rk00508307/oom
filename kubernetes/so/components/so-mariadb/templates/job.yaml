@@ -90,6 +90,7 @@ spec:
         release: {{ include "common.release" . }}
       name: {{ include "common.name" . }}
     spec:
+      serviceAccountName: sa-anyuid
       initContainers: {{ include "common.readinessCheck.waitFor" . | nindent 6 }}
       containers:
       - name: {{ include "common.name" . }}-config
