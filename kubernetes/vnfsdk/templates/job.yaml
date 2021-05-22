@@ -67,8 +67,7 @@ spec:
         - name: init-data
           mountPath: /aaa/init/marketplace_tables_postgres.sql
           subPath: marketplace_tables_postgres.sql
-      imagePullSecrets:
-      - name: "{{ include "common.namespace" . }}-docker-registry-key"
+      
       volumes:
       - name: init-data
         configMap:
