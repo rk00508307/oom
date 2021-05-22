@@ -52,7 +52,7 @@ spec:
               apiVersion: v1
               fieldPath: metadata.namespace
         securityContext:
-          privileged: false
+          privileged: true
         image: {{ .Values.global.busyboxRepository | default .Values.busyboxRepository }}/{{ .Values.busyboxImage }}
         imagePullPolicy: {{ .Values.global.pullPolicy | default .Values.pullPolicy }}
         name: init-sysctl

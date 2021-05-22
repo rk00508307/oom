@@ -19,7 +19,7 @@
 global: # global defaults
   nodePortPrefix: 302
   repositorySecret: eyJuZXh1czMub25hcC5vcmc6MTAwMDEiOnsidXNlcm5hbWUiOiJkb2NrZXIiLCJwYXNzd29yZCI6ImRvY2tlciIsImVtYWlsIjoiQCIsImF1dGgiOiJaRzlqYTJWeU9tUnZZMnRsY2c9PSJ9fQ==
-  readinessImage: onap/oom/readiness:3.0.1
+  readinessImage: onap/readiness:3.0.1
   persistence: {}
   centralizedLoggingEnabled: true
   #AAF service
@@ -140,15 +140,15 @@ resources:
   small:
     limits:
       cpu: 1
-      memory: 500Mi
+      memory: 1Gi
     requests:
-      cpu: 1m
-      memory: 500Mi
+      cpu: 200m
+      memory: 512Mi
   large:
     limits:
       cpu: 1
       memory: 3Gi
     requests:
-      cpu: 10m
-      memory: 3Gi
+      cpu: 200m
+      memory: 512Mi
   unlimited: {}

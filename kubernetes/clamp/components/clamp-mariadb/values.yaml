@@ -21,8 +21,8 @@ global: # global defaults
 
   persistence: {}
 # application image
-repository: docker.io
-image: mariadb:10.5.4
+repository: image-registry.openshift-image-registry.svc:5000
+image: onap/mariadb:10.5.4
 pullPolicy: Always
 flavor: small
 #################################################################

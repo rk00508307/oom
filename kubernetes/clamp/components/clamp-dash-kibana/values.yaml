@@ -66,8 +66,8 @@ flavor: small
 #################################################################
 
 # BusyBox image
-busyboxRepository: registry.hub.docker.com
-busyboxImage: library/busybox:latest
+busyboxRepository: image-registry.openshift-image-registry.svc:5000
+busyboxImage: onap/busybox:latest
 
 # application image
 repository: image-registry.openshift-image-registry.svc:5000
@@ -148,13 +148,13 @@ resources:
       cpu: 1
       memory: 2Gi
     requests:
-      cpu: 10m
-      memory: 750Mi
+      cpu: 200m
+      memory: 512Mi
   large:
     limits:
       cpu: 1
       memory: 2Gi
     requests:
-      cpu: 10m
-      memory: 750Mi
+      cpu: 200m
+      memory: 512Mi
   unlimited: {}
