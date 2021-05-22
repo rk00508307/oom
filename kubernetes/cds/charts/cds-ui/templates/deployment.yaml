@@ -92,7 +92,7 @@ spec:
             #- mountPath: /etc/localtime
               #name: localtime
               #readOnly: true
-             - mountPath: /certs
+            - mountPath: /certs
               name: certs
           resources:
 {{ include "common.resources" . | indent 12 }}
@@ -108,7 +108,7 @@ spec:
         #- name: localtime
           #hostPath:
            #path: /etc/localtime
-	 - name: certs
+        - name: certs
           secret:
             secretName: {{ include "common.fullname" . }}-certs
       #imagePullSecrets:
