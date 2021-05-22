@@ -48,7 +48,7 @@ spec:
       serviceAccountName: sa-anyuid
       initContainers: {{ include "so.certificate.container_importer" . | nindent 6 }}
       - name: so-chown
-        image: alpine:3.6
+        image: image-registry.openshift-image-registry.svc:5000/onap/alpine:3.6
         volumeMounts:
         - name: logs
           mountPath: /app/logs
