@@ -21,7 +21,7 @@ global:
   nodePortPrefix: 302
   nodePortPrefixExt: 304
   repository: image-registry.openshift-image-registry.svc:5000
-  readinessImage: onap/readiness:latest
+  readinessImage: onap/readiness:3.0.1
   ubuntuInitRepository: registry.hub.docker.com
   mariadbGalera:
     nameOverride: &mariadbName mariadb-galera
@@ -95,9 +95,9 @@ secrets:
 #################################################################
 # application image
 repository: image-registry.openshift-image-registry.svc:5000
-image: onap/mariadb:latest
+image: onap/mariadb:10.1.38
 pullPolicy: Always
-ubuntuInitImage: onap/ubuntu-init:latest
+ubuntuInitImage: onap/ubuntu-init:2.0.0
 
 # db config
 db:
@@ -151,14 +151,14 @@ resources:
       memory: 4Gi
     requests:
       cpu: 200m
-      memory: 512m
+      memory: 512Mi
   large:
     limits:
       cpu: 4
       memory: 8Gi
     requests:
       cpu: 200m
-      memory: 512m
+      memory: 512Mi
   unlimited: {}
 
 persistence:
@@ -176,7 +176,7 @@ persistence:
   ##   GKE, AWS & OpenStack)
   ##
   # storageClass: "-"
-  accessMode: ReadWriteOnce
+  accessMode: ReadWriteMany
   size: 2Gi
 
   mountPath: /dockerdata-nfs

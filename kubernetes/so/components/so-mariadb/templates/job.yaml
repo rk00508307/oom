@@ -71,12 +71,18 @@ apiVersion: batch/v1
 kind: Job
 metadata:
   name: {{ include "common.fullname" . }}-config-job
+  namespace: {{ include "common.namespace" . }}
   labels:
     app: {{ include "common.name" . }}
     chart: {{ .Chart.Name }}-{{ .Chart.Version | replace "+" "_" }}
     release: {{ include "common.release" . }}
     heritage: {{ .Release.Service }}
+  annotations:
+    "helm.sh/hook": post-upgrade,post-rollback,post-install
+    "helm.sh/hook-weight": "0"
+    "helm.sh/hook-delete-policy": before-hook-creation
 spec:
+  backoffLimit: 20
   template:
     metadata:
       labels:
@@ -84,7 +90,7 @@ spec:
         release: {{ include "common.release" . }}
       name: {{ include "common.name" . }}
     spec:
-      serviceAccountName: sa-anyuid
+      initContainers: {{ include "common.readinessCheck.waitFor" . | nindent 6 }}
       containers:
       - name: {{ include "common.name" . }}-config
         image: "{{ include "common.repository" . }}/{{ .Values.image }}"
@@ -106,10 +112,7 @@ spec:
         - name: DB_PORT
           value: {{ include "common.mariadbPort" . | quote }}
         - name: MYSQL_ROOT_PASSWORD
-          valueFrom:
-                secretKeyRef:
-                  name: mariadb-mariadb-galera-db-root-password
-                  key: password
+          {{- include "common.secret.envFromSecretFast" (dict "global" . "uid" "db-root-pass" "key" "password") | indent 10 }}
         - name: DB_USER
           {{- include "common.secret.envFromSecretFast" (dict "global" . "uid" "db-user-creds" "key" "login") | indent 10 }}
         - name: DB_PASSWORD

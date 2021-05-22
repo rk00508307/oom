@@ -22,7 +22,7 @@ global:
   loggingRepository: image-registry.openshift-image-registry.svc:5000
   loggingImage: onap/filebeat:latest
   soBaseImage: onap/so-base-image:latest
-  aafAgentImage: onap/aaf_agent:latest
+  aafAgentImage: onap/aaf_agent:2.1.20
   mariadbGalera:
     nameOverride: mariadb-galera
     serviceName: mariadb-galera
@@ -237,14 +237,14 @@ resources:
       memory: 4Gi
     requests:
       cpu: 200m
-      memory: 512m
+      memory: 512Mi
   large:
     limits:
       cpu: 4000m
       memory: 8Gi
     requests:
       cpu: 200m
-      memory: 512m
+      memory: 512Mi
   unlimited: {}
 
 nodeSelector: {}

@@ -25,8 +25,8 @@ global:
   nodePortPrefix: 302
   nodePortPrefixExt: 304
   repository: image-registry.openshift-image-registry.svc:5000
-  readinessImage: onap/readiness:latest
-  aafAgentImage: onap/aaf_agent:latest
+  readinessImage: onap/readiness:3.0.1
+  aafAgentImage: onap/aaf_agent:2.1.20
   envsubstImage: onap/envsubst:latest
   aafEnabled: true
   persistence:
@@ -123,14 +123,14 @@ flavor: small
 resources:
     small:
         requests:
-            memory: 512m
+            memory: 512Mi
             cpu: 200m
         limits:
             memory: 4Gi
             cpu: 1
     large:
         requests:
-            memory: 512m
+            memory: 512Mi
             cpu: 200m
         limits:
             memory: 8Gi

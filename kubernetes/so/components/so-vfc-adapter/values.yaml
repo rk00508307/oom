@@ -18,8 +18,8 @@ global:
   nodePortPrefix: 302
   nodePortPrefixExt: 304
   repository: image-registry.openshift-image-registry.svc:5000
-  readinessImage: onap/readiness:latest
-  aafAgentImage: onap/aaf_agent:latest
+  readinessImage: onap/readiness:3.0.1
+  aafAgentImage: onap/aaf_agent:2.1.20
   persistence:
     mountPath: /dockerdata-nfs
   security:
@@ -116,14 +116,14 @@ resources:
       cpu: 2000m
     requests:
       cpu: 200m
-      memory: 512m
+      memory: 512Mi
   large:
     limits:
       memory: 8Gi
       cpu: 4000m
     requests:
       cpu: 200m
-      memory: 512m
+      memory: 512Mi
   unlimited: {}
 livenessProbe:
     path: /manage/health

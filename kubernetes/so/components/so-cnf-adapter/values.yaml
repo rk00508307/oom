@@ -17,9 +17,9 @@
 global:
   nodePortPrefix: 302
   nodePortPrefixExt: 304
-  soCryptoImage: sdesbure/so_crypto:latest
-  dockerHubRepository: docker.io
-  readinessImage: onap/oom/readiness:3.0.1
+  soCryptoImage: onap/so_crypto:latest
+  dockerHubRepository: image-registry.openshift-image-registry.svc:5000
+  readinessImage: onap/readiness:3.0.1
   persistence:
     mountPath: /dockerdata-nfs
   security:
@@ -137,15 +137,15 @@ resources:
       memory: 4Gi
       cpu: 2000m
     requests:
+      memory: 512Mi
       cpu: 200m
-      memory: 512m
   large:
     limits:
       memory: 8Gi
       cpu: 4000m
     requests:
+      memory: 512Gi
       cpu: 200m
-      memory: 512m
   unlimited: {}
 livenessProbe:
   path: /manage/health
