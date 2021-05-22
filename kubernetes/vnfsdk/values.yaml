@@ -19,8 +19,8 @@ global:
   nodePortPrefix: 302
   repository: image-registry.openshift-image-registry.svc:5000
   readinessImage: onap/readiness:3.0.1
-  loggingRepository: docker.elastic.co
-  loggingImage: beats/filebeat:5.5.0
+  loggingRepository: image-registry.openshift-image-registry.svc:5000
+  loggingImage: onap/filebeat:5.5.0
   envsubstImage: dibi/envsubst
 
 secrets:
@@ -44,8 +44,8 @@ secrets:
 # application image
 repository: image-registry.openshift-image-registry.svc:5000
 image: onap/refrepo:latest
-postgresRepository: crunchydata
-postgresImage: crunchy-postgres:centos7-10.3-1.8.2
+postgresRepository: image-registry.openshift-image-registry.svc:5000
+postgresImage: onap/crunchy-postgres:centos7-10.3-1.8.2
 pullPolicy: Always
 
 # application configuration override for postgres
