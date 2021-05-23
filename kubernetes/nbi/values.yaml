@@ -71,7 +71,7 @@ subChartsOnly:
 
 # application image
 repository: image-registry.openshift-image-registry.svc:5000
-image: onap/nbi:7.0.2
+image: onap/nbi:latest
 pullPolicy: IfNotPresent
 sdc_authorization: Basic YWFpOktwOGJKNFNYc3pNMFdYbGhhazNlSGxjc2UyZ0F3ODR2YW9HR21KdlV5MlU=
 aai_authorization: Basic QUFJOkFBSQ==
