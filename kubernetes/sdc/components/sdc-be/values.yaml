@@ -44,9 +44,9 @@ global:
 #repository: nexus3.onap.org:10001
 repository: image-registry.openshift-image-registry.svc:5000
 #image: onap/sdc-backend-all-plugins:1.7.3
-image: onap/sdc-backend-all-plugins:1.7.3
+image: onap/sdc-backend-all-plugins:telus
 #backendInitImage: onap/sdc-backend-init:1.7.3
-backendInitImage: onap/sdc-backend-init:1.7.3
+backendInitImage: onap/sdc-backend-init:telus
 pullPolicy: Always
 
 # flag to enable debugging - application support required

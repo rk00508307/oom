@@ -56,7 +56,7 @@ certInitializer:
 #repository: nexus3.onap.org:10001
 repository: image-registry.openshift-image-registry.svc:5000
 #image: onap/sdc-workflow-frontend:1.7.0
-image: onap/sdc-workflow-frontend:1.7.0
+image: onap/sdc-workflow-frontend:latest
 
 pullPolicy: Always
 
