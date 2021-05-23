@@ -94,7 +94,7 @@ resources:
       cpu: 2
       memory: 2Gi
     requests:
-      cpu: 1
+      cpu: 200m
       #memory: 1Gi
       memory: 512Mi
   large:
@@ -102,7 +102,7 @@ resources:
       cpu: 4
       memory: 4Gi
     requests:
-      cpu: 2
+      cpu: 200m
       #memory: 2Gi
       memory: 512Mi
   unlimited: {}

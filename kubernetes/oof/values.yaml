@@ -134,15 +134,15 @@ resources:
       memory: 2Gi
       cpu: 1000m
     requests:
-      memory: 512m
-      cpu: 400m
+      memory: 512Mi
+      cpu: 200m
   large:
     limits:
       memory: 4Gi
       cpu: 2000m
     requests:
-      memory: 512m
-      cpu: 400m
+      memory: 512Mi
+      cpu: 200m
   unlimited: {}
 # probe configuration parameters
 liveness:

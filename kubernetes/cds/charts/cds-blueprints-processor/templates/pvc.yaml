@@ -35,6 +35,6 @@ spec:
   resources:
     requests:
       storage: {{ .Values.persistence.size }}
-  storageClassName: {{ include "common.storageClass" . }}
   storageClassName: ocs-storagecluster-ceph-rbd
+  
 {{- end -}}

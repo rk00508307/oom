@@ -152,12 +152,12 @@ resources:
       memory: 4Gi
     requests:
       cpu: 100m
-      memory: 1Gi
+      memory: 512Mi
   large:
     limits:
       cpu: 2
       memory: 8Gi
     requests:
       cpu: 200m
-      memory: 2Gi
+      memory: 512Mi
   unlimited: {}

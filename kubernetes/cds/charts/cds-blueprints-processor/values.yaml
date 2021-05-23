@@ -36,7 +36,7 @@ global:
     mountPath: /dockerdata-nfs
 
   # envsusbt
-  envsubstImage: dibi/envsubst
+  envsubstImage: image-registry.openshift-image-registry.svc:5000/onap/envsubst
 
   #This configuration specifies Service and port for SDNC OAM interface
   sdncOamService: sdnc-oam
@@ -136,7 +136,7 @@ service:
 
 persistence:
   volumeReclaimPolicy: Retain
-  accessMode: ReadWriteMany
+  accessMode: ReadWriteOnce
   size: 2Gi
   enabled: true
   mountSubPath: cds/blueprints/deploy
@@ -179,15 +179,13 @@ resources:
       cpu: 2
       memory: 4Gi
     requests:
-      cpu: 1
-      #memory: 1Gi
+      cpu: 200m
       memory: 512Mi
   large:
     limits:
       cpu: 4
       memory: 8Gi
     requests:
-      cpu: 2
-      #memory: 4Gi
+      cpu: 200m
       memory: 512Mi
   unlimited: {}
