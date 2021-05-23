@@ -154,14 +154,14 @@ resources:
       memory: 1.5Gi
     requests:
       cpu: 100m
-      memory: 750Mi
+      memory: 512Mi
   large:
     limits:
       cpu: 2
       memory: 4Gi
     requests:
-      cpu: 1
-      memory: 2Gi
+      cpu: 200m
+      memory: 512Mi
   unlimited: {}
 
 # Name for mariadb-galera cluster - should be unique accross all projects or other clusters

@@ -108,7 +108,7 @@ resources:
       cpu: 2
       memory: 4Gi
     requests:
-      cpu: 1
+      cpu: 200m
       #memory: 2Gi
       memory: 512Mi
   large:
@@ -116,7 +116,7 @@ resources:
       cpu: 4
       memory: 8Gi
     requests:
-      cpu: 2
+      cpu: 200m
       memory: 512Mi
   unlimited: {}
 # Kubernetes namespace for components deployed via Cloudify manager

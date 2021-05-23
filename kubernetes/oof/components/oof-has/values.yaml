@@ -66,15 +66,15 @@ resources:
       memory: 2Gi
       cpu: 1000m
     requests:
-      memory: 1Gi
-      cpu: 500m
+      memory: 512Mi
+      cpu: 200m
   large:
     limits:
       memory: 4Gi
       cpu: 2000m
     requests:
-      memory: 2Gi
-      cpu: 1000m
+      memory: 512Mi
+      cpu: 200m
   unlimited: {}
 
 #component overrides

@@ -240,6 +240,6 @@ resources:
       cpu: 4
       memory: 8Gi
     requests:
-      cpu: 2
+      cpu: 200m
       memory: 512Mi
   unlimited: {}

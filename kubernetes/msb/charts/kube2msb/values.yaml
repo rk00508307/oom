@@ -61,12 +61,12 @@ resources:
       memory: 1Gi
     requests:
       cpu: 200m
-      memory: 512m
+      memory: 512Mi
   large:
     limits:
       cpu: 2
       memory: 2Gi
     requests:
       cpu: 200m
-      memory: 512m
+      memory: 512Mi
   unlimited: {}
