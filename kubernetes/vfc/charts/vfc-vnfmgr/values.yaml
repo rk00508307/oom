@@ -42,7 +42,7 @@ flavor: small
 
 #repository: nexus3.onap.org:10001
 repository: image-registry.openshift-image-registry.svc:5000
-image: onap/vfc/vnfmgr:1.3.9
+image: onap/vfc-vnfmgr:1.3.9
 #image: onap/vfc-vnfmgr:latest
 pullPolicy: Always
 

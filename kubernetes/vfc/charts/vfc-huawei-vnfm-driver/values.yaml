@@ -33,7 +33,7 @@ flavor: small
 
 #repository: nexus3.onap.org:10001
 repository: image-registry.openshift-image-registry.svc:5000
-image: onap/vfc/nfvo/svnfm/huawei:1.3.8
+image: onap/vfc-huawei:1.3.8
 #image: onap/vfc-nfvo-svnfm-huawei:latest
 pullPolicy: Always
 
