@@ -37,6 +37,7 @@ spec:
       annotations:
         sidecar.istio.io/inject: "{{.Values.istioSidecar}}"
     spec:
+      serviceAccountName: sa-anyuid
       initContainers:
       - command:
         - /app/ready.py
@@ -138,5 +139,4 @@ spec:
             name: {{ include "common.release" . }}-vfc-filebeat-configmap
         - name: {{ include "common.fullname" . }}-data-filebeat
           emptyDir: {}
-      imagePullSecrets:
-      - name: "{{ include "common.namespace" . }}-docker-registry-key"
+      
