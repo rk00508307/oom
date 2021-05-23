@@ -101,7 +101,7 @@ resources:
       cpu: 1
       memory: 1Gi
     requests:
-      cpu:200m
+      cpu: 200m
       memory: 512Mi
   large:
     limits:
