@@ -69,9 +69,9 @@ certInitializer:
 #repository: nexus3.onap.org:10001
 repository: image-registry.openshift-image-registry.svc:5000
 #image: onap/sdc-onboard-backend:1.7.3
-image: onap/sdc-onboard-backend:1.7.3
+image: onap/sdc-onboard-backend:telus
 #onboardingInitImage: onap/sdc-onboard-cassandra-init:1.7.3
-onboardingInitImage: onap/sdc-onboard-cassandra-init:1.7.3
+onboardingInitImage: onap/sdc-onboard-cassandra-init:telus
 pullPolicy: Always
 
 # flag to enable debugging - application support required

@@ -24,10 +24,10 @@ global:
     truststore_password: eitLRWo7dCssS05eaWltU2lTODllI3Aw
     keystore_password: PyhrUCFZdXIhWyohWTUhRV5mKFpLYzMx
     wf_external_user_password: S3A4Yko0U1hzek0wV1hsaGFrM2VIbGNzZTJnQXc4NHZhb0dHbUp2VXkyVQ==
-  ubuntuInitRepository: oomk8s
-  ubuntuInitImage: ubuntu-init:1.0.0
-  busyboxRepository: registry.hub.docker.com
-  busyboxImage: library/busybox:latest
+  ubuntuInitRepository: image-registry.openshift-image-registry.svc:5000
+  ubuntuInitImage: onap/ubuntu-init:1.0.0
+  busyboxRepository: image-registry.openshift-image-registry.svc:5000
+  busyboxImage: onap/busybox:latest
   aafEnabled: true
   cassandra:
    #This flag allows SDC to instantiate its own cluster, serviceName
@@ -42,7 +42,7 @@ global:
    dataCenter: Pod
   security:
     disableHttp: true
-  envsubstImage: dibi/envsubst
+  envsubstImage: onap/envsubst
 
 # Environment file
 env:
