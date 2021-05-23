@@ -36,7 +36,7 @@ global:
     mountPath: /dockerdata-nfs
 
   # envsusbt
-  envsubstImage: onap/envsubst
+  envsubstImage: image-registry.openshift-image-registry.svc:5000/onap/envsubst
 
   #This configuration specifies Service and port for SDNC OAM interface
   sdncOamService: sdnc-oam
