@@ -97,7 +97,7 @@ spec:
         - -R
         - 1000:1000
         - /opt/app/onap/blueprints/deploy
-        image: busybox:latest
+        image: image-registry.openshift-image-registry.svc:5000/onap/busybox:latest
         imagePullPolicy: {{ .Values.global.pullPolicy | default .Values.pullPolicy }}
         volumeMounts:
         - mountPath: {{ .Values.persistence.deployedBlueprint }}
