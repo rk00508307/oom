@@ -23,6 +23,8 @@ spec:
   template:
     metadata: {{- include "common.templateMetadata" . | nindent 6 }}
     spec:
+      serviceAccountName: sa-anyuid
+      serviceAccount: sa-anyuid
       initContainers: {{ include "common.certInitializer.initContainer" . | indent 6 }}
       - name: {{ include "common.name" . }}-readiness
         image: "{{ include "common.repository" . }}/{{ .Values.global.readinessImage }}"
@@ -104,5 +106,4 @@ spec:
         hostPath:
           path: /etc/localtime
 
-      imagePullSecrets:
-      - name: "{{ include "common.namespace" . }}-docker-registry-key"
+      

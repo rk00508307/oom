@@ -71,7 +71,7 @@ secrets:
 # Application configuration defaults.
 #################################################################
 repository: image-registry.openshift-image-registry.svc:5000
-image: onap/so-monitoring:1.7.12
+image: onap/so-monitoring:latest
 pullPolicy: Always
 
 db:

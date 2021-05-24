@@ -33,8 +33,8 @@ flavor: small
 
 #repository: nexus3.onap.org:10001
 repository: image-registry.openshift-image-registry.svc:5000
-image: onap/vfc-gvnfmdriver:1.4.0
-#image: onap/vfc-gvnfmdriver:latest
+#image: onap/vfc-gvnfmdriver:1.4.0
+image: onap/vfc-gvnfmdriver:latest
 pullPolicy: Always
 
 #Istio sidecar injection policy

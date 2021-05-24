@@ -78,7 +78,7 @@ secrets:
 #################################################################
 
 repository: image-registry.openshift-image-registry.svc:5000
-image: onap/so-oof-adapter:1.7.12
+image: onap/so-oof-adapter:latest
 
 pullPolicy: Always
 

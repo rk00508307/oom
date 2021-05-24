@@ -26,11 +26,11 @@ global: # global defaults
     serviceName: aai-gizmo
   searchData:
     serviceName: aai-search-data
-  readinessImage: onap/readiness:3.0.1
+  readinessImage: onap/readiness:latest
 
 # application image
 repository: image-registry.openshift-image-registry.svc:5000
-image: onap/sparky-be:1.6.2
+image: onap/sparky-be:latest
 pullPolicy: Always
 restartPolicy: Always
 flavor: small
@@ -108,8 +108,8 @@ resources:
       cpu: 2
       memory: 4Gi
     requests:
-      cpu: 0.1
-      memory: 750Mi
+      cpu: 100m
+      memory: 512Mi
   large:
     limits:
       cpu: 4

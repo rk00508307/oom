@@ -42,8 +42,8 @@ flavor: small
 
 #repository: nexus3.onap.org:10001
 repository: image-registry.openshift-image-registry.svc:5000
-image: onap/vfc-vnflcm:1.4.0
-#image: onap/vfc-vnflcm:latest
+#image: onap/vfc-vnflcm:1.4.0
+image: onap/vfc-vnflcm:latest
 pullPolicy: Always
 
 #Istio sidecar injection policy

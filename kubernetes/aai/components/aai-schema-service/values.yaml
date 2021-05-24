@@ -20,7 +20,7 @@ global: # global defaults
 
 # application image
 repository: image-registry.openshift-image-registry.svc:5000
-image: onap/aai-schema-service:1.7.14
+image: onap/aai-schema-service:latest
 pullPolicy: Always
 restartPolicy: Always
 flavorOverride: small
@@ -76,8 +76,8 @@ resources:
       cpu: 2
       memory: 4Gi
     requests:
-      cpu: 0.25
-      memory: 750Mi
+      cpu: 200m
+      memory: 512Mi
   large:
     limits:
       cpu: 4

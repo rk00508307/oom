@@ -24,11 +24,11 @@ global: # global defaults
 
   busyboxImage: onap/busybox
 
-  readinessImage: onap/readiness:3.0.1
+  readinessImage: onap/readiness:latest
 
   #  loggingRepository: docker.elastic.co
   loggingRepository: image-registry.openshift-image-registry.svc:5000
-  loggingImage: onap/filebeat:5.5.0
+  loggingImage: onap/filebeat:latest
 
   restartPolicy: Always
 

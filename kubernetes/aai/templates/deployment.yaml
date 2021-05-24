@@ -62,15 +62,15 @@ spec:
         image: "{{ .Values.global.dockerhubRepository | default .Values.dockerhubRepository }}/{{ .Values.image }}"
         imagePullPolicy: {{ .Values.global.pullPolicy | default .Values.pullPolicy }}
         volumeMounts:
-                #- mountPath: /dev/log
+          #- mountPath: /dev/log
           #   name: aai-service-log
-          # - mountPath: /usr/local/etc/haproxy/haproxy.cfg
-          # {{ if .Values.global.installSidecarSecurity }}
-          # subPath: haproxy-pluggable-security.cfg
-          #{{ else }}
-          #subPath: haproxy.cfg
-          # {{ end }}
-          #name: haproxy-cfg
+        - mountPath: /usr/local/etc/haproxy/haproxy.cfg
+        {{ if .Values.global.installSidecarSecurity }}
+          subPath: haproxy-pluggable-security.cfg
+        {{ else }}
+          subPath: haproxy.cfg
+        {{ end }}
+          name: haproxy-cfg
         - mountPath: /etc/ssl/private/aai.pem
           name: aai-pem
           subPath: aai.pem

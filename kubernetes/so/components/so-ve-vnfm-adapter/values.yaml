@@ -30,7 +30,7 @@ readinessCheck:
 #################################################################
 # Application configuration defaults.
 #################################################################
-image: onap/ve-vnfm-adapter:1.6.4
+image: onap/ve-vnfm-adapter:latest
 pullPolicy: Always
 replicaCount: 1
 service:
