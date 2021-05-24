@@ -17,7 +17,7 @@
 # Declare variables to be passed into your templates.
 global: # global defaults
   nodePortPrefix: 302
-  loggingImage: beats/filebeat:5.5.0
+  loggingImage: beats/filebeat:latest
 
 # application image
 repository: image-registry.openshift-image-registry.svc:5000

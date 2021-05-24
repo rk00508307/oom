@@ -18,11 +18,11 @@
 # Declare variables to be passed into your templates.
 global: # global defaults
   nodePortPrefix: 302
-  readinessImage: onap/readiness:3.0.1
+  readinessImage: onap/readiness:latest
 
 # application image
 repository: image-registry.openshift-image-registry.svc:5000
-image: onap/aai-resources:1.7.2
+image: onap/aai-resources:latest
 pullPolicy: Always
 restartPolicy: Always
 flavor: small
