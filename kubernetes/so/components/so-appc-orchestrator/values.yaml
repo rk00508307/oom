@@ -64,7 +64,7 @@ secrets:
 # Application configuration defaults.
 #################################################################
 repository: image-registry.openshift-image-registry.svc:5000
-image: onap/so-appc-orchestrator:1.6.4
+image: onap/so-appc-orchestrator:latest
 pullPolicy: Always
 
 db:

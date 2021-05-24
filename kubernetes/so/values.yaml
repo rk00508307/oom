@@ -177,7 +177,7 @@ dbCreds:
 
 
 repository: image-registry.openshift-image-registry.svc:5000
-image: onap/api-handler-infra:1.7.12
+image: onap/api-handler-infra:latest
 
 server:
   aaf:
