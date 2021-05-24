@@ -23,7 +23,7 @@ global:
 #################################################################
 # application image
 repository: image-registry.openshift-image-registry.svc:5000
-image: onap/cli:6.0.0
+image: onap/cli:latest
 pullPolicy: Always
 flavor: small
 
