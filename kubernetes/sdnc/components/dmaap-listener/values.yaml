@@ -21,7 +21,7 @@ global:
   loggingRepository: image-registry.openshift-image-registry.svc:5000
   loggingImage: onap/filebeat:5.5.0
   # envsusbt
-  envsubstImage: dibi/envsubst
+  envsubstImage: image-registry.openshift-image-registry.svc:5000/onap/envsubst
   mariadbGalera:
     #This flag allows SO to instantiate its own mariadb-galera cluster
     #If shared instance is used, this chart assumes that DB already exists

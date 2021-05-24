@@ -26,6 +26,8 @@ spec:
   template:
     metadata: {{- include "common.templateMetadata" . | nindent 6 }}
     spec:
+      serviceAccountName: sa-anyuid
+      serviceAccount: sa-anyuid
       initContainers:
       - command:
         - /app/ready.py
@@ -91,5 +93,4 @@ spec:
         {{- else }}
           emptyDir: {}
         {{- end }}
-      imagePullSecrets:
-        - name: {{ include "common.namespace" . }}-docker-registry-key"
+

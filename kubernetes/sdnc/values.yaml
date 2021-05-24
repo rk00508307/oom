@@ -25,9 +25,10 @@ global:
   loggingImage: onap/filebeat:5.5.0
   persistence:
     mountPath: /dockerdata-nfs
+    storageClass: ocs-storagecluster-ceph-rbd
   aafEnabled: true
   # envsusbt
-  envsubstImage: dibi/envsubst
+  envsubstImage: image-registry.openshift-image-registry.svc:5000/onap/envsubst
   mariadbGalera:
     #This flag allows SO to instantiate its own mariadb-galera cluster
     #If shared instance is used, this chart assumes that DB already exists
@@ -138,7 +139,7 @@ repository: image-registry.openshift-image-registry.svc:5000
 pullPolicy: Always
 image: onap/sdnc-image:2.0.5
 busyboxRepository: image-registry.openshift-image-registry.svc:5000
-busyboxImage: onap/busybox:1.31
+busyboxImage: onap/busybox:1.30
 
 # flag to enable debugging - application support required
 debugEnabled: false

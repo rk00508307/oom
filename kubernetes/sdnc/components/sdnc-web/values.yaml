@@ -18,15 +18,15 @@
 global:
   aafEnabled: true
   nodePortPrefix: 322
-  readinessImage: onap/oom/readiness:3.0.1
-  loggingRepository: docker.elastic.co
-  loggingImage: beats/filebeat:5.5.0
+  readinessImage: image-registry.openshift-image-registry.svc:5000/onap/readiness:3.0.1
+  loggingRepository: image-registry.openshift-image-registry.svc:5000
+  loggingImage: onap/filebeat:5.5.0
   k8scluster: svc.cluster.local
 #################################################################
 # Application configuration defaults.
 #################################################################
 # application image
-repository: nexus3.onap.org:10001
+repository: image-registry.openshift-image-registry.svc:5000
 image: "onap/sdnc-web-image:2.0.5"
 pullPolicy: Always
 
@@ -117,13 +117,13 @@ resources:
       cpu: 1
       memory: 1Gi
     requests:
-      cpu: 0.5
+      cpu: 200m
       memory: 500Mi
   large:
     limits:
       cpu: 2
       memory: 2Gi
     requests:
-      cpu: 1
-      memory: 1Gi
+      cpu: 200m
+      memory: 512Mi
   unlimited: {}
