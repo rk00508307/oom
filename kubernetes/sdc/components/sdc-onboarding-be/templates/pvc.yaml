@@ -34,7 +34,7 @@ spec:
   accessModes:
     - {{ .Values.cert.persistence.accessMode }}
   #storageClassName: {{ include "common.storageClass" . }}
-  storageClassName: {{ include "common.storageClass" . }}
+  storageClassName: ocs-storagecluster-ceph-rbd
   resources:
     requests:
       storage: {{ .Values.cert.persistence.size }}

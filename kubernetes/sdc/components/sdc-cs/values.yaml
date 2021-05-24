@@ -44,8 +44,8 @@ global:
 repository: image-registry.openshift-image-registry.svc:5000
 #image: onap/sdc-cassandra:1.7.3
 image: onap/sdc-cassandra:telus
-#cassandraInitImage: onap/sdc-cassandra-init:1.7.3
-cassandraInitImage: onap/sdc-cassandra-init:telus
+cassandraInitImage: onap/sdc-cassandra-init:1.7.3
+#cassandraInitImage: onap/sdc-cassandra-init:telus
 
 pullPolicy: Always
 
@@ -67,15 +67,15 @@ affinity: {}
 
 # probe configuration parameters
 liveness:
-  initialDelaySeconds: 60
-  periodSeconds: 300
+  initialDelaySeconds: 180
+  periodSeconds: 30
   # necessary to disable liveness probe when setting breakpoints
   # in debugger so K8s doesn't restart unresponsive container
   enabled: true
 
 readiness:
-  initialDelaySeconds: 120
-  periodSeconds: 300
+  initialDelaySeconds: 180
+  periodSeconds: 30
 
 service:
   type: ClusterIP
