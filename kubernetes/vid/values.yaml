@@ -42,13 +42,13 @@ subChartsOnly:
 # application image
 #repository: nexus3.onap.org:10001
 repository: image-registry.openshift-image-registry.svc:5000
-#image: onap/vid:7.0.0
-image: onap/vid:latest
+image: onap/vid:7.0.0
+#image: onap/vid:latest
 pullPolicy: Always
 
 # mariadb image for initializing
 #mariadb_image: library/mariadb:10
-mariadb_image: image-registry.openshift-image-registry.svc:5000/onap/mariadb:10.1.38
+mariadb_image: image-registry.openshift-image-registry.svc:5000/onap/mariadb:10
 # application configuration
 config:
   db:
