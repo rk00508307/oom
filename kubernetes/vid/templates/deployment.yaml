@@ -67,6 +67,9 @@ spec:
             initialDelaySeconds: {{ .Values.liveness.initialDelaySeconds }}
             periodSeconds: {{ .Values.liveness.periodSeconds }}
           {{ end -}}
+	      securityContext:
+  	        allowPrivilegeEscalation: false
+  	        runAsUser: 0
           readinessProbe:
             tcpSocket:
               port: {{ .Values.service.internalPort }}
