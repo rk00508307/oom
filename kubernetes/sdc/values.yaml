@@ -42,7 +42,7 @@ global:
    dataCenter: Pod
   security:
     disableHttp: true
-  envsubstImage: onap/envsubst
+  envsubstImage: image-registry.openshift-image-registry.svc:5000/onap/envsubst
 
 # Environment file
 env:
