@@ -74,9 +74,9 @@ spec:
           volumeMounts:
           #- mountPath: /etc/localtime
             #name: localtime
-              #readOnly: true
-          #- mountPath: {{ .Values.persistence.deployedBlueprint }}
-            #name: {{ include "common.fullname" . }}-blueprints
+            #readOnly: true
+          - mountPath: {{ .Values.persistence.deployedBlueprint }}
+            name: {{ include "common.fullname" . }}-blueprints
           resources:
 {{ include "common.resources" . | indent 12 }}
         {{- if .Values.nodeSelector }}
@@ -89,10 +89,9 @@ spec:
         {{- end }}
       volumes:
         #- name: localtime
-           #hostPath:
-             #path: /etc/localtime
-        #- name: {{ include "common.fullname" . }}-blueprints
-          #persistentVolumeClaim:
-            #claimName: {{ include "common.release" . }}-cds-blueprints
-      #imagePullSecrets:
-      #- name: "{{ include "common.namespace" . }}-docker-registry-key"
+          #hostPath:
+            #path: /etc/localtime
+        - name: {{ include "common.fullname" . }}-blueprints
+          persistentVolumeClaim:
+            claimName: {{ include "common.release" . }}-cds-blueprints
+      

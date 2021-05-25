@@ -67,8 +67,8 @@ spec:
           #- mountPath: /etc/localtime
             #name: localtime
             #readOnly: true
-          #- mountPath: {{ .Values.persistence.deployedBlueprint }}
-           # name: {{ include "common.fullname" . }}-blueprints
+          - mountPath: {{ .Values.persistence.deployedBlueprint }}
+            name: {{ include "common.fullname" . }}-blueprints
           resources:
 {{ include "common.resources" . | nindent 12 }}
         {{- if .Values.nodeSelector }}
@@ -86,8 +86,7 @@ spec:
         # Py executor shares the blueprintsprocessor storage (for now) to
         # share uploaded CBA files. In the future it will be deprecated
         # when all parts of the CDS will make use of Artifact Manager
-        #- name: {{ include "common.fullname" . }}-blueprints
-         # persistentVolumeClaim:
-          #  claimName: {{ include "common.release" . }}-cds-blueprints
-      #imagePullSecrets:
-      #- name: "{{ include "common.namespace" . }}-docker-registry-key"
+        - name: {{ include "common.fullname" . }}-blueprints
+          persistentVolumeClaim:
+            claimName: {{ include "common.release" . }}-cds-blueprints
+      
