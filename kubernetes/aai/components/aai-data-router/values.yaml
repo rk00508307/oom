@@ -21,7 +21,7 @@ global: # global defaults
 
 # application image
 repository: image-registry.openshift-image-registry.svc:5000
-image: onap/data-router:1.7.0
+image: onap/data-router:latest
 pullPolicy: Always
 restartPolicy: Always
 flavor: small
