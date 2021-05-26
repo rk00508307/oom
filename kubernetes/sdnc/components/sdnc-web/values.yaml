@@ -20,14 +20,14 @@ global:
   nodePortPrefix: 322
   readinessImage: image-registry.openshift-image-registry.svc:5000/onap/readiness:3.0.1
   loggingRepository: image-registry.openshift-image-registry.svc:5000
-  loggingImage: onap/filebeat:5.5.0
+  loggingImage: onap/filebeat:latest
   k8scluster: svc.cluster.local
 #################################################################
 # Application configuration defaults.
 #################################################################
 # application image
 repository: image-registry.openshift-image-registry.svc:5000
-image: "onap/sdnc-web-image:2.0.5"
+imag: onap/sdnc-web-image:latest
 pullPolicy: Always
 
 config:
