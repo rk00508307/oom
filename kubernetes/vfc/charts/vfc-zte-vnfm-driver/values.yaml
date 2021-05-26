@@ -61,7 +61,7 @@ liveness:
   enabled: true
 
 readiness:
-  initialDelaySeconds: 10
+  initialDelaySeconds: 300
   periodSeconds: 300
 
 service:

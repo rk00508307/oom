@@ -21,8 +21,8 @@ global: # global defaults
   persistence: {}
 
 # application image
-repository: docker.io
-image: postgres:10.4-alpine
+repository: image-registry.openshift-image-registry.svc:5000
+image: onap/postgres:10.4-alpine
 pullPolicy: Always
 
 # application configuration

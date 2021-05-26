@@ -42,11 +42,11 @@ config:
   superuserName: admin
   superuserEmail: admin@onap.org
 
-  curlImage: curlimages/curl:7.69.1
-  dockerHubRepository: docker.io
+  curlImage: image-registry.openshift-image-registry.svc:5000/onap/curl:7.69.1
+  dockerHubRepository: image-registry.openshift-image-registry.svc:5000
 
-repository: netboxcommunity
-image: netbox:v2.5.8
+repository: image-registry.openshift-image-registry.svc:5000
+image: onap/netbox:v2.5.8
 
 # probe configuration parameters
 liveness:

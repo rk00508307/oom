@@ -59,9 +59,9 @@ spec:
           - name: POSTGRES_DB
             value: "{{ .Values.config.postgresDB }}"
         volumeMounts:
-        - mountPath: /etc/localtime
-          name: localtime
-          readOnly: true
+        #- mountPath: /etc/localtime
+          #name: localtime
+          #readOnly: true
         - name: {{ include "common.fullname" . }}-data
           mountPath: /var/lib/postgresql/
         resources:
@@ -75,9 +75,9 @@ spec:
 {{ toYaml .Values.affinity | indent 10 }}
       {{- end }}
       volumes:
-        - name: localtime
-          hostPath:
-            path: /etc/localtime
+        #- name: localtime
+          #hostPath:
+            #path: /etc/localtime
       {{- if .Values.persistence.enabled }}
         - name: {{ include "common.fullname" . }}-data
           persistentVolumeClaim:
@@ -85,5 +85,5 @@ spec:
       {{- else }}
           emptyDir: {}
       {{- end }}
-      imagePullSecrets:
-      - name: "{{ include "common.namespace" . }}-docker-registry-key"
+      #imagePullSecrets:
+      #- name: "{{ include "common.namespace" . }}-docker-registry-key"

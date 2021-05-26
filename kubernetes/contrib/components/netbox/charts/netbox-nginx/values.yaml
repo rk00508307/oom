@@ -22,8 +22,8 @@ global: # global defaults
   pullPolicy: Always
 
 # application image
-repository: docker.io
-image: nginx:1.15-alpine
+repository: image-registry.openshift-image-registry.svc:5000
+image: onap/nginx:1.15-alpine
 pullPolicy: Always
 
 ingress:

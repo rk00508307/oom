@@ -56,7 +56,7 @@ mysqlDatabase: &dbName ejbca
 replicaCount: 1
 
 ejbca:
-  image: primekey/ejbca-ce:6.15.2.5
+  image: image-registry.openshift-image-registry.svc:5000/onap/ejbca-ce:6.15.2.5
 pullPolicy: Always
 
 mariadb-galera:
