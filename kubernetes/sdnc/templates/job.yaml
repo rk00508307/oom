@@ -38,6 +38,8 @@ spec:
         release: {{ include "common.release" . }}
       name: {{ include "common.name" . }}
     spec:
+      serviceAccountName: sa-anyuid
+      serviceAccount: sa-anyuid
       initContainers:
       - command:
         - sh
@@ -147,9 +149,7 @@ spec:
 {{ toYaml .Values.affinity | indent 10 }}
       {{- end }}
       volumes:
-      - name: localtime
-        hostPath:
-          path: /etc/localtime
+
       - name: docker-entrypoint-initdb-d
         emptyDir: {}
       - name: bin
@@ -164,6 +164,5 @@ spec:
         emptyDir:
           medium: Memory
       restartPolicy: Never
-      imagePullSecrets:
-      - name: "{{ include "common.namespace" . }}-docker-registry-key"
+
 {{- end -}}

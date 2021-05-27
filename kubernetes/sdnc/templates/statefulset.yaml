@@ -29,6 +29,8 @@ spec:
   template:
     metadata: {{- include "common.templateMetadata" . | nindent 6 }}
     spec:
+      serviceAccountName: sa-anyuid
+      serviceAccount: sa-anyuid
       initContainers:
       - command:
         - sh
@@ -237,9 +239,7 @@ spec:
 
           volumeMounts:
 {{ include "common.certInitializer.volumeMount" . | indent 10 }}
-          - mountPath: /etc/localtime
-            name: localtime
-            readOnly: true
+          
           - mountPath: /opt/opendaylight/current/etc/org.ops4j.pax.logging.cfg
             name: sdnc-logging-cfg-config
             subPath: org.ops4j.pax.logging.cfg
@@ -322,12 +322,9 @@ spec:
             name: logs
           - mountPath: /usr/share/filebeat/data
             name: data-filebeat
-      imagePullSecrets:
-      - name: "{{ include "common.namespace" . }}-docker-registry-key"
+
       volumes:
-        - name: localtime
-          hostPath:
-            path: /etc/localtime
+        
         - name: logs
           emptyDir: {}
         - name: data-filebeat
@@ -373,7 +370,7 @@ spec:
     spec:
       accessModes:
       - {{ .Values.persistence.accessMode }}
-      storageClassName: {{ include "common.storageClass" . }}
+      storageClassName: ocs-storagecluster-ceph-rbd
       resources:
         requests:
           storage: {{ .Values.persistence.size }}

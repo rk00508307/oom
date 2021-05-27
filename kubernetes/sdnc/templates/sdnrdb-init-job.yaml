@@ -22,6 +22,8 @@ spec:
   template:
     metadata: {{ include "common.templateMetadata" . | indent 6}}
     spec:
+      serviceAccountName: sa-anyuid
+      serviceAccount: sa-anyuid
       initContainers:
       {{ include "common.certInitializer.initContainer" . | indent 6 }}
       {{ if .Values.global.aafEnabled }}
@@ -83,9 +85,7 @@ spec:
       affinity: {{ toYaml .Values.affinity | nindent 10 }}
       {{- end }}
       volumes:
-      - name: localtime
-        hostPath:
-          path: /etc/localtime
+      
       - name: docker-entrypoint-initdb-d
         emptyDir: {}
       - name: bin
@@ -98,7 +98,6 @@ spec:
           defaultMode: 0644
 {{ include "common.certInitializer.volumes" . | nindent 6 }}
       restartPolicy: Never
-      imagePullSecrets:
-      - name: "{{ include "common.namespace" . }}-docker-registry-key"
+
 
 {{ end -}}
