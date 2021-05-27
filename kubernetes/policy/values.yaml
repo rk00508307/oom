@@ -76,7 +76,7 @@ policy-nexus:
 #################################################################
 
 repository: image-registry.openshift-image-registry.svc:5000
-mariadb_image: image-registry.openshift-image-registry.svc:5000/onap/mariadb:10.1.38
+mariadb_image: image-registry.openshift-image-registry.svc:5000/onap/mariadb:10
 pullPolicy: Always
 
 subChartsOnly:
