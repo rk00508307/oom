@@ -55,9 +55,7 @@ spec:
         workingDir: "/app"
         command: [ "bin/prom.sh" ]
         volumeMounts:
-        - name: localtime
-          mountPath: /etc/localtime
-          readOnly: true
+        
         - name: prom-config
           mountPath: /app/config
         - name: prom-scripts
@@ -76,9 +74,7 @@ spec:
 {{ toYaml .Values.affinity | indent 10 }}
         {{- end }}
       volumes:
-        - name: localtime
-          hostPath:
-            path: /etc/localtime
+        
         - name: prom-config
           configMap:
             name: {{ include "common.fullname" . }}-configmap

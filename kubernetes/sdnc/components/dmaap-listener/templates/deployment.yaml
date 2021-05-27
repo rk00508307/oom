@@ -82,9 +82,7 @@ spec:
         - name: SDNC_CONFIG_DIR
           value: "{{ .Values.config.configDir }}"
         volumeMounts:
-        - mountPath: /etc/localtime
-          name: localtime
-          readOnly: true
+        
         - mountPath: {{ .Values.config.configDir }}/dblib.properties
           name: properties
           subPath: dblib.properties
@@ -121,9 +119,7 @@ spec:
         {{- end }}
 
       volumes:
-        - name: localtime
-          hostPath:
-            path: /etc/localtime
+        
         - name: config-input
           configMap:
             name: {{ include "common.fullname" . }}

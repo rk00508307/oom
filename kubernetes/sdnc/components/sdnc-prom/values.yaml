@@ -20,7 +20,7 @@ global:
   repository: image-registry.openshift-image-registry.svc:5000
   readinessImage: onap/readiness:3.0.1
   loggingRepository: image-registry.openshift-image-registry.svc:5000
-  loggingImage: onap/filebeat:latest
+  loggingImage: onap/filebeat:5.5.0
   persistence:
     mountPath: /dockerdata-nfs
 
