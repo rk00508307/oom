@@ -128,10 +128,11 @@
   #Hello specific.  Clients don't don't need this, unless Registering with AAF Locator
     - name: aaf_locator_public_fqdn
       value: "{{ $aafRoot.public_fqdn | default "" }}"
+#Changing the limit to 200Mi because of DMAAP failures.
   resources:
     limits:
       cpu: 100m
-      memory: 100Mi
+      memory: 200Mi
     requests:
       cpu: 3m
       memory: 20Mi
