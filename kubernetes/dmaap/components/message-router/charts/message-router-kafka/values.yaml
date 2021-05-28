@@ -30,7 +30,8 @@ global:
 #################################################################
 # application image
 repository: image-registry.openshift-image-registry.svc:5000
-image: onap/kafka111:1.0.4
+#image: onap/kafka111:1.0.4
+image: onap/kafka111:latest
 pullPolicy: Always
 ubuntuInitImage: onap/ubuntu-init:2.0.0
 busyBoxImage: onap/busybox:1.30

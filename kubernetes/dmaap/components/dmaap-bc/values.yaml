@@ -46,8 +46,8 @@ pullPolicy: Always
 # application images
 repository: image-registry.openshift-image-registry.svc:5000
 #repository:  10.12.7.57:5000
-image: onap/dmaap-bc:2.0.4
-#image: onap/dmaap-bc:latest
+#image: onap/dmaap-bc:2.0.4
+image: onap/dmaap-bc:latest
 
 
 # application configuration
