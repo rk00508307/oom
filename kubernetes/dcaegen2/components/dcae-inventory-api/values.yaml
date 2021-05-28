@@ -30,8 +30,8 @@ global:
   tlsRepository: image-registry.openshift-image-registry.svc:5000
   #tlsImage: onap/org.onap.dcaegen2.deployments.tls-init-container:2.1.0
   tlsImage: onap/org.onap.dcaegen2.deployments.tls-init-container:latest
-  envsubstImage: dibi/envsubst
-  #envsubstImage: onap/envsubst
+  envsubstImage: image-registry.openshift-image-registry.svc:5000/onap/envsubst
+  #envsubstImage: image-registry.openshift-image-registry.svc:5000/onap/envsubst
   repositoryCred:
     user: docker
     password: docker
@@ -60,8 +60,8 @@ config:
 # application image
 #repository: nexus3.onap.org:10001
 repository: image-registry.openshift-image-registry.svc:5000
-image: onap/org.onap.dcaegen2.platform.inventory-api:3.5.1
-#image: onap/org.onap.dcaegen2.platform.inventory-api:latest
+#image: onap/org.onap.dcaegen2.platform.inventory-api:3.5.1
+image: onap/org.onap.dcaegen2.platform.inventory-api:latest
 
 pullPolicy: Always
 

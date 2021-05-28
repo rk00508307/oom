@@ -33,7 +33,7 @@ global:
   #tlsImage: onap/org.onap.dcaegen2.deployments.tls-init-container:2.1.0
   tlsImage: onap/org.onap.dcaegen2.deployments.tls-init-container:latest
   #envsubstImage: dibi/envsubst
-  envsubstImage: onap/envsubst:latest
+  envsubstImage: image-registry.openshift-image-registry.svc:5000/onap/envsubst:latest
 
 secrets:
   - uid: pg-root-pass
