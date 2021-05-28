@@ -37,8 +37,7 @@ spec:
         release: {{ include "common.release" . }}
       name: {{ include "common.name" . }}
     spec:
-      imagePullSecrets:
-      - name: "{{ include "common.namespace" . }}-docker-registry-key"
+      serviceAccountName: sa-anyuid
       initContainers:
       - name: {{ include "common.name" . }}-chown
         image: "{{ include "common.repository" . }}/{{ .Values.image }}"
@@ -57,9 +56,7 @@ spec:
           name: consul-agent-config-dir
       containers:
       - image: {{ include "common.repository" . }}/{{ .Values.image }}
-        securityContext:
-          runAsUser: {{ .Values.securityContext.runAsUser }}
-          runAsGroup: {{ .Values.securityContext.runAsGroup }}
+        
         command:
         - docker-entrypoint.sh
         args:

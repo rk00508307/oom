@@ -17,16 +17,16 @@
 #################################################################
 global:
   nodePortPrefix: 302
-  readinessImage: onap/oom/readiness:3.0.1
-  loggingRepository: docker.elastic.co
-  loggingImage: beats/filebeat:5.5.0
+  readinessImage: onap/readiness:3.0.1
+  loggingRepository: image-registry.openshift-image-registry.svc:5000
+  loggingImage: onap/filebeat:5.5.0
 
 #################################################################
 # Application configuration defaults.
 #################################################################
 # application image
-repository: nexus3.onap.org:10001
-image: onap/oom/consul:2.1.0
+repository: image-registry.openshift-image-registry.svc:5000
+image: onap/consul:2.1.0
 pullPolicy: Always
 
 # flag to enable debugging - application support required
@@ -87,11 +87,11 @@ resources:
       cpu: 2
       memory: 4Gi
     requests:
-      cpu: 1
-      memory: 2Gi
+      cpu: 200m
+      memory: 512Mi
   unlimited: {}
 
-securityContext:
-  fsGroup: 1000
-  runAsUser: 100
-  runAsGroup: 1000
+#securityContext:
+#  fsGroup: 1000
+#  runAsUser: 100
+# runAsGroup: 1000

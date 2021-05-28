@@ -17,16 +17,16 @@
 #################################################################
 global:
   nodePortPrefix: 302
-  readinessImage: onap/oom/readiness:3.0.1
-  loggingRepository: docker.elastic.co
-  loggingImage: beats/filebeat:5.5.0
+  readinessImage: onap/readiness:3.0.1
+  loggingRepository: image-registry.openshift-image-registry.svc:5000
+  loggingImage: onap/filebeat:5.5.0
 
 #################################################################
 # Application configuration defaults.
 #################################################################
 # application image
-repository: nexus3.onap.org:10001
-image: onap/oom/consul:2.1.0
+repository: image-registry.openshift-image-registry.svc:5000
+image: onap/consul:2.1.0
 pullPolicy: Always
 
 #subchart name
@@ -86,15 +86,15 @@ resources:
       cpu: 1
       memory: 1500Mi
     requests:
-      cpu: 650m
-      memory: 530Mi
+      cpu: 200m
+      memory: 512Mi
   large:
     limits:
       cpu: 2
       memory: 4Gi
     requests:
-      cpu: 1
-      memory: 2Gi
+      cpu: 200m
+      memory: 512Mi
   unlimited: {}
 
 odl:
