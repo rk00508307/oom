@@ -21,7 +21,7 @@ global:
   readinessImage: onap/readiness:3.0.1
 
   # envsusbt
-  envsubstImage: onap/envsubst
+  envsubstImage: image-registry.openshift-image-registry.svc:5000/onap/envsubst
 
 #################################################################
 # Secrets metaconfig
