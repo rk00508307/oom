@@ -137,7 +137,7 @@ secrets:
 
 repository: image-registry.openshift-image-registry.svc:5000
 pullPolicy: Always
-image: onap/sdnc-image:latest
+image: onap/sdnc-image:2.0.5
 busyboxRepository: image-registry.openshift-image-registry.svc:5000
 busyboxImage: onap/busybox:1.30
 

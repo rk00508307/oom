@@ -27,7 +27,7 @@ global:
 #################################################################
 # application image
 repository: image-registry.openshift-image-registry.svc:5000
-imag: onap/sdnc-web-image:latest
+image: onap/sdnc-web-image:2.0.5
 pullPolicy: Always
 
 config:
