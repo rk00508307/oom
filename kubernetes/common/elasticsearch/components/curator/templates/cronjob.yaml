@@ -40,6 +40,7 @@ spec:
       template:
         metadata: {{- include "common.templateMetadata" . | nindent 10 }}
         spec:
+	      serviceAccountName: sa-anyuid
           volumes:
             - name: config-volume
               configMap:
@@ -51,7 +52,7 @@ spec:
           {{- if .Values.priorityClassName }}
           priorityClassName: {{ .Values.priorityClassName | quote }}
           {{- end }}
-{{- include "elasticsearch.imagePullSecrets" . | indent 10 }}
+
           {{- if .Values.extraInitContainers }}
           initContainers:
             {{- range $key, $value := .Values.extraInitContainers }}
@@ -71,9 +72,7 @@ spec:
           {{- if .Values.tolerations }}
           tolerations: {{- include "common.tplValue" (dict "value" .Values.tolerations "context" $) | nindent 12 }}
           {{- end }}
-          {{- if .Values.securityContext }}
-          securityContext: {{- toYaml .Values.securityContext | nindent 12 }}
-          {{- end }}
+          
           containers:
             - name: {{ template "common.fullname" . }}-curator
               image: {{printf "%s/%s" (include "common.repository" .)  .Values.image }}

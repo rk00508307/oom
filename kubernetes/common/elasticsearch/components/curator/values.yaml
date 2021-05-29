@@ -22,7 +22,7 @@ global:
       mountPath: /dockerdata-nfs/backup
     storageClass:
   clusterName: cluster.local
-repositoryOverride: docker.io
+repositoryOverride: image-registry.openshift-image-registry.svc:5000
 #################################################################
 # Application configuration defaults.
 #################################################################
@@ -31,7 +31,7 @@ repositoryOverride: docker.io
 ##
 enabled: false
 name: curator
-image: bitnami/elasticsearch-curator:5.8.1-debian-9-r74
+image: onap/elasticsearch-curator:5.8.1-debian-9-r74
 pullPolicy: IfNotPresent
 ## Optionally specify an array of imagePullSecrets.
 ## Secrets must be manually created in the namespace.
@@ -55,7 +55,7 @@ rbac:
   enabled: false
 serviceAccount:
   # Specifies whether a ServiceAccount should be created
-  create: true
+  create: false
   # The name of the ServiceAccount to use.
   # If not set and create is true, a name is generated using the fullname template
   name:

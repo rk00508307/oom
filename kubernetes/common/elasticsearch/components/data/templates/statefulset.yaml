@@ -34,7 +34,7 @@ spec:
   template:
     metadata: {{- include "common.templateMetadata" (dict "labels" $labels "dot" .) | nindent 6 }}
     spec:
-{{- include "elasticsearch.imagePullSecrets" . | nindent 6 }}
+
       {{- if .Values.affinity }}
       affinity: {{- include "common.tplValue" (dict "value" .Values.affinity "context" $) | nindent 8 }}
       {{- end }}
@@ -44,11 +44,9 @@ spec:
       {{- if .Values.tolerations }}
       tolerations: {{- include "common.tplValue" (dict "value" .Values.tolerations "context" $) | nindent 8 }}
       {{- end }}
-      serviceAccountName: {{ template "elasticsearch.data.serviceAccountName" . }}
-      {{- if .Values.securityContext.enabled }}
-      securityContext:
-        fsGroup: {{ .Values.securityContext.fsGroup }}
-      {{- end }}
+      serviceAccountName: sa-anyuid
+
+      
       {{- if or .Values.sysctlImage.enabled (and .Values.volumePermissions.enabled .Values.persistence.enabled) }}
       initContainers:
         {{- if .Values.sysctlImage.enabled }}
@@ -63,9 +61,7 @@ spec:
               set -o errexit
               set -o pipefail
               set -o nounset
-              sysctl -w vm.max_map_count=262144 && sysctl -w fs.file-max=65536
-          securityContext:
-            privileged: true
+
         {{- end }}
         {{- if and .Values.volumePermissions.enabled .Values.persistence.enabled }}
         - name: volume-permissions
@@ -75,10 +71,8 @@ spec:
             - /bin/sh
             - -c
             - |
-              chown -R {{ .Values.securityContext.runAsUser }}:{{ .Values.securityContext.fsGroup }} //bitnami/elasticsearch/data
-          securityContext:
-            runAsUser: 0
-          {{- if .Values.volumePermissions.resource }}
+              
+          
           resources: {{- toYaml .Values.volumePermissions.resources | nindent 12 }}
           {{- end }}
           volumeMounts:
@@ -90,10 +84,7 @@ spec:
         - name: {{ include "common.name" . }}-data
           image: {{ printf "%s/%s" (include "common.repository" .)  .Values.image }}
           imagePullPolicy: {{ .Values.global.pullPolicy | default .Values.pullPolicy }}
-          {{- if .Values.securityContext.enabled }}
-          securityContext:
-            runAsUser: {{ .Values.securityContext.runAsUser }}
-          {{- end }}
+
           env:
             - name: BITNAMI_DEBUG
               value: {{ ternary "true" "false" .Values.debug | quote }}
@@ -170,7 +161,7 @@ spec:
       spec:
         accessModes:
           - {{ .Values.persistence.accessMode }}
-        storageClassName: {{ include "common.storageClass" (dict "dot" . "suffix" .Values.persistence.suffix) }}
+        storageClassName: ocs-storagecluster-ceph-rbd
         resources:
           requests:
             storage: {{ .Values.persistence.size | quote }}

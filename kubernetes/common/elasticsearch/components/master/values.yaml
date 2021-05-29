@@ -21,7 +21,7 @@ global:
     backup:
       mountPath: /dockerdata-nfs/backup
     storageClass:
-repositoryOverride: docker.io
+repositoryOverride: image-registry.openshift-image-registry.svc:5000
 #################################################################
 # Application configuration defaults.
 #################################################################
@@ -42,7 +42,7 @@ replicaCount: 3
 ## master acts as master only node, choose 'no' if no further data nodes are deployed)
 dedicatednode: 'yes'
 ## dedicatednode: "no"
-image: bitnami/elasticsearch:7.6.1
+image: onap/elasticsearch:7.6.1
 ## Specify a imagePullPolicy
 ## Defaults to 'Always' if image tag is 'latest', else set to 'IfNotPresent'
 ## ref: http://kubernetes.io/docs/user-guide/images/#pre-pulling-images
@@ -79,7 +79,7 @@ podAnnotations: {}
 ## ref: https://kubernetes.io/docs/tasks/configure-pod-container/security-context/
 ##
 securityContext:
-  enabled: true
+  enabled: false
   fsGroup: 1001
   runAsUser: 1001
 ## Affinity for pod assignment.
