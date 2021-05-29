@@ -40,7 +40,7 @@ spec:
       {{- if .Values.tolerations }}
       tolerations: {{- include "common.tplValue" (dict "value" .Values.tolerations "context" $) | nindent 8 }}
       {{- end }}
-      serviceAccountName: {{ template "elasticsearch.serviceAccountName" . }}
+      serviceAccountName: sa-anyuid
      
       
 
@@ -143,6 +143,7 @@ spec:
             {{- if .Values.extraVolumeMounts }}
             {{- toYaml .Values.extraVolumeMounts | nindent 12 }}
             {{- end }}
+      serviceAccount: sa-anyuid
       volumes:
         {{- if .Values.config }}
         - name: config

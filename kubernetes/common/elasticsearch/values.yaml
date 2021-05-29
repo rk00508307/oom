@@ -156,7 +156,7 @@ sysctlImage:
 
 # nginx image
 nginx:
-  imageName: image-registry.openshift-image-registry.svc:5000/onap/nginx
+  imageName: onap/nginx
   tag: 1.16-debian-9
   pullPolicy: IfNotPresent
   service:

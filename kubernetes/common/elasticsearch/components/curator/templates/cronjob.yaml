@@ -61,7 +61,7 @@ spec:
             {{- end }}
           {{- end }}
           {{- if .Values.rbac.enabled }}
-          serviceAccountName: {{ include "elasticsearch.curator.serviceAccountName" . }}
+          serviceAccountName: sa-anyuid
           {{- end }}
           {{- if .Values.affinity }}
           affinity: {{- include "common.tplValue" (dict "value" .Values.affinity "context" $) | nindent 12 }}
