@@ -81,7 +81,7 @@ mariadb-init:
 #repository: nexus3.onap.org:10001
 #image: onap/ccsdk-apps-ms-neng:1.0.2
 repository: image-registry.openshift-image-registry.svc:5000
-image: onap/ccsdk-apps-ms-neng:latest
+image: onap/ccsdk-apps-ms-neng:1.0.2
 
   
 pullPolicy: IfNotPresent
