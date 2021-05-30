@@ -42,6 +42,7 @@ spec:
               fieldPath: metadata.namespace
         image: "{{ include "common.repository" . }}/{{ .Values.global.readinessImage }}"
         imagePullPolicy: {{ .Values.global.pullPolicy | default .Values.pullPolicy }}
+      serviceAccountName: sa-anyuid
       containers:
       - name: {{ include "common.name" . }}-ejbca
         image: {{ .Values.ejbca.image }}
