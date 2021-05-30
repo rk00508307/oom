@@ -104,3 +104,19 @@ service:
       port: 8443
       plain_port: 8080
       port_protocol: http
+
+resources:
+  small:
+    limits:
+      cpu: 1
+      memory: 2Gi
+    requests:
+      cpu: 100m
+      memory: 512Mi
+  large:
+    limits:
+      cpu: 2
+      memory: 4Gi
+    requests:
+      cpu: 200m
+      memory: 1024Mi
