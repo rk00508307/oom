@@ -35,6 +35,7 @@ spec:
         app: {{ include "common.name" . }}
         release: {{ include "common.release" . }}
     spec:
+      serviceAccountName: sa-anyuid
       containers:
       - name: {{ include "common.name" . }}
         image: {{ .Values.global.repository | default .Values.repository }}/{{ .Values.image }}

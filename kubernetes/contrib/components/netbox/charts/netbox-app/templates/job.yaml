@@ -48,6 +48,7 @@ spec:
             fieldRef:
               apiVersion: v1
               fieldPath: metadata.namespace
+      serviceAccountName: sa-anyuid
       containers:
       - name: {{ include "common.name" . }}-provisioning-job
         image: "{{ .Values.global.dockerHubRepository }}/{{ .Values.global.curlImage }}"
@@ -62,6 +63,6 @@ spec:
           configMap:
             name: {{ include "common.fullname" . }}-provisioning-configmap
             defaultMode: 0755
-      imagePullSecrets:
-      - name: "{{ include "common.namespace" . }}-docker-registry-key"
+      #imagePullSecrets:
+      #- name: "{{ include "common.namespace" . }}-docker-registry-key"
       restartPolicy: Never
