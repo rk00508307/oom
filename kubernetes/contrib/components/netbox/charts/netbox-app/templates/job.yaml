@@ -51,7 +51,7 @@ spec:
       serviceAccountName: sa-anyuid
       containers:
       - name: {{ include "common.name" . }}-provisioning-job
-        image: "{{ .Values.global.dockerHubRepository }}/{{ .Values.global.curlImage }}"
+        image: "{{ .Values.config.dockerHubRepository }}/{{ .Values.config.curlImage }}"
         volumeMounts:
         - name: {{ include "common.fullname" . }}-provisioning
           mountPath: /tmp
