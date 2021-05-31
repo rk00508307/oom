@@ -32,7 +32,7 @@ metadata:
 spec:
   accessModes:
     - {{ .Values.persistence.accessMode }}
-  storageClassName: ocs-storagecluster-ceph-rbd
+  storageClassName: ocs-storagecluster-cephfs
   resources:
     requests:
       storage: {{ .Values.persistence.size }}

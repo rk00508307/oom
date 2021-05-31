@@ -35,5 +35,5 @@ spec:
   resources:
     requests:
       storage: {{ .Values.persistence.size }}
-  storageClassName: ocs-storagecluster-ceph-rbd
+  storageClassName: ocs-storagecluster-cephfs
 {{- end -}}
