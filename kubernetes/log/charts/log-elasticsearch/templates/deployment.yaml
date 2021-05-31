@@ -36,12 +36,12 @@ spec:
         app: {{ include "common.name" . }}
         release: {{ include "common.release" . }}
     spec:
+      serviceAccountName: sa-anyuid
       initContainers:
       - command:
         - /bin/sh
         - -c
         - |
-          sysctl -w vm.max_map_count=262144
           mkdir -p /logroot/elasticsearch/logs
           mkdir -p /logroot/elasticsearch/data
           chmod -R 777 /logroot/elasticsearch
@@ -52,15 +52,13 @@ spec:
             fieldRef:
               apiVersion: v1
               fieldPath: metadata.namespace
-        securityContext:
-          privileged: false #modified
+        
         image: {{ .Values.global.busyboxRepository | default .Values.busyboxRepository }}/{{ .Values.busyboxImage }}
         imagePullPolicy: {{ .Values.global.pullPolicy | default .Values.pullPolicy }}
         name: init-sysctl
-        #volumeMounts:
+        volumeMounts:
         #- name: {{ include "common.fullname" . }}-logs
-        #mountPath: /logroot/
-      serviceAccountName: sa-anyuid
+          #mountPath: /logroot/
       containers:
         - name: {{ include "common.name" . }}
           image: "{{ .Values.global.loggingRepository | default .Values.loggingRepository }}/{{ .Values.image }}"
@@ -96,18 +94,6 @@ spec:
             subPath: elasticsearch.yml
           - mountPath: /usr/share/elasticsearch/data/
             name: {{ include "common.fullname" . }}-data
-          resources:
-{{ include "common.resources" . | indent 12 }}
-        {{- if .Values.nodeSelector }}
-        nodeSelector:
-{{ toYaml .Values.nodeSelector | indent 10 }}
-        {{- end -}}
-        {{- if .Values.affinity }}
-        affinity:
-{{ toYaml .Values.affinity | indent 10 }}
-        {{- end }}  
-      serviceAccountName: sa-anyuid
-      
       volumes:
               #- name: localtime
               #hostPath:
@@ -124,5 +110,5 @@ spec:
             #- name: {{ include "common.fullname" . }}-logs
             #hostPath:
             #path: {{ .Values.global.persistence.mountPath | default .Values.persistence.mountPath }}/{{ include "common.release" . }}/{{ .Values.persistence.mountSubPathLogs }}
-      imagePullSecrets:
-      - name: "{{ include "common.namespace" . }}-docker-registry-key"
+      #imagePullSecrets:
+      #- name: "{{ include "common.namespace" . }}-docker-registry-key"

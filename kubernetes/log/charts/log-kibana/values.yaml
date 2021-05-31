@@ -26,16 +26,16 @@ global:
 #################################################################
 
 # Elasticdump image
-elasticdumpRepository: docker.io
-elasticdumpImage: taskrabbit/elasticsearch-dump
+elasticdumpRepository: image-registry.openshift-image-registry.svc:5000
+elasticdumpImage: onap/elasticsearch-dump
 
 # BusyBox image
 busyboxRepository: image-registry.openshift-image-registry.svc:5000
 busyboxImage: onap/busybox:1.31
 
 # application image
-loggingRepository: docker.elastic.co
-image: kibana/kibana:5.5.0
+loggingRepository: image-registry.openshift-image-registry.svc:5000
+image: onap/kibana:5.5.0
 pullPolicy: Always
 
 # flag to enable debugging - application support required
@@ -95,13 +95,13 @@ resources:
       cpu: 2
       memory: 4Gi
     requests:
-      cpu: 1
-      memory: 2Gi
+      cpu: 200m
+      memory: 512Mi
   large:
     limits:
       cpu: 4
       memory: 8Gi
     requests:
-      cpu: 2
-      memory: 4Gi
+      cpu: 200m
+      memory: 512Mi
   unlimited: {}
