@@ -31,8 +31,8 @@ busyboxRepository: image-registry.openshift-image-registry.svc:5000
 busyboxImage: onap/busybox:latest
 
 # application image
-loggingRepository: docker.elastic.co
-image: elasticsearch/elasticsearch:5.5.0
+loggingRepository: image-registry.openshift-image-registry.svc:5000
+image: onap/elasticsearch:5.5.0
 pullPolicy: Always
 
 # flag to enable debugging - application support required
@@ -111,13 +111,13 @@ resources:
       cpu: 1
       memory: 4Gi
     requests:
-      cpu: 1
-      memory: 2Gi
+      cpu: 200m
+      memory: 512Mi
   large:
     limits:
       cpu: 2
       memory: 8Gi
     requests:
-      cpu: 1
-      memory: 4Gi
+      cpu: 200m
+      memory: 512Mi
   unlimited: {}

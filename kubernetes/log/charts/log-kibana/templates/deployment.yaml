@@ -36,6 +36,7 @@ spec:
         app: {{ include "common.name" . }}
         release: {{ include "common.release" . }}
     spec:
+      serviceAccountName: sa-anyuid
       initContainers:
       - command:
         - /app/ready.py
@@ -117,6 +118,5 @@ spec:
               path: kibana.yml
             - key: kibana-onboarding.json
               path: kibana-onboarding.json
-      imagePullSecrets:
-      - name: "{{ include "common.namespace" . }}-docker-registry-key"
+      
 
