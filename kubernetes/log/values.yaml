@@ -18,4 +18,4 @@
 #################################################################
 global:
   nodePortPrefix: 302
-  readinessImage: onap/readiness:3.0.1
+  readinessImage: image-registry.openshift-image-registry.svc:5000/onap/readiness:3.0.1
