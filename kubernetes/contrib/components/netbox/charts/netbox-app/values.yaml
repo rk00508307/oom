@@ -95,7 +95,7 @@ persistence:
   # When uncomment the storageClass, the PV is not created anymore.
 
   # storageClass: "nfs-dev-sc"
-  storageClass: ocs-storagecluster-ceph-rbd
+  storageClass: ocs-storagecluster-cephfs
   staticPvName: netbox-static
 
   # When using storage class, mountPath and mountSubPath are
