@@ -42,7 +42,6 @@ spec:
         - /bin/sh
         - -c
         - |
-          
           mkdir -p /logroot/elasticsearch/logs
           mkdir -p /logroot/elasticsearch/data
           chmod -R 777 /logroot/elasticsearch
