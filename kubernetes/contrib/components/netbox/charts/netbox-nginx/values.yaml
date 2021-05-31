@@ -73,7 +73,7 @@ persistence:
 
   # Names used for shared pv/pvcs across App & Nginx containers
   #staticPvName: netbox-static
-  storageClassName: ocs-storagecluster-ceph-rbd
+  storageClass: ocs-storagecluster-ceph-rbd
 
 service:
   type: ClusterIP
