@@ -91,20 +91,12 @@ spec:
         affinity: {{ toYaml .Values.affinity | nindent 10 }}
         {{- end }}
         resources:
-          small:
-            limits:
-              cpu: 2048m
-              memory: 2Gi
-            requests:
-              cpu: 1024m
-              memory: 1Gi
-            large:
-              limits:
-                cpu: 4096m
-                memory: 4Gi
-              requests:
-                cpu: 2048m
-                memory: 2Gi
+          limits:
+            cpu: 2048m
+            memory: 2Gi
+          requests:
+            cpu: 1024m
+            memory: 1Gi
       volumes:
       - configMap:
           name: "{{ include "common.fullname" . }}-config-script"
