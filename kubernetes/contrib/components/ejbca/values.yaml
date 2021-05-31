@@ -108,15 +108,15 @@ service:
 resources:
   small:
     limits:
-      cpu: 1
+      cpu: 2048m
       memory: 2Gi
     requests:
-      cpu: 100m
-      memory: 512Mi
+      cpu: 1024m
+      memory: 1Gi
   large:
     limits:
-      cpu: 2
+      cpu: 4096m
       memory: 4Gi
     requests:
-      cpu: 200m
-      memory: 1024Mi
+      cpu: 2048m
+      memory: 2Gi

@@ -72,7 +72,8 @@ persistence:
   mountSubPath: netbox/nginx/data
 
   # Names used for shared pv/pvcs across App & Nginx containers
-  staticPvName: netbox-static
+  #staticPvName: netbox-static
+  storageClassName: ocs-storagecluster-ceph-rbd
 
 service:
   type: ClusterIP
