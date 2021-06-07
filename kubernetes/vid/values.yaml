@@ -17,7 +17,7 @@
 # This is a YAML-formatted file.
 # Declare variables to be passed into your templates.
 global:
-  nodePortPrefix: 302
+  nodePortPrefix: 315
   #readinessImage: onap/oom/readiness:3.0.1
   readinessImage: onap/readiness:3.0.1
   #loggingRepository: docker.elastic.co
@@ -59,7 +59,7 @@ config:
   asdcclientrestauth: "Basic dmlkOktwOGJKNFNYc3pNMFdYbGhhazNlSGxjc2UyZ0F3ODR2YW9HR21KdlV5MlU="
   asdcclientrestport: "8443"
   vidaaiport: "8443"
-  onapport: "30225"
+  onapport: "31503"
   onapportrest: "8443"
   portalhost: "portal.api.simpledemo.onap.org"
   msoport: "8080"
@@ -113,7 +113,7 @@ service:
   portName: vid
   externalPort: 8443
   internalPort: 8443
-  nodePort: "00"
+  nodePort: "05"
   externalHttpPort: 8080
   internalHttpPort: 8080
 

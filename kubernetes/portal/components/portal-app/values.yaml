@@ -19,7 +19,7 @@
 global:
   env:
     tomcatDir: "/usr/local/tomcat"
-  nodePortPrefix: 302
+  nodePortPrefix: 315
   readinessImage: onap/readiness:3.0.1
   loggingRepository: image-registry.openshift-image-registry.svc:5000
   loggingImage: onap/filebeat:5.5.0
@@ -121,7 +121,7 @@ service:
   nodePort3: 14
   externalPort4: 8443
   internalPort4: 8443
-  nodePort4: 25
+  nodePort4: "01"
 
 mariadb:
   service:

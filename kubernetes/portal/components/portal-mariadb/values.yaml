@@ -43,7 +43,7 @@ config:
   #The directory where sql files are found in the projects gerrit repo.
   sqlSourceDirectory: portal/deliveries
   # sdc frontend assignment for port 9443
-  sdcFePort: "30207"
+  sdcFePort: "31502"
   # application's front end hostname.  Must be resolvable on the client side environment
   sdcFeHostName: "sdc.api.fe.simpledemo.onap.org"
   # policy pap ui assignment for port 8443
@@ -51,9 +51,9 @@ config:
   # application's front end hostname.  Must be resolvable on the client side environment
   papHostName: "policy.api.simpledemo.onap.org"
   # vid ui  assignment for port 8443
-  vidPort: "30200"
+  vidPort: "31501"
   # application's front end hostname.  Must be resolvable on the client side environment
-  vidHostName: "onap.ocp01.toll6.tinaa.tlabs.ca"
+  vidHostName: "vid.api.simpledemo.onap.org"
   # aai sparky ui assignment for port 8080
   aaiSparkyPort: "30220"
   # application's front end hostname.  Must be resolvable on the client side environment
@@ -73,7 +73,7 @@ config:
   # msb IAG ui assignment for port 80
   msbPort: "30283"
   # application's front end hostname.  Must be resolvable on the client side environment
-  msbHostName: "onap.ocp01.toll6.tinaa.tlabs.ca"
+  msbHostName: "msb.api.simpledemo.onap.org"
   # SO Monitoring assignment for port 30224
   soMonitoringPort: "30224"
   # application's front end hostname.  Must be resolvable on the client side environment
