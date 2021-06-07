@@ -53,7 +53,7 @@ config:
   # vid ui  assignment for port 8443
   vidPort: "30200"
   # application's front end hostname.  Must be resolvable on the client side environment
-  vidHostName: "onap.ocp01.toll6.tinaa.tlabs.ca"
+  vidHostName: "vid.api.simpledemo.onap.org"
   # aai sparky ui assignment for port 8080
   aaiSparkyPort: "30220"
   # application's front end hostname.  Must be resolvable on the client side environment
@@ -73,7 +73,7 @@ config:
   # msb IAG ui assignment for port 80
   msbPort: "30283"
   # application's front end hostname.  Must be resolvable on the client side environment
-  msbHostName: "onap.ocp01.toll6.tinaa.tlabs.ca"
+  msbHostName: "msb.api.simpledemo.onap.org"
   # SO Monitoring assignment for port 30224
   soMonitoringPort: "30224"
   # application's front end hostname.  Must be resolvable on the client side environment
