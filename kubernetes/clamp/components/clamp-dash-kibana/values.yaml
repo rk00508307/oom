@@ -75,7 +75,7 @@ image: onap/clamp-dashboard-kibana:latest
 pullPolicy: Always
 
 # flag to enable debugging - application support required
-debugEnabled: false
+debugEnabled: true
 
 # application configuration
 #the 'sslEnabled flag' here below is for the kibana UI connection (web browser connection to kibana)

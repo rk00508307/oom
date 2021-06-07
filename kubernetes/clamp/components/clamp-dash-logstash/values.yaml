@@ -71,7 +71,7 @@ image: onap/clamp-dashboard-logstash:latest
 pullPolicy: Always
 
 # flag to enable debugging - application support required
-debugEnabled: false
+debugEnabled: true
 
 # application configuration
 config:

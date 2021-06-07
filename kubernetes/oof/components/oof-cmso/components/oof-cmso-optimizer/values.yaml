@@ -33,7 +33,7 @@ dbinit:
   image: onap/optf-cmso-dbinit:2.3.0
 
 # flag to enable debugging - application support required
-debugEnabled: false
+debugEnabled: true
 
 
 #################################################################

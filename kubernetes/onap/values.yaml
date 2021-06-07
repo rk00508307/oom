@@ -89,7 +89,7 @@ global:
   flavor: small
 
   # flag to enable debugging - application support required
-  debugEnabled: false
+  debugEnabled: true
 
   # default password complexity
   # available options: phrase, name, pin, basic, short, medium, long, maximum security

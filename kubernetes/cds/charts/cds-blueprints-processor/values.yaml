@@ -69,7 +69,7 @@ image: onap/ccsdk-blueprintsprocessor:latest
 pullPolicy: Always
 
 # flag to enable debugging - application support required
-debugEnabled: false
+debugEnabled: true
 
 # application configuration
 config:

@@ -142,7 +142,7 @@ busyboxRepository: image-registry.openshift-image-registry.svc:5000
 busyboxImage: onap/busybox:1.30
 
 # flag to enable debugging - application support required
-debugEnabled: false
+debugEnabled: true
 
 # application configuration
 config:

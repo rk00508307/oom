@@ -74,7 +74,7 @@ image: onap/clamp-dashboard-elasticsearch:latest
 pullPolicy: Always
 
 # flag to enable debugging - application support required
-debugEnabled: false
+debugEnabled: true
 
 # application configuration
 # Example:

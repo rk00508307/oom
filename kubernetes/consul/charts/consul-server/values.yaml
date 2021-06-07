@@ -30,7 +30,7 @@ image: onap/consul:2.1.0
 pullPolicy: Always
 
 # flag to enable debugging - application support required
-debugEnabled: false
+debugEnabled: true
 
 replicaCount: 3
 

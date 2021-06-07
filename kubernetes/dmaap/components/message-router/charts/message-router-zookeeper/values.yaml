@@ -39,7 +39,7 @@ busyBoxImage: onap/busybox:1.30
 busyBoxRepository: image-registry.openshift-image-registry.svc:5000
 
 # flag to enable debugging - application support required
-debugEnabled: false
+debugEnabled: true
 
 
 # default number of instances
