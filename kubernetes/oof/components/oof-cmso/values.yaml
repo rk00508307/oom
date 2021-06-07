@@ -62,12 +62,12 @@ global:
   commonConfigPrefix: "oof-cmso"
   truststoreFile: "truststoreONAPall.jks"
   keystoreFile: "org.onap.oof.jks"
-  loggingRepository: docker.elastic.co
-  loggingImage: beats/filebeat:5.5.0
+  loggingRepository: image-registry.openshift-image-registry.svc:5000
+  loggingImage: onap/filebeat:5.5.0
   truststorePassword:
   authentication: aaf-auth
-  busyBoxImage: busybox:1.30
-  busyBoxRepository: docker.io
+  busyBoxImage: onap/busybox:1.30
+  busyBoxRepository: image-registry.openshift-image-registry.svc:5000
 
 mariadb-init:
   mariadbGalera:

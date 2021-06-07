@@ -18,22 +18,22 @@
 #################################################################
 global: # global defaults
   nodePortPrefix: 302
-  readinessImage: onap/readiness:3.0.1
+  readinessImage: onap/readiness:latest
 
 subChartsOnly:
   enabled: true
 
 # application image
 repository: image-registry.openshift-image-registry.svc:5000
-image: onap/optf-cmso-optimizer:2.3.0
+image: onap/optf-cmso-optimizer:latest
 pullPolicy: Always
 
 #init container image
 dbinit:
-  image: onap/optf-cmso-dbinit:2.3.0
+  image: onap/optf-cmso-dbinit:latest
 
 # flag to enable debugging - application support required
-debugEnabled: false
+debugEnabled: true
 
 
 #################################################################

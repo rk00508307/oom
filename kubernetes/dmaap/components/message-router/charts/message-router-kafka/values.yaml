@@ -108,7 +108,7 @@ secrets:
     passwordPolicy: required
 
 # flag to enable debugging - application support required
-debugEnabled: false
+debugEnabled: true
 
 # default number of instances
 replicaCount: 3

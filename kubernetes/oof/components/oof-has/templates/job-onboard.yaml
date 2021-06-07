@@ -74,9 +74,9 @@ spec:
              echo "job-onboard"
         workingDir: /has
         volumeMounts:
-          - mountPath: /etc/localtime
-            name: localtime
-            readOnly: true
+          #- mountPath: /etc/localtime
+            #name: localtime
+            #readOnly: true
           - mountPath: /has/onboard.json
             name: {{ .Values.global.commonConfigPrefix }}-config
             subPath: onboard.json
@@ -91,9 +91,9 @@ spec:
 {{ toYaml .Values.affinity | indent 8 }}
         {{- end }}
       volumes:
-      - name: localtime
-        hostPath:
-          path: /etc/localtime
+      #- name: localtime
+        #hostPath:
+          #path: /etc/localtime
       - name: {{ .Values.global.commonConfigPrefix }}-config
         configMap:
           name: {{ .Values.global.commonConfigPrefix }}-configmap
@@ -101,5 +101,6 @@ spec:
           - key: onboard.json
             path: onboard.json
       restartPolicy: OnFailure
-      imagePullSecrets:
-      - name: "{{ include "common.namespace" . }}-docker-registry-key"
+      serviceAccountName: sa-anyuid
+      #imagePullSecrets:
+      #- name: "{{ include "common.namespace" . }}-docker-registry-key"

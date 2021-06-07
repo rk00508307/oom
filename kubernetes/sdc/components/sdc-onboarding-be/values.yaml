@@ -75,7 +75,7 @@ onboardingInitImage: onap/sdc-onboard-cassandra-init:telus
 pullPolicy: Always
 
 # flag to enable debugging - application support required
-debugEnabled: false
+debugEnabled: true
 
 config:
   javaOptions: "-Xmx1g -Xms1g"
