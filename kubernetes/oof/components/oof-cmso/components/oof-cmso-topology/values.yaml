@@ -17,14 +17,14 @@
 #################################################################
 global: # global defaults
   nodePortPrefix: 302
-  readinessImage: onap/readiness:3.0.1
+  readinessImage: onap/readiness:latest
 
 subChartsOnly:
   enabled: true
 
 # application image
 repository: image-registry.openshift-image-registry.svc:5000
-image: onap/optf-cmso-topology:2.3.0
+image: onap/optf-cmso-topology:latest
 pullPolicy: Always
 
 

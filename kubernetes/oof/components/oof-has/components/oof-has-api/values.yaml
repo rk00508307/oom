@@ -16,7 +16,7 @@
 global: # global defaults
   nodePortPrefix: 302
   image:
-    optf_has: onap/optf-has:2.1.2
+    optf_has: onap/optf-has:latest
 
 #################################################################
 # secrets metaconfig
@@ -37,7 +37,8 @@ service:
 
 #sidecar container image
 nginx:
-  image: bitnami/nginx:1.18-debian-10
+  #image: bitnami/nginx:1.18-debian-10
+   image: onap/nginx:1.18-debian-10
 #backend container info
 uwsgi:
   internalPort: 8080
@@ -55,15 +56,15 @@ resources:
       memory: 4Gi
       cpu: 2000m
     requests:
-      memory: 1Gi
-      cpu: 500m
+      memory: 512Mi
+      cpu: 200m
   large:
     limits:
       memory: 8Gi
       cpu: 4000m
     requests:
-      memory: 2Gi
-      cpu: 1000m
+      memory: 512Mi
+      cpu: 200m
   unlimited: {}
 # probe configuration parameters
 liveness:
