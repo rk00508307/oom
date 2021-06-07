@@ -121,7 +121,7 @@ service:
   nodePort3: 14
   externalPort4: 8443
   internalPort4: 8443
-  nodePort4: 01
+  nodePort4: "01"
 
 mariadb:
   service:
