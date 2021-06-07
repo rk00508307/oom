@@ -19,7 +19,7 @@ global:
     tomcatDir: "/usr/local/tomcat"
   # portal frontend port
   portalPort: "8989"
-  portalFEPort: "30225"
+  portalFEPort: "31501"
   # application's front end hostname.  Must be resolvable on the client side environment
   portalHostName: "portal.api.simpledemo.onap.org"
 
