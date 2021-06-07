@@ -43,7 +43,7 @@ image: onap/policy-pdpd-cl:latest
 pullPolicy: Always
 
 # flag to enable debugging - application support required
-debugEnabled: false
+debugEnabled: true
 
 # default number of instances
 replicaCount: 1

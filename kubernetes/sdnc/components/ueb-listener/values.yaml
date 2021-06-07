@@ -65,7 +65,7 @@ image: onap/sdnc-ueb-listener-image:2.0.5
 pullPolicy: Always
 
 # flag to enable debugging - application support required
-debugEnabled: false
+debugEnabled: true
 
 # application configuration
 config:

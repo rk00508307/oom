@@ -31,7 +31,7 @@ image: onap/cassandra:3.11.4
 pullPolicy: Always
 
 # flag to enable debugging - application support required
-debugEnabled: false
+debugEnabled: true
 
 # application configuration
 config:

@@ -56,7 +56,7 @@ image: onap/policy-apex-pdp:latest
 pullPolicy: Always
 
 # flag to enable debugging - application support required
-debugEnabled: false
+debugEnabled: true
 
 # application configuration
 

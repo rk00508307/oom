@@ -32,7 +32,7 @@ image:  onap/validation:1.3.1
 pullPolicy: IfNotPresent
 
 # flag to enable debugging - application support required
-debugEnabled: false
+debugEnabled: true
 
 # application configuration
 config:

@@ -70,7 +70,7 @@ image: onap/clamp-backend:latest
 pullPolicy: Always
 
 # flag to enable debugging - application support required
-debugEnabled: false
+debugEnabled: true
 
 # log configuration
 log:

@@ -72,7 +72,7 @@ image: onap/portal-wms:3.4.2
 pullPolicy: Always
 
 # flag to enable debugging - application support required
-debugEnabled: false
+debugEnabled: true
 
 # default number of instances
 replicaCount: 1
