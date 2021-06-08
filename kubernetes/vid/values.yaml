@@ -59,7 +59,7 @@ config:
   asdcclientrestauth: "Basic dmlkOktwOGJKNFNYc3pNMFdYbGhhazNlSGxjc2UyZ0F3ODR2YW9HR21KdlV5MlU="
   asdcclientrestport: "8443"
   vidaaiport: "8443"
-  onapport: "31503"
+  onapport: "31501"
   onapportrest: "8443"
   portalhost: "portal.api.simpledemo.onap.org"
   msoport: "8080"

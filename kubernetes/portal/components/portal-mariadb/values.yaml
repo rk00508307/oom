@@ -17,7 +17,7 @@
 # This is a YAML-formatted file.
 # Declare variables to be passed into your templates.
 global: # global defaults
-  nodePortPrefix: 302
+  nodePortPrefix: 315
   persistence: {}
   readinessImage: onap/readiness:3.0.1
   busyboxImage: onap/busybox:1.30
@@ -43,7 +43,7 @@ config:
   #The directory where sql files are found in the projects gerrit repo.
   sqlSourceDirectory: portal/deliveries
   # sdc frontend assignment for port 9443
-  sdcFePort: "31502"
+  sdcFePort: "31510"
   # application's front end hostname.  Must be resolvable on the client side environment
   sdcFeHostName: "sdc.api.fe.simpledemo.onap.org"
   # policy pap ui assignment for port 8443
@@ -51,7 +51,7 @@ config:
   # application's front end hostname.  Must be resolvable on the client side environment
   papHostName: "policy.api.simpledemo.onap.org"
   # vid ui  assignment for port 8443
-  vidPort: "31501"
+  vidPort: "31505"
   # application's front end hostname.  Must be resolvable on the client side environment
   vidHostName: "vid.api.simpledemo.onap.org"
   # aai sparky ui assignment for port 8080
