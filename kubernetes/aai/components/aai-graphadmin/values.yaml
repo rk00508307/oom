@@ -28,7 +28,8 @@ global: # global defaults
 
 # application image
 repository: image-registry.openshift-image-registry.svc:5000
-image: onap/aai-graphadmin:1.7.1
+#image: onap/aai-graphadmin:1.7.1
+image: onap/aai-graphadmin:latest
 pullPolicy: Always
 restartPolicy: Always
 flavor: small

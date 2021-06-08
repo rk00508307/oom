@@ -299,8 +299,8 @@ global: # global defaults
 
 # application image
 dockerhubRepository: image-registry.openshift-image-registry.svc:5000
-image: onap/haproxy:1.4.2
-#image: onap/aai-haproxy:latest
+#image: onap/haproxy:1.4.2
+image: onap/aai-haproxy:latest
 pullPolicy: Always
 
 flavor: small
