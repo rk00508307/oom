@@ -71,6 +71,7 @@ service:
 liveness:
   initialDelaySeconds: 120
   periodSeconds: 300
+  timeoutSeconds : 30
   # necessary to disable liveness probe when setting breakpoints
   # in debugger so K8s doesn't restart unresponsive container
   enabled: true
@@ -78,6 +79,7 @@ liveness:
 readiness:
   initialDelaySeconds: 10
   periodSeconds: 300
+  timeoutSeconds : 30
 
 podManagementPolicy: OrderedReady
 updateStrategy:
