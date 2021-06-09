@@ -21,7 +21,7 @@ global:
   #repository: nexus3.onap.org:10001
   repository: image-registry.openshift-image-registry.svc:5000
   #envsubstImage: dibi/envsubst
-  envsubstImage: onap/envsubst
+  envsubstImage: image-registry.openshift-image-registry.svc:5000/onap/envsubst
 
   # readiness check
   #readinessImage: onap/oom/readiness:3.0.1
