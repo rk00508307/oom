@@ -12,6 +12,3 @@
 [submodule "kubernetes/oom"]
 	path = kubernetes/oom
 	url = http://gerrit.onap.org/r/aai/oom
-[submodule "oom"]
-	path = oom
-	url = https://gerrit.onap.org/r/aai/oom/
