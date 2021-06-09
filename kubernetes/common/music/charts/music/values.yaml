@@ -84,6 +84,7 @@ affinity: {}
 liveness:
   initialDelaySeconds: 30
   periodSeconds: 6
+  timeoutSeconds : 30
   # necessary to disable liveness probe when setting breakpoints
   # in debugger so K8s doesn't restart unresponsive container
   enabled: false
@@ -119,6 +120,7 @@ readiness:
   initialDelaySeconds: 350
   periodSeconds: 120
   port: 8443
+  timeoutSeconds : 30
 
 service:
   useNodePortExt: true
