@@ -118,5 +118,5 @@ spec:
           emptyDir:
             medium: Memory
         - name: certs-aaf
-          #secret:
-            #secretName: {{ include "common.secret.getSecretNameFast" (dict "global" . "uid" "music-certs") }}
+          secret:
+            secretName: {{ include "common.secret.getSecretNameFast" (dict "global" . "uid" "music-certs") }}
