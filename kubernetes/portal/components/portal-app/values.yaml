@@ -107,7 +107,7 @@ readiness:
   periodSeconds: 300
 
 service:
-  type: LoadBalancer
+  type: NodePort
   name: portal-app
   portName: portal-app
   externalPort: 8989
