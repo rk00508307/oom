@@ -62,7 +62,7 @@ spec:
           {{- end }}
           
           serviceAccountName: sa-anyuid
-          {{- end }}
+          
           {{- if .Values.affinity }}
           affinity: {{- include "common.tplValue" (dict "value" .Values.affinity "context" $) | nindent 12 }}
           {{- end }}
