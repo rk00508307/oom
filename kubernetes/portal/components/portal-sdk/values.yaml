@@ -57,7 +57,7 @@ secrets:
 
 # application image
 repository: image-registry.openshift-image-registry.svc:5000
-image: onap/portal-sdk:latest
+image: onap/portal-sdk:telus
 pullPolicy: Always
 
 

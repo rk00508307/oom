@@ -68,7 +68,7 @@ config:
 #################################################################
 # application image
 repository: image-registry.openshift-image-registry.svc:5000
-image: onap/portal-wms:latest
+image: onap/portal-wms:telus
 pullPolicy: Always
 
 # flag to enable debugging - application support required

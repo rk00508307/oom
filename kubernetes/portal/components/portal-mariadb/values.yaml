@@ -25,7 +25,7 @@ global: # global defaults
 
 # application image
 repository: image-registry.openshift-image-registry.svc:5000
-image: onap/portal-db:latest
+image: onap/portal-db:telus
 pullPolicy: Always
 
 #mariadbInitImage: "oomk8s/mariadb-client-init:3.0.0"
