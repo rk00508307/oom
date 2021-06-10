@@ -16,24 +16,24 @@
 
 # Global
 global:
-  envsubstImage: dibi/envsubst
+  envsubstImage: image-registry.openshift-image-registry.svc:5000/onap/envsubst
   nodePortPrefix: 302
   # Readiness image
-  readinessImage: onap/oom/readiness:3.0.1
+  readinessImage: onap/readiness:3.0.1
   # Ubuntu Init image
-  ubuntuInitRepository: registry.hub.docker.com
-  ubuntuInitImage: oomk8s/ubuntu-init:2.0.0
+  ubuntuInitRepository: image-registry.openshift-image-registry.svc:5000
+  ubuntuInitImage: onap/ubuntu-init:2.0.0
   # Logging image
-  loggingRepository: docker.elastic.co
-  loggingImage: beats/filebeat:5.5.0
+  loggingRepository: image-registry.openshift-image-registry.svc:5000
+  loggingImage: onap/filebeat:5.5.0
   # BusyBox image
-  busyboxRepository: registry.hub.docker.com
-  busyboxImage: library/busybox:1.31
+  busyboxRepository: image-registry.openshift-image-registry.svc:5000
+  busyboxImage: onap/busybox:1.31
   persistence:
     enabled: true
   # Standard OOM
   pullPolicy: "Always"
-  repository: "nexus3.onap.org:10001"
+  repository: "image-registry.openshift-image-registry.svc:5000"
   offlineDeploymentBuild: false
 
 
@@ -49,7 +49,7 @@ service:
 certificateGenerationImage: onap/integration-java11:7.1.0
 
 # Deployment configuration
-repository: nexus3.onap.org:10001
+repository: image-registry.openshift-image-registry.svc:5000
 image: onap/org.onap.oom.platform.cert-service.oom-certservice-api:2.1.1
 pullPolicy: Always
 replicaCount: 1
