@@ -17,6 +17,8 @@ global:
   repository: image-registry.openshift-image-registry.svc:5000
   image:
     optf_has: onap/optf-has:latest
+  curlImage: onap/curl:7.69.1
+  dockerHubRepository: image-registry.openshift-image-registry.svc:5000
 
 #################################################################
 # secrets metaconfig
