@@ -98,7 +98,7 @@ spec:
             fieldRef:
               apiVersion: v1
               fieldPath: metadata.namespace
-        image: "{{ .Values.global.dockerHubRepository }}/{{ .Values.global.curlImage }}"
+        image: "{{ .Values.config.dockerHubRepository }}/{{ .Values.config.curlImage }}"
         imagePullPolicy: {{ .Values.global.pullPolicy | default .Values.pullPolicy }}
 
       containers:
