@@ -15,9 +15,7 @@
 */}}
 apiVersion: apps/v1
 kind: StatefulSet
-{{ $role := "data" -}}
-{{ $suffix := $role -}}
-{{ $labels := (dict "role" $role "discovery" (include "elasticsearch.clustername" .)) -}}
+
 metadata: {{- include "common.resourceMetadata" (dict "suffix" $suffix "labels" $labels "dot" . )| nindent 2 }}
 spec:
   updateStrategy:

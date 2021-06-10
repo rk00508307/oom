@@ -14,9 +14,6 @@
 # limitations under the License.
 */}}
 {{- if .Values.enabled }}
-{{ $role := "curator" -}}
-{{ $suffix := $role -}}
-{{ $labels := (dict "role" $role) -}}
 apiVersion: batch/v1beta1
 kind: CronJob
 metadata: {{- include "common.resourceMetadata" (dict "suffix" $suffix "labels" $labels "dot" . )| nindent 2 }}
@@ -40,7 +37,7 @@ spec:
       template:
         metadata: {{- include "common.templateMetadata" . | nindent 10 }}
         spec:
-	      serviceAccountName: sa-anyuid
+	  serviceAccountName: sa-anyuid
           volumes:
             - name: config-volume
               configMap:

@@ -14,7 +14,5 @@
 # limitations under the License.
 */}}
 
-{{ $role := "coordinating-only" -}}
-{{ $labels := (dict "role" $role) -}}
-{{ $matchLabels := (dict "role" $role) }}
+
 {{ include "common.service" (dict "labels" $labels "matchLabels" $matchLabels "dot" . ) }}

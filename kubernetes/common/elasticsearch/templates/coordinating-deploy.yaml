@@ -15,9 +15,7 @@
 */}}
 apiVersion: apps/v1
 kind: Deployment
-{{ $role := "coordinating-only" -}}
-{{ $suffix := $role -}}
-{{ $labels := (dict "role" $role "discovery" (include "elasticsearch.clustername" .)) -}}
+
 metadata: {{- include "common.resourceMetadata" (dict "suffix" $suffix "labels" $labels "dot" . )| nindent 2 }}
 spec:
   strategy:
