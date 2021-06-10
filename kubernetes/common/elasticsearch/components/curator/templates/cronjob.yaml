@@ -60,7 +60,7 @@ spec:
             {{- toYaml $value | nindent 14 }}
             {{- end }}
           {{- end }}
-          {{- if .Values.rbac.enabled }}
+          
           serviceAccountName: sa-anyuid
           {{- end }}
           {{- if .Values.affinity }}
