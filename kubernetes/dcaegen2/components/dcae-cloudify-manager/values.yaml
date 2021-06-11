@@ -90,7 +90,6 @@ readiness:
   # (DCAEGEN2-2465)
   periodSeconds: 300
   timeoutSeconds: 10
-
 service:
   type: ClusterIP
   name: dcae-cloudify-manager
