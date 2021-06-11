@@ -81,7 +81,12 @@ spec:
             name: {{ .Values.global.commonConfigPrefix }}-config
             subPath: onboard.json
         resources:
-{{ include "common.resources" . | indent 10 }}
+          limits:
+            memory: 2Gi
+            cpu: 1
+          requests:
+            memory: 128Mi
+            cpu: 200m
       nodeSelector:
         {{- if .Values.nodeSelector }}
 {{ toYaml .Values.nodeSelector | indent 8 }}
