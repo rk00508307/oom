@@ -30,8 +30,8 @@ global:
   loggingImage: onap/filebeat:5.5.0
   #tlsRepository: nexus3.onap.org:10001
   tlsRepository: image-registry.openshift-image-registry.svc:5000
-  #tlsImage: onap/org.onap.dcaegen2.deployments.tls-init-container:2.1.0
-  tlsImage: onap/org.onap.dcaegen2.deployments.tls-init-container:latest
+  tlsImage: onap/org.onap.dcaegen2.deployments.tls-init-container:2.1.0
+  #tlsImage: onap/org.onap.dcaegen2.deployments.tls-init-container:latest
   #envsubstImage: dibi/envsubst
   envsubstImage: image-registry.openshift-image-registry.svc:5000/onap/envsubst:latest
 
@@ -115,7 +115,8 @@ mongo:
 # application image
 #repository: nexus3.onap.org:10001
 repository: image-registry.openshift-image-registry.svc:5000
-image: onap/org.onap.dcaegen2.deployments.k8s-bootstrap-container:latest
+image: onap/org.onap.dcaegen2.deployments.k8s-bootstrap-container:2.1.8
+#image: onap/org.onap.dcaegen2.deployments.k8s-bootstrap-container:latest
 
 default_k8s_location: central
 

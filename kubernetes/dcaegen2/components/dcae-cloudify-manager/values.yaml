@@ -31,8 +31,8 @@ global:
   loggingImage: onap/filebeat:5.5.0
   #tlsRepository: nexus3.onap.org:10001
   tlsRepository: image-registry.openshift-image-registry.svc:5000
-  #tlsImage: onap/org.onap.dcaegen2.deployments.tls-init-container:2.1.0
-  tlsImage: onap/org.onap.dcaegen2.deployments.tls-init-container:latest
+  tlsImage: onap/org.onap.dcaegen2.deployments.tls-init-container:2.1.0
+  #tlsImage: onap/org.onap.dcaegen2.deployments.tls-init-container:latest
   repositoryCred:
     user: docker
     password: docker
@@ -66,10 +66,12 @@ pullPolicy: Always
 multisiteConfigMapName: multisite-kubeconfig-configmap
 
 # image for init container to initialize shared ConfigMap
-multisiteInitImage: onap/org.onap.dcaegen2.deployments.multisite-init-container:latest
+multisiteInitImage: onap/org.onap.dcaegen2.deployments.multisite-init-container:1.0.0
+#multisiteInitImage: onap/org.onap.dcaegen2.deployments.multisite-init-container:latest
 
 # image for cleanup job container
-cleanupImage: onap/org.onap.dcaegen2.deployments.dcae-k8s-cleanup-container:latest
+cleanupImage: onap/org.onap.dcaegen2.deployments.dcae-k8s-cleanup-container:1.0.0
+#cleanupImage: onap/org.onap.dcaegen2.deployments.dcae-k8s-cleanup-container:latest
 
 # probe configuration parameters
 liveness:
