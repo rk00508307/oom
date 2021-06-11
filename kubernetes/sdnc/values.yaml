@@ -51,6 +51,7 @@ global:
         cmpv2OrganizationalUnit: "ONAP"
         cmpv2Location: "San-Francisco"
         cmpv2Country: "US"
+        cmpv2State: "California"
         # Client configuration related
         caName: "RA"
         common_name: "sdnc.simpledemo.onap.org"
