@@ -42,8 +42,8 @@ global:
 # application image
 #repository: nexus3.onap.org:10001
 repository: image-registry.openshift-image-registry.svc:5000
-#image: onap/sdc-cassandra:1.7.3
-image: onap/sdc-cassandra:telus
+image: onap/sdc-cassandra:1.7.3
+#image: onap/sdc-cassandra:telus
 cassandraInitImage: onap/sdc-cassandra-init:1.7.3
 #cassandraInitImage: onap/sdc-cassandra-init:telus
 

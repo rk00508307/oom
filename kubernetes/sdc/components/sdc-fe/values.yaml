@@ -55,8 +55,8 @@ certInitializer:
 # application image
 #repository: nexus3.onap.org:10001
 repository: image-registry.openshift-image-registry.svc:5000
-#image: onap/sdc-frontend:1.7.3
-image: onap/sdc-frontend:telus
+image: onap/sdc-frontend:1.7.3
+#image: onap/sdc-frontend:telus
 pullPolicy: Always
 
 config:
