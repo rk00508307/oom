@@ -3,12 +3,6 @@
   url = ../aai/oom
   branch = guilin
   ignore = dirty
-[submodule "kubernetes/robot"]
-  path = kubernetes/robot
-  url = ../testsuite/oom
-  branch = guilin
-  ignore = dirty
-
 [submodule "kubernetes/oom"]
 	path = kubernetes/oom
 	url = http://gerrit.onap.org/r/aai/oom
