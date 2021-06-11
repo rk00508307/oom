@@ -18,6 +18,7 @@
 # Global configuration defaults.
 #################################################################
 
+
 global:
   nodePortPrefix: 302
   # Readiness image
