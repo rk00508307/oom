@@ -17,15 +17,16 @@
 #################################################################
 global: # global defaults
   nodePortPrefix: 302
-  ubuntuInitRepository: registry.hub.docker.com
+  ubuntuInitRepository: image-registry.openshift-image-registry.svc:5000
   persistence: {}
 
 # application image
-repository: nexus3.onap.org:10001
+repository: image-registry.openshift-image-registry.svc:5000
 image: onap/testsuite:1.7.3
 pullPolicy: Always
 
-ubuntuInitImage: oomk8s/ubuntu-init:2.0.0
+#ubuntuInitImage: oomk8s/ubuntu-init:2.0.0
+ubuntuInitImage: onap/ubuntu-init:2.0.0
 
 # flag to enable debugging - application support required
 debugEnabled: false

@@ -50,7 +50,7 @@ certificateGenerationImage: nexus3.onap.org:10001/onap/integration-java11:7.1.0
 
 # Deployment configuration
 repository: image-registry.openshift-image-registry.svc:5000
-image: onap/org.onap.oom.platform.cert-service.oom-certservice-api:latest
+image: onap/org.onap.oom.platform.cert-service.oom-certservice-api:2.1.1
 pullPolicy: Always
 replicaCount: 1
 

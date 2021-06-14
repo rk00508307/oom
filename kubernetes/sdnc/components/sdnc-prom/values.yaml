@@ -30,7 +30,7 @@ global:
 # application image
 repository: image-registry.openshift-image-registry.svc:5000
 pullPolicy: Always
-image: onap/prom:1.0.5
+image: onap/music-prom:1.0.5
 
 # application configuration
 config:

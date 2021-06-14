@@ -40,7 +40,7 @@ global:
   cmpv2Enabled: true
   platform:
     certServiceClient:
-      image: onap/org.onap.oom.platform.cert-service.oom-certservice-client:2.1.1
+      image: onap/org.onap.oom.platform.cert-service.oom-certservice-client:latest
       secret:
         name: oom-cert-service-client-tls-secret
         mountPath: /etc/onap/oom/certservice/certs/
@@ -138,7 +138,7 @@ secrets:
 
 repository: image-registry.openshift-image-registry.svc:5000
 pullPolicy: Always
-image: onap/sdnc-image:2.0.5
+image: onap/sdnc-image:latest
 busyboxRepository: image-registry.openshift-image-registry.svc:5000
 busyboxImage: onap/busybox:1.30
 
@@ -439,7 +439,7 @@ persistence:
   mountPath: /dockerdata-nfs
   mountSubPath: sdnc/mdsal
   mdsalPath: /opt/opendaylight/mdsal
-  daeximPath: /opt/opendaylight/daexim
+  daeximPath: /opt/opendaylight/mdsal/daexim
   journalPath: /opt/opendaylight/journal
   snapshotsPath: /opt/opendaylight/snapshots
 
