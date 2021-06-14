@@ -17,7 +17,7 @@
 # Global configuration defaults.
 #################################################################
 global:
-  nodePortPrefix: 302
+  nodePortPrefix: 315
   #readinessImage: onap/oom/readiness:3.0.1
   readinessImage: onap/readiness:3.0.1
   #loggingRepository: docker.elastic.co
@@ -129,7 +129,7 @@ service:
       port: 8443
       plain_port: 8080
       port_protocol: http
-      nodePort: '04'
+      nodePort: '10'
 
 ingress:
   enabled: false

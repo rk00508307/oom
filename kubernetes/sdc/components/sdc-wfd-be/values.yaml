@@ -17,7 +17,7 @@
 # Global configuration defaults.
 #################################################################
 global:
-  nodePortPrefix: 302
+  nodePortPrefix: 315
   #readinessImage: onap/oom/readiness:3.0.1
   readinessImage: onap/readiness:3.0.1
   #loggingRepository: docker.elastic.co
@@ -119,7 +119,7 @@ service:
   externalPort: 8080
   internalPort2: 8443
   externalPort2: 8443
-  nodePort: "57" # only one node port. set to http or https port depending on isHttpsEnabled property
+  nodePort: "12" # only one node port. set to http or https port depending on isHttpsEnabled property
 
 ingress:
   enabled: false
