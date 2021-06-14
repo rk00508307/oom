@@ -61,7 +61,7 @@ secrets:
 #################################################################
 # application image
 repository: image-registry.openshift-image-registry.svc:5000
-image: onap/sdnc-ueb-listener-image:2.0.5
+image: onap/sdnc-ueb-listener-image:latest
 pullPolicy: Always
 
 # flag to enable debugging - application support required
