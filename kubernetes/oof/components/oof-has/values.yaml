@@ -23,7 +23,7 @@ global:
   repository: image-registry.openshift-image-registry.svc:5000
   commonConfigPrefix: onap-oof-has
   image:
-    optf_has: onap/optf-has:latest
+    optf_has: onap/optf-has:2.1.2
     filebeat: image-registry.openshift-image-registry.svc:5000/onap/filebeat:5.5.0
   persistence:
     enabled: true
