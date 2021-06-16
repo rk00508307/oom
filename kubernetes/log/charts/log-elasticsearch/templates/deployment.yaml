@@ -59,8 +59,8 @@ spec:
         volumeMounts:
         #- name: elasticsearch-data
          # mountPath: /logroot/
-        - name: { { include "common.fullname" . } }-logs
-          mountPath: /logroot/
+        #- name: { { include "common.fullname" . } }-logs
+         # mountPath: /logroot/
       containers:
       - name: {{ include "common.name" . }}
         image: "{{ .Values.global.loggingRepository }}/{{ .Values.image }}"
