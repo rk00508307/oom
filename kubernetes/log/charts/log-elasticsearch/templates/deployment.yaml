@@ -53,7 +53,8 @@ spec:
               fieldPath: metadata.namespace
         securityContext:
           privileged: false
-        image: {{ .Values.global.dockerhubRepository | default .Values.dockerhubRepository }}/{{ .Values.global.busyboxImage | default .Values.busyboxImage }}
+        #image: {{ .Values.global.dockerhubRepository | default .Values.dockerhubRepository }}/{{ .Values.global.busyboxImage | default .Values.busyboxImage }}
+        image: {{ .Values.global.busyboxRepository | default .Values.busyboxRepository }}/{{ .Values.busyboxImage }}
         imagePullPolicy: {{ .Values.pullPolicy | default .Values.global.pullPolicy }}
         name: init-sysctl
         volumeMounts:
