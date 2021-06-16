@@ -57,7 +57,9 @@ spec:
         imagePullPolicy: {{ .Values.pullPolicy | default .Values.global.pullPolicy }}
         name: init-sysctl
         volumeMounts:
-        - name: elasticsearch-data
+        #- name: elasticsearch-data
+         # mountPath: /logroot/
+        - name: { { include "common.fullname" . } }-logs
           mountPath: /logroot/
       containers:
       - name: {{ include "common.name" . }}
@@ -90,7 +92,7 @@ spec:
           - name: elasticsearch-config
             subPath: log4j2.properties
             mountPath: /usr/share/elasticsearch/config/log4j2.properties
-          - name: elasticsearch-data
+          - name: {{ include "common.fullname" . }}-data
             mountPath: /usr/share/elasticsearch/data
         resources:
 {{ include "common.resources" . | indent 12 }}
@@ -103,11 +105,11 @@ spec:
 {{ toYaml .Values.affinity | indent 8 }}
       {{- end }}
       volumes:
-      - name: elasticsearch-config
-        configMap:
-          name: {{ include "common.fullname" . }}-es-config
-      - name: elasticsearch-data
-        persistentVolumeClaim:
-          claimName: {{ include "common.fullname" . }}-data
-      restartPolicy: {{ .Values.restartPolicy }}
+        - name: elasticsearch-config
+          configMap:
+            name: { { include "common.fullname" . } }-configmap
+            items:
+            - key: elasticsearch.yml
+              path: elasticsearch.yml
+        - name: {{ include "common.fullname" . }}-data
       serviceAccountName: sa-anyuid
