@@ -59,8 +59,8 @@ spec:
         volumeMounts:
         #- name: elasticsearch-data
          # mountPath: /logroot/
-       # - name: { { include "common.fullname" . } }-logs
-       #   mountPath: /logroot/
+        - name: { { include "common.fullname" . } }-logs
+          mountPath: /logroot/
       containers:
       - name: {{ include "common.name" . }}
         image: "{{ .Values.global.loggingRepository }}/{{ .Values.image }}"
@@ -105,11 +105,11 @@ spec:
 {{ toYaml .Values.affinity | indent 8 }}
       {{- end }}
       volumes:
-        - name: elasticsearch-config
-          configMap:
-            name: { { include "common.fullname" . } }-configmap
-            items:
-            - key: elasticsearch.yml
-              path: elasticsearch.yml
-        - name: {{ include "common.fullname" . }}-data
+      - name: elasticsearch-config
+        configMap:
+          name: {{ include "common.fullname" . }}-es-config
+      - name: elasticsearch-data
+        persistentVolumeClaim:
+          claimName: {{ include "common.fullname" . }}-data
+      restartPolicy: {{ .Values.restartPolicy }}
       serviceAccountName: sa-anyuid
