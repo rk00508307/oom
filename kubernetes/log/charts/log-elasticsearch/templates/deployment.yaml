@@ -105,7 +105,11 @@ spec:
       volumes:
       - name: elasticsearch-config
         configMap:
-          name: {{ include "common.fullname" . }}-es-config
+          #name: {{ include "common.fullname" . }}-es-config
+          name: {{ include "common.fullname" . }}-configmap
+          items:
+          - key: elasticsearch.yml
+            path: elasticsearch.yml
       - name: elasticsearch-data
         persistentVolumeClaim:
           #claimName: {{ include "common.fullname" . }}-data
