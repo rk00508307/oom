@@ -22,7 +22,7 @@
 # Global configuration defaults.
 #################################################################
 global:
-  nodePortPrefixExt: 304
+  nodePortPrefixExt: 315
   persistence: {}
   envsubstImage: image-registry.openshift-image-registry.svc:5000/onap/envsubst
   aafEnabled: true
@@ -147,13 +147,13 @@ readiness:
   port: http-api
 
 service:
-  type: ClusterIP
+  type: NodePort
   name: policy-pap
   useNodePortExt: true
   ports:
   - name: http-api
     port: 6969
-    nodePort: 42
+    nodePort: 15
 
 ingress:
   enabled: false
