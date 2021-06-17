@@ -87,9 +87,9 @@ spec:
           - name: elasticsearch-config
             subPath: jvm.options
             mountPath: /usr/share/elasticsearch/config/jvm.options
-          #- name: elasticsearch-config
-         #   subPath: log4j2.properties
-           # mountPath: /usr/share/elasticsearch/config/log4j2.properties
+          - name: elasticsearch-config
+            subPath: logging.yml
+            mountPath: /usr/share/elasticsearch/config/logging.yml
           - name: elasticsearch-data
             mountPath: /usr/share/elasticsearch/data
         resources:
