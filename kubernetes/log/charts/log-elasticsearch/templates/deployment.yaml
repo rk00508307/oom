@@ -85,9 +85,6 @@ spec:
             subPath: elasticsearch.yml
             mountPath: /usr/share/elasticsearch/config/elasticsearch.yml
           - name: elasticsearch-config
-            subPath: jvm.options
-            mountPath: /usr/share/elasticsearch/config/jvm.options
-          - name: elasticsearch-config
             subPath: logging.yml
             mountPath: /usr/share/elasticsearch/config/logging.yml
           - name: elasticsearch-data
