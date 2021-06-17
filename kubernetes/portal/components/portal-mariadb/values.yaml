@@ -48,7 +48,7 @@ config:
   # application's front end hostname.  Must be resolvable on the client side environment
   sdcFeHostName: "sdc.api.fe.simpledemo.onap.org"
   # policy pap ui assignment for port 8443
-  papPort: "30219"
+  papPort: "31515"
   # application's front end hostname.  Must be resolvable on the client side environment
   papHostName: "policy.api.simpledemo.onap.org"
   # vid ui  assignment for port 8443
