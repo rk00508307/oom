@@ -110,8 +110,6 @@ spec:
           items:
           - key: elasticsearch.yml
             path: elasticsearch.yml
-          - key: logging.yml
-            path: logging.yml
       - name: elasticsearch-data
         persistentVolumeClaim:
           #claimName: {{ include "common.fullname" . }}-data
