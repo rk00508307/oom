@@ -59,6 +59,7 @@ spec:
             - nodetool status | grep $POD_IP | awk '$1!="UN" { exit 1; }'
           initialDelaySeconds: {{ .Values.liveness.initialDelaySeconds }}
           periodSeconds: {{ .Values.liveness.periodSeconds }}
+          timeoutSeconds: {{ .Values.liveness.timeoutSeconds }}
         {{ end -}}
         readinessProbe:
           exec:
@@ -68,6 +69,7 @@ spec:
             - nodetool status | grep $POD_IP | awk '$1!="UN" { exit 1; }'
           initialDelaySeconds: {{ .Values.readiness.initialDelaySeconds }}
           periodSeconds: {{ .Values.readiness.periodSeconds }}
+          timeoutSeconds: {{ .Values.readiness.timeoutSeconds }}
         lifecycle:
           preStop:
             exec:
