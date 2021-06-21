@@ -91,5 +91,4 @@ spec:
           #imagePullSecrets:
           #- name: "{{ include "common.namespace" . }}-docker-registry-key"
       restartPolicy: Never
-      serviceAccount: sa-anyuid
-      serviceAccountName: sa-anyuid
+
