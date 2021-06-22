@@ -26,7 +26,7 @@ image:
   web: onap/awx_web:9.0.1
   task: onap/awx_task:9.0.1
   rabbitmq: onap/awx_rabbitmq:3.7.4
-  memcached: onap/memcached:1.5.20
+  memcached: image-registry.openshift-image-registry.svc:5000/onap/memcached:1.5.20
 pullPolicy: Always
 
 # application configuration
