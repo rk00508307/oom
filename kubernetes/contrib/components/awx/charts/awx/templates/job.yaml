@@ -38,6 +38,10 @@ spec:
       - name: {{ include "common.name" . }}-init-readiness
         image: "{{ .Values.global.readinessRepository }}/{{ .Values.global.readinessImage }}"
         imagePullPolicy: {{ .Values.global.pullPolicy | default .Values.pullPolicy }}
+        resources:
+          requests:
+            cpu: 200m
+            memory: 256Mi
         command:
         - /app/ready.py
         args:
