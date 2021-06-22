@@ -30,8 +30,8 @@ global:
 # application image
 repository: image-registry.openshift-image-registry.svc:5000
 pullPolicy: Always
-image: onap/music-prom:1.0.5
-
+#image: onap/music-prom:1.0.5
+image: onap/prom:latest
 # application configuration
 config:
   # generate aid from onboarding your app in MUSIC
