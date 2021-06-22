@@ -70,6 +70,9 @@ spec:
           requests:
             cpu: 100m
             memory: 128Mi
+          limits:
+            cpu: 200m
+            memory: 1Gi
         volumeMounts:
         - mountPath: /etc/tower/settings.py
           name: awx-application-config
@@ -95,6 +98,9 @@ spec:
           requests:
             cpu: 100m
             memory: 128Mi
+          limits:
+            cpu: 200m
+            memory: 1Gi
         volumeMounts:
         - mountPath: /etc/tower/settings.py
           name: awx-application-config
@@ -159,6 +165,9 @@ spec:
           requests:
             cpu: 100m
             memory: 128Mi
+          limits:
+            cpu: 200m
+            memory: 1Gi
         volumeMounts:
         - mountPath: /etc/rabbitmq
           name: rabbitmq-config
@@ -170,6 +179,9 @@ spec:
           requests:
             cpu: 100m
             memory: 128Mi
+          limits:
+            cpu: 200m
+            memory: 1Gi
       serviceAccountName: sa-anyuid
       volumes:
       - configMap:

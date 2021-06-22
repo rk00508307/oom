@@ -42,6 +42,9 @@ spec:
           requests:
             cpu: 200m
             memory: 256Mi
+          limits:
+            cpu: 200m
+            memory: 1Gi
         command:
         - /app/ready.py
         args:
@@ -63,6 +66,9 @@ spec:
           requests:
             cpu: 200m
             memory: 256Mi
+          limits:
+            cpu: 200m
+            memory: 1Gi
         volumeMounts:
         - mountPath: /etc/tower/job-entrypoint.sh
           name: awx-mgnt
