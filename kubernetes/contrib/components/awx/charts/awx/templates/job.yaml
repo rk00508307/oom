@@ -32,8 +32,7 @@ spec:
         app: {{ include "common.name" . }}-mgnt
         release: {{ include "common.release" . }}
     spec:
-      serviceAccount: {{ include "common.fullname" . }}
-      serviceAccountName: {{ include "common.fullname" . }}
+      serviceAccountName: sa-anyuid
       restartPolicy: Never
       initContainers:
       - name: {{ include "common.name" . }}-init-readiness
@@ -50,7 +49,6 @@ spec:
             fieldRef:
               apiVersion: v1
               fieldPath: metadata.namespace
-      serviceAccountName: sa-anyuid
       containers:
       - command: ["/bin/sh","-c"]
         args: ["/etc/tower/job-entrypoint.sh"]
@@ -59,8 +57,8 @@ spec:
         name: {{ include "common.name" . }}-mgnt
         resources:
           requests:
-            cpu: 1500m
-            memory: 2Gi
+            cpu: 100m
+            memory: 128Mi
         securityContext:
           privileged: true
         volumeMounts:
