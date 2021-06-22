@@ -58,7 +58,7 @@ spec:
         resources:
           requests:
             cpu: 200m
-            memory: 1Gi
+            memory: 256Mi
         volumeMounts:
         - mountPath: /etc/tower/job-entrypoint.sh
           name: awx-mgnt
