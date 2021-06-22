@@ -95,8 +95,6 @@ spec:
           requests:
             cpu: 100m
             memory: 128Mi
-        securityContext:
-          privileged: true
         volumeMounts:
         - mountPath: /etc/tower/settings.py
           name: awx-application-config
