@@ -14,7 +14,7 @@
 global:
   platform:
     certServiceClient:
-      image: image-registry.openshift-image-registry.svc:5000/org.onap.oom.platform.cert-service.oom-certservice-client:2.1.1
+      image: image-registry.openshift-image-registry.svc:5000/org.onap.oom.platform.cert-service.oom-certservice-client:latest
       secretName: oom-cert-service-client-tls-secret
       envVariables:
         # Certificate related
@@ -29,5 +29,5 @@ global:
         keystorePassword: "secret"
         truststorePassword: "secret"
     certPostProcessor:
-      image: image-registry.openshift-image-registry.svc:5000/org.onap.oom.platform.cert-service.oom-certservice-post-processor:2.1.1
+      image: image-registry.openshift-image-registry.svc:5000/org.onap.oom.platform.cert-service.oom-certservice-post-processor:latest
 
