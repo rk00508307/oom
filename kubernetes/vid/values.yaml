@@ -42,8 +42,8 @@ subChartsOnly:
 # application image
 #repository: nexus3.onap.org:10001
 repository: image-registry.openshift-image-registry.svc:5000
-#image: onap/vid:7.0.0
-image: onap/vid:telus1
+image: onap/vid:7.0.0
+#image: onap/vid:telus1
 pullPolicy: Always
 
 # mariadb image for initializing
