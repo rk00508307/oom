@@ -133,4 +133,20 @@ service:
 ingress:
   enabled: false
 
-resources: {}
+resources:
+  small:
+    limits:
+      cpu: 100m
+      memory: 2400Mi
+    requests:
+      cpu: 30m
+      memory: 512Mi
+  large:
+    limits:
+      cpu: 4
+      memory: 12000Mi
+    requests:
+      cpu: 40m
+      memory: 512Mi
+
+flavor: small
