@@ -38,6 +38,7 @@ spec:
         release: {{ include "common.release" . }}
     spec:
       restartPolicy: Never
+      serviceAccountName: sa-cfy-manager
       containers:
       - name: dcae-cleanup
         image: {{ include "common.repository" . }}/{{ .Values.cleanupImage }}

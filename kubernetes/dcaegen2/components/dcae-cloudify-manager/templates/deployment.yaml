@@ -139,9 +139,9 @@ spec:
           - mountPath: /secret
             name: dcae-token
             readOnly: true
-          - mountPath: /sys/fs/cgroup
-            name: {{ include "common.fullname" . }}-cgroup
-            readOnly: true
+          #- mountPath: /sys/fs/cgroup
+            #name: {{ include "common.fullname" . }}-cgroup
+            #readOnly: true
           #- mountPath: /etc/localtime
             #name: localtime
             #readOnly: true
@@ -164,9 +164,9 @@ spec:
         - name: dcae-token
           secret:
             secretName: dcae-token
-        - name: {{ include "common.fullname" . }}-cgroup
-          hostPath:
-            path: /sys/fs/cgroup
+        #- name: {{ include "common.fullname" . }}-cgroup
+          #hostPath:
+            #path: /sys/fs/cgroup
         #- name: localtime
           #hostPath:
             #path: /etc/localtime
