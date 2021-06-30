@@ -17,31 +17,13 @@
 # limitations under the License.
 # ============LICENSE_END=========================================================
 */}}
-
 {{ if .Values.dcae_ns}}
+# Create the namespace
 apiVersion: v1
-kind: Secret
+kind: Namespace
 metadata:
-  name: {{ include "common.namespace" . }}-docker-registry-key
-  namespace: {{ .Values.dcae_ns }}
-  labels:
-    app: {{ include "common.name" . }}
-    chart: {{ .Chart.Name }}-{{ .Chart.Version | replace "+" "_" }}
-    release: {{ include "common.release" . }}
-    heritage: {{ .Release.Service }}
-data:
-  .dockercfg: {{ include "common.repository.secret" . }}
-type: kubernetes.io/dockercfg
----
+  name: {{ .Values.dcae_ns }}
+spec:
+  finalizers:
+  - kubernetes
 {{ end }}
-# Copy of the API token secret, needed to work around /var/run/secrets mount problem
-apiVersion: v1
-kind: Secret
-metadata:
-  name: dcae-token
-  namespace: {{ include "common.namespace" . }}
-  annotations:
-    kubernetes.io/service-account.name: default
-type: kubernetes.io/service-account-token
----
-{{ include "common.secretFast" . }}
