@@ -84,7 +84,7 @@ spec:
           volumeMounts:
             - mountPath: /phconfig
               name: ph-config
-      serviceAccountName: sa-cfy-manager
+      serviceAccountName: sa-anyuid
       containers:
         - name: {{ include "common.name" . }}
           image: "{{ include "common.repository" . }}/{{ .Values.image }}"
