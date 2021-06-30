@@ -91,7 +91,7 @@ spec:
           volumeMounts:
             - mountPath: /opt/app/osaaf
               name: tls-info
-      serviceAccountName: sa-anyuid
+      serviceAccountName: sa-cfy-manager
       containers:
         - name: {{ include "common.name" . }}
           image: "{{ include "common.repository" . }}/{{ .Values.image }}"

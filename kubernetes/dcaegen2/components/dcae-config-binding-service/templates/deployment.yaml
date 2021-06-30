@@ -74,7 +74,7 @@ spec:
             - mountPath: /opt/app/osaaf
               name: tls-info
         {{ end  }}
-      serviceAccountName: sa-anyuid
+      serviceAccountName: sa-cfy-manager
       containers:
         {{- if .Values.service.secure.enabled }}
         - name: {{ include "common.name" . }}

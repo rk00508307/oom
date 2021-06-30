@@ -91,7 +91,7 @@ readiness:
   # period so it's longer than the timeout.
   # (DCAEGEN2-2465)
   periodSeconds: 300
-  timeoutSeconds: 10
+  timeoutSeconds: 180
 service:
   type: ClusterIP
   name: dcae-cloudify-manager

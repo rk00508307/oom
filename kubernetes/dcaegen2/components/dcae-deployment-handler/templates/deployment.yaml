@@ -89,7 +89,7 @@ spec:
           volumeMounts:
             - mountPath: /dhconfig
               name: dh-config
-      serviceAccountName: sa-anyuid
+      serviceAccountName: sa-cfy-manager
       containers:
         - name: {{ include "common.name" . }}
           image: "{{ include "common.repository" . }}/{{ .Values.image }}"
