@@ -45,8 +45,8 @@ readiness:
   periodSeconds: 300
 # application image
 repository: image-registry.openshift-image-registry.svc:5000
-image: onap/org.onap.dcaegen2.deployments.healthcheck-container:2.1.0
-#image: onap/org.onap.dcaegen2.deployments.healthcheck-container:latest
+#image: onap/org.onap.dcaegen2.deployments.healthcheck-container:2.1.0
+image: onap/org.onap.dcaegen2.deployments.healthcheck-container:latest
 
 # Resource Limit flavor -By Default using small
 flavor: small

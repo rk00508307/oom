@@ -51,8 +51,8 @@ config:
 # application image
 #repository: nexus3.onap.org:10001
 repository: image-registry.openshift-image-registry.svc:5000
-image: onap/org.onap.dcaegen2.platform.configbinding:2.5.3
-#image: onap/org.onap.dcaegen2.platform.configbinding:latest
+#image: onap/org.onap.dcaegen2.platform.configbinding:2.5.3
+image: onap/org.onap.dcaegen2.platform.configbinding:latest
 pullPolicy: Always
 
 # probe configuration parameters

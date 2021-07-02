@@ -115,8 +115,8 @@ mongo:
 # application image
 #repository: nexus3.onap.org:10001
 repository: image-registry.openshift-image-registry.svc:5000
-image: onap/org.onap.dcaegen2.deployments.k8s-bootstrap-container:2.1.8
-#image: onap/org.onap.dcaegen2.deployments.k8s-bootstrap-container:latest
+#image: onap/org.onap.dcaegen2.deployments.k8s-bootstrap-container:2.1.8
+image: onap/org.onap.dcaegen2.deployments.k8s-bootstrap-container:latest
 
 default_k8s_location: central
 

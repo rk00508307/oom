@@ -59,8 +59,8 @@ config:
 #################################################################
 # application image
 repository: image-registry.openshift-image-registry.svc:5000
-image: onap/org.onap.ccsdk.dashboard.ccsdk-app-os:1.4.0
-#image: onap/org.onap.ccsdk.dashboard.ccsdk-app-os:latest
+#image: onap/org.onap.ccsdk.dashboard.ccsdk-app-os:1.4.0
+image: onap/org.onap.ccsdk.dashboard.ccsdk-app-os:latest
 pullPolicy: Always
 
 # probe configuration parameters
