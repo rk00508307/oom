@@ -47,8 +47,8 @@ config:
 # application image
 #repository: nexus3.onap.org:10001
 repository: image-registry.openshift-image-registry.svc:5000
-#image: onap/org.onap.dcaegen2.platform.servicechange-handler:1.4.0
-image: onap/org.onap.dcaegen2.platform.servicechange-handler:latest
+image: onap/org.onap.dcaegen2.platform.servicechange-handler:1.4.0
+#image: onap/org.onap.dcaegen2.platform.servicechange-handler:latest
 
 pullPolicy: Always
 
